@@ -58,3 +58,24 @@ node_modules/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Generated reports and logs
+*-report.json
+qa-report.json
+migration-report.json
+deployment-report.json
+optimization-report.json
+firebase-debug.log
+
+# Test results
+test-results/
+test-reports/
+playwright-report/
+coverage/
+
+# Build artifacts
+cache-manifest.json
+
+# Temporary files
+*.tmp
+*.temp
