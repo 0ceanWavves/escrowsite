@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Component Test</title>
+    <link rel="stylesheet" href="assets/css/accordion.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background: #f8fafc;
+        }
+        
+        h1, h2 {
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+        
+        .test-section {
+            margin-bottom: 3rem;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Accordion Component Test</h1>
+    
+    <div class="test-section">
+        <h2>Node Setup Guide - Phase 1: Procurement & Provisioning</h2>
+        
+        <div class="accordion" data-allow-multiple="false">
+            
+            <div class="accordion-item">
+                <button class="accordion-header" type="button">
+                    <span>VPS Provider Selection</span>
+                    <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content" hidden>
+                    <div class="accordion-body">
+                        <p>When selecting a VPS provider for your crypto node, consider these key factors:</p>
+                        <ul>
+                            <li><strong>Reliability:</strong> Look for providers with 99.9%+ uptime guarantees</li>
+                            <li><strong>Performance:</strong> Ensure adequate CPU, RAM, and storage specifications</li>
+                            <li><strong>Network:</strong> High-bandwidth connections with low latency</li>
+                            <li><strong>Security:</strong> DDoS protection and secure data centers</li>
+                            <li><strong>Support:</strong> 24/7 technical support availability</li>
+                        </ul>
+                        <p><strong>Recommended Providers:</strong> DigitalOcean, Linode, Vultr, AWS EC2</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" type="button">
+                    <span>Hardware Requirements</span>
+                    <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content" hidden>
+                    <div class="accordion-body">
+                        <h4>Minimum Requirements</h4>
+                        <ul>
+                            <li><strong>CPU:</strong> 2 cores (4 cores recommended)</li>
+                            <li><strong>RAM:</strong> 4GB (8GB recommended)</li>
+                            <li><strong>Storage:</strong> 500GB SSD (1TB recommended)</li>
+                            <li><strong>Bandwidth:</strong> Unlimited or high monthly allowance</li>
+                        </ul>
+                        
+                        <h4>Cost Estimation</h4>
+                        <p>Expected monthly costs range from $20-80 depending on specifications and provider.</p>
+                        
+                        <div class="code-block">
+# Example server specifications
+CPU: 4 vCPUs
+RAM: 8GB
+Storage: 1TB NVMe SSD
+Network: 1Gbps
+Estimated Cost: $40-60/month</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" type="button">
+                    <span>Initial Server Setup</span>
+                    <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content" hidden>
+                    <div class="accordion-body">
+                        <p>Once you've provisioned your VPS, follow these initial setup steps:</p>
+                        <ol>
+                            <li>Connect to your server via SSH</li>
+                            <li>Update the system packages</li>
+                            <li>Create a non-root user account</li>
+                            <li>Configure SSH key authentication</li>
+                            <li>Set up basic firewall rules</li>
+                        </ol>
+                        
+                        <div class="code-block">
+# Connect to your server
+ssh root@your-server-ip
+
+# Update system packages
+apt update && apt upgrade -y
+
+# Create new user
+adduser nodeuser
+usermod -aG sudo nodeuser</div>
+                        
+                        <p><strong>Next:</strong> Proceed to Phase 2 for security hardening and detailed configuration.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>FAQ Section (Multiple Items Open)</h2>
+        
+        <div class="accordion" data-allow-multiple="true">
+            
+            <div class="accordion-item">
+                <button class="accordion-header" type="button">
+                    <span>Can I run multiple nodes on the same server?</span>
+                    <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content" hidden>
+                    <div class="accordion-body">
+                        <p>Yes, you can run multiple cryptocurrency nodes on the same server, but consider:</p>
+                        <ul>
+                            <li>Increased resource requirements (CPU, RAM, storage)</li>
+                            <li>Network bandwidth usage will multiply</li>
+                            <li>Port conflicts need to be managed</li>
+                            <li>Security isolation between nodes</li>
+                        </ul>
+                        <p>For beginners, we recommend starting with a single node to understand the process.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" type="button">
+                    <span>What happens if my node goes offline?</span>
+                    <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content" hidden>
+                    <div class="accordion-body">
+                        <p>If your node goes offline temporarily:</p>
+                        <ul>
+                            <li>The blockchain will continue without your node</li>
+                            <li>When you restart, your node will sync missed blocks</li>
+                            <li>No funds are at risk (nodes don't store private keys)</li>
+                            <li>The network remains decentralized through other nodes</li>
+                        </ul>
+                        <p>Extended downtime just means longer sync times when restarting.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="assets/js/accordion.js"></script>
+    
+    <script>
+        // Test accordion functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Accordion test page loaded');
+            
+            // Listen for accordion events
+            document.addEventListener('accordion:expand', (e) => {
+                console.log('Accordion expanded:', e.detail);
+            });
+            
+            document.addEventListener('accordion:collapse', (e) => {
+                console.log('Accordion collapsed:', e.detail);
+            });
+        });
+    </script>
+</body>
+</html>

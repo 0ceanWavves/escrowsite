@@ -1,0 +1,187 @@
+/* Layout CSS - Core layout structure and responsive design */
+
+/* Base layout styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f1eb;
+    color: #3f3c36;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Template-specific layout adjustments */
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Homepage specific layout */
+.homepage-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Section landing page layout */
+.section-landing-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Content page layout with sidebar */
+.content-page {
+    max-width: none;
+    padding: 0;
+}
+
+/* Main layout containers */
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.sidebar {
+    width: 280px;
+    background-color: #ffffff;
+    border-right: 1px solid #e0dace;
+    padding: 1.5rem;
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+.content-area {
+    flex: 1;
+    padding: 2rem;
+    background-color: #ffffff;
+    margin-left: 1px;
+}
+
+.footer {
+    background-color: #ffffff;
+    border-top: 1px solid #e0dace;
+    padding: 1.5rem;
+    text-align: center;
+    color: #8d836e;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #e0dace;
+    }
+    
+    .content-area {
+        margin-left: 0;
+        padding: 1rem;
+    }
+    
+    .header-content {
+        padding: 0.75rem 1rem;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-area {
+        padding: 0.75rem;
+    }
+    
+    .sidebar {
+        padding: 1rem;
+    }
+}
+
+/* Grid system for content layout */
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.grid-cols-1 {
+    grid-template-columns: 1fr;
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+    .grid-cols-2,
+    .grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Utility classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section {
+    margin-bottom: 3rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

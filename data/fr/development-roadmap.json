@@ -1,0 +1,48 @@
+{
+  "title": "Feuille de Route de Développement",
+  "description": "Un guide complet pour construire des applications crypto de l'infrastructure fondamentale aux interfaces utilisateur",
+  "navigation": {
+    "home": "Accueil",
+    "phases": "Phases",
+    "overview": "Aperçu",
+    "nextStep": "Étape Suivante",
+    "previousStep": "Étape Précédente",
+    "backToPhases": "Retour aux Phases"
+  },
+  "common": {
+    "estimatedTime": "Temps Estimé",
+    "difficulty": "Difficulté",
+    "prerequisites": "Prérequis",
+    "codeExample": "Exemple de Code",
+    "copyCode": "Copier le Code",
+    "copied": "Copié!",
+    "showMore": "Afficher Plus",
+    "showLess": "Afficher Moins",
+    "beginner": "Débutant",
+    "intermediate": "Intermédiaire",
+    "advanced": "Avancé"
+  },
+  "phases": [
+    {
+      "id": "phase-1",
+      "title": "Infrastructure Fondamentale",
+      "description": "Établir la base technique centrale pour les applications crypto",
+      "estimatedTime": "4-6 semaines",
+      "difficulty": "intermédiaire"
+    },
+    {
+      "id": "phase-2",
+      "title": "Backend & APIs",
+      "description": "Construire des services backend robustes et des points de terminaison API",
+      "estimatedTime": "6-8 semaines",
+      "difficulty": "avancé"
+    },
+    {
+      "id": "phase-3",
+      "title": "Frontend & UI",
+      "description": "Créer des interfaces utilisateur intuitives et des expériences utilisateur",
+      "estimatedTime": "4-6 semaines",
+      "difficulty": "intermédiaire"
+    }
+  ]
+}

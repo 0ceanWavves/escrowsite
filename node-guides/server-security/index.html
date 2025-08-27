@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" data-current-section="node-guides" data-current-page="server-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 2: Server Foundation & Security - Node Guides</title>
+    <meta name="description" content="Secure your server infrastructure and establish a hardened foundation for cryptocurrency nodes">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+</head>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link active" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link active" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar sidebar-nav" id="sidebar-nav" data-section="node-guides">
+            <!-- Search functionality -->
+            <div class="sidebar-search">
+                <div class="sidebar-search-container">
+                    <input type="text" class="sidebar-search-input" id="sidebar-search" placeholder="Search..." aria-label="Search content">
+                    <svg class="sidebar-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Progress indicator -->
+            <div class="sidebar-progress" id="sidebar-progress">
+                <div class="sidebar-progress-title" id="progress-title">Phase 2 Progress</div>
+                <div class="sidebar-progress-bar">
+                    <div class="sidebar-progress-fill" id="progress-fill" style="width: 0%;"></div>
+                </div>
+                <div class="sidebar-progress-text" id="progress-text">0% Complete</div>
+            </div>
+            
+            <!-- Navigation sections -->
+            <div class="sidebar-sections" id="sidebar-sections">
+                <div class="sidebar-section" id="node-guides-nav">
+                    <h3 class="sidebar-section-title">Node Setup Guides</h3>
+                    
+                    <!-- Phase indicators -->
+                    <div class="sidebar-phase-indicators">
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="1"></div>
+                            <span class="phase-label completed" data-phase="1">Procurement & Provisioning</span>
+                        </div>
+                        <div class="sidebar-phase-indicator active">
+                            <div class="phase-dot active" data-phase="2"></div>
+                            <span class="phase-label active" data-phase="2">Server Foundation & Security</span>
+                        </div>
+                        <div class="sidebar-phase-indicator">
+                            <div class="phase-dot" data-phase="3"></div>
+                            <span class="phase-label" data-phase="3">Node Software Installation</span>
+                        </div>
+                        <div class="sidebar-phase-indicator">
+                            <div class="phase-dot" data-phase="4"></div>
+                            <span class="phase-label" data-phase="4">Blockchain Synchronization</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="sidebar-nav-list">
+                        <li class="sidebar-nav-item">
+                            <a href="/node-guides/" class="sidebar-nav-link" data-page="overview">
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-1-content" aria-expanded="false">
+                                <span>Phase 1: Procurement & Provisioning</span>
+                                <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content" id="node-phase-1-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/vps-selection.html" class="sidebar-nav-link" data-page="vps-selection">VPS Selection</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/hardware-requirements.html" class="sidebar-nav-link" data-page="hardware-requirements">Hardware Requirements</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/cost-estimation.html" class="sidebar-nav-link" data-page="cost-estimation">Cost Estimation</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-2-content" aria-expanded="true">
+                                <span>Phase 2: Server Foundation & Security</span>
+                                <svg class="sidebar-toggle-icon expanded" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content expanded" id="node-phase-2-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/secure-connections.html" class="sidebar-nav-link" data-page="secure-connections">Secure Connections</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/firewall-config.html" class="sidebar-nav-link" data-page="firewall-config">Firewall Configuration</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/system-hardening.html" class="sidebar-nav-link" data-page="system-hardening">System Hardening</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Page Content -->
+        <div class="content-area" id="content-area">
+            <!-- Content Page -->
+            <div class="content-page">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb navigation">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="breadcrumb-link">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/" class="breadcrumb-link">Node Guides</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Phase 2: Server Foundation & Security
+                        </li>
+                    </ol>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header section">
+                    <div class="page-header-content">
+                        <h1 class="page-title" id="page-title">Phase 2: Server Foundation & Security</h1>
+                        <div class="page-meta">
+                            <span class="page-difficulty" id="page-difficulty">Intermediate</span>
+                            <span class="page-duration" id="page-duration">3-6 hours</span>
+                            <span class="page-updated" id="page-updated">Updated: January 2025</span>
+                        </div>
+                        <div class="page-description" id="page-description">
+                            <p>Establish a secure foundation for your cryptocurrency nodes by implementing proper authentication, firewall rules, and system hardening measures. This phase is critical for protecting your nodes from attacks and ensuring long-term security.</p>
+                        </div>
+                    </div>
+                </header>
+                
+                <!-- Prerequisites -->
+                <section class="prerequisites-section" id="prerequisites-section">
+                    <div class="admonition admonition-warning">
+                        <div class="admonition-header">
+                            <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 15.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                            </svg>
+                            <h3 class="admonition-title">Prerequisites</h3>
+                        </div>
+                        <div class="admonition-content" id="prerequisites-content">
+                            <ul>
+                                <li>Completed Phase 1: Procurement & Provisioning</li>
+                                <li>Root access to your VPS</li>
+                                <li>Basic command line knowledge</li>
+                                <li>SSH client installed on your local machine</li>
+                                <li>Understanding of basic networking concepts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Main Content Area -->
+                <main class="page-content" id="page-content">
+                    <section class="content-section">
+                        <h2>Phase Overview</h2>
+                        <p>Security is paramount when running cryptocurrency nodes. This phase will transform your basic VPS into a hardened server ready to safely host your Bitcoin and Monero nodes. We'll implement multiple layers of security to protect against common attack vectors.</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
+                                    </svg>
+                                </div>
+                                <h3>Secure Connections</h3>
+                                <p>Set up SSH key authentication, disable password login, and configure secure remote access to your server.</p>
+                                <a href="secure-connections.html" class="feature-link">Configure SSH →</a>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                </div>
+                                <h3>Firewall Configuration</h3>
+                                <p>Implement robust firewall rules to control network access and protect your nodes from unauthorized connections.</p>
+                                <a href="firewall-config.html" class="feature-link">Setup Firewall →</a>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    </svg>
+                                </div>
+                                <h3>System Hardening</h3>
+                                <p>Apply comprehensive security hardening measures including user management, service configuration, and monitoring setup.</p>
+                                <a href="system-hardening.html" class="feature-link">Harden System →</a>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Security Principles</h2>
+                        <div class="principle-grid">
+                            <div class="principle-item">
+                                <h4>Defense in Depth</h4>
+                                <p>Multiple layers of security controls to protect against various attack vectors</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Principle of Least Privilege</h4>
+                                <p>Users and processes only get the minimum permissions necessary to function</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Fail Secure</h4>
+                                <p>When systems fail, they default to a secure state rather than an open one</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Regular Updates</h4>
+                                <p>Keep all software components updated with the latest security patches</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>What You'll Accomplish</h2>
+                        <div class="checklist">
+                            <div class="checklist-item">
+                                <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Configure SSH key-based authentication and disable password login</span>
+                            </div>
+                            <div class="checklist-item">
+                                <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Implement comprehensive firewall rules for node security</span>
+                            </div>
+                            <div class="checklist-item">
+                                <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Create dedicated user accounts for node operations</span>
+                            </div>
+                            <div class="checklist-item">
+                                <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Apply system hardening measures and security configurations</span>
+                            </div>
+                            <div class="checklist-item">
+                                <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Set up monitoring and intrusion detection systems</span>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <div class="admonition admonition-danger">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Critical Security Warning</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <p><strong>Do not skip this phase!</strong> Running cryptocurrency nodes on an unsecured server is extremely dangerous and can result in:</p>
+                                <ul>
+                                    <li>Complete loss of funds if private keys are compromised</li>
+                                    <li>Server compromise and use in botnets</li>
+                                    <li>Data theft and privacy violations</li>
+                                    <li>Legal liability for hosting malicious content</li>
+                                </ul>
+                                <p>Take the time to properly secure your server before proceeding to node installation.</p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation section" id="page-navigation">
+                    <div class="page-nav-content">
+                        <div class="page-nav-item page-nav-prev" id="page-nav-prev">
+                            <a href="/node-guides/procurement-provisioning/cost-estimation.html" class="page-nav-link" id="prev-page-link">
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                                </svg>
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Previous</span>
+                                    <span class="page-nav-title" id="prev-page-title">Cost Estimation</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="page-nav-item page-nav-next" id="page-nav-next">
+                            <a href="secure-connections.html" class="page-nav-link" id="next-page-link">
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Next</span>
+                                    <span class="page-nav-title" id="next-page-title">Secure Connections</span>
+                                </div>
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" id="site-footer">
+        <p id="footer-text">© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="../../assets/js/utils.js"></script>
+    <script src="../../assets/js/language-switcher.js"></script>
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/page-loader.js"></script>
+</body>
+</html>

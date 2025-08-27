@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en" data-current-section="node-guides" data-current-page="cost-estimation">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Estimation - Procurement & Provisioning</title>
+    <meta name="description" content="Calculate monthly and yearly costs for running cryptocurrency nodes">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+    
+    <style>
+        .cost-calculator {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .calculator-section {
+            margin-bottom: 2rem;
+        }
+        
+        .calculator-section h3 {
+            margin-bottom: 1rem;
+            color: #374151;
+        }
+        
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .input-group label {
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        .input-group input,
+        .input-group select {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            background: white;
+        }
+        
+        .input-group input[type="range"] {
+            padding: 0;
+        }
+        
+        .range-display {
+            text-align: center;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        .cost-summary {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .cost-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cost-item {
+            background: #f3f4f6;
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        .cost-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        
+        .cost-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        
+        .total-costs {
+            background: #dbeafe;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .total-monthly {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #1e40af;
+        }
+        
+        .total-yearly {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3730a3;
+            margin-top: 0.5rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .comparison-table th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .cost-tier {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .tier-budget { background: #dcfce7; color: #166534; }
+        .tier-standard { background: #fef3c7; color: #92400e; }
+        .tier-premium { background: #fce7f3; color: #be185d; }
+        
+        .savings-calculator {
+            background: #ecfdf5;
+            border: 1px solid #10b981;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .chart-container {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .chart-placeholder {
+            height: 300px;
+            background: #f3f4f6;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link active" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link active" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar sidebar-nav" id="sidebar-nav" data-section="node-guides">
+            <!-- Search functionality -->
+            <div class="sidebar-search">
+                <div class="sidebar-search-container">
+                    <input type="text" class="sidebar-search-input" id="sidebar-search" placeholder="Search..." aria-label="Search content">
+                    <svg class="sidebar-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Progress indicator -->
+            <div class="sidebar-progress" id="sidebar-progress">
+                <div class="sidebar-progress-title" id="progress-title">Phase 1 Progress</div>
+                <div class="sidebar-progress-bar">
+                    <div class="sidebar-progress-fill" id="progress-fill" style="width: 100%;"></div>
+                </div>
+                <div class="sidebar-progress-text" id="progress-text">100% Complete</div>
+            </div>
+            
+            <!-- Navigation sections -->
+            <div class="sidebar-sections" id="sidebar-sections">
+                <div class="sidebar-section" id="node-guides-nav">
+                    <h3 class="sidebar-section-title">Node Setup Guides</h3>
+                    
+                    <ul class="sidebar-nav-list">
+                        <li class="sidebar-nav-item">
+                            <a href="/node-guides/" class="sidebar-nav-link" data-page="overview">
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-1-content" aria-expanded="true">
+                                <span>Phase 1: Procurement & Provisioning</span>
+                                <svg class="sidebar-toggle-icon expanded" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content expanded" id="node-phase-1-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/vps-selection.html" class="sidebar-nav-link" data-page="vps-selection">VPS Selection</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/hardware-requirements.html" class="sidebar-nav-link" data-page="hardware-requirements">Hardware Requirements</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/cost-estimation.html" class="sidebar-nav-link active" data-page="cost-estimation">Cost Estimation</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Page Content -->
+        <div class="content-area" id="content-area">
+            <!-- Content Page -->
+            <div class="content-page">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb navigation">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="breadcrumb-link">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/" class="breadcrumb-link">Node Guides</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/procurement-provisioning/" class="breadcrumb-link">Procurement & Provisioning</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Cost Estimation
+                        </li>
+                    </ol>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header section">
+                    <div class="page-header-content">
+                        <h1 class="page-title" id="page-title">Cost Estimation</h1>
+                        <div class="page-meta">
+                            <span class="page-difficulty" id="page-difficulty">Beginner</span>
+                            <span class="page-duration" id="page-duration">15-30 minutes</span>
+                            <span class="page-updated" id="page-updated">Updated: January 2025</span>
+                        </div>
+                        <div class="page-description" id="page-description">
+                            <p>Estimate monthly and yearly costs for running your cryptocurrency nodes, including server rental, bandwidth, electricity, and maintenance expenses.</p>
+                        </div>
+                    </div>
+                </header>
+                
+                <!-- Prerequisites -->
+                <section class="prerequisites-section" id="prerequisites-section">
+                    <div class="admonition admonition-info">
+                        <div class="admonition-header">
+                            <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="admonition-title">Prerequisites</h3>
+                        </div>
+                        <div class="admonition-content" id="prerequisites-content">
+                            <ul>
+                                <li>Budget planning and financial planning knowledge</li>
+                                <li>Understanding of your node requirements from previous steps</li>
+                                <li>Knowledge of your local electricity costs (if running at home)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Main Content Area -->
+                <main class="page-content" id="page-content">
+                    <section class="content-section">
+                        <h2>Interactive Cost Calculator</h2>
+                        <p>Calculate the total cost of ownership for your cryptocurrency node setup:</p>
+                        
+                        <div class="cost-calculator">
+                            <div class="calculator-section">
+                                <h3>Server Configuration</h3>
+                                <div class="input-grid">
+                                    <div class="input-group">
+                                        <label for="server-cost">Monthly Server Cost ($)</label>
+                                        <input type="number" id="server-cost" value="24" min="5" max="200" oninput="calculateCosts()">
+                                    </div>
+                                    
+                                    <div class="input-group">
+                                        <label for="bandwidth-gb">Monthly Bandwidth (GB)</label>
+                                        <input type="range" id="bandwidth-gb" min="500" max="10000" value="2000" oninput="updateBandwidthDisplay(); calculateCosts()">
+                                        <div class="range-display" id="bandwidth-display">2000 GB</div>
+                                    </div>
+                                    
+                                    <div class="input-group">
+                                        <label for="bandwidth-cost">Bandwidth Cost ($/GB)</label>
+                                        <input type="number" id="bandwidth-cost" value="0.01" min="0" max="0.1" step="0.001" oninput="calculateCosts()">
+                                    </div>
+                                    
+                                    <div class="input-group">
+                                        <label for="setup-type">Setup Type</label>
+                                        <select id="setup-type" onchange="calculateCosts()">
+                                            <option value="vps">VPS Only</option>
+                                            <option value="home">Home Server</option>
+                                            <option value="hybrid">Hybrid (VPS + Home)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="calculator-section" id="home-costs" style="display: none;">
+                                <h3>Home Server Costs</h3>
+                                <div class="input-grid">
+                                    <div class="input-group">
+                                        <label for="electricity-rate">Electricity Rate ($/kWh)</label>
+                                        <input type="number" id="electricity-rate" value="0.12" min="0.05" max="0.50" step="0.01" oninput="calculateCosts()">
+                                    </div>
+                                    
+                                    <div class="input-group">
+                                        <label for="power-consumption">Power Consumption (Watts)</label>
+                                        <input type="range" id="power-consumption" min="50" max="500" value="150" oninput="updatePowerDisplay(); calculateCosts()">
+                                        <div class="range-display" id="power-display">150W</div>
+                                    </div>
+                                    
+                                    <div class="input-group">
+                                        <label for="internet-cost">Internet Upgrade Cost ($/month)</label>
+                                        <input type="number" id="internet-cost" value="0" min="0" max="100" oninput="calculateCosts()">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="calculator-section">
+                                <h3>Additional Costs</h3>
+                                <div class="input-grid">
+                                    <div class="input-group">
+                                        <label for="maintenance-hours">Monthly Maintenance (Hours)</label>
+                                        <input type="range" id="maintenance-hours" min="1" max="20" value="5" oninput="updateMaintenanceDisplay(); calculateCosts()">
+                                        <div class="range-display" id="maintenance-display">5 hours</div>
+                                    </div>
+                                    
+                                    <div class="input-group">
+                                        <label for="hourly-rate">Your Hourly Rate ($)</label>
+                                        <input type="number" id="hourly-rate" value="25" min="0" max="200" oninput="calculateCosts()">
+                                    </div>
+                                    
+                                    <div class="input-group">
+                                        <label for="backup-cost">Backup/Monitoring ($/month)</label>
+                                        <input type="number" id="backup-cost" value="5" min="0" max="50" oninput="calculateCosts()">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="cost-summary" id="cost-summary">
+                                <h3>Cost Breakdown</h3>
+                                <div class="cost-breakdown">
+                                    <div class="cost-item">
+                                        <div class="cost-value" id="server-cost-display">$24.00</div>
+                                        <div class="cost-label">Server Hosting</div>
+                                    </div>
+                                    <div class="cost-item">
+                                        <div class="cost-value" id="bandwidth-cost-display">$20.00</div>
+                                        <div class="cost-label">Bandwidth</div>
+                                    </div>
+                                    <div class="cost-item" id="electricity-cost-item" style="display: none;">
+                                        <div class="cost-value" id="electricity-cost-display">$13.00</div>
+                                        <div class="cost-label">Electricity</div>
+                                    </div>
+                                    <div class="cost-item">
+                                        <div class="cost-value" id="maintenance-cost-display">$125.00</div>
+                                        <div class="cost-label">Maintenance</div>
+                                    </div>
+                                    <div class="cost-item">
+                                        <div class="cost-value" id="other-cost-display">$5.00</div>
+                                        <div class="cost-label">Other</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="total-costs">
+                                    <div class="total-monthly" id="total-monthly">$174.00/month</div>
+                                    <div class="total-yearly" id="total-yearly">$2,088.00/year</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Cost Comparison by Tier</h2>
+                        <p>Compare different node setup tiers and their associated costs:</p>
+                        
+                        <div class="table-container">
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tier</th>
+                                        <th>Server Specs</th>
+                                        <th>Monthly Cost</th>
+                                        <th>Yearly Cost</th>
+                                        <th>Best For</th>
+                                        <th>Pros/Cons</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="cost-tier tier-budget">Budget</span>
+                                        </td>
+                                        <td>2 CPU, 4GB RAM, 500GB SSD</td>
+                                        <td><strong>$15-25</strong></td>
+                                        <td><strong>$180-300</strong></td>
+                                        <td>Personal use, learning</td>
+                                        <td>✅ Low cost<br>❌ Slower sync</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="cost-tier tier-standard">Standard</span>
+                                        </td>
+                                        <td>4 CPU, 8GB RAM, 1TB SSD</td>
+                                        <td><strong>$40-60</strong></td>
+                                        <td><strong>$480-720</strong></td>
+                                        <td>Regular use, small business</td>
+                                        <td>✅ Good performance<br>✅ Reliable</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="cost-tier tier-premium">Premium</span>
+                                        </td>
+                                        <td>8 CPU, 16GB RAM, 2TB SSD</td>
+                                        <td><strong>$80-120</strong></td>
+                                        <td><strong>$960-1440</strong></td>
+                                        <td>High-volume, enterprise</td>
+                                        <td>✅ Excellent performance<br>❌ Higher cost</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Cost Optimization Tips</h2>
+                        
+                        <div class="savings-calculator">
+                            <h3>💡 Potential Savings</h3>
+                            <div class="feature-grid">
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4>Enable Pruning</h4>
+                                    <p>Save 80-90% on storage costs<br><strong>Potential savings: $10-30/month</strong></p>
+                                </div>
+                                
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4>Choose EU Providers</h4>
+                                    <p>Better privacy + lower costs<br><strong>Potential savings: $5-15/month</strong></p>
+                                </div>
+                                
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4>Annual Billing</h4>
+                                    <p>Most providers offer discounts<br><strong>Potential savings: 10-20% annually</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Cost Projection Chart</h2>
+                        <p>Visualize your costs over time with different scenarios:</p>
+                        
+                        <div class="chart-container">
+                            <h3>5-Year Cost Projection</h3>
+                            <div class="chart-placeholder">
+                                Interactive cost projection chart would be displayed here
+                                <br>
+                                <small>Showing monthly costs, annual totals, and growth scenarios</small>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Cost Tracking Script</h2>
+                        <p>Use this script to monitor your actual node costs:</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Node Cost Tracking</span>
+                                <button class="code-copy" onclick="copyToClipboard('cost-tracking')">
+                                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre id="cost-tracking"><code>#!/bin/bash
+
+# Node Cost Tracking Script
+echo "Node Cost Analysis - $(date)"
+echo "=========================="
+
+# Server resource usage
+echo "Resource Usage:"
+echo "CPU Usage: $(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'%' -f1)%"
+echo "Memory Usage: $(free | grep Mem | awk '{printf("%.1f%%", $3/$2 * 100.0)}')"
+echo "Disk Usage: $(df -h / | awk 'NR==2{printf "%s", $5}')"
+
+# Network usage (requires vnstat)
+if command -v vnstat &> /dev/null; then
+    echo "Network Usage (This Month):"
+    vnstat -m | tail -2 | head -1
+fi
+
+# Estimate monthly costs
+SERVER_COST=24  # Update with your server cost
+BANDWIDTH_COST=0.01  # Cost per GB
+
+if command -v vnstat &> /dev/null; then
+    MONTHLY_GB=$(vnstat -m | tail -2 | head -1 | awk '{print $9}' | sed 's/GiB//')
+    BANDWIDTH_TOTAL=$(echo "$MONTHLY_GB * $BANDWIDTH_COST" | bc -l)
+    TOTAL_COST=$(echo "$SERVER_COST + $BANDWIDTH_TOTAL" | bc -l)
+    
+    echo "Cost Estimate:"
+    echo "Server: \$$SERVER_COST"
+    echo "Bandwidth: \$$(printf '%.2f' $BANDWIDTH_TOTAL) (${MONTHLY_GB}GB)"
+    echo "Total: \$$(printf '%.2f' $TOTAL_COST)"
+fi
+
+# Node status
+echo "Node Status:"
+if pgrep -x "bitcoind" > /dev/null; then
+    echo "✓ Bitcoin node running"
+    BITCOIN_BLOCKS=$(bitcoin-cli getblockcount 2>/dev/null || echo "N/A")
+    echo "  Blocks: $BITCOIN_BLOCKS"
+fi
+
+if pgrep -x "monerod" > /dev/null; then
+    echo "✓ Monero node running"
+    # Add Monero status check here
+fi</code></pre>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <div class="admonition admonition-tip">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Budget Planning Tips</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <ul>
+                                    <li><strong>Start small</strong> - You can always upgrade your server later</li>
+                                    <li><strong>Monitor usage</strong> - Track actual costs vs estimates monthly</li>
+                                    <li><strong>Plan for growth</strong> - Blockchain sizes and costs increase over time</li>
+                                    <li><strong>Consider redundancy</strong> - Budget for backup solutions and failover</li>
+                                    <li><strong>Tax implications</strong> - Node operation may be tax-deductible in some jurisdictions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation section" id="page-navigation">
+                    <div class="page-nav-content">
+                        <div class="page-nav-item page-nav-prev" id="page-nav-prev">
+                            <a href="hardware-requirements.html" class="page-nav-link" id="prev-page-link">
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                                </svg>
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Previous</span>
+                                    <span class="page-nav-title" id="prev-page-title">Hardware Requirements</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="page-nav-item page-nav-next" id="page-nav-next">
+                            <a href="/node-guides/server-security/" class="page-nav-link" id="next-page-link">
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Next Phase</span>
+                                    <span class="page-nav-title" id="next-page-title">Server Foundation & Security</span>
+                                </div>
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" id="site-footer">
+        <p id="footer-text">© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="../../assets/js/utils.js"></script>
+    <script src="../../assets/js/language-switcher.js"></script>
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/page-loader.js"></script>
+    
+    <script>
+        // Initialize calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            updateBandwidthDisplay();
+            updatePowerDisplay();
+            updateMaintenanceDisplay();
+            calculateCosts();
+            
+            // Show/hide home costs based on setup type
+            document.getElementById('setup-type').addEventListener('change', function() {
+                const homeCosts = document.getElementById('home-costs');
+                const electricityCostItem = document.getElementById('electricity-cost-item');
+                
+                if (this.value === 'home' || this.value === 'hybrid') {
+                    homeCosts.style.display = 'block';
+                    electricityCostItem.style.display = 'block';
+                } else {
+                    homeCosts.style.display = 'none';
+                    electricityCostItem.style.display = 'none';
+                }
+                calculateCosts();
+            });
+        });
+        
+        function updateBandwidthDisplay() {
+            const value = document.getElementById('bandwidth-gb').value;
+            document.getElementById('bandwidth-display').textContent = value + ' GB';
+        }
+        
+        function updatePowerDisplay() {
+            const value = document.getElementById('power-consumption').value;
+            document.getElementById('power-display').textContent = value + 'W';
+        }
+        
+        function updateMaintenanceDisplay() {
+            const value = document.getElementById('maintenance-hours').value;
+            document.getElementById('maintenance-display').textContent = value + ' hours';
+        }
+        
+        function calculateCosts() {
+            // Get input values
+            const serverCost = parseFloat(document.getElementById('server-cost').value) || 0;
+            const bandwidthGB = parseFloat(document.getElementById('bandwidth-gb').value) || 0;
+            const bandwidthCostPerGB = parseFloat(document.getElementById('bandwidth-cost').value) || 0;
+            const setupType = document.getElementById('setup-type').value;
+            const electricityRate = parseFloat(document.getElementById('electricity-rate').value) || 0;
+            const powerConsumption = parseFloat(document.getElementById('power-consumption').value) || 0;
+            const internetCost = parseFloat(document.getElementById('internet-cost').value) || 0;
+            const maintenanceHours = parseFloat(document.getElementById('maintenance-hours').value) || 0;
+            const hourlyRate = parseFloat(document.getElementById('hourly-rate').value) || 0;
+            const backupCost = parseFloat(document.getElementById('backup-cost').value) || 0;
+            
+            // Calculate individual costs
+            const bandwidthCost = bandwidthGB * bandwidthCostPerGB;
+            const electricityCost = setupType === 'home' || setupType === 'hybrid' 
+                ? (powerConsumption * 24 * 30 * electricityRate) / 1000 : 0;
+            const maintenanceCost = maintenanceHours * hourlyRate;
+            const otherCosts = backupCost + internetCost;
+            
+            // Calculate totals
+            const monthlyTotal = serverCost + bandwidthCost + electricityCost + maintenanceCost + otherCosts;
+            const yearlyTotal = monthlyTotal * 12;
+            
+            // Update display
+            document.getElementById('server-cost-display').textContent = '$' + serverCost.toFixed(2);
+            document.getElementById('bandwidth-cost-display').textContent = '$' + bandwidthCost.toFixed(2);
+            document.getElementById('electricity-cost-display').textContent = '$' + electricityCost.toFixed(2);
+            document.getElementById('maintenance-cost-display').textContent = '$' + maintenanceCost.toFixed(2);
+            document.getElementById('other-cost-display').textContent = '$' + otherCosts.toFixed(2);
+            
+            document.getElementById('total-monthly').textContent = '$' + monthlyTotal.toFixed(2) + '/month';
+            document.getElementById('total-yearly').textContent = '$' + yearlyTotal.toFixed(2) + '/year';
+        }
+        
+        // Copy to clipboard function
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                // Show feedback
+                const button = event.target.closest('.code-copy');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Copied!';
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabbed Interface Component Test</title>
+    <link rel="stylesheet" href="assets/css/tabs.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background: #f8fafc;
+        }
+        
+        h1, h2 {
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+        
+        .test-section {
+            margin-bottom: 3rem;
+        }
+        
+        .info-box {
+            background: #dbeafe;
+            border: 1px solid #93c5fd;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .info-box h4 {
+            margin-top: 0;
+            color: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabbed Interface Component Test</h1>
+    
+    <div class="test-section">
+        <h2>Node Setup Guide - OS-Specific Installation</h2>
+        
+        <div class="tab-container" data-active-index="0">
+            
+            <div class="tab-list" role="tablist">
+                <button class="tab-button os-linux" role="tab" type="button">
+                    Linux (Ubuntu/Debian)
+                </button>
+                <button class="tab-button os-macos" role="tab" type="button">
+                    macOS
+                </button>
+                <button class="tab-button os-windows" role="tab" type="button">
+                    Windows
+                </button>
+            </div>
+            
+            <div class="tab-panels">
+                
+                <div class="tab-panel" role="tabpanel">
+                    <h3>Bitcoin Node Installation on Linux</h3>
+                    
+                    <div class="info-box">
+                        <h4>Prerequisites</h4>
+                        <p>Ensure you have sudo access and your system is up to date.</p>
+                    </div>
+                    
+                    <h4>Step 1: Update System</h4>
+                    <pre><code># Update package lists and upgrade system
+sudo apt update && sudo apt upgrade -y
+
+# Install essential tools
+sudo apt install curl wget gnupg2 software-properties-common -y</code></pre>
+                    
+                    <h4>Step 2: Download Bitcoin Core</h4>
+                    <pre><code># Create bitcoin directory
+mkdir -p ~/bitcoin && cd ~/bitcoin
+
+# Download Bitcoin Core (replace with latest version)
+wget https://bitcoin.org/bin/bitcoin-core-25.0/bitcoin-25.0-x86_64-linux-gnu.tar.gz
+
+# Download signature file
+wget https://bitcoin.org/bin/bitcoin-core-25.0/SHA256SUMS.asc</code></pre>
+                    
+                    <h4>Step 3: Verify and Install</h4>
+                    <pre><code># Verify the download
+sha256sum --check SHA256SUMS.asc --ignore-missing
+
+# Extract and install
+tar -xzf bitcoin-25.0-x86_64-linux-gnu.tar.gz
+sudo install -m 0755 -o root -g root -t /usr/local/bin bitcoin-25.0/bin/*</code></pre>
+                    
+                    <p><strong>Next:</strong> Configure your bitcoin.conf file and start the node.</p>
+                </div>
+                
+                <div class="tab-panel" role="tabpanel">
+                    <h3>Bitcoin Node Installation on macOS</h3>
+                    
+                    <div class="info-box">
+                        <h4>Prerequisites</h4>
+                        <p>Install Homebrew if you haven't already. This makes package management much easier.</p>
+                    </div>
+                    
+                    <h4>Step 1: Install Homebrew (if needed)</h4>
+                    <pre><code># Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install essential tools
+brew install curl wget gnupg</code></pre>
+                    
+                    <h4>Step 2: Download Bitcoin Core</h4>
+                    <pre><code># Create bitcoin directory
+mkdir -p ~/bitcoin && cd ~/bitcoin
+
+# Download Bitcoin Core for macOS
+curl -O https://bitcoin.org/bin/bitcoin-core-25.0/bitcoin-25.0-osx64.tar.gz
+
+# Download signature file
+curl -O https://bitcoin.org/bin/bitcoin-core-25.0/SHA256SUMS.asc</code></pre>
+                    
+                    <h4>Step 3: Verify and Install</h4>
+                    <pre><code># Verify the download
+shasum -a 256 --check SHA256SUMS.asc --ignore-missing
+
+# Extract the archive
+tar -xzf bitcoin-25.0-osx64.tar.gz
+
+# Move to Applications (optional)
+sudo cp -R bitcoin-25.0/ /Applications/Bitcoin-Core/</code></pre>
+                    
+                    <p><strong>Note:</strong> You may need to allow the application in System Preferences > Security & Privacy.</p>
+                </div>
+                
+                <div class="tab-panel" role="tabpanel">
+                    <h3>Bitcoin Node Installation on Windows</h3>
+                    
+                    <div class="info-box">
+                        <h4>Prerequisites</h4>
+                        <p>Run PowerShell as Administrator for some commands. Windows Defender may flag the software initially.</p>
+                    </div>
+                    
+                    <h4>Step 1: Download Bitcoin Core</h4>
+                    <pre><code># PowerShell commands
+# Create bitcoin directory
+New-Item -ItemType Directory -Path "$env:USERPROFILE\bitcoin" -Force
+Set-Location "$env:USERPROFILE\bitcoin"
+
+# Download Bitcoin Core
+Invoke-WebRequest -Uri "https://bitcoin.org/bin/bitcoin-core-25.0/bitcoin-25.0-win64.zip" -OutFile "bitcoin-25.0-win64.zip"</code></pre>
+                    
+                    <h4>Step 2: Verify and Extract</h4>
+                    <pre><code># Verify hash (optional but recommended)
+Get-FileHash bitcoin-25.0-win64.zip -Algorithm SHA256
+
+# Extract the archive
+Expand-Archive -Path "bitcoin-25.0-win64.zip" -DestinationPath "."</code></pre>
+                    
+                    <h4>Step 3: Configure Windows Defender</h4>
+                    <p>Add the Bitcoin Core directory to Windows Defender exclusions:</p>
+                    <ol>
+                        <li>Open Windows Security</li>
+                        <li>Go to Virus & threat protection</li>
+                        <li>Add exclusion for the bitcoin folder</li>
+                        <li>Run bitcoin-qt.exe or bitcoind.exe</li>
+                    </ol>
+                    
+                    <p><strong>Tip:</strong> Consider creating a desktop shortcut for easy access.</p>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Configuration Options</h2>
+        
+        <div class="tab-container" data-active-index="1">
+            
+            <div class="tab-list" role="tablist">
+                <button class="tab-button" role="tab" type="button">
+                    Basic Setup
+                </button>
+                <button class="tab-button" role="tab" type="button">
+                    Advanced Config
+                    <span class="badge">5</span>
+                </button>
+                <button class="tab-button" role="tab" type="button">
+                    Security
+                </button>
+            </div>
+            
+            <div class="tab-panels">
+                
+                <div class="tab-panel" role="tabpanel">
+                    <h3>Basic Configuration</h3>
+                    <p>Essential settings to get your node running:</p>
+                    
+                    <h4>Create bitcoin.conf</h4>
+                    <p>Create this file in your Bitcoin data directory:</p>
+                    <ul>
+                        <li><strong>Linux:</strong> ~/.bitcoin/bitcoin.conf</li>
+                        <li><strong>macOS:</strong> ~/Library/Application Support/Bitcoin/bitcoin.conf</li>
+                        <li><strong>Windows:</strong> %APPDATA%\Bitcoin\bitcoin.conf</li>
+                    </ul>
+                    
+                    <pre><code># Basic bitcoin.conf
+# Network
+port=8333
+listen=1
+maxconnections=125
+
+# Storage
+datadir=~/.bitcoin
+dbcache=450
+
+# Logging
+debug=0
+logtimestamps=1</code></pre>
+                </div>
+                
+                <div class="tab-panel" role="tabpanel">
+                    <h3>Advanced Configuration</h3>
+                    <p>Fine-tune your node for optimal performance:</p>
+                    
+                    <h4>Memory Pool Settings</h4>
+                    <pre><code># Memory pool configuration
+maxmempool=300
+mempoolexpiry=72
+incrementalrelayfee=0.00001000</code></pre>
+                    
+                    <h4>Network Optimization</h4>
+                    <pre><code># Network settings
+maxuploadtarget=5000
+blocksonly=0
+peerbloomfilters=1
+permitbaremultisig=1</code></pre>
+                    
+                    <h4>Performance Tuning</h4>
+                    <pre><code># Performance settings
+par=4
+checkblocks=6
+checklevel=3
+assumevalid=0</code></pre>
+                    
+                    <div class="info-box">
+                        <h4>Important Notes</h4>
+                        <ul>
+                            <li>Adjust <code>par</code> based on your CPU cores</li>
+                            <li>Higher <code>dbcache</code> values speed up initial sync</li>
+                            <li>Monitor bandwidth usage with <code>maxuploadtarget</code></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tab-panel" role="tabpanel">
+                    <h3>Security Configuration</h3>
+                    <p>Secure your node against common threats:</p>
+                    
+                    <h4>RPC Security</h4>
+                    <pre><code># RPC authentication
+rpcauth=nodeuser:7d9ba5ae63c3d4dc30583ff4fe65a67e$9e3634e81c11659e3de036d0bf88f89cd169c1039e6e09607562d54765c649cc
+rpcbind=127.0.0.1
+rpcallowip=127.0.0.1
+rpcport=8332</code></pre>
+                    
+                    <h4>Network Privacy</h4>
+                    <pre><code># Tor configuration (optional)
+proxy=127.0.0.1:9050
+onlynet=onion
+listen=0
+listenonion=1</code></pre>
+                    
+                    <h4>Firewall Rules</h4>
+                    <p>Configure your firewall to allow Bitcoin traffic:</p>
+                    <pre><code># UFW (Ubuntu/Debian)
+sudo ufw allow 8333/tcp
+sudo ufw enable
+
+# iptables
+sudo iptables -A INPUT -p tcp --dport 8333 -j ACCEPT</code></pre>
+                    
+                    <div class="info-box">
+                        <h4>Security Checklist</h4>
+                        <ul>
+                            <li>✓ Use strong RPC authentication</li>
+                            <li>✓ Bind RPC to localhost only</li>
+                            <li>✓ Configure firewall rules</li>
+                            <li>✓ Consider Tor for privacy</li>
+                            <li>✓ Regular security updates</li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="assets/js/tabs.js"></script>
+    
+    <script>
+        // Test tab functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Tabs test page loaded');
+            
+            // Listen for tab events
+            document.addEventListener('tab:activate', (e) => {
+                console.log('Tab activated:', e.detail);
+            });
+            
+            // Test keyboard navigation
+            console.log('Use arrow keys to navigate between tabs');
+            console.log('Use Enter or Space to activate a focused tab');
+        });
+    </script>
+</body>
+</html>

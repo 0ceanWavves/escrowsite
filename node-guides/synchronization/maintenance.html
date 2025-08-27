@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en" data-current-section="node-guides" data-current-page="maintenance">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ongoing Maintenance - Blockchain Synchronization</title>
+    <meta name="description" content="Establish monitoring, backup, and maintenance procedures for long-term Bitcoin and Monero node operation">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+</head>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link active" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div> 
+       
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link active" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar sidebar-nav" id="sidebar-nav" data-section="node-guides">
+            <!-- Search functionality -->
+            <div class="sidebar-search">
+                <div class="sidebar-search-container">
+                    <input type="text" class="sidebar-search-input" id="sidebar-search" placeholder="Search..." aria-label="Search content">
+                    <svg class="sidebar-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Progress indicator -->
+            <div class="sidebar-progress" id="sidebar-progress">
+                <div class="sidebar-progress-title" id="progress-title">Phase 4 Progress</div>
+                <div class="sidebar-progress-bar">
+                    <div class="sidebar-progress-fill" id="progress-fill" style="width: 100%;"></div>
+                </div>
+                <div class="sidebar-progress-text" id="progress-text">100% Complete</div>
+            </div>
+            
+            <!-- Navigation sections -->
+            <div class="sidebar-sections" id="sidebar-sections">
+                <div class="sidebar-section" id="node-guides-nav">
+                    <h3 class="sidebar-section-title">Node Setup Guides</h3>
+                    
+                    <!-- Phase indicators -->
+                    <div class="sidebar-phase-indicators">
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="1"></div>
+                            <span class="phase-label completed" data-phase="1">Procurement & Provisioning</span>
+                        </div>
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="2"></div>
+                            <span class="phase-label completed" data-phase="2">Server Foundation & Security</span>
+                        </div>
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="3"></div>
+                            <span class="phase-label completed" data-phase="3">Node Software Installation</span>
+                        </div>
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="4"></div>
+                            <span class="phase-label completed" data-phase="4">Blockchain Synchronization</span>
+                        </div>
+                    </div>  
+                  
+                    <ul class="sidebar-nav-list">
+                        <li class="sidebar-nav-item">
+                            <a href="/node-guides/" class="sidebar-nav-link" data-page="overview">
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-4-content" aria-expanded="true">
+                                <span>Phase 4: Blockchain Synchronization</span>
+                                <svg class="sidebar-toggle-icon expanded" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content expanded" id="node-phase-4-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/synchronization/monitoring.html" class="sidebar-nav-link" data-page="monitoring">Progress Monitoring</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/synchronization/testing.html" class="sidebar-nav-link" data-page="testing">Testing & Validation</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/synchronization/maintenance.html" class="sidebar-nav-link active" data-page="maintenance">Ongoing Maintenance</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Page Content -->
+        <div class="content-area" id="content-area">
+            <!-- Content Page -->
+            <div class="content-page">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb navigation">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="breadcrumb-link">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/" class="breadcrumb-link">Node Guides</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/synchronization/" class="breadcrumb-link">Blockchain Synchronization</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Ongoing Maintenance
+                        </li>
+                    </ol>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header section">
+                    <div class="page-header-content">
+                        <h1 class="page-title" id="page-title">Ongoing Maintenance & Monitoring</h1>
+                        <div class="page-meta">
+                            <span class="page-difficulty" id="page-difficulty">Intermediate</span>
+                            <span class="page-duration" id="page-duration">1-2 hours setup</span>
+                            <span class="page-updated" id="page-updated">Updated: January 2025</span>
+                        </div>
+                        <div class="page-description" id="page-description">
+                            <p>Establish comprehensive monitoring, backup, and maintenance procedures to ensure long-term reliability, security, and optimal performance of your Bitcoin and Monero nodes.</p>
+                        </div>
+                    </div>
+                </header>
+                
+                <!-- Main Content Area -->
+                <main class="page-content" id="page-content">
+                    <section class="content-section">
+                        <h2>Maintenance Overview</h2>
+                        <p>Proper maintenance is essential for long-term node operation. This section covers automated monitoring, backup strategies, security updates, performance optimization, and disaster recovery procedures.</p>
+                        
+                        <div class="admonition admonition-info">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Maintenance Philosophy</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <p>Effective node maintenance follows these principles:</p>
+                                <ul>
+                                    <li><strong>Proactive Monitoring:</strong> Detect issues before they become problems</li>
+                                    <li><strong>Regular Backups:</strong> Protect against data loss and corruption</li>
+                                    <li><strong>Security Updates:</strong> Keep software and system components current</li>
+                                    <li><strong>Performance Optimization:</strong> Maintain optimal resource utilization</li>
+                                    <li><strong>Documentation:</strong> Track changes and maintain operational records</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Automated Monitoring Setup</h2>
+                        
+                        <h3>System Monitoring with Prometheus & Grafana</h3>
+                        <p>Set up comprehensive monitoring infrastructure:</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Install monitoring stack</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# Install Prometheus
+wget https://github.com/prometheus/prometheus/releases/download/v2.45.0/prometheus-2.45.0.linux-amd64.tar.gz
+tar xvfz prometheus-*.tar.gz
+sudo mv prometheus-*/prometheus /usr/local/bin/
+sudo mv prometheus-*/promtool /usr/local/bin/
+sudo mkdir -p /etc/prometheus /var/lib/prometheus
+sudo chown prometheus:prometheus /etc/prometheus /var/lib/prometheus
+
+# Create Prometheus user
+sudo useradd --no-create-home --shell /bin/false prometheus
+
+# Install Node Exporter
+wget https://github.com/prometheus/node_exporter/releases/download/v1.6.0/node_exporter-1.6.0.linux-amd64.tar.gz
+tar xvfz node_exporter-*.tar.gz
+sudo mv node_exporter-*/node_exporter /usr/local/bin/
+sudo chown prometheus:prometheus /usr/local/bin/node_exporter
+
+# Install Bitcoin Prometheus Exporter
+wget https://github.com/jvstein/bitcoin-prometheus-exporter/releases/download/v0.7.0/bitcoin-prometheus-exporter-0.7.0-linux-amd64.tar.gz
+tar xvfz bitcoin-prometheus-exporter-*.tar.gz
+sudo mv bitcoin-prometheus-exporter /usr/local/bin/
+sudo chown prometheus:prometheus /usr/local/bin/bitcoin-prometheus-exporter">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># Install Prometheus
+wget https://github.com/prometheus/prometheus/releases/download/v2.45.0/prometheus-2.45.0.linux-amd64.tar.gz
+tar xvfz prometheus-*.tar.gz
+sudo mv prometheus-*/prometheus /usr/local/bin/
+sudo mv prometheus-*/promtool /usr/local/bin/
+sudo mkdir -p /etc/prometheus /var/lib/prometheus
+sudo chown prometheus:prometheus /etc/prometheus /var/lib/prometheus
+
+# Create Prometheus user
+sudo useradd --no-create-home --shell /bin/false prometheus
+
+# Install Node Exporter
+wget https://github.com/prometheus/node_exporter/releases/download/v1.6.0/node_exporter-1.6.0.linux-amd64.tar.gz
+tar xvfz node_exporter-*.tar.gz
+sudo mv node_exporter-*/node_exporter /usr/local/bin/
+sudo chown prometheus:prometheus /usr/local/bin/node_exporter
+
+# Install Bitcoin Prometheus Exporter
+wget https://github.com/jvstein/bitcoin-prometheus-exporter/releases/download/v0.7.0/bitcoin-prometheus-exporter-0.7.0-linux-amd64.tar.gz
+tar xvfz bitcoin-prometheus-exporter-*.tar.gz
+sudo mv bitcoin-prometheus-exporter /usr/local/bin/
+sudo chown prometheus:prometheus /usr/local/bin/bitcoin-prometheus-exporter</code></pre>
+                        </div>
+                        
+                        <h3>Configure Prometheus</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Create Prometheus configuration</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# Create Prometheus configuration
+sudo tee /etc/prometheus/prometheus.yml > /dev/null << 'EOF'
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - \"node_rules.yml\"
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          - alertmanager:9093
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['localhost:9100']
+
+  - job_name: 'bitcoin-exporter'
+    static_configs:
+      - targets: ['localhost:9332']
+
+  - job_name: 'monero-exporter'
+    static_configs:
+      - targets: ['localhost:18081']
+    metrics_path: '/metrics'
+    scrape_interval: 30s
+EOF
+
+# Create alerting rules
+sudo tee /etc/prometheus/node_rules.yml > /dev/null << 'EOF'
+groups:
+- name: node_rules
+  rules:
+  - alert: NodeDown
+    expr: up == 0
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: \"Node {{ $labels.instance }} is down\"
+      description: \"{{ $labels.instance }} has been down for more than 5 minutes.\"
+
+  - alert: HighCPUUsage
+    expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100) > 80
+    for: 10m
+    labels:
+      severity: warning
+    annotations:
+      summary: \"High CPU usage on {{ $labels.instance }}\"
+      description: \"CPU usage is above 80% for more than 10 minutes.\"
+
+  - alert: HighMemoryUsage
+    expr: (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memory_MemTotal_bytes * 100 > 90
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: \"High memory usage on {{ $labels.instance }}\"
+      description: \"Memory usage is above 90% for more than 5 minutes.\"
+
+  - alert: DiskSpaceLow
+    expr: (node_filesystem_avail_bytes / node_filesystem_size_bytes) * 100 < 15
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: \"Low disk space on {{ $labels.instance }}\"
+      description: \"Disk space is below 15% on {{ $labels.mountpoint }}.\"
+
+  - alert: BitcoinNodeDown
+    expr: bitcoin_up == 0
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: \"Bitcoin node is down\"
+      description: \"Bitcoin node has been unreachable for more than 5 minutes.\"
+
+  - alert: BitcoinLowPeers
+    expr: bitcoin_peers < 8
+    for: 10m
+    labels:
+      severity: warning
+    annotations:
+      summary: \"Bitcoin node has low peer count\"
+      description: \"Bitcoin node has {{ $value }} peers, which is below the recommended minimum of 8.\"
+EOF
+
+sudo chown -R prometheus:prometheus /etc/prometheus/">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># Create Prometheus configuration
+sudo tee /etc/prometheus/prometheus.yml > /dev/null << 'EOF'
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - "node_rules.yml"
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          - alertmanager:9093
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['localhost:9100']
+
+  - job_name: 'bitcoin-exporter'
+    static_configs:
+      - targets: ['localhost:9332']
+
+  - job_name: 'monero-exporter'
+    static_configs:
+      - targets: ['localhost:18081']
+    metrics_path: '/metrics'
+    scrape_interval: 30s
+EOF
+
+# Create alerting rules
+sudo tee /etc/prometheus/node_rules.yml > /dev/null << 'EOF'
+groups:
+- name: node_rules
+  rules:
+  - alert: NodeDown
+    expr: up == 0
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Node {{ $labels.instance }} is down"
+      description: "{{ $labels.instance }} has been down for more than 5 minutes."
+
+  - alert: HighCPUUsage
+    expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
+    for: 10m
+    labels:
+      severity: warning
+    annotations:
+      summary: "High CPU usage on {{ $labels.instance }}"
+      description: "CPU usage is above 80% for more than 10 minutes."
+
+  - alert: HighMemoryUsage
+    expr: (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memory_MemTotal_bytes * 100 > 90
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "High memory usage on {{ $labels.instance }}"
+      description: "Memory usage is above 90% for more than 5 minutes."
+
+  - alert: DiskSpaceLow
+    expr: (node_filesystem_avail_bytes / node_filesystem_size_bytes) * 100 < 15
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Low disk space on {{ $labels.instance }}"
+      description: "Disk space is below 15% on {{ $labels.mountpoint }}."
+
+  - alert: BitcoinNodeDown
+    expr: bitcoin_up == 0
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Bitcoin node is down"
+      description: "Bitcoin node has been unreachable for more than 5 minutes."
+
+  - alert: BitcoinLowPeers
+    expr: bitcoin_peers < 8
+    for: 10m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Bitcoin node has low peer count"
+      description: "Bitcoin node has {{ $value }} peers, which is below the recommended minimum of 8."
+EOF
+
+sudo chown -R prometheus:prometheus /etc/prometheus/</code></pre>
+                        </div>
+                    </section>  
+                  
+                    <section class="content-section">
+                        <h2>Backup Strategy</h2>
+                        
+                        <h3>Automated Backup System</h3>
+                        <p>Implement comprehensive backup procedures for critical data:</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Create backup script</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="#!/bin/bash
+# Comprehensive Node Backup Script
+
+cat > ~/backup_nodes.sh << 'EOF'
+#!/bin/bash
+
+# Configuration
+BACKUP_DIR=\"/backup/crypto-nodes\"
+DATE=$(date +%Y%m%d_%H%M%S)
+RETENTION_DAYS=30
+
+# Create backup directory
+mkdir -p \"$BACKUP_DIR\"
+
+echo \"Starting backup at $(date)\"
+
+# Bitcoin Core Backup
+echo \"Backing up Bitcoin Core...\"
+BTC_BACKUP_DIR=\"$BACKUP_DIR/bitcoin_$DATE\"
+mkdir -p \"$BTC_BACKUP_DIR\"
+
+# Stop Bitcoin service temporarily for consistent backup
+sudo systemctl stop bitcoind
+sleep 10
+
+# Backup wallet and configuration
+if [ -f ~/.bitcoin/wallet.dat ]; then
+    cp ~/.bitcoin/wallet.dat \"$BTC_BACKUP_DIR/\"
+fi
+cp ~/.bitcoin/bitcoin.conf \"$BTC_BACKUP_DIR/\"
+
+# Backup chainstate (optional - large but ensures consistency)
+# Uncomment if you want full chainstate backup
+# tar -czf \"$BTC_BACKUP_DIR/chainstate.tar.gz\" -C ~/.bitcoin chainstate
+
+# Create blockchain info snapshot
+bitcoin-cli -datadir=~/.bitcoin getblockchaininfo > \"$BTC_BACKUP_DIR/blockchain_info.json\" 2>/dev/null || echo \"{}\" > \"$BTC_BACKUP_DIR/blockchain_info.json\"
+
+# Restart Bitcoin service
+sudo systemctl start bitcoind
+
+# Monero Backup
+echo \"Backing up Monero...\"
+XMR_BACKUP_DIR=\"$BACKUP_DIR/monero_$DATE\"
+mkdir -p \"$XMR_BACKUP_DIR\"
+
+# Stop Monero service temporarily
+sudo systemctl stop monerod
+sleep 10
+
+# Backup Monero configuration and wallet files
+cp ~/.bitmonero/bitmonero.conf \"$XMR_BACKUP_DIR/\" 2>/dev/null || echo \"No config file found\"
+if [ -d ~/.bitmonero/wallets ]; then
+    cp -r ~/.bitmonero/wallets \"$XMR_BACKUP_DIR/\"
+fi
+
+# Backup blockchain info
+curl -s -X POST http://127.0.0.1:18081/json_rpc -d '{\"jsonrpc\":\"2.0\",\"id\":\"0\",\"method\":\"get_info\"}' -H 'Content-Type: application/json' > \"$XMR_BACKUP_DIR/daemon_info.json\" 2>/dev/null || echo \"{}\" > \"$XMR_BACKUP_DIR/daemon_info.json\"
+
+# Restart Monero service
+sudo systemctl start monerod
+
+# System Configuration Backup
+echo \"Backing up system configuration...\"
+SYS_BACKUP_DIR=\"$BACKUP_DIR/system_$DATE\"
+mkdir -p \"$SYS_BACKUP_DIR\"
+
+# Backup systemd service files
+cp /etc/systemd/system/bitcoind.service \"$SYS_BACKUP_DIR/\" 2>/dev/null
+cp /etc/systemd/system/monerod.service \"$SYS_BACKUP_DIR/\" 2>/dev/null
+
+# Backup firewall rules
+ufw status verbose > \"$SYS_BACKUP_DIR/firewall_rules.txt\"
+
+# Backup crontab
+crontab -l > \"$SYS_BACKUP_DIR/crontab.txt\" 2>/dev/null || echo \"No crontab found\" > \"$SYS_BACKUP_DIR/crontab.txt\"
+
+# Create backup manifest
+cat > \"$BACKUP_DIR/backup_$DATE.manifest\" << MANIFEST
+Backup Date: $(date)
+Bitcoin Status: $(systemctl is-active bitcoind)
+Monero Status: $(systemctl is-active monerod)
+System Load: $(uptime)
+Disk Usage: $(df -h /)
+MANIFEST
+
+# Compress backups
+echo \"Compressing backups...\"
+cd \"$BACKUP_DIR\"
+tar -czf \"crypto_nodes_backup_$DATE.tar.gz\" bitcoin_$DATE monero_$DATE system_$DATE backup_$DATE.manifest
+
+# Remove uncompressed directories
+rm -rf bitcoin_$DATE monero_$DATE system_$DATE backup_$DATE.manifest
+
+# Clean old backups
+echo \"Cleaning old backups...\"
+find \"$BACKUP_DIR\" -name \"crypto_nodes_backup_*.tar.gz\" -mtime +$RETENTION_DAYS -delete
+
+echo \"Backup completed at $(date)\"
+echo \"Backup file: crypto_nodes_backup_$DATE.tar.gz\"
+ls -lh \"$BACKUP_DIR/crypto_nodes_backup_$DATE.tar.gz\"
+EOF
+
+chmod +x ~/backup_nodes.sh
+
+# Create backup directory
+sudo mkdir -p /backup/crypto-nodes
+sudo chown $USER:$USER /backup/crypto-nodes">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code>#!/bin/bash
+# Comprehensive Node Backup Script
+
+cat > ~/backup_nodes.sh << 'EOF'
+#!/bin/bash
+
+# Configuration
+BACKUP_DIR="/backup/crypto-nodes"
+DATE=$(date +%Y%m%d_%H%M%S)
+RETENTION_DAYS=30
+
+# Create backup directory
+mkdir -p "$BACKUP_DIR"
+
+echo "Starting backup at $(date)"
+
+# Bitcoin Core Backup
+echo "Backing up Bitcoin Core..."
+BTC_BACKUP_DIR="$BACKUP_DIR/bitcoin_$DATE"
+mkdir -p "$BTC_BACKUP_DIR"
+
+# Stop Bitcoin service temporarily for consistent backup
+sudo systemctl stop bitcoind
+sleep 10
+
+# Backup wallet and configuration
+if [ -f ~/.bitcoin/wallet.dat ]; then
+    cp ~/.bitcoin/wallet.dat "$BTC_BACKUP_DIR/"
+fi
+cp ~/.bitcoin/bitcoin.conf "$BTC_BACKUP_DIR/"
+
+# Backup chainstate (optional - large but ensures consistency)
+# Uncomment if you want full chainstate backup
+# tar -czf "$BTC_BACKUP_DIR/chainstate.tar.gz" -C ~/.bitcoin chainstate
+
+# Create blockchain info snapshot
+bitcoin-cli -datadir=~/.bitcoin getblockchaininfo > "$BTC_BACKUP_DIR/blockchain_info.json" 2>/dev/null || echo "{}" > "$BTC_BACKUP_DIR/blockchain_info.json"
+
+# Restart Bitcoin service
+sudo systemctl start bitcoind
+
+# Monero Backup
+echo "Backing up Monero..."
+XMR_BACKUP_DIR="$BACKUP_DIR/monero_$DATE"
+mkdir -p "$XMR_BACKUP_DIR"
+
+# Stop Monero service temporarily
+sudo systemctl stop monerod
+sleep 10
+
+# Backup Monero configuration and wallet files
+cp ~/.bitmonero/bitmonero.conf "$XMR_BACKUP_DIR/" 2>/dev/null || echo "No config file found"
+if [ -d ~/.bitmonero/wallets ]; then
+    cp -r ~/.bitmonero/wallets "$XMR_BACKUP_DIR/"
+fi
+
+# Backup blockchain info
+curl -s -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_info"}' -H 'Content-Type: application/json' > "$XMR_BACKUP_DIR/daemon_info.json" 2>/dev/null || echo "{}" > "$XMR_BACKUP_DIR/daemon_info.json"
+
+# Restart Monero service
+sudo systemctl start monerod
+
+# System Configuration Backup
+echo "Backing up system configuration..."
+SYS_BACKUP_DIR="$BACKUP_DIR/system_$DATE"
+mkdir -p "$SYS_BACKUP_DIR"
+
+# Backup systemd service files
+cp /etc/systemd/system/bitcoind.service "$SYS_BACKUP_DIR/" 2>/dev/null
+cp /etc/systemd/system/monerod.service "$SYS_BACKUP_DIR/" 2>/dev/null
+
+# Backup firewall rules
+ufw status verbose > "$SYS_BACKUP_DIR/firewall_rules.txt"
+
+# Backup crontab
+crontab -l > "$SYS_BACKUP_DIR/crontab.txt" 2>/dev/null || echo "No crontab found" > "$SYS_BACKUP_DIR/crontab.txt"
+
+# Create backup manifest
+cat > "$BACKUP_DIR/backup_$DATE.manifest" << MANIFEST
+Backup Date: $(date)
+Bitcoin Status: $(systemctl is-active bitcoind)
+Monero Status: $(systemctl is-active monerod)
+System Load: $(uptime)
+Disk Usage: $(df -h /)
+MANIFEST
+
+# Compress backups
+echo "Compressing backups..."
+cd "$BACKUP_DIR"
+tar -czf "crypto_nodes_backup_$DATE.tar.gz" bitcoin_$DATE monero_$DATE system_$DATE backup_$DATE.manifest
+
+# Remove uncompressed directories
+rm -rf bitcoin_$DATE monero_$DATE system_$DATE backup_$DATE.manifest
+
+# Clean old backups
+echo "Cleaning old backups..."
+find "$BACKUP_DIR" -name "crypto_nodes_backup_*.tar.gz" -mtime +$RETENTION_DAYS -delete
+
+echo "Backup completed at $(date)"
+echo "Backup file: crypto_nodes_backup_$DATE.tar.gz"
+ls -lh "$BACKUP_DIR/crypto_nodes_backup_$DATE.tar.gz"
+EOF
+
+chmod +x ~/backup_nodes.sh
+
+# Create backup directory
+sudo mkdir -p /backup/crypto-nodes
+sudo chown $USER:$USER /backup/crypto-nodes</code></pre>
+                        </div>
+                        
+                        <h3>Schedule Automated Backups</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Setup backup cron job</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# Add backup to crontab (daily at 2 AM)
+(crontab -l 2>/dev/null; echo \"0 2 * * * /home/$USER/backup_nodes.sh >> /var/log/node_backup.log 2>&1\") | crontab -
+
+# Create log rotation for backup logs
+sudo tee /etc/logrotate.d/node-backup > /dev/null << 'EOF'
+/var/log/node_backup.log {
+    daily
+    rotate 30
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 644 $USER $USER
+}
+EOF
+
+# Test backup script
+~/backup_nodes.sh">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># Add backup to crontab (daily at 2 AM)
+(crontab -l 2>/dev/null; echo "0 2 * * * /home/$USER/backup_nodes.sh >> /var/log/node_backup.log 2>&1") | crontab -
+
+# Create log rotation for backup logs
+sudo tee /etc/logrotate.d/node-backup > /dev/null << 'EOF'
+/var/log/node_backup.log {
+    daily
+    rotate 30
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 644 $USER $USER
+}
+EOF
+
+# Test backup script
+~/backup_nodes.sh</code></pre>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Security Updates & Maintenance</h2>
+                        
+                        <h3>Automated Security Updates</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Setup automatic security updates</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# Install unattended-upgrades
+sudo apt update
+sudo apt install -y unattended-upgrades apt-listchanges
+
+# Configure automatic security updates
+sudo tee /etc/apt/apt.conf.d/50unattended-upgrades > /dev/null << 'EOF'
+Unattended-Upgrade::Allowed-Origins {
+    \"${distro_id}:${distro_codename}-security\";
+    \"${distro_id}ESMApps:${distro_codename}-apps-security\";
+    \"${distro_id}ESM:${distro_codename}-infra-security\";
+};
+
+Unattended-Upgrade::Package-Blacklist {
+    // Add packages you don't want auto-updated
+};
+
+Unattended-Upgrade::DevRelease \"false\";
+Unattended-Upgrade::Remove-Unused-Dependencies \"true\";
+Unattended-Upgrade::Remove-New-Unused-Dependencies \"true\";
+Unattended-Upgrade::Automatic-Reboot \"false\";
+Unattended-Upgrade::Automatic-Reboot-WithUsers \"false\";
+Unattended-Upgrade::Automatic-Reboot-Time \"02:00\";
+
+Unattended-Upgrade::Mail \"root\";
+Unattended-Upgrade::MailOnlyOnError \"true\";
+EOF
+
+# Enable automatic updates
+sudo tee /etc/apt/apt.conf.d/20auto-upgrades > /dev/null << 'EOF'
+APT::Periodic::Update-Package-Lists \"1\";
+APT::Periodic::Unattended-Upgrade \"1\";
+APT::Periodic::Download-Upgradeable-Packages \"1\";
+APT::Periodic::AutocleanInterval \"7\";
+EOF
+
+# Enable and start the service
+sudo systemctl enable unattended-upgrades
+sudo systemctl start unattended-upgrades">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># Install unattended-upgrades
+sudo apt update
+sudo apt install -y unattended-upgrades apt-listchanges
+
+# Configure automatic security updates
+sudo tee /etc/apt/apt.conf.d/50unattended-upgrades > /dev/null << 'EOF'
+Unattended-Upgrade::Allowed-Origins {
+    "${distro_id}:${distro_codename}-security";
+    "${distro_id}ESMApps:${distro_codename}-apps-security";
+    "${distro_id}ESM:${distro_codename}-infra-security";
+};
+
+Unattended-Upgrade::Package-Blacklist {
+    // Add packages you don't want auto-updated
+};
+
+Unattended-Upgrade::DevRelease "false";
+Unattended-Upgrade::Remove-Unused-Dependencies "true";
+Unattended-Upgrade::Remove-New-Unused-Dependencies "true";
+Unattended-Upgrade::Automatic-Reboot "false";
+Unattended-Upgrade::Automatic-Reboot-WithUsers "false";
+Unattended-Upgrade::Automatic-Reboot-Time "02:00";
+
+Unattended-Upgrade::Mail "root";
+Unattended-Upgrade::MailOnlyOnError "true";
+EOF
+
+# Enable automatic updates
+sudo tee /etc/apt/apt.conf.d/20auto-upgrades > /dev/null << 'EOF'
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Unattended-Upgrade "1";
+APT::Periodic::Download-Upgradeable-Packages "1";
+APT::Periodic::AutocleanInterval "7";
+EOF
+
+# Enable and start the service
+sudo systemctl enable unattended-upgrades
+sudo systemctl start unattended-upgrades</code></pre>
+                        </div>
+                        
+                        <h3>Node Software Updates</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Create update monitoring script</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="#!/bin/bash
+# Node Software Update Checker
+
+cat > ~/check_node_updates.sh << 'EOF'
+#!/bin/bash
+
+echo \"Checking for node software updates...\"
+
+# Check Bitcoin Core version
+echo \"=== Bitcoin Core ===\"
+CURRENT_BTC=$(bitcoin-cli --version | head -1 | awk '{print $4}')
+echo \"Current version: $CURRENT_BTC\"
+
+# Check latest Bitcoin Core release (requires internet)
+LATEST_BTC=$(curl -s https://api.github.com/repos/bitcoin/bitcoin/releases/latest | jq -r '.tag_name' | sed 's/v//')
+echo \"Latest version: $LATEST_BTC\"
+
+if [ \"$CURRENT_BTC\" != \"$LATEST_BTC\" ]; then
+    echo \"⚠️  Bitcoin Core update available: $CURRENT_BTC -> $LATEST_BTC\"
+else
+    echo \"✅ Bitcoin Core is up to date\"
+fi
+
+echo \"\"
+
+# Check Monero version
+echo \"=== Monero ===\"
+CURRENT_XMR=$(monerod --version | head -1 | awk '{print $3}')
+echo \"Current version: $CURRENT_XMR\"
+
+# Check latest Monero release
+LATEST_XMR=$(curl -s https://api.github.com/repos/monero-project/monero/releases/latest | jq -r '.tag_name' | sed 's/v//')
+echo \"Latest version: $LATEST_XMR\"
+
+if [ \"$CURRENT_XMR\" != \"$LATEST_XMR\" ]; then
+    echo \"⚠️  Monero update available: $CURRENT_XMR -> $LATEST_XMR\"
+else
+    echo \"✅ Monero is up to date\"
+fi
+
+echo \"\"
+echo \"Update check completed at $(date)\"
+EOF
+
+chmod +x ~/check_node_updates.sh
+
+# Add to crontab to check weekly
+(crontab -l 2>/dev/null; echo \"0 9 * * 1 /home/$USER/check_node_updates.sh >> /var/log/node_updates.log 2>&1\") | crontab -">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code>#!/bin/bash
+# Node Software Update Checker
+
+cat > ~/check_node_updates.sh << 'EOF'
+#!/bin/bash
+
+echo "Checking for node software updates..."
+
+# Check Bitcoin Core version
+echo "=== Bitcoin Core ==="
+CURRENT_BTC=$(bitcoin-cli --version | head -1 | awk '{print $4}')
+echo "Current version: $CURRENT_BTC"
+
+# Check latest Bitcoin Core release (requires internet)
+LATEST_BTC=$(curl -s https://api.github.com/repos/bitcoin/bitcoin/releases/latest | jq -r '.tag_name' | sed 's/v//')
+echo "Latest version: $LATEST_BTC"
+
+if [ "$CURRENT_BTC" != "$LATEST_BTC" ]; then
+    echo "⚠️  Bitcoin Core update available: $CURRENT_BTC -> $LATEST_BTC"
+else
+    echo "✅ Bitcoin Core is up to date"
+fi
+
+echo ""
+
+# Check Monero version
+echo "=== Monero ==="
+CURRENT_XMR=$(monerod --version | head -1 | awk '{print $3}')
+echo "Current version: $CURRENT_XMR"
+
+# Check latest Monero release
+LATEST_XMR=$(curl -s https://api.github.com/repos/monero-project/monero/releases/latest | jq -r '.tag_name' | sed 's/v//')
+echo "Latest version: $LATEST_XMR"
+
+if [ "$CURRENT_XMR" != "$LATEST_XMR" ]; then
+    echo "⚠️  Monero update available: $CURRENT_XMR -> $LATEST_XMR"
+else
+    echo "✅ Monero is up to date"
+fi
+
+echo ""
+echo "Update check completed at $(date)"
+EOF
+
+chmod +x ~/check_node_updates.sh
+
+# Add to crontab to check weekly
+(crontab -l 2>/dev/null; echo "0 9 * * 1 /home/$USER/check_node_updates.sh >> /var/log/node_updates.log 2>&1") | crontab -</code></pre>
+                        </div>
+                    </section>      
+              
+                    <section class="content-section">
+                        <h2>Performance Optimization</h2>
+                        
+                        <h3>System Tuning</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Optimize system performance</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# Optimize kernel parameters for cryptocurrency nodes
+sudo tee -a /etc/sysctl.conf > /dev/null << 'EOF'
+
+# Network optimizations
+net.core.rmem_max = 134217728
+net.core.wmem_max = 134217728
+net.ipv4.tcp_rmem = 4096 87380 134217728
+net.ipv4.tcp_wmem = 4096 65536 134217728
+net.core.netdev_max_backlog = 5000
+net.ipv4.tcp_congestion_control = bbr
+
+# File system optimizations
+fs.file-max = 2097152
+vm.swappiness = 10
+vm.dirty_ratio = 15
+vm.dirty_background_ratio = 5
+
+# Security
+net.ipv4.conf.all.rp_filter = 1
+net.ipv4.conf.default.rp_filter = 1
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+net.ipv4.icmp_ignore_bogus_error_responses = 1
+EOF
+
+# Apply changes
+sudo sysctl -p
+
+# Optimize I/O scheduler for SSDs
+echo 'ACTION==\"add|change\", KERNEL==\"sd[a-z]*\", ATTR{queue/rotational}==\"0\", ATTR{queue/scheduler}=\"mq-deadline\"' | sudo tee /etc/udev/rules.d/60-ioschedulers.rules
+
+# Set CPU governor to performance (if available)
+echo 'performance' | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor 2>/dev/null || echo \"CPU governor not available\"
+
+# Increase file descriptor limits
+sudo tee -a /etc/security/limits.conf > /dev/null << 'EOF'
+bitcoin soft nofile 65536
+bitcoin hard nofile 65536
+monero soft nofile 65536
+monero hard nofile 65536
+EOF">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># Optimize kernel parameters for cryptocurrency nodes
+sudo tee -a /etc/sysctl.conf > /dev/null << 'EOF'
+
+# Network optimizations
+net.core.rmem_max = 134217728
+net.core.wmem_max = 134217728
+net.ipv4.tcp_rmem = 4096 87380 134217728
+net.ipv4.tcp_wmem = 4096 65536 134217728
+net.core.netdev_max_backlog = 5000
+net.ipv4.tcp_congestion_control = bbr
+
+# File system optimizations
+fs.file-max = 2097152
+vm.swappiness = 10
+vm.dirty_ratio = 15
+vm.dirty_background_ratio = 5
+
+# Security
+net.ipv4.conf.all.rp_filter = 1
+net.ipv4.conf.default.rp_filter = 1
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+net.ipv4.icmp_ignore_bogus_error_responses = 1
+EOF
+
+# Apply changes
+sudo sysctl -p
+
+# Optimize I/O scheduler for SSDs
+echo 'ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="mq-deadline"' | sudo tee /etc/udev/rules.d/60-ioschedulers.rules
+
+# Set CPU governor to performance (if available)
+echo 'performance' | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor 2>/dev/null || echo "CPU governor not available"
+
+# Increase file descriptor limits
+sudo tee -a /etc/security/limits.conf > /dev/null << 'EOF'
+bitcoin soft nofile 65536
+bitcoin hard nofile 65536
+monero soft nofile 65536
+monero hard nofile 65536
+EOF</code></pre>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Disaster Recovery Plan</h2>
+                        
+                        <div class="principle-grid">
+                            <div class="principle-item">
+                                <h4>Recovery Scenarios</h4>
+                                <ul>
+                                    <li>Hardware failure</li>
+                                    <li>Data corruption</li>
+                                    <li>Network compromise</li>
+                                    <li>Software bugs</li>
+                                </ul>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Recovery Procedures</h4>
+                                <ul>
+                                    <li>Restore from backups</li>
+                                    <li>Rebuild from scratch</li>
+                                    <li>Migrate to new hardware</li>
+                                    <li>Network reconfiguration</li>
+                                </ul>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Recovery Testing</h4>
+                                <ul>
+                                    <li>Monthly backup verification</li>
+                                    <li>Quarterly recovery drills</li>
+                                    <li>Documentation updates</li>
+                                    <li>Process improvements</li>
+                                </ul>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Emergency Contacts</h4>
+                                <ul>
+                                    <li>System administrator</li>
+                                    <li>Hosting provider support</li>
+                                    <li>Network security team</li>
+                                    <li>Backup service provider</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Create disaster recovery checklist</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# Create disaster recovery documentation
+cat > ~/disaster_recovery_checklist.md << 'EOF'
+# Cryptocurrency Node Disaster Recovery Checklist
+
+## Immediate Response (0-1 hour)
+- [ ] Assess the scope of the incident
+- [ ] Stop affected services to prevent further damage
+- [ ] Document the incident (time, symptoms, potential causes)
+- [ ] Notify relevant stakeholders
+- [ ] Secure the system from further compromise
+
+## Assessment Phase (1-4 hours)
+- [ ] Determine root cause of the failure
+- [ ] Assess data integrity and corruption extent
+- [ ] Evaluate backup availability and integrity
+- [ ] Estimate recovery time and resources needed
+- [ ] Decide on recovery strategy (restore vs rebuild)
+
+## Recovery Phase (4-24 hours)
+- [ ] Prepare recovery environment
+- [ ] Restore system configuration from backups
+- [ ] Restore Bitcoin Core data and configuration
+- [ ] Restore Monero data and configuration
+- [ ] Verify system integrity and security
+- [ ] Test node functionality and network connectivity
+- [ ] Resume normal operations
+
+## Post-Recovery (24-48 hours)
+- [ ] Monitor system stability and performance
+- [ ] Update security measures if compromise was involved
+- [ ] Document lessons learned and process improvements
+- [ ] Update disaster recovery procedures
+- [ ] Schedule follow-up reviews
+
+## Emergency Contacts
+- System Administrator: [Your contact info]
+- Hosting Provider: [Provider support contact]
+- Backup Service: [Backup service contact]
+- Security Team: [Security contact if applicable]
+
+## Critical Information
+- Server IP: [Your server IP]
+- Backup Location: /backup/crypto-nodes
+- Configuration Files: ~/.bitcoin/bitcoin.conf, ~/.bitmonero/bitmonero.conf
+- Service Files: /etc/systemd/system/bitcoind.service, /etc/systemd/system/monerod.service
+- Log Files: /var/log/bitcoin/, /var/log/monero/
+
+## Recovery Commands Quick Reference
+```bash
+# Stop services
+sudo systemctl stop bitcoind monerod
+
+# Restore from backup
+cd /backup/crypto-nodes
+tar -xzf crypto_nodes_backup_YYYYMMDD_HHMMSS.tar.gz
+
+# Restore configurations
+cp bitcoin_*/bitcoin.conf ~/.bitcoin/
+cp monero_*/bitmonero.conf ~/.bitmonero/
+
+# Restart services
+sudo systemctl start bitcoind monerod
+
+# Verify operation
+bitcoin-cli getblockchaininfo
+curl -X POST http://127.0.0.1:18081/json_rpc -d '{\"jsonrpc\":\"2.0\",\"id\":\"0\",\"method\":\"get_info\"}'
+```
+EOF">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># Create disaster recovery documentation
+cat > ~/disaster_recovery_checklist.md << 'EOF'
+# Cryptocurrency Node Disaster Recovery Checklist
+
+## Immediate Response (0-1 hour)
+- [ ] Assess the scope of the incident
+- [ ] Stop affected services to prevent further damage
+- [ ] Document the incident (time, symptoms, potential causes)
+- [ ] Notify relevant stakeholders
+- [ ] Secure the system from further compromise
+
+## Assessment Phase (1-4 hours)
+- [ ] Determine root cause of the failure
+- [ ] Assess data integrity and corruption extent
+- [ ] Evaluate backup availability and integrity
+- [ ] Estimate recovery time and resources needed
+- [ ] Decide on recovery strategy (restore vs rebuild)
+
+## Recovery Phase (4-24 hours)
+- [ ] Prepare recovery environment
+- [ ] Restore system configuration from backups
+- [ ] Restore Bitcoin Core data and configuration
+- [ ] Restore Monero data and configuration
+- [ ] Verify system integrity and security
+- [ ] Test node functionality and network connectivity
+- [ ] Resume normal operations
+
+## Post-Recovery (24-48 hours)
+- [ ] Monitor system stability and performance
+- [ ] Update security measures if compromise was involved
+- [ ] Document lessons learned and process improvements
+- [ ] Update disaster recovery procedures
+- [ ] Schedule follow-up reviews
+
+## Emergency Contacts
+- System Administrator: [Your contact info]
+- Hosting Provider: [Provider support contact]
+- Backup Service: [Backup service contact]
+- Security Team: [Security contact if applicable]
+
+## Critical Information
+- Server IP: [Your server IP]
+- Backup Location: /backup/crypto-nodes
+- Configuration Files: ~/.bitcoin/bitcoin.conf, ~/.bitmonero/bitmonero.conf
+- Service Files: /etc/systemd/system/bitcoind.service, /etc/systemd/system/monerod.service
+- Log Files: /var/log/bitcoin/, /var/log/monero/
+
+## Recovery Commands Quick Reference
+```bash
+# Stop services
+sudo systemctl stop bitcoind monerod
+
+# Restore from backup
+cd /backup/crypto-nodes
+tar -xzf crypto_nodes_backup_YYYYMMDD_HHMMSS.tar.gz
+
+# Restore configurations
+cp bitcoin_*/bitcoin.conf ~/.bitcoin/
+cp monero_*/bitmonero.conf ~/.bitmonero/
+
+# Restart services
+sudo systemctl start bitcoind monerod
+
+# Verify operation
+bitcoin-cli getblockchaininfo
+curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_info"}'
+```
+EOF</code></pre>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <div class="admonition admonition-success">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Congratulations!</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <p>You have successfully completed all four phases of the cryptocurrency node setup process. Your Bitcoin and Monero nodes are now fully operational with comprehensive monitoring, backup, and maintenance procedures in place.</p>
+                                <p>Your nodes are now contributing to the decentralization and security of the Bitcoin and Monero networks while providing you with full control over your cryptocurrency transactions and privacy.</p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation section" id="page-navigation">
+                    <div class="page-nav-content">
+                        <div class="page-nav-item page-nav-prev" id="page-nav-prev">
+                            <a href="testing.html" class="page-nav-link" id="prev-page-link">
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                                </svg>
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Previous</span>
+                                    <span class="page-nav-title" id="prev-page-title">Testing & Validation</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="page-nav-item page-nav-next" id="page-nav-next">
+                            <a href="/node-guides/" class="page-nav-link" id="next-page-link">
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Complete</span>
+                                    <span class="page-nav-title" id="next-page-title">Node Guides Overview</span>
+                                </div>
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/language-switcher.js"></script>
+    <script src="../../assets/js/page-loader.js"></script>
+    <script src="../../assets/js/utils.js"></script>
+    
+    <script>
+        function copyToClipboard(button) {
+            const code = button.getAttribute('data-code');
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

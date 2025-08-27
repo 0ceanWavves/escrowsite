@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en" data-current-section="node-guides" data-current-page="firewall-config">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firewall Configuration - Server Foundation & Security</title>
+    <meta name="description" content="Configure robust firewall rules to protect your cryptocurrency node server from unauthorized access">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+    <link rel="stylesheet" href="../../assets/css/tabs.css">
+</head>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link active" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link active" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar sidebar-nav" id="sidebar-nav" data-section="node-guides">
+            <!-- Search functionality -->
+            <div class="sidebar-search">
+                <div class="sidebar-search-container">
+                    <input type="text" class="sidebar-search-input" id="sidebar-search" placeholder="Search..." aria-label="Search content">
+                    <svg class="sidebar-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Progress indicator -->
+            <div class="sidebar-progress" id="sidebar-progress">
+                <div class="sidebar-progress-title" id="progress-title">Phase 2 Progress</div>
+                <div class="sidebar-progress-bar">
+                    <div class="sidebar-progress-fill" id="progress-fill" style="width: 66%;"></div>
+                </div>
+                <div class="sidebar-progress-text" id="progress-text">66% Complete</div>
+            </div>
+            
+            <!-- Navigation sections -->
+            <div class="sidebar-sections" id="sidebar-sections">
+                <div class="sidebar-section" id="node-guides-nav">
+                    <h3 class="sidebar-section-title">Node Setup Guides</h3>
+                    
+                    <!-- Phase indicators -->
+                    <div class="sidebar-phase-indicators">
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="1"></div>
+                            <span class="phase-label completed" data-phase="1">Procurement & Provisioning</span>
+                        </div>
+                        <div class="sidebar-phase-indicator active">
+                            <div class="phase-dot active" data-phase="2"></div>
+                            <span class="phase-label active" data-phase="2">Server Foundation & Security</span>
+                        </div>
+                        <div class="sidebar-phase-indicator">
+                            <div class="phase-dot" data-phase="3"></div>
+                            <span class="phase-label" data-phase="3">Node Software Installation</span>
+                        </div>
+                        <div class="sidebar-phase-indicator">
+                            <div class="phase-dot" data-phase="4"></div>
+                            <span class="phase-label" data-phase="4">Blockchain Synchronization</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="sidebar-nav-list">
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-2-content" aria-expanded="true">
+                                <span>Phase 2: Server Foundation & Security</span>
+                                <svg class="sidebar-toggle-icon expanded" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content expanded" id="node-phase-2-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/secure-connections.html" class="sidebar-nav-link" data-page="secure-connections">Secure Connections</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/firewall-config.html" class="sidebar-nav-link active" data-page="firewall-config">Firewall Configuration</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/system-hardening.html" class="sidebar-nav-link" data-page="system-hardening">System Hardening</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Page Content -->
+        <div class="content-area" id="content-area">
+            <!-- Content Page -->
+            <div class="content-page">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb navigation">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="breadcrumb-link">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/" class="breadcrumb-link">Node Guides</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/server-security/" class="breadcrumb-link">Server Foundation & Security</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Firewall Configuration
+                        </li>
+                    </ol>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header section">
+                    <div class="page-header-content">
+                        <h1 class="page-title" id="page-title">Firewall Configuration</h1>
+                        <div class="page-meta">
+                            <span class="page-difficulty" id="page-difficulty">Intermediate</span>
+                            <span class="page-duration" id="page-duration">1-2 hours</span>
+                            <span class="page-updated" id="page-updated">Updated: January 2025</span>
+                        </div>
+                        <div class="page-description" id="page-description">
+                            <p>Configure robust firewall rules to control network access and protect your cryptocurrency nodes from unauthorized connections. We'll set up both host-based and network-level protection.</p>
+                        </div>
+                    </div>
+                </header>
+                
+                <!-- Table of Contents -->
+                <nav class="table-of-contents" id="table-of-contents">
+                    <h3>Table of Contents</h3>
+                    <ul>
+                        <li><a href="#firewall-overview">Firewall Overview</a></li>
+                        <li><a href="#ufw-setup">UFW Setup (Ubuntu/Debian)</a></li>
+                        <li><a href="#firewalld-setup">Firewalld Setup (CentOS/RHEL)</a></li>
+                        <li><a href="#node-specific-rules">Node-Specific Rules</a></li>
+                        <li><a href="#monitoring">Monitoring & Logging</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Main Content Area -->
+                <main class="page-content" id="page-content">
+                    <section class="content-section" id="firewall-overview">
+                        <h2>Firewall Overview</h2>
+                        <p>A properly configured firewall is essential for protecting your cryptocurrency nodes. We'll implement a "default deny" policy, only allowing necessary connections.</p>
+                        
+                        <div class="admonition admonition-info">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Required Ports</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <ul>
+                                    <li><strong>SSH:</strong> 2222 (or your custom port)</li>
+                                    <li><strong>Bitcoin:</strong> 8333 (mainnet), 18333 (testnet)</li>
+                                    <li><strong>Monero:</strong> 18080 (P2P), 18081 (RPC - restricted)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h3>Security Principles</h3>
+                        <div class="principle-grid">
+                            <div class="principle-item">
+                                <h4>Default Deny</h4>
+                                <p>Block all connections by default, only allow what's necessary</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Least Privilege</h4>
+                                <p>Open only the minimum ports required for functionality</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Rate Limiting</h4>
+                                <p>Prevent brute force attacks with connection limits</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Logging</h4>
+                                <p>Monitor and log all firewall activity for security analysis</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section" id="ufw-setup">
+                        <h2>UFW Setup (Ubuntu/Debian)</h2>
+                        
+                        <!-- OS-specific tabs -->
+                        <div class="tab-container" id="firewall-tabs">
+                            <div class="tab-list" role="tablist" aria-label="Operating System">
+                                <button class="tab-button active" role="tab" aria-selected="true" aria-controls="ubuntu-panel" id="ubuntu-tab">
+                                    Ubuntu/Debian
+                                </button>
+                                <button class="tab-button" role="tab" aria-selected="false" aria-controls="centos-panel" id="centos-tab">
+                                    CentOS/RHEL
+                                </button>
+                                <button class="tab-button" role="tab" aria-selected="false" aria-controls="arch-panel" id="arch-tab">
+                                    Arch Linux
+                                </button>
+                            </div>
+                            
+                            <!-- Ubuntu/Debian Panel -->
+                            <div class="tab-panel active" role="tabpanel" id="ubuntu-panel" aria-labelledby="ubuntu-tab">
+                                <h3>Install and Enable UFW</h3>
+                                <div class="code-block-container">
+                                    <div class="code-block-header">
+                                        <span class="code-block-title">Install UFW</span>
+                                        <button class="code-copy-btn" data-clipboard-target="#install-ufw">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre class="code-block" id="install-ufw"><code>apt update
+apt install ufw -y</code></pre>
+                                </div>
+                                
+                                <h3>Configure Default Policies</h3>
+                                <div class="code-block-container">
+                                    <div class="code-block-header">
+                                        <span class="code-block-title">Set Default Policies</span>
+                                        <button class="code-copy-btn" data-clipboard-target="#ufw-defaults">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre class="code-block" id="ufw-defaults"><code>ufw default deny incoming
+ufw default allow outgoing</code></pre>
+                                </div>
+                                
+                                <h3>Allow SSH Access</h3>
+                                <div class="admonition admonition-warning">
+                                    <div class="admonition-header">
+                                        <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 15.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                        </svg>
+                                        <h3 class="admonition-title">Critical Step</h3>
+                                    </div>
+                                    <div class="admonition-content">
+                                        <p>Allow SSH access BEFORE enabling the firewall, or you'll be locked out!</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="code-block-container">
+                                    <div class="code-block-header">
+                                        <span class="code-block-title">Allow SSH</span>
+                                        <button class="code-copy-btn" data-clipboard-target="#ufw-ssh">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre class="code-block" id="ufw-ssh"><code># If using custom SSH port (recommended)
+ufw allow 2222/tcp
+
+# Add rate limiting to prevent brute force
+ufw limit 2222/tcp</code></pre>
+                                </div>
+                                
+                                <h3>Configure Node Ports</h3>
+                                <div class="code-block-container">
+                                    <div class="code-block-header">
+                                        <span class="code-block-title">Bitcoin Node Ports</span>
+                                        <button class="code-copy-btn" data-clipboard-target="#ufw-bitcoin">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre class="code-block" id="ufw-bitcoin"><code># Bitcoin mainnet P2P
+ufw allow 8333/tcp
+
+# Bitcoin testnet P2P (optional)
+ufw allow 18333/tcp</code></pre>
+                                </div>
+                                
+                                <div class="code-block-container">
+                                    <div class="code-block-header">
+                                        <span class="code-block-title">Monero Node Ports</span>
+                                        <button class="code-copy-btn" data-clipboard-target="#ufw-monero">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre class="code-block" id="ufw-monero"><code># Monero P2P port
+ufw allow 18080/tcp
+
+# Monero RPC port (restrict to localhost only)
+# We'll configure this later for local access only</code></pre>
+                                </div>
+                                
+                                <h3>Enable UFW</h3>
+                                <div class="code-block-container">
+                                    <div class="code-block-header">
+                                        <span class="code-block-title">Enable Firewall</span>
+                                        <button class="code-copy-btn" data-clipboard-target="#ufw-enable">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre class="code-block" id="ufw-enable"><code>ufw --force enable</code></pre>
+                                </div>
+                                
+                                <h3>Verify Configuration</h3>
+                                <div class="code-block-container">
+                                    <div class="code-block-header">
+                                        <span class="code-block-title">Check UFW Status</span>
+                                        <button class="code-copy-btn" data-clipboard-target="#ufw-status">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre class="code-block" id="ufw-status"><code>ufw status verbose</code></pre>
+                                </div>
+                            </div>
+                            
+                            <!-- CentOS/RHEL Panel -->
+                            <div class="tab-panel" role="tabpanel" id="centos-panel" aria-labelledby="centos-tab">
+                                <h3>Install and Enable Firewalld</h3>
+                                <div class="code-block-container">
+                                    <div class="code-block-header">
+                                        <span class="code-block-title">Install Firewalld</span>
+                                        <button class="code-copy-btn" data-clipboard-target="#install-firewalld">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre class="code-block" id="install-firewalld"><code>yum install firewalld -y
+systemctl enable firewalld
+systemctl start firewalld</code></pre>
+                                </div>
+                                
+                                <h3>Configure SSH Access</h3>
+                                <div class="code-block-container">
+                                    <div class="code-block-header">
+                                        <span class="code-block-title">Allow SSH</span>
+                                        <button class="code-copy-btn" data-clipboard-target="#firewalld-ssh">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre class="code-block" id="firewalld-ssh"><code># Remove default SSH service
+firewall-cmd --permanent --remove-service=ssh
+
+# Add custom SSH port
+firewall-cmd --permanent --add-port=2222/tcp
+
+# Apply changes
+firewall-cmd --reload</code></pre>
+                                </div>
+                                
+                                <h3>Configure Node Ports</h3>
+                                <div class="code-block-container">
+                                    <div class="code-block-header">
+                                        <span class="code-block-title">Add Node Ports</span>
+                                        <button class="code-copy-btn" data-clipboard-target="#firewalld-nodes">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre class="code-block" id="firewalld-nodes"><code># Bitcoin ports
+firewall-cmd --permanent --add-port=8333/tcp
+firewall-cmd --permanent --add-port=18333/tcp
+
+# Monero P2P port
+firewall-cmd --permanent --add-port=18080/tcp
+
+# Apply changes
+firewall-cmd --reload</code></pre>
+                                </div>
+                                
+                                <h3>Verify Configuration</h3>
+                                <div class="code-block-container">
+                                    <div class="code-block-header">
+                                        <span class="code-block-title">Check Firewalld Status</span>
+                                        <button class="code-copy-btn" data-clipboard-target="#firewalld-status">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre class="code-block" id="firewalld-status"><code>firewall-cmd --list-all</code></pre>
+                                </div>
+                            </div>
+                            
+                            <!-- Arch Linux Panel -->
+                            <div class="tab-panel" role="tabpanel" id="arch-panel" aria-labelledby="arch-tab">
+                                <h3>Install and Configure iptables</h3>
+                                <div class="code-block-container">
+                                    <div class="code-block-header">
+                                        <span class="code-block-title">Install iptables</span>
+                                        <button class="code-copy-btn" data-clipboard-target="#install-iptables">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre class="code-block" id="install-iptables"><code>pacman -S iptables iptables-nft</code></pre>
+                                </div>
+                                
+                                <h3>Create Firewall Script</h3>
+                                <div class="code-block-container">
+                                    <div class="code-block-header">
+                                        <span class="code-block-title">Firewall Rules Script</span>
+                                        <button class="code-copy-btn" data-clipboard-target="#iptables-script">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre class="code-block" id="iptables-script"><code>cat > /etc/iptables/iptables.rules << 'EOF'
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT ACCEPT [0:0]
+
+# Allow loopback
+-A INPUT -i lo -j ACCEPT
+
+# Allow established connections
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+
+# Allow SSH (custom port)
+-A INPUT -p tcp --dport 2222 -m conntrack --ctstate NEW -m recent --set
+-A INPUT -p tcp --dport 2222 -m conntrack --ctstate NEW -m recent --update --seconds 60 --hitcount 4 -j DROP
+-A INPUT -p tcp --dport 2222 -j ACCEPT
+
+# Allow Bitcoin
+-A INPUT -p tcp --dport 8333 -j ACCEPT
+-A INPUT -p tcp --dport 18333 -j ACCEPT
+
+# Allow Monero P2P
+-A INPUT -p tcp --dport 18080 -j ACCEPT
+
+COMMIT
+EOF</code></pre>
+                                </div>
+                                
+                                <h3>Enable and Start iptables</h3>
+                                <div class="code-block-container">
+                                    <div class="code-block-header">
+                                        <span class="code-block-title">Enable iptables</span>
+                                        <button class="code-copy-btn" data-clipboard-target="#enable-iptables">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre class="code-block" id="enable-iptables"><code>systemctl enable iptables
+systemctl start iptables</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section" id="node-specific-rules">
+                        <h2>Node-Specific Rules</h2>
+                        <p>Configure additional security rules specific to cryptocurrency nodes.</p>
+                        
+                        <h3>Restrict RPC Access</h3>
+                        <p>RPC ports should only be accessible locally for security:</p>
+                        
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Local RPC Access Only</span>
+                                <button class="code-copy-btn" data-clipboard-target="#rpc-local">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="rpc-local"><code># UFW: Allow RPC only from localhost
+ufw allow from 127.0.0.1 to any port 8332  # Bitcoin RPC
+ufw allow from 127.0.0.1 to any port 18081 # Monero RPC
+
+# Firewalld: Create rich rules for localhost only
+firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="127.0.0.1" port protocol="tcp" port="8332" accept'
+firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="127.0.0.1" port protocol="tcp" port="18081" accept'</code></pre>
+                        </div>
+                        
+                        <h3>Rate Limiting</h3>
+                        <p>Implement rate limiting to prevent abuse:</p>
+                        
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Connection Rate Limiting</span>
+                                <button class="code-copy-btn" data-clipboard-target="#rate-limiting">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="rate-limiting"><code># UFW: Rate limit node connections
+ufw limit 8333/tcp   # Bitcoin
+ufw limit 18080/tcp  # Monero
+
+# Advanced iptables rate limiting (if using iptables directly)
+iptables -A INPUT -p tcp --dport 8333 -m conntrack --ctstate NEW -m recent --set
+iptables -A INPUT -p tcp --dport 8333 -m conntrack --ctstate NEW -m recent --update --seconds 60 --hitcount 10 -j DROP</code></pre>
+                        </div>
+                        
+                        <h3>Geographic Restrictions (Optional)</h3>
+                        <p>You can optionally restrict connections by country using GeoIP:</p>
+                        
+                        <div class="accordion-container">
+                            <div class="accordion-item">
+                                <button class="accordion-header" aria-expanded="false">
+                                    <span>GeoIP Blocking Setup</span>
+                                    <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </button>
+                                <div class="accordion-content" hidden>
+                                    <div class="admonition admonition-warning">
+                                        <div class="admonition-header">
+                                            <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 15.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                            </svg>
+                                            <h3 class="admonition-title">Advanced Feature</h3>
+                                        </div>
+                                        <div class="admonition-content">
+                                            <p>GeoIP blocking can reduce the decentralization of the network. Use with caution and consider the implications.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="code-block-container">
+                                        <div class="code-block-header">
+                                            <span class="code-block-title">Install GeoIP Tools</span>
+                                            <button class="code-copy-btn" data-clipboard-target="#geoip-install">
+                                                <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                                </svg>
+                                                Copy
+                                            </button>
+                                        </div>
+                                        <pre class="code-block" id="geoip-install"><code>apt install xtables-addons-common libtext-csv-xs-perl -y
+mkdir /usr/share/xt_geoip
+/usr/lib/xtables-addons/xt_geoip_dl
+/usr/lib/xtables-addons/xt_geoip_build -D /usr/share/xt_geoip *.csv</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section" id="monitoring">
+                        <h2>Monitoring & Logging</h2>
+                        <p>Set up logging and monitoring to track firewall activity and potential security threats.</p>
+                        
+                        <h3>Enable Firewall Logging</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Enable UFW Logging</span>
+                                <button class="code-copy-btn" data-clipboard-target="#ufw-logging">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="ufw-logging"><code>ufw logging on</code></pre>
+                        </div>
+                        
+                        <h3>Monitor Firewall Logs</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">View Firewall Logs</span>
+                                <button class="code-copy-btn" data-clipboard-target="#view-logs">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="view-logs"><code># View recent UFW logs
+tail -f /var/log/ufw.log
+
+# View firewalld logs
+journalctl -u firewalld -f
+
+# Search for blocked connections
+grep "UFW BLOCK" /var/log/ufw.log | tail -20</code></pre>
+                        </div>
+                        
+                        <h3>Create Log Analysis Script</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Firewall Log Analyzer</span>
+                                <button class="code-copy-btn" data-clipboard-target="#log-analyzer">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="log-analyzer"><code>cat > /usr/local/bin/firewall-report.sh << 'EOF'
+#!/bin/bash
+echo "=== Firewall Activity Report ==="
+echo "Date: $(date)"
+echo ""
+
+echo "Top 10 Blocked IPs (last 24 hours):"
+grep "UFW BLOCK" /var/log/ufw.log | \
+  grep "$(date '+%b %d')" | \
+  awk '{print $12}' | \
+  sed 's/SRC=//' | \
+  sort | uniq -c | sort -nr | head -10
+
+echo ""
+echo "Recent SSH attempts:"
+grep "UFW BLOCK.*DPT=2222" /var/log/ufw.log | tail -5
+
+echo ""
+echo "Node connection attempts:"
+grep -E "UFW BLOCK.*(DPT=8333|DPT=18080)" /var/log/ufw.log | tail -5
+EOF
+
+chmod +x /usr/local/bin/firewall-report.sh</code></pre>
+                        </div>
+                        
+                        <h3>Set Up Automated Alerts</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Daily Firewall Report Cron</span>
+                                <button class="code-copy-btn" data-clipboard-target="#cron-report">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="cron-report"><code># Add to crontab for daily reports
+echo "0 8 * * * /usr/local/bin/firewall-report.sh | mail -s 'Daily Firewall Report' admin@yourdomain.com" | crontab -</code></pre>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <div class="admonition admonition-success">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Firewall Configured</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <p>Your server now has a robust firewall configuration that:</p>
+                                <ul>
+                                    <li>Blocks all unnecessary incoming connections</li>
+                                    <li>Allows only required ports for SSH and cryptocurrency nodes</li>
+                                    <li>Implements rate limiting to prevent abuse</li>
+                                    <li>Logs all activity for security monitoring</li>
+                                </ul>
+                                <p><strong>Next:</strong> Apply comprehensive system hardening measures.</p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation section" id="page-navigation">
+                    <div class="page-nav-content">
+                        <div class="page-nav-item page-nav-prev" id="page-nav-prev">
+                            <a href="secure-connections.html" class="page-nav-link" id="prev-page-link">
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                                </svg>
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Previous</span>
+                                    <span class="page-nav-title" id="prev-page-title">Secure Connections</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="page-nav-item page-nav-next" id="page-nav-next">
+                            <a href="system-hardening.html" class="page-nav-link" id="next-page-link">
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Next</span>
+                                    <span class="page-nav-title" id="next-page-title">System Hardening</span>
+                                </div>
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" id="site-footer">
+        <p id="footer-text">© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="../../assets/js/utils.js"></script>
+    <script src="../../assets/js/language-switcher.js"></script>
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/page-loader.js"></script>
+    <script src="../../assets/js/accordion.js"></script>
+    <script src="../../assets/js/tabs.js"></script>
+    <script>
+        // Copy to clipboard functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButtons = document.querySelectorAll('.code-copy-btn');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-clipboard-target');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const textToCopy = targetElement.textContent;
+                        
+                        navigator.clipboard.writeText(textToCopy).then(() => {
+                            // Visual feedback
+                            const originalText = this.innerHTML;
+                            this.innerHTML = `
+                                <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Copied!
+                            `;
+                            
+                            setTimeout(() => {
+                                this.innerHTML = originalText;
+                            }, 2000);
+                        }).catch(err => {
+                            console.error('Failed to copy text: ', err);
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

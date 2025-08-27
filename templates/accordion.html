@@ -1,0 +1,128 @@
+<!-- Accordion Component Template -->
+<!-- Basic accordion structure for reuse across content pages -->
+
+<!-- Single Accordion Container -->
+<div class="accordion" data-allow-multiple="false" data-animation-duration="300">
+  
+  <!-- Accordion Item Template -->
+  <div class="accordion-item">
+    <button class="accordion-header" type="button">
+      <span>Accordion Header Title</span>
+      <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    <div class="accordion-content" hidden>
+      <div class="accordion-body">
+        <p>Accordion content goes here. This can include any HTML content such as text, lists, code blocks, or other components.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Additional accordion items can be added here -->
+  
+</div>
+
+<!-- Multi-Accordion Example (allows multiple items to be open) -->
+<div class="accordion" data-allow-multiple="true">
+  
+  <div class="accordion-item">
+    <button class="accordion-header" type="button">
+      <span>Advanced Configuration Options</span>
+      <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    <div class="accordion-content" hidden>
+      <div class="accordion-body">
+        <p>Advanced configuration content with detailed technical information.</p>
+        <ul>
+          <li>Configuration option 1</li>
+          <li>Configuration option 2</li>
+          <li>Configuration option 3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="accordion-item">
+    <button class="accordion-header" type="button">
+      <span>Troubleshooting Guide</span>
+      <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    <div class="accordion-content" hidden>
+      <div class="accordion-body">
+        <h4>Common Issues and Solutions</h4>
+        <p>If you encounter problems, try these solutions:</p>
+        <ol>
+          <li>Check your configuration files</li>
+          <li>Verify network connectivity</li>
+          <li>Review system logs</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<!-- FAQ-Style Accordion Example -->
+<div class="accordion faq-accordion">
+  
+  <div class="accordion-item">
+    <button class="accordion-header" type="button">
+      <span>What are the minimum system requirements?</span>
+      <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    <div class="accordion-content" hidden>
+      <div class="accordion-body">
+        <p>The minimum system requirements include:</p>
+        <ul>
+          <li>4GB RAM (8GB recommended)</li>
+          <li>50GB free disk space</li>
+          <li>Stable internet connection</li>
+          <li>Modern web browser</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="accordion-item">
+    <button class="accordion-header" type="button">
+      <span>How long does the setup process take?</span>
+      <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    <div class="accordion-content" hidden>
+      <div class="accordion-body">
+        <p>The complete setup process typically takes:</p>
+        <ul>
+          <li>Phase 1: 2-4 hours (Procurement & Provisioning)</li>
+          <li>Phase 2: 3-6 hours (Server Foundation & Security)</li>
+          <li>Phase 3: 2-3 hours (Node Software Installation)</li>
+          <li>Phase 4: 24-48 hours (Blockchain Synchronization)</li>
+        </ul>
+        <p><strong>Note:</strong> Blockchain synchronization runs in the background and doesn't require active monitoring.</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<!-- Usage Instructions -->
+<!--
+To use this accordion template:
+
+1. Include the accordion.css and accordion.js files in your page
+2. Copy the desired accordion structure from above
+3. Customize the content within .accordion-body elements
+4. Optionally set data attributes:
+   - data-allow-multiple="true" to allow multiple items open simultaneously
+   - data-animation-duration="500" to customize animation speed (in milliseconds)
+
+The accordion will automatically initialize when the page loads.
+-->

@@ -1,0 +1,262 @@
+<!-- Tabbed Interface Component Template -->
+<!-- Basic tabbed interface structure for reuse across content pages -->
+
+<!-- OS-Specific Instructions Tab Container -->
+<div class="tab-container" data-active-index="0" data-auto-activate="true" data-orientation="horizontal">
+  
+  <div class="tab-list" role="tablist">
+    <button class="tab-button os-linux" role="tab" type="button">
+      Linux
+    </button>
+    <button class="tab-button os-macos" role="tab" type="button">
+      macOS
+    </button>
+    <button class="tab-button os-windows" role="tab" type="button">
+      Windows
+    </button>
+  </div>
+  
+  <div class="tab-panels">
+    
+    <div class="tab-panel" role="tabpanel">
+      <h3>Linux Installation</h3>
+      <p>Follow these steps to install on Linux systems:</p>
+      <ol>
+        <li>Update your package manager</li>
+        <li>Install required dependencies</li>
+        <li>Download and verify the software</li>
+        <li>Configure and start the service</li>
+      </ol>
+      
+      <pre><code># Update package manager
+sudo apt update && sudo apt upgrade -y
+
+# Install dependencies
+sudo apt install curl wget gnupg2 -y
+
+# Download software
+wget https://example.com/software.tar.gz
+
+# Verify signature
+gpg --verify software.tar.gz.sig software.tar.gz</code></pre>
+    </div>
+    
+    <div class="tab-panel" role="tabpanel">
+      <h3>macOS Installation</h3>
+      <p>Installation steps for macOS:</p>
+      <ol>
+        <li>Install Homebrew (if not already installed)</li>
+        <li>Use Homebrew to install dependencies</li>
+        <li>Download and install the software</li>
+        <li>Configure system preferences</li>
+      </ol>
+      
+      <pre><code># Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install dependencies
+brew install curl wget gnupg
+
+# Download software
+curl -O https://example.com/software.dmg
+
+# Install from DMG
+sudo installer -pkg software.pkg -target /</code></pre>
+    </div>
+    
+    <div class="tab-panel" role="tabpanel">
+      <h3>Windows Installation</h3>
+      <p>Installation process for Windows systems:</p>
+      <ol>
+        <li>Download the Windows installer</li>
+        <li>Run as administrator</li>
+        <li>Follow the installation wizard</li>
+        <li>Configure Windows Defender exceptions</li>
+      </ol>
+      
+      <pre><code># PowerShell commands
+# Download installer
+Invoke-WebRequest -Uri "https://example.com/software.exe" -OutFile "software.exe"
+
+# Verify hash (optional)
+Get-FileHash software.exe -Algorithm SHA256
+
+# Run installer (as administrator)
+Start-Process -FilePath "software.exe" -Verb RunAs</code></pre>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Configuration Options Tab Container -->
+<div class="tab-container" data-allow-multiple="false">
+  
+  <div class="tab-list" role="tablist">
+    <button class="tab-button" role="tab" type="button">
+      Basic Config
+    </button>
+    <button class="tab-button" role="tab" type="button">
+      Advanced Config
+      <span class="badge">3</span>
+    </button>
+    <button class="tab-button" role="tab" type="button">
+      Security Settings
+    </button>
+  </div>
+  
+  <div class="tab-panels">
+    
+    <div class="tab-panel" role="tabpanel">
+      <h3>Basic Configuration</h3>
+      <p>Essential settings to get started:</p>
+      
+      <h4>Network Settings</h4>
+      <ul>
+        <li><strong>Port:</strong> 8333 (default for Bitcoin)</li>
+        <li><strong>Max Connections:</strong> 125</li>
+        <li><strong>Listen:</strong> Enable incoming connections</li>
+      </ul>
+      
+      <h4>Storage Settings</h4>
+      <ul>
+        <li><strong>Data Directory:</strong> ~/.bitcoin/</li>
+        <li><strong>Prune:</strong> Disabled (full node)</li>
+        <li><strong>DB Cache:</strong> 450 MB</li>
+      </ul>
+      
+      <pre><code># Basic bitcoin.conf
+port=8333
+maxconnections=125
+listen=1
+datadir=~/.bitcoin
+dbcache=450</code></pre>
+    </div>
+    
+    <div class="tab-panel" role="tabpanel">
+      <h3>Advanced Configuration</h3>
+      <p>Advanced settings for experienced users:</p>
+      
+      <h4>Performance Tuning</h4>
+      <ul>
+        <li>Memory pool settings</li>
+        <li>Connection optimization</li>
+        <li>Bandwidth management</li>
+      </ul>
+      
+      <h4>Logging and Monitoring</h4>
+      <ul>
+        <li>Debug logging levels</li>
+        <li>Log file rotation</li>
+        <li>Performance metrics</li>
+      </ul>
+      
+      <pre><code># Advanced bitcoin.conf
+maxmempool=300
+mempoolexpiry=72
+maxuploadtarget=5000
+debug=net
+logips=1
+logtimestamps=1</code></pre>
+    </div>
+    
+    <div class="tab-panel" role="tabpanel">
+      <h3>Security Settings</h3>
+      <p>Important security configurations:</p>
+      
+      <h4>Access Control</h4>
+      <ul>
+        <li>RPC authentication</li>
+        <li>Network binding</li>
+        <li>Firewall configuration</li>
+      </ul>
+      
+      <h4>Privacy Settings</h4>
+      <ul>
+        <li>Tor integration</li>
+        <li>IP address privacy</li>
+        <li>Connection anonymization</li>
+      </ul>
+      
+      <pre><code># Security bitcoin.conf
+rpcauth=user:hash
+rpcbind=127.0.0.1
+rpcallowip=127.0.0.1
+proxy=127.0.0.1:9050
+onlynet=onion</code></pre>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Simple Content Tabs -->
+<div class="tab-container">
+  
+  <div class="tab-list" role="tablist">
+    <button class="tab-button" role="tab" type="button">
+      Overview
+    </button>
+    <button class="tab-button" role="tab" type="button">
+      Requirements
+    </button>
+    <button class="tab-button" role="tab" type="button">
+      Next Steps
+    </button>
+  </div>
+  
+  <div class="tab-panels">
+    
+    <div class="tab-panel" role="tabpanel">
+      <h3>Phase Overview</h3>
+      <p>This phase covers the fundamental setup and configuration of your cryptocurrency node.</p>
+      <p><strong>Estimated Time:</strong> 2-4 hours</p>
+      <p><strong>Difficulty:</strong> Intermediate</p>
+      <p><strong>Prerequisites:</strong> Basic command line knowledge, VPS access</p>
+    </div>
+    
+    <div class="tab-panel" role="tabpanel">
+      <h3>System Requirements</h3>
+      <ul>
+        <li><strong>CPU:</strong> 2+ cores (4 recommended)</li>
+        <li><strong>RAM:</strong> 4GB minimum (8GB recommended)</li>
+        <li><strong>Storage:</strong> 500GB+ SSD</li>
+        <li><strong>Network:</strong> Unlimited bandwidth preferred</li>
+        <li><strong>OS:</strong> Ubuntu 20.04+ or similar Linux distribution</li>
+      </ul>
+    </div>
+    
+    <div class="tab-panel" role="tabpanel">
+      <h3>What's Next</h3>
+      <p>After completing this phase, you'll be ready to:</p>
+      <ol>
+        <li>Proceed to Phase 2: Server Foundation & Security</li>
+        <li>Configure advanced security settings</li>
+        <li>Set up monitoring and alerting</li>
+        <li>Begin the blockchain synchronization process</li>
+      </ol>
+      <p><strong>Continue to:</strong> <a href="#phase-2">Phase 2: Server Foundation & Security</a></p>
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Usage Instructions -->
+<!--
+To use this tabbed interface template:
+
+1. Include the tabs.css and tabs.js files in your page
+2. Copy the desired tab structure from above
+3. Customize the content within .tab-panel elements
+4. Optionally set data attributes:
+   - data-active-index="1" to set which tab is active initially (0-based)
+   - data-auto-activate="false" to require explicit clicks to activate tabs
+   - data-orientation="vertical" for vertical tab layout
+
+The tabs will automatically initialize when the page loads.
+Keyboard navigation is supported:
+- Arrow keys to move between tabs
+- Enter/Space to activate a tab
+- Home/End to jump to first/last tab
+-->

@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en" data-current-section="node-guides" data-current-page="testing">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing & Validation - Blockchain Synchronization</title>
+    <meta name="description" content="Comprehensive validation checklists and testing procedures for Bitcoin and Monero node operation">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+</head>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link active" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>     
+   
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link active" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar sidebar-nav" id="sidebar-nav" data-section="node-guides">
+            <!-- Search functionality -->
+            <div class="sidebar-search">
+                <div class="sidebar-search-container">
+                    <input type="text" class="sidebar-search-input" id="sidebar-search" placeholder="Search..." aria-label="Search content">
+                    <svg class="sidebar-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Progress indicator -->
+            <div class="sidebar-progress" id="sidebar-progress">
+                <div class="sidebar-progress-title" id="progress-title">Phase 4 Progress</div>
+                <div class="sidebar-progress-bar">
+                    <div class="sidebar-progress-fill" id="progress-fill" style="width: 66%;"></div>
+                </div>
+                <div class="sidebar-progress-text" id="progress-text">66% Complete</div>
+            </div>
+            
+            <!-- Navigation sections -->
+            <div class="sidebar-sections" id="sidebar-sections">
+                <div class="sidebar-section" id="node-guides-nav">
+                    <h3 class="sidebar-section-title">Node Setup Guides</h3>
+                    
+                    <!-- Phase indicators -->
+                    <div class="sidebar-phase-indicators">
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="1"></div>
+                            <span class="phase-label completed" data-phase="1">Procurement & Provisioning</span>
+                        </div>
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="2"></div>
+                            <span class="phase-label completed" data-phase="2">Server Foundation & Security</span>
+                        </div>
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="3"></div>
+                            <span class="phase-label completed" data-phase="3">Node Software Installation</span>
+                        </div>
+                        <div class="sidebar-phase-indicator active">
+                            <div class="phase-dot active" data-phase="4"></div>
+                            <span class="phase-label active" data-phase="4">Blockchain Synchronization</span>
+                        </div>
+                    </div>       
+             
+                    <ul class="sidebar-nav-list">
+                        <li class="sidebar-nav-item">
+                            <a href="/node-guides/" class="sidebar-nav-link" data-page="overview">
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-4-content" aria-expanded="true">
+                                <span>Phase 4: Blockchain Synchronization</span>
+                                <svg class="sidebar-toggle-icon expanded" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content expanded" id="node-phase-4-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/synchronization/monitoring.html" class="sidebar-nav-link" data-page="monitoring">Progress Monitoring</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/synchronization/testing.html" class="sidebar-nav-link active" data-page="testing">Testing & Validation</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/synchronization/maintenance.html" class="sidebar-nav-link" data-page="maintenance">Ongoing Maintenance</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Page Content -->
+        <div class="content-area" id="content-area">
+            <!-- Content Page -->
+            <div class="content-page">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb navigation">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="breadcrumb-link">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/" class="breadcrumb-link">Node Guides</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/synchronization/" class="breadcrumb-link">Blockchain Synchronization</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Testing & Validation
+                        </li>
+                    </ol>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header section">
+                    <div class="page-header-content">
+                        <h1 class="page-title" id="page-title">Testing & Validation Checklists</h1>
+                        <div class="page-meta">
+                            <span class="page-difficulty" id="page-difficulty">Intermediate</span>
+                            <span class="page-duration" id="page-duration">2-4 hours</span>
+                            <span class="page-updated" id="page-updated">Updated: January 2025</span>
+                        </div>
+                        <div class="page-description" id="page-description">
+                            <p>Comprehensive validation procedures to verify proper operation of your Bitcoin and Monero nodes after synchronization completion. These tests ensure your nodes are fully functional and properly integrated into their respective networks.</p>
+                        </div>
+                    </div>
+                </header>
+                
+                <!-- Main Content Area -->
+                <main class="page-content" id="page-content">
+                    <section class="content-section">
+                        <h2>Validation Overview</h2>
+                        <p>After synchronization completes, it's crucial to validate that your nodes are operating correctly. This section provides comprehensive checklists and testing procedures to verify functionality, security, and network participation.</p>
+                        
+                        <div class="admonition admonition-info">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Testing Prerequisites</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <p>Before starting validation tests, ensure:</p>
+                                <ul>
+                                    <li>Both Bitcoin and Monero nodes have completed initial synchronization</li>
+                                    <li>Nodes are running and responsive to RPC commands</li>
+                                    <li>System resources are stable and within normal ranges</li>
+                                    <li>Network connectivity is established and stable</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Bitcoin Core Validation Checklist</h2>
+                        
+                        <div class="checklist-container">
+                            <h3>Basic Functionality Tests</h3>
+                            <div class="checklist">
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="btc-running" class="checklist-checkbox">
+                                    <label for="btc-running" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Bitcoin daemon is running and responsive</span>
+                                    </label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="btc-synced" class="checklist-checkbox">
+                                    <label for="btc-synced" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Blockchain is fully synchronized (verificationprogress = 1.0)</span>
+                                    </label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="btc-peers" class="checklist-checkbox">
+                                    <label for="btc-peers" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Connected to 8+ peers</span>
+                                    </label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="btc-blocks" class="checklist-checkbox">
+                                    <label for="btc-blocks" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Block height matches network consensus</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3>Bitcoin Validation Commands</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Bitcoin Core validation tests</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# 1. Check daemon status
+systemctl status bitcoind
+
+# 2. Verify synchronization completion
+bitcoin-cli getblockchaininfo | jq '{
+  blocks: .blocks,
+  headers: .headers,
+  progress: .verificationprogress,
+  synced: (.verificationprogress >= 0.999999)
+}'
+
+# 3. Check peer connections
+bitcoin-cli getconnectioncount
+bitcoin-cli getpeerinfo | jq 'length'
+
+# 4. Verify network participation
+bitcoin-cli getnetworkinfo | jq '{
+  version: .version,
+  subversion: .subversion,
+  connections: .connections,
+  networks: .networks
+}'
+
+# 5. Test RPC functionality
+bitcoin-cli getbestblockhash
+bitcoin-cli getblock $(bitcoin-cli getbestblockhash) | jq '{
+  hash: .hash,
+  height: .height,
+  time: .time,
+  tx_count: (.tx | length)
+}'
+
+# 6. Validate mempool
+bitcoin-cli getmempoolinfo
+
+# 7. Check wallet functionality (if enabled)
+bitcoin-cli listwallets
+bitcoin-cli getwalletinfo">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># 1. Check daemon status
+systemctl status bitcoind
+
+# 2. Verify synchronization completion
+bitcoin-cli getblockchaininfo | jq '{
+  blocks: .blocks,
+  headers: .headers,
+  progress: .verificationprogress,
+  synced: (.verificationprogress >= 0.999999)
+}'
+
+# 3. Check peer connections
+bitcoin-cli getconnectioncount
+bitcoin-cli getpeerinfo | jq 'length'
+
+# 4. Verify network participation
+bitcoin-cli getnetworkinfo | jq '{
+  version: .version,
+  subversion: .subversion,
+  connections: .connections,
+  networks: .networks
+}'
+
+# 5. Test RPC functionality
+bitcoin-cli getbestblockhash
+bitcoin-cli getblock $(bitcoin-cli getbestblockhash) | jq '{
+  hash: .hash,
+  height: .height,
+  time: .time,
+  tx_count: (.tx | length)
+}'
+
+# 6. Validate mempool
+bitcoin-cli getmempoolinfo
+
+# 7. Check wallet functionality (if enabled)
+bitcoin-cli listwallets
+bitcoin-cli getwalletinfo</code></pre>
+                        </div>
+                    </section>        
+            
+                    <section class="content-section">
+                        <h2>Monero Validation Checklist</h2>
+                        
+                        <div class="checklist-container">
+                            <h3>Basic Functionality Tests</h3>
+                            <div class="checklist">
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="xmr-running" class="checklist-checkbox">
+                                    <label for="xmr-running" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Monero daemon is running and responsive</span>
+                                    </label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="xmr-synced" class="checklist-checkbox">
+                                    <label for="xmr-synced" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Blockchain is fully synchronized (height = target_height)</span>
+                                    </label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="xmr-peers" class="checklist-checkbox">
+                                    <label for="xmr-peers" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Connected to 8+ peers</span>
+                                    </label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="xmr-rpc" class="checklist-checkbox">
+                                    <label for="xmr-rpc" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>RPC interface is accessible and functional</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3>Monero Validation Commands</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Monero daemon validation tests</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# 1. Check daemon status
+systemctl status monerod
+
+# 2. Verify synchronization completion
+curl -X POST http://127.0.0.1:18081/json_rpc -d '{
+  \"jsonrpc\":\"2.0\",
+  \"id\":\"0\",
+  \"method\":\"get_info\"
+}' -H 'Content-Type: application/json' | jq '.result | {
+  height: .height,
+  target_height: .target_height,
+  synced: (.height == .target_height),
+  difficulty: .difficulty,
+  tx_pool_size: .tx_pool_size
+}'
+
+# 3. Check peer connections
+curl -X POST http://127.0.0.1:18081/json_rpc -d '{
+  \"jsonrpc\":\"2.0\",
+  \"id\":\"0\",
+  \"method\":\"get_connections\"
+}' -H 'Content-Type: application/json' | jq '.result.connections | length'
+
+# 4. Verify network status
+echo 'status' | nc 127.0.0.1 18081
+
+# 5. Test block retrieval
+curl -X POST http://127.0.0.1:18081/json_rpc -d '{
+  \"jsonrpc\":\"2.0\",
+  \"id\":\"0\",
+  \"method\":\"get_last_block_header\"
+}' -H 'Content-Type: application/json' | jq '.result.block_header | {
+  hash: .hash,
+  height: .height,
+  timestamp: .timestamp,
+  difficulty: .difficulty
+}'
+
+# 6. Check transaction pool
+curl -X POST http://127.0.0.1:18081/json_rpc -d '{
+  \"jsonrpc\":\"2.0\",
+  \"id\":\"0\",
+  \"method\":\"get_transaction_pool\"
+}' -H 'Content-Type: application/json' | jq '.result | length'
+
+# 7. Verify daemon version
+curl -X POST http://127.0.0.1:18081/json_rpc -d '{
+  \"jsonrpc\":\"2.0\",
+  \"id\":\"0\",
+  \"method\":\"get_version\"
+}' -H 'Content-Type: application/json' | jq '.result'">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># 1. Check daemon status
+systemctl status monerod
+
+# 2. Verify synchronization completion
+curl -X POST http://127.0.0.1:18081/json_rpc -d '{
+  "jsonrpc":"2.0",
+  "id":"0",
+  "method":"get_info"
+}' -H 'Content-Type: application/json' | jq '.result | {
+  height: .height,
+  target_height: .target_height,
+  synced: (.height == .target_height),
+  difficulty: .difficulty,
+  tx_pool_size: .tx_pool_size
+}'
+
+# 3. Check peer connections
+curl -X POST http://127.0.0.1:18081/json_rpc -d '{
+  "jsonrpc":"2.0",
+  "id":"0",
+  "method":"get_connections"
+}' -H 'Content-Type: application/json' | jq '.result.connections | length'
+
+# 4. Verify network status
+echo 'status' | nc 127.0.0.1 18081
+
+# 5. Test block retrieval
+curl -X POST http://127.0.0.1:18081/json_rpc -d '{
+  "jsonrpc":"2.0",
+  "id":"0",
+  "method":"get_last_block_header"
+}' -H 'Content-Type: application/json' | jq '.result.block_header | {
+  hash: .hash,
+  height: .height,
+  timestamp: .timestamp,
+  difficulty: .difficulty
+}'
+
+# 6. Check transaction pool
+curl -X POST http://127.0.0.1:18081/json_rpc -d '{
+  "jsonrpc":"2.0",
+  "id":"0",
+  "method":"get_transaction_pool"
+}' -H 'Content-Type: application/json' | jq '.result | length'
+
+# 7. Verify daemon version
+curl -X POST http://127.0.0.1:18081/json_rpc -d '{
+  "jsonrpc":"2.0",
+  "id":"0",
+  "method":"get_version"
+}' -H 'Content-Type: application/json' | jq '.result'</code></pre>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Network Connectivity Tests</h2>
+                        
+                        <div class="checklist-container">
+                            <h3>Network Validation Checklist</h3>
+                            <div class="checklist">
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="net-ports" class="checklist-checkbox">
+                                    <label for="net-ports" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Required ports are open and accessible</span>
+                                    </label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="net-inbound" class="checklist-checkbox">
+                                    <label for="net-inbound" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Inbound connections are working</span>
+                                    </label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="net-outbound" class="checklist-checkbox">
+                                    <label for="net-outbound" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Outbound connections are established</span>
+                                    </label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="net-bandwidth" class="checklist-checkbox">
+                                    <label for="net-bandwidth" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Network bandwidth usage is reasonable</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3>Network Testing Commands</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Network connectivity tests</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# Check listening ports
+netstat -tlnp | grep -E ':(8333|18444|18081|18083)'
+
+# Test Bitcoin port accessibility (from external)
+# Replace YOUR_SERVER_IP with your actual server IP
+nmap -p 8333 YOUR_SERVER_IP
+
+# Test Monero port accessibility
+nmap -p 18080 YOUR_SERVER_IP
+
+# Check firewall status
+ufw status verbose
+
+# Monitor network connections
+ss -tuln | grep -E ':(8333|18444|18081|18083)'
+
+# Test outbound connectivity
+curl -s https://bitnodes.io/api/v1/snapshots/latest/ | jq '.total_nodes'
+
+# Check if your Bitcoin node is publicly reachable
+# (This may take a few minutes to propagate)
+curl -s \"https://bitnodes.io/api/v1/nodes/YOUR_SERVER_IP-8333/\"
+
+# Monitor bandwidth usage
+iftop -i $(ip route | grep default | awk '{print $5}' | head -1)">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># Check listening ports
+netstat -tlnp | grep -E ':(8333|18444|18081|18083)'
+
+# Test Bitcoin port accessibility (from external)
+# Replace YOUR_SERVER_IP with your actual server IP
+nmap -p 8333 YOUR_SERVER_IP
+
+# Test Monero port accessibility
+nmap -p 18080 YOUR_SERVER_IP
+
+# Check firewall status
+ufw status verbose
+
+# Monitor network connections
+ss -tuln | grep -E ':(8333|18444|18081|18083)'
+
+# Test outbound connectivity
+curl -s https://bitnodes.io/api/v1/snapshots/latest/ | jq '.total_nodes'
+
+# Check if your Bitcoin node is publicly reachable
+# (This may take a few minutes to propagate)
+curl -s "https://bitnodes.io/api/v1/nodes/YOUR_SERVER_IP-8333/"
+
+# Monitor bandwidth usage
+iftop -i $(ip route | grep default | awk '{print $5}' | head -1)</code></pre>
+                        </div>
+                    </section>  
+                  
+                    <section class="content-section">
+                        <h2>Performance & Security Validation</h2>
+                        
+                        <div class="checklist-container">
+                            <h3>Performance Tests</h3>
+                            <div class="checklist">
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="perf-cpu" class="checklist-checkbox">
+                                    <label for="perf-cpu" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>CPU usage is within acceptable limits (< 80%)</span>
+                                    </label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="perf-memory" class="checklist-checkbox">
+                                    <label for="perf-memory" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Memory usage is stable and not growing</span>
+                                    </label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="perf-disk" class="checklist-checkbox">
+                                    <label for="perf-disk" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Disk I/O is reasonable for ongoing operations</span>
+                                    </label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="perf-response" class="checklist-checkbox">
+                                    <label for="perf-response" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>RPC response times are acceptable (< 5 seconds)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3>Security Validation</h3>
+                        <div class="checklist">
+                            <div class="checklist-item">
+                                <input type="checkbox" id="sec-users" class="checklist-checkbox">
+                                <label for="sec-users" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Nodes are running under dedicated user accounts</span>
+                                </label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="sec-permissions" class="checklist-checkbox">
+                                <label for="sec-permissions" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>File permissions are properly configured</span>
+                                </label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="sec-rpc" class="checklist-checkbox">
+                                <label for="sec-rpc" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>RPC interfaces are properly secured</span>
+                                </label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="sec-logs" class="checklist-checkbox">
+                                <label for="sec-logs" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Log files show no security warnings or errors</span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Automated Validation Script</h2>
+                        <p>Create a comprehensive validation script to automate these tests:</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Create validation script</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="#!/bin/bash
+# Comprehensive Node Validation Script
+
+cat > ~/validate_nodes.sh << 'EOF'
+#!/bin/bash
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+PASSED=0
+FAILED=0
+
+echo -e \"${BLUE}=== Cryptocurrency Node Validation Report ===${NC}\"
+echo -e \"$(date)\"
+echo \"\"
+
+# Function to check test result
+check_result() {
+    if [ $1 -eq 0 ]; then
+        echo -e \"${GREEN}✓ PASS${NC}: $2\"
+        ((PASSED++))
+    else
+        echo -e \"${RED}✗ FAIL${NC}: $2\"
+        ((FAILED++))
+    fi
+}
+
+# Bitcoin Core Tests
+echo -e \"${YELLOW}=== Bitcoin Core Validation ===${NC}\"
+
+# Test 1: Bitcoin daemon running
+pgrep -x \"bitcoind\" > /dev/null
+check_result $? \"Bitcoin daemon is running\"
+
+# Test 2: RPC connectivity
+bitcoin-cli getblockchaininfo > /dev/null 2>&1
+check_result $? \"Bitcoin RPC is accessible\"
+
+if [ $? -eq 0 ]; then
+    # Test 3: Synchronization complete
+    SYNC_PROGRESS=$(bitcoin-cli getblockchaininfo | jq -r '.verificationprogress')
+    if (( $(echo \"$SYNC_PROGRESS >= 0.999999\" | bc -l) )); then
+        check_result 0 \"Bitcoin blockchain is synchronized\"
+    else
+        check_result 1 \"Bitcoin blockchain synchronization incomplete ($SYNC_PROGRESS)\"
+    fi
+    
+    # Test 4: Peer connections
+    PEER_COUNT=$(bitcoin-cli getconnectioncount)
+    if [ \"$PEER_COUNT\" -ge 8 ]; then
+        check_result 0 \"Bitcoin has sufficient peers ($PEER_COUNT)\"
+    else
+        check_result 1 \"Bitcoin has insufficient peers ($PEER_COUNT)\"
+    fi
+    
+    # Test 5: Block height matches headers
+    BLOCKS=$(bitcoin-cli getblockchaininfo | jq -r '.blocks')
+    HEADERS=$(bitcoin-cli getblockchaininfo | jq -r '.headers')
+    if [ \"$BLOCKS\" -eq \"$HEADERS\" ]; then
+        check_result 0 \"Bitcoin block height matches headers\"
+    else
+        check_result 1 \"Bitcoin block height mismatch (blocks: $BLOCKS, headers: $HEADERS)\"
+    fi
+fi
+
+echo \"\"
+
+# Monero Tests
+echo -e \"${YELLOW}=== Monero Validation ===${NC}\"
+
+# Test 1: Monero daemon running
+pgrep -x \"monerod\" > /dev/null
+check_result $? \"Monero daemon is running\"
+
+# Test 2: RPC connectivity
+XMR_INFO=$(curl -s -X POST http://127.0.0.1:18081/json_rpc -d '{\"jsonrpc\":\"2.0\",\"id\":\"0\",\"method\":\"get_info\"}' -H 'Content-Type: application/json' 2>/dev/null)
+if [ $? -eq 0 ] && [ \"$XMR_INFO\" != \"\" ]; then
+    check_result 0 \"Monero RPC is accessible\"
+    
+    # Test 3: Synchronization complete
+    HEIGHT=$(echo $XMR_INFO | jq -r '.result.height')
+    TARGET_HEIGHT=$(echo $XMR_INFO | jq -r '.result.target_height')
+    if [ \"$HEIGHT\" -eq \"$TARGET_HEIGHT\" ] || [ \"$TARGET_HEIGHT\" -eq \"0\" ]; then
+        check_result 0 \"Monero blockchain is synchronized\"
+    else
+        check_result 1 \"Monero blockchain synchronization incomplete ($HEIGHT/$TARGET_HEIGHT)\"
+    fi
+    
+    # Test 4: Peer connections
+    XMR_CONNECTIONS=$(curl -s -X POST http://127.0.0.1:18081/json_rpc -d '{\"jsonrpc\":\"2.0\",\"id\":\"0\",\"method\":\"get_connections\"}' -H 'Content-Type: application/json' | jq '.result.connections | length')
+    if [ \"$XMR_CONNECTIONS\" -ge 8 ]; then
+        check_result 0 \"Monero has sufficient peers ($XMR_CONNECTIONS)\"
+    else
+        check_result 1 \"Monero has insufficient peers ($XMR_CONNECTIONS)\"
+    fi
+else
+    check_result 1 \"Monero RPC is not accessible\"
+fi
+
+echo \"\"
+
+# System Tests
+echo -e \"${YELLOW}=== System Validation ===${NC}\"
+
+# Test: CPU usage
+CPU_USAGE=$(top -bn1 | grep \"Cpu(s)\" | awk '{print $2}' | cut -d'%' -f1 | cut -d'.' -f1)
+if [ \"$CPU_USAGE\" -lt 80 ]; then
+    check_result 0 \"CPU usage is acceptable ($CPU_USAGE%)\"
+else
+    check_result 1 \"CPU usage is high ($CPU_USAGE%)\"
+fi
+
+# Test: Memory usage
+MEM_USAGE=$(free | awk 'NR==2{printf \"%.0f\", $3*100/$2 }')
+if [ \"$MEM_USAGE\" -lt 90 ]; then
+    check_result 0 \"Memory usage is acceptable ($MEM_USAGE%)\"
+else
+    check_result 1 \"Memory usage is high ($MEM_USAGE%)\"
+fi
+
+# Test: Disk space
+DISK_USAGE=$(df / | awk 'NR==2{print $5}' | cut -d'%' -f1)
+if [ \"$DISK_USAGE\" -lt 85 ]; then
+    check_result 0 \"Disk usage is acceptable ($DISK_USAGE%)\"
+else
+    check_result 1 \"Disk usage is high ($DISK_USAGE%)\"
+fi
+
+echo \"\"
+echo -e \"${BLUE}=== Validation Summary ===${NC}\"
+echo -e \"${GREEN}Passed: $PASSED${NC}\"
+echo -e \"${RED}Failed: $FAILED${NC}\"
+
+if [ $FAILED -eq 0 ]; then
+    echo -e \"${GREEN}All tests passed! Your nodes are operating correctly.${NC}\"
+    exit 0
+else
+    echo -e \"${RED}Some tests failed. Please review the issues above.${NC}\"
+    exit 1
+fi
+EOF
+
+chmod +x ~/validate_nodes.sh">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code>#!/bin/bash
+# Comprehensive Node Validation Script
+
+cat > ~/validate_nodes.sh << 'EOF'
+#!/bin/bash
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+PASSED=0
+FAILED=0
+
+echo -e "${BLUE}=== Cryptocurrency Node Validation Report ===${NC}"
+echo -e "$(date)"
+echo ""
+
+# Function to check test result
+check_result() {
+    if [ $1 -eq 0 ]; then
+        echo -e "${GREEN}✓ PASS${NC}: $2"
+        ((PASSED++))
+    else
+        echo -e "${RED}✗ FAIL${NC}: $2"
+        ((FAILED++))
+    fi
+}
+
+# Bitcoin Core Tests
+echo -e "${YELLOW}=== Bitcoin Core Validation ===${NC}"
+
+# Test 1: Bitcoin daemon running
+pgrep -x "bitcoind" > /dev/null
+check_result $? "Bitcoin daemon is running"
+
+# Test 2: RPC connectivity
+bitcoin-cli getblockchaininfo > /dev/null 2>&1
+check_result $? "Bitcoin RPC is accessible"
+
+if [ $? -eq 0 ]; then
+    # Test 3: Synchronization complete
+    SYNC_PROGRESS=$(bitcoin-cli getblockchaininfo | jq -r '.verificationprogress')
+    if (( $(echo "$SYNC_PROGRESS >= 0.999999" | bc -l) )); then
+        check_result 0 "Bitcoin blockchain is synchronized"
+    else
+        check_result 1 "Bitcoin blockchain synchronization incomplete ($SYNC_PROGRESS)"
+    fi
+    
+    # Test 4: Peer connections
+    PEER_COUNT=$(bitcoin-cli getconnectioncount)
+    if [ "$PEER_COUNT" -ge 8 ]; then
+        check_result 0 "Bitcoin has sufficient peers ($PEER_COUNT)"
+    else
+        check_result 1 "Bitcoin has insufficient peers ($PEER_COUNT)"
+    fi
+    
+    # Test 5: Block height matches headers
+    BLOCKS=$(bitcoin-cli getblockchaininfo | jq -r '.blocks')
+    HEADERS=$(bitcoin-cli getblockchaininfo | jq -r '.headers')
+    if [ "$BLOCKS" -eq "$HEADERS" ]; then
+        check_result 0 "Bitcoin block height matches headers"
+    else
+        check_result 1 "Bitcoin block height mismatch (blocks: $BLOCKS, headers: $HEADERS)"
+    fi
+fi
+
+echo ""
+
+# Monero Tests
+echo -e "${YELLOW}=== Monero Validation ===${NC}"
+
+# Test 1: Monero daemon running
+pgrep -x "monerod" > /dev/null
+check_result $? "Monero daemon is running"
+
+# Test 2: RPC connectivity
+XMR_INFO=$(curl -s -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_info"}' -H 'Content-Type: application/json' 2>/dev/null)
+if [ $? -eq 0 ] && [ "$XMR_INFO" != "" ]; then
+    check_result 0 "Monero RPC is accessible"
+    
+    # Test 3: Synchronization complete
+    HEIGHT=$(echo $XMR_INFO | jq -r '.result.height')
+    TARGET_HEIGHT=$(echo $XMR_INFO | jq -r '.result.target_height')
+    if [ "$HEIGHT" -eq "$TARGET_HEIGHT" ] || [ "$TARGET_HEIGHT" -eq "0" ]; then
+        check_result 0 "Monero blockchain is synchronized"
+    else
+        check_result 1 "Monero blockchain synchronization incomplete ($HEIGHT/$TARGET_HEIGHT)"
+    fi
+    
+    # Test 4: Peer connections
+    XMR_CONNECTIONS=$(curl -s -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_connections"}' -H 'Content-Type: application/json' | jq '.result.connections | length')
+    if [ "$XMR_CONNECTIONS" -ge 8 ]; then
+        check_result 0 "Monero has sufficient peers ($XMR_CONNECTIONS)"
+    else
+        check_result 1 "Monero has insufficient peers ($XMR_CONNECTIONS)"
+    fi
+else
+    check_result 1 "Monero RPC is not accessible"
+fi
+
+echo ""
+
+# System Tests
+echo -e "${YELLOW}=== System Validation ===${NC}"
+
+# Test: CPU usage
+CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'%' -f1 | cut -d'.' -f1)
+if [ "$CPU_USAGE" -lt 80 ]; then
+    check_result 0 "CPU usage is acceptable ($CPU_USAGE%)"
+else
+    check_result 1 "CPU usage is high ($CPU_USAGE%)"
+fi
+
+# Test: Memory usage
+MEM_USAGE=$(free | awk 'NR==2{printf "%.0f", $3*100/$2 }')
+if [ "$MEM_USAGE" -lt 90 ]; then
+    check_result 0 "Memory usage is acceptable ($MEM_USAGE%)"
+else
+    check_result 1 "Memory usage is high ($MEM_USAGE%)"
+fi
+
+# Test: Disk space
+DISK_USAGE=$(df / | awk 'NR==2{print $5}' | cut -d'%' -f1)
+if [ "$DISK_USAGE" -lt 85 ]; then
+    check_result 0 "Disk usage is acceptable ($DISK_USAGE%)"
+else
+    check_result 1 "Disk usage is high ($DISK_USAGE%)"
+fi
+
+echo ""
+echo -e "${BLUE}=== Validation Summary ===${NC}"
+echo -e "${GREEN}Passed: $PASSED${NC}"
+echo -e "${RED}Failed: $FAILED${NC}"
+
+if [ $FAILED -eq 0 ]; then
+    echo -e "${GREEN}All tests passed! Your nodes are operating correctly.${NC}"
+    exit 0
+else
+    echo -e "${RED}Some tests failed. Please review the issues above.${NC}"
+    exit 1
+fi
+EOF
+
+chmod +x ~/validate_nodes.sh</code></pre>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Run validation script</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# Run the validation script
+~/validate_nodes.sh
+
+# Save validation report to file
+~/validate_nodes.sh > ~/node_validation_$(date +%Y%m%d_%H%M%S).log 2>&1">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># Run the validation script
+~/validate_nodes.sh
+
+# Save validation report to file
+~/validate_nodes.sh > ~/node_validation_$(date +%Y%m%d_%H%M%S).log 2>&1</code></pre>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <div class="admonition admonition-success">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Validation Complete</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <p>Once all validation tests pass, your nodes are fully operational and ready for production use. You can now proceed to set up ongoing maintenance procedures to ensure long-term reliability and security.</p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation section" id="page-navigation">
+                    <div class="page-nav-content">
+                        <div class="page-nav-item page-nav-prev" id="page-nav-prev">
+                            <a href="monitoring.html" class="page-nav-link" id="prev-page-link">
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                                </svg>
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Previous</span>
+                                    <span class="page-nav-title" id="prev-page-title">Progress Monitoring</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="page-nav-item page-nav-next" id="page-nav-next">
+                            <a href="maintenance.html" class="page-nav-link" id="next-page-link">
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Next</span>
+                                    <span class="page-nav-title" id="next-page-title">Ongoing Maintenance</span>
+                                </div>
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/language-switcher.js"></script>
+    <script src="../../assets/js/page-loader.js"></script>
+    <script src="../../assets/js/utils.js"></script>
+    
+    <script>
+        function copyToClipboard(button) {
+            const code = button.getAttribute('data-code');
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

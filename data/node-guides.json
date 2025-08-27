@@ -1,0 +1,236 @@
+{
+  "title": "Node Setup Guides",
+  "description": "Comprehensive guides for setting up Bitcoin and Monero nodes with security best practices",
+  "phases": [
+    {
+      "id": "procurement-provisioning",
+      "title": "Procurement & Provisioning",
+      "description": "Select and provision the infrastructure needed for running cryptocurrency nodes",
+      "estimatedTime": "2-4 hours",
+      "difficulty": "beginner",
+      "subsections": [
+        {
+          "id": "vps-selection",
+          "title": "VPS Selection",
+          "description": "Choose the right Virtual Private Server for your node",
+          "content": "Learn how to evaluate VPS providers based on performance, reliability, privacy policies, and cost-effectiveness for running cryptocurrency nodes.",
+          "prerequisites": ["Basic understanding of servers", "Budget planning"],
+          "codeBlocks": [
+            {
+              "language": "bash",
+              "title": "Server Specifications Check",
+              "code": "# Check available disk space\ndf -h\n\n# Check RAM\nfree -h\n\n# Check CPU cores\nnproc\n\n# Check network speed\nwget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
+            }
+          ],
+          "tables": [
+            {
+              "title": "VPS Provider Comparison",
+              "headers": ["Provider", "RAM", "Storage", "Bandwidth", "Price/Month", "Privacy Rating"],
+              "rows": [
+                ["DigitalOcean", "4GB", "80GB SSD", "4TB", "$24", "Good"],
+                ["Linode", "4GB", "80GB SSD", "4TB", "$24", "Good"],
+                ["Vultr", "4GB", "80GB SSD", "3TB", "$24", "Excellent"],
+                ["Hetzner", "4GB", "80GB SSD", "20TB", "€4.90", "Excellent"]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "hardware-requirements",
+          "title": "Hardware Requirements",
+          "description": "Understand minimum and recommended hardware specifications",
+          "content": "Calculate the hardware requirements for Bitcoin and Monero nodes, including storage growth projections and performance considerations.",
+          "prerequisites": ["Basic hardware knowledge"],
+          "codeBlocks": [
+            {
+              "language": "bash",
+              "title": "Hardware Requirements Calculator",
+              "code": "#!/bin/bash\n\n# Bitcoin node requirements\nBTC_MIN_RAM=2\nBTC_REC_RAM=4\nBTC_BLOCKCHAIN_SIZE=500  # GB as of 2024\nBTC_GROWTH_RATE=50      # GB per year\n\n# Monero node requirements\nXMR_MIN_RAM=2\nXMR_REC_RAM=4\nXMR_BLOCKCHAIN_SIZE=180  # GB as of 2024\nXMR_GROWTH_RATE=25       # GB per year\n\necho \"Bitcoin Node Requirements:\"\necho \"Minimum RAM: ${BTC_MIN_RAM}GB\"\necho \"Recommended RAM: ${BTC_REC_RAM}GB\"\necho \"Current blockchain size: ${BTC_BLOCKCHAIN_SIZE}GB\""
+            }
+          ]
+        },
+        {
+          "id": "cost-estimation",
+          "title": "Cost Estimation",
+          "description": "Calculate ongoing costs for node operation",
+          "content": "Estimate monthly and yearly costs including server rental, bandwidth, electricity, and maintenance time investment.",
+          "prerequisites": ["Budget planning"],
+          "codeBlocks": [
+            {
+              "language": "javascript",
+              "title": "Cost Calculator",
+              "code": "function calculateNodeCosts(serverCost, bandwidthGB, electricityCost = 0) {\n  const monthlyServer = serverCost;\n  const monthlyBandwidth = bandwidthGB * 0.05; // $0.05 per GB\n  const monthlyElectricity = electricityCost;\n  \n  const monthlyTotal = monthlyServer + monthlyBandwidth + monthlyElectricity;\n  const yearlyTotal = monthlyTotal * 12;\n  \n  return {\n    monthly: monthlyTotal,\n    yearly: yearlyTotal,\n    breakdown: {\n      server: monthlyServer,\n      bandwidth: monthlyBandwidth,\n      electricity: monthlyElectricity\n    }\n  };\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "server-security",
+      "title": "Server Foundation & Security",
+      "description": "Secure your server infrastructure before installing node software",
+      "estimatedTime": "3-5 hours",
+      "difficulty": "intermediate",
+      "subsections": [
+        {
+          "id": "secure-connections",
+          "title": "Secure Connections",
+          "description": "Set up SSH keys and secure remote access",
+          "content": "Configure secure SSH access with key-based authentication, disable password login, and set up fail2ban for intrusion prevention.",
+          "prerequisites": ["Basic Linux knowledge", "SSH client"],
+          "codeBlocks": [
+            {
+              "language": "bash",
+              "title": "SSH Key Generation",
+              "code": "# Generate SSH key pair\nssh-keygen -t ed25519 -C \"your_email@example.com\"\n\n# Copy public key to server\nssh-copy-id -i ~/.ssh/id_ed25519.pub user@server_ip\n\n# Test connection\nssh -i ~/.ssh/id_ed25519 user@server_ip"
+            }
+          ],
+          "osSpecific": {
+            "linux": {
+              "title": "Linux SSH Setup",
+              "code": "# Edit SSH config\nsudo nano /etc/ssh/sshd_config\n\n# Disable password authentication\nPasswordAuthentication no\nPubkeyAuthentication yes\n\n# Restart SSH service\nsudo systemctl restart sshd"
+            },
+            "macos": {
+              "title": "macOS SSH Setup",
+              "code": "# Generate key with macOS keychain integration\nssh-keygen -t ed25519 -C \"your_email@example.com\"\n\n# Add to keychain\nssh-add --apple-use-keychain ~/.ssh/id_ed25519\n\n# Configure SSH client\necho \"Host *\\n  AddKeysToAgent yes\\n  UseKeychain yes\" >> ~/.ssh/config"
+            },
+            "windows": {
+              "title": "Windows SSH Setup",
+              "code": "# Using PowerShell\nssh-keygen -t ed25519 -C \"your_email@example.com\"\n\n# Start SSH agent\nStart-Service ssh-agent\n\n# Add key to agent\nssh-add $env:USERPROFILE\\.ssh\\id_ed25519"
+            }
+          }
+        },
+        {
+          "id": "firewall-config",
+          "title": "Firewall Configuration",
+          "description": "Configure firewall rules for node security",
+          "content": "Set up UFW (Uncomplicated Firewall) with proper rules for Bitcoin and Monero node ports while maintaining security.",
+          "prerequisites": ["Linux administration basics"],
+          "codeBlocks": [
+            {
+              "language": "bash",
+              "title": "UFW Firewall Setup",
+              "code": "# Enable UFW\nsudo ufw enable\n\n# Default policies\nsudo ufw default deny incoming\nsudo ufw default allow outgoing\n\n# Allow SSH\nsudo ufw allow ssh\n\n# Bitcoin node ports\nsudo ufw allow 8333/tcp  # Bitcoin mainnet\nsudo ufw allow 18333/tcp # Bitcoin testnet\n\n# Monero node ports\nsudo ufw allow 18080/tcp # Monero P2P\nsudo ufw allow 18081/tcp # Monero RPC\n\n# Check status\nsudo ufw status verbose"
+            }
+          ]
+        },
+        {
+          "id": "system-hardening",
+          "title": "System Hardening",
+          "description": "Apply security hardening measures to the server",
+          "content": "Implement additional security measures including automatic updates, intrusion detection, and system monitoring.",
+          "prerequisites": ["System administration experience"],
+          "codeBlocks": [
+            {
+              "language": "bash",
+              "title": "System Hardening Script",
+              "code": "#!/bin/bash\n\n# Update system\nsudo apt update && sudo apt upgrade -y\n\n# Install fail2ban\nsudo apt install fail2ban -y\n\n# Configure fail2ban for SSH\nsudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local\n\n# Enable automatic security updates\nsudo apt install unattended-upgrades -y\nsudo dpkg-reconfigure -plow unattended-upgrades\n\n# Install and configure logwatch\nsudo apt install logwatch -y\n\necho \"System hardening completed!\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "installation",
+      "title": "Node Software Installation & Configuration",
+      "description": "Download, verify, and configure Bitcoin and Monero node software",
+      "estimatedTime": "2-3 hours",
+      "difficulty": "intermediate",
+      "subsections": [
+        {
+          "id": "download-verification",
+          "title": "Download & Verification",
+          "description": "Securely download and verify node software authenticity",
+          "content": "Learn to download Bitcoin Core and Monero software from official sources and verify cryptographic signatures to ensure authenticity.",
+          "prerequisites": ["GPG basics", "Command line familiarity"],
+          "codeBlocks": [
+            {
+              "language": "bash",
+              "title": "Bitcoin Core Download & Verification",
+              "code": "# Download Bitcoin Core\nwget https://bitcoin.org/bin/bitcoin-core-25.0/bitcoin-25.0-x86_64-linux-gnu.tar.gz\nwget https://bitcoin.org/bin/bitcoin-core-25.0/SHA256SUMS\nwget https://bitcoin.org/bin/bitcoin-core-25.0/SHA256SUMS.asc\n\n# Import Bitcoin Core signing keys\ngpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 01EA5486DE18A882D4C2684590C8019E36C2E964\n\n# Verify signature\ngpg --verify SHA256SUMS.asc\n\n# Verify checksum\nsha256sum --ignore-missing --check SHA256SUMS"
+            }
+          ]
+        },
+        {
+          "id": "configuration",
+          "title": "Configuration Files",
+          "description": "Create and customize node configuration files",
+          "content": "Set up bitcoin.conf and monero configuration files with optimal settings for security, performance, and network participation.",
+          "prerequisites": ["Text editor familiarity"],
+          "codeBlocks": [
+            {
+              "language": "bash",
+              "title": "Bitcoin Configuration",
+              "code": "# Create bitcoin.conf\nmkdir -p ~/.bitcoin\ncat > ~/.bitcoin/bitcoin.conf << EOF\n# Network settings\nlisten=1\nserver=1\n\n# RPC settings\nrpcuser=bitcoinrpc\nrpcpassword=$(openssl rand -base64 32)\nrpcallowip=127.0.0.1\n\n# Performance settings\ndbcache=1000\nmaxconnections=40\n\n# Privacy settings\nproxy=127.0.0.1:9050\nEOF"
+            }
+          ]
+        },
+        {
+          "id": "setup-wizard",
+          "title": "Setup Wizard",
+          "description": "Step-by-step initial setup and testing",
+          "content": "Complete the initial setup process with guided steps for first-time node operators, including testing connections and basic operations.",
+          "prerequisites": ["Completed previous steps"],
+          "codeBlocks": [
+            {
+              "language": "bash",
+              "title": "Node Startup Script",
+              "code": "#!/bin/bash\n\n# Bitcoin node startup\necho \"Starting Bitcoin node...\"\nbitcoind -daemon\n\n# Wait for startup\nsleep 10\n\n# Check status\nbitcoin-cli getblockchaininfo\n\n# Show initial sync progress\nwhile [ $(bitcoin-cli getblockchaininfo | jq -r '.verificationprogress') != \"1\" ]; do\n  progress=$(bitcoin-cli getblockchaininfo | jq -r '.verificationprogress')\n  echo \"Sync progress: $(echo \"$progress * 100\" | bc -l | cut -d. -f1)%\"\n  sleep 60\ndone\n\necho \"Bitcoin node fully synchronized!\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "synchronization",
+      "title": "Blockchain Synchronization & Operation",
+      "description": "Monitor synchronization and maintain ongoing node operations",
+      "estimatedTime": "1-2 days (mostly waiting)",
+      "difficulty": "beginner",
+      "subsections": [
+        {
+          "id": "monitoring",
+          "title": "Synchronization Monitoring",
+          "description": "Track blockchain synchronization progress",
+          "content": "Monitor the initial blockchain download process, understand sync stages, and troubleshoot common synchronization issues.",
+          "prerequisites": ["Running node software"],
+          "codeBlocks": [
+            {
+              "language": "bash",
+              "title": "Sync Monitoring Script",
+              "code": "#!/bin/bash\n\n# Function to check Bitcoin sync status\ncheck_bitcoin_sync() {\n  local info=$(bitcoin-cli getblockchaininfo 2>/dev/null)\n  if [ $? -eq 0 ]; then\n    local blocks=$(echo $info | jq -r '.blocks')\n    local headers=$(echo $info | jq -r '.headers')\n    local progress=$(echo $info | jq -r '.verificationprogress')\n    \n    echo \"Bitcoin: $blocks/$headers blocks ($(printf \"%.2f\" $(echo \"$progress * 100\" | bc -l))%)\"\n  else\n    echo \"Bitcoin: Not running or not responding\"\n  fi\n}\n\n# Monitor loop\nwhile true; do\n  clear\n  echo \"Node Synchronization Status\"\n  echo \"===========================\"\n  check_bitcoin_sync\n  echo \"\"\n  echo \"Press Ctrl+C to exit\"\n  sleep 30\ndone"
+            }
+          ]
+        },
+        {
+          "id": "testing",
+          "title": "Testing & Validation",
+          "description": "Verify node functionality and network connectivity",
+          "content": "Test node operations including RPC calls, peer connections, and transaction relay to ensure proper network participation.",
+          "prerequisites": ["Synchronized node"],
+          "codeBlocks": [
+            {
+              "language": "bash",
+              "title": "Node Testing Script",
+              "code": "#!/bin/bash\n\necho \"Testing Bitcoin Node Functionality\"\necho \"==================================\"\n\n# Test 1: Check if node is running\necho \"1. Checking if Bitcoin Core is running...\"\nif pgrep -x \"bitcoind\" > /dev/null; then\n  echo \"✓ Bitcoin Core is running\"\nelse\n  echo \"✗ Bitcoin Core is not running\"\n  exit 1\nfi\n\n# Test 2: Check RPC connectivity\necho \"2. Testing RPC connectivity...\"\nif bitcoin-cli getblockchaininfo > /dev/null 2>&1; then\n  echo \"✓ RPC connection successful\"\nelse\n  echo \"✗ RPC connection failed\"\nfi\n\n# Test 3: Check peer connections\necho \"3. Checking peer connections...\"\npeers=$(bitcoin-cli getconnectioncount)\necho \"✓ Connected to $peers peers\"\n\n# Test 4: Check sync status\necho \"4. Checking synchronization status...\"\nsync_progress=$(bitcoin-cli getblockchaininfo | jq -r '.verificationprogress')\nif (( $(echo \"$sync_progress > 0.99\" | bc -l) )); then\n  echo \"✓ Node is fully synchronized\"\nelse\n  echo \"⚠ Node is still synchronizing ($(printf \"%.2f\" $(echo \"$sync_progress * 100\" | bc -l))%)\"\nfi\n\necho \"\"\necho \"Node testing completed!\""
+            }
+          ]
+        },
+        {
+          "id": "maintenance",
+          "title": "Ongoing Maintenance",
+          "description": "Maintain and monitor your node for optimal performance",
+          "content": "Set up monitoring, backup procedures, and maintenance routines to keep your node running smoothly and securely.",
+          "prerequisites": ["Operational node"],
+          "codeBlocks": [
+            {
+              "language": "bash",
+              "title": "Maintenance Cron Jobs",
+              "code": "# Add to crontab with: crontab -e\n\n# Daily log rotation and cleanup\n0 2 * * * /usr/local/bin/node-maintenance.sh\n\n# Weekly backup of wallet and configuration\n0 3 * * 0 /usr/local/bin/backup-node.sh\n\n# Monthly system updates (with node restart)\n0 4 1 * * /usr/local/bin/update-system.sh\n\n# Hourly node health check\n0 * * * * /usr/local/bin/health-check.sh"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

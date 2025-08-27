@@ -1,0 +1,217 @@
+/* Themes CSS - Color themes and customization */
+
+/* Default theme variables */
+:root {
+    /* Primary colors */
+    --color-primary: #8d836e;
+    --color-primary-hover: #7a7060;
+    --color-primary-light: #a39688;
+    
+    /* Background colors */
+    --color-bg-primary: #f4f1eb;
+    --color-bg-secondary: #ffffff;
+    --color-bg-tertiary: #f9f7f3;
+    
+    /* Text colors */
+    --color-text-primary: #3f3c36;
+    --color-text-secondary: #6b665b;
+    --color-text-muted: #8d836e;
+    
+    /* Border colors */
+    --color-border-primary: #e0dace;
+    --color-border-secondary: #f9f7f3;
+    
+    /* Status colors */
+    --color-success: #28a745;
+    --color-success-bg: #d4edda;
+    --color-warning: #ffc107;
+    --color-warning-bg: #fff3cd;
+    --color-error: #dc3545;
+    --color-error-bg: #f8d7da;
+    --color-info: #0066cc;
+    --color-info-bg: #e6f3ff;
+    
+    /* Shadow */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+    
+    /* Border radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    
+    /* Typography */
+    --font-family-primary: 'Inter', sans-serif;
+    --font-family-mono: 'Courier New', Courier, monospace;
+    
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.2s ease;
+    --transition-slow: 0.3s ease;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    /* Primary colors */
+    --color-primary: #a39688;
+    --color-primary-hover: #8d836e;
+    --color-primary-light: #b5aa9d;
+    
+    /* Background colors */
+    --color-bg-primary: #1a1a1a;
+    --color-bg-secondary: #2d2d2d;
+    --color-bg-tertiary: #3a3a3a;
+    
+    /* Text colors */
+    --color-text-primary: #f4f1eb;
+    --color-text-secondary: #c4c1bb;
+    --color-text-muted: #a39688;
+    
+    /* Border colors */
+    --color-border-primary: #4a4a4a;
+    --color-border-secondary: #3a3a3a;
+    
+    /* Status colors - adjusted for dark theme */
+    --color-success: #4ade80;
+    --color-success-bg: #166534;
+    --color-warning: #fbbf24;
+    --color-warning-bg: #92400e;
+    --color-error: #f87171;
+    --color-error-bg: #991b1b;
+    --color-info: #60a5fa;
+    --color-info-bg: #1e40af;
+}
+
+/* High contrast theme */
+[data-theme="high-contrast"] {
+    /* Primary colors */
+    --color-primary: #000000;
+    --color-primary-hover: #333333;
+    --color-primary-light: #666666;
+    
+    /* Background colors */
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #ffffff;
+    --color-bg-tertiary: #f0f0f0;
+    
+    /* Text colors */
+    --color-text-primary: #000000;
+    --color-text-secondary: #000000;
+    --color-text-muted: #333333;
+    
+    /* Border colors */
+    --color-border-primary: #000000;
+    --color-border-secondary: #333333;
+    
+    /* Status colors */
+    --color-success: #006600;
+    --color-success-bg: #ccffcc;
+    --color-warning: #cc6600;
+    --color-warning-bg: #ffffcc;
+    --color-error: #cc0000;
+    --color-error-bg: #ffcccc;
+    --color-info: #0066cc;
+    --color-info-bg: #ccf0ff;
+}
+
+/* Theme utility classes */
+.theme-primary {
+    color: var(--color-primary);
+}
+
+.theme-bg-primary {
+    background-color: var(--color-bg-primary);
+}
+
+.theme-bg-secondary {
+    background-color: var(--color-bg-secondary);
+}
+
+.theme-text-primary {
+    color: var(--color-text-primary);
+}
+
+.theme-text-secondary {
+    color: var(--color-text-secondary);
+}
+
+.theme-border {
+    border-color: var(--color-border-primary);
+}
+
+/* Theme transition */
+* {
+    transition: background-color var(--transition-normal), 
+                color var(--transition-normal), 
+                border-color var(--transition-normal);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    :root {
+        --color-bg-primary: #ffffff;
+        --color-bg-secondary: #ffffff;
+        --color-bg-tertiary: #ffffff;
+        --color-text-primary: #000000;
+        --color-text-secondary: #333333;
+        --color-border-primary: #cccccc;
+    }
+    
+    .sidebar-nav,
+    .mobile-menu-toggle,
+    .language-switcher {
+        display: none !important;
+    }
+    
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .content-area {
+        margin-left: 0;
+        padding: 0;
+    }
+    
+    .card {
+        border: 1px solid #cccccc;
+        box-shadow: none;
+    }
+    
+    .btn {
+        border: 1px solid #cccccc;
+        background-color: transparent;
+        color: #000000;
+    }
+}

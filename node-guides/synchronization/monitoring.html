@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" data-current-section="node-guides" data-current-page="monitoring">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Monitoring - Blockchain Synchronization</title>
+    <meta name="description" content="Monitor Bitcoin and Monero blockchain synchronization progress with real-time dashboards and performance metrics">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+</head>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link active" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div> 
+       
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link active" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar sidebar-nav" id="sidebar-nav" data-section="node-guides">
+            <!-- Search functionality -->
+            <div class="sidebar-search">
+                <div class="sidebar-search-container">
+                    <input type="text" class="sidebar-search-input" id="sidebar-search" placeholder="Search..." aria-label="Search content">
+                    <svg class="sidebar-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Progress indicator -->
+            <div class="sidebar-progress" id="sidebar-progress">
+                <div class="sidebar-progress-title" id="progress-title">Phase 4 Progress</div>
+                <div class="sidebar-progress-bar">
+                    <div class="sidebar-progress-fill" id="progress-fill" style="width: 33%;"></div>
+                </div>
+                <div class="sidebar-progress-text" id="progress-text">33% Complete</div>
+            </div>
+            
+            <!-- Navigation sections -->
+            <div class="sidebar-sections" id="sidebar-sections">
+                <div class="sidebar-section" id="node-guides-nav">
+                    <h3 class="sidebar-section-title">Node Setup Guides</h3>
+                    
+                    <!-- Phase indicators -->
+                    <div class="sidebar-phase-indicators">
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="1"></div>
+                            <span class="phase-label completed" data-phase="1">Procurement & Provisioning</span>
+                        </div>
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="2"></div>
+                            <span class="phase-label completed" data-phase="2">Server Foundation & Security</span>
+                        </div>
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="3"></div>
+                            <span class="phase-label completed" data-phase="3">Node Software Installation</span>
+                        </div>
+                        <div class="sidebar-phase-indicator active">
+                            <div class="phase-dot active" data-phase="4"></div>
+                            <span class="phase-label active" data-phase="4">Blockchain Synchronization</span>
+                        </div>
+                    </div>       
+             
+                    <ul class="sidebar-nav-list">
+                        <li class="sidebar-nav-item">
+                            <a href="/node-guides/" class="sidebar-nav-link" data-page="overview">
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-4-content" aria-expanded="true">
+                                <span>Phase 4: Blockchain Synchronization</span>
+                                <svg class="sidebar-toggle-icon expanded" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content expanded" id="node-phase-4-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/synchronization/monitoring.html" class="sidebar-nav-link active" data-page="monitoring">Progress Monitoring</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/synchronization/testing.html" class="sidebar-nav-link" data-page="testing">Testing & Validation</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/synchronization/maintenance.html" class="sidebar-nav-link" data-page="maintenance">Ongoing Maintenance</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Page Content -->
+        <div class="content-area" id="content-area">
+            <!-- Content Page -->
+            <div class="content-page">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb navigation">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="breadcrumb-link">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/" class="breadcrumb-link">Node Guides</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/synchronization/" class="breadcrumb-link">Blockchain Synchronization</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Progress Monitoring
+                        </li>
+                    </ol>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header section">
+                    <div class="page-header-content">
+                        <h1 class="page-title" id="page-title">Progress Monitoring & Dashboards</h1>
+                        <div class="page-meta">
+                            <span class="page-difficulty" id="page-difficulty">Intermediate</span>
+                            <span class="page-duration" id="page-duration">30 minutes setup</span>
+                            <span class="page-updated" id="page-updated">Updated: January 2025</span>
+                        </div>
+                        <div class="page-description" id="page-description">
+                            <p>Set up comprehensive monitoring dashboards to track blockchain synchronization progress, system performance, and network connectivity for both Bitcoin and Monero nodes.</p>
+                        </div>
+                    </div>
+                </header> 
+               
+                <!-- Main Content Area -->
+                <main class="page-content" id="page-content">
+                    <section class="content-section">
+                        <h2>Monitoring Overview</h2>
+                        <p>Effective monitoring is crucial during blockchain synchronization. This section provides tools and techniques to track progress, identify bottlenecks, and ensure optimal performance throughout the synchronization process.</p>
+                        
+                        <div class="admonition admonition-tip">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Pro Tip</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <p>Set up monitoring before starting synchronization. This allows you to establish baseline metrics and catch issues early in the process.</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Bitcoin Core Monitoring</h2>
+                        
+                        <h3>Basic Progress Tracking</h3>
+                        <p>Monitor Bitcoin Core synchronization using built-in RPC commands:</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Check Bitcoin synchronization status</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# Check overall sync status
+bitcoin-cli getblockchaininfo
+
+# Monitor sync progress with detailed info
+bitcoin-cli getblockchaininfo | jq '{
+  blocks: .blocks,
+  headers: .headers,
+  progress: (.verificationprogress * 100 | floor),
+  size_on_disk: .size_on_disk,
+  pruned: .pruned
+}'
+
+# Watch progress in real-time (updates every 30 seconds)
+watch -n 30 'bitcoin-cli getblockchaininfo | jq \".verificationprogress * 100\"'">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># Check overall sync status
+bitcoin-cli getblockchaininfo
+
+# Monitor sync progress with detailed info
+bitcoin-cli getblockchaininfo | jq '{
+  blocks: .blocks,
+  headers: .headers,
+  progress: (.verificationprogress * 100 | floor),
+  size_on_disk: .size_on_disk,
+  pruned: .pruned
+}'
+
+# Watch progress in real-time (updates every 30 seconds)
+watch -n 30 'bitcoin-cli getblockchaininfo | jq ".verificationprogress * 100"'</code></pre>
+                        </div>
+                        
+                        <h3>Network Connection Monitoring</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Monitor Bitcoin network connections</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# Check peer connections
+bitcoin-cli getconnectioncount
+
+# Detailed peer information
+bitcoin-cli getpeerinfo | jq '.[] | {
+  addr: .addr,
+  version: .version,
+  subver: .subver,
+  inbound: .inbound,
+  bytessent: .bytessent,
+  bytesrecv: .bytesrecv
+}'
+
+# Monitor bandwidth usage
+bitcoin-cli getnettotals">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># Check peer connections
+bitcoin-cli getconnectioncount
+
+# Detailed peer information
+bitcoin-cli getpeerinfo | jq '.[] | {
+  addr: .addr,
+  version: .version,
+  subver: .subver,
+  inbound: .inbound,
+  bytessent: .bytessent,
+  bytesrecv: .bytesrecv
+}'
+
+# Monitor bandwidth usage
+bitcoin-cli getnettotals</code></pre>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Monero Daemon Monitoring</h2>
+                        
+                        <h3>Synchronization Progress</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Monitor Monero synchronization</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# Check sync status
+monerod status
+
+# Detailed sync information
+echo 'status' | nc 127.0.0.1 18081
+
+# Monitor sync progress with JSON output
+curl -X POST http://127.0.0.1:18081/json_rpc -d '{
+  \"jsonrpc\":\"2.0\",
+  \"id\":\"0\",
+  \"method\":\"get_info\"
+}' -H 'Content-Type: application/json' | jq '.result | {
+  height: .height,
+  target_height: .target_height,
+  difficulty: .difficulty,
+  tx_pool_size: .tx_pool_size
+}'">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># Check sync status
+monerod status
+
+# Detailed sync information
+echo 'status' | nc 127.0.0.1 18081
+
+# Monitor sync progress with JSON output
+curl -X POST http://127.0.0.1:18081/json_rpc -d '{
+  "jsonrpc":"2.0",
+  "id":"0",
+  "method":"get_info"
+}' -H 'Content-Type: application/json' | jq '.result | {
+  height: .height,
+  target_height: .target_height,
+  difficulty: .difficulty,
+  tx_pool_size: .tx_pool_size
+}'</code></pre>
+                        </div>
+                    </section>     
+               
+                    <section class="content-section">
+                        <h2>System Performance Monitoring</h2>
+                        
+                        <h3>Resource Usage Dashboard</h3>
+                        <p>Monitor system resources to ensure optimal performance during synchronization:</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">System monitoring commands</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# Monitor CPU and memory usage
+htop
+
+# Disk I/O monitoring
+iotop -o
+
+# Network bandwidth monitoring
+iftop
+
+# Disk space monitoring
+df -h
+
+# Monitor specific processes
+ps aux | grep -E '(bitcoind|monerod)'
+
+# Real-time system stats
+vmstat 5
+
+# Monitor disk usage by Bitcoin/Monero directories
+du -sh ~/.bitcoin ~/.bitmonero">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># Monitor CPU and memory usage
+htop
+
+# Disk I/O monitoring
+iotop -o
+
+# Network bandwidth monitoring
+iftop
+
+# Disk space monitoring
+df -h
+
+# Monitor specific processes
+ps aux | grep -E '(bitcoind|monerod)'
+
+# Real-time system stats
+vmstat 5
+
+# Monitor disk usage by Bitcoin/Monero directories
+du -sh ~/.bitcoin ~/.bitmonero</code></pre>
+                        </div>
+                        
+                        <h3>Automated Monitoring Script</h3>
+                        <p>Create a comprehensive monitoring script that tracks both nodes:</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Create monitoring script</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="#!/bin/bash
+# Node Monitoring Dashboard Script
+
+cat > ~/monitor_nodes.sh << 'EOF'
+#!/bin/bash
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+clear
+echo -e \"${BLUE}=== Cryptocurrency Node Monitoring Dashboard ===${NC}\"
+echo -e \"$(date)\"
+echo \"\"
+
+# Bitcoin Core Status
+echo -e \"${YELLOW}=== Bitcoin Core Status ===${NC}\"
+if pgrep -x \"bitcoind\" > /dev/null; then
+    echo -e \"${GREEN}✓ Bitcoin daemon is running${NC}\"
+    
+    # Get blockchain info
+    BTC_INFO=$(bitcoin-cli getblockchaininfo 2>/dev/null)
+    if [ $? -eq 0 ]; then
+        BLOCKS=$(echo $BTC_INFO | jq -r '.blocks')
+        HEADERS=$(echo $BTC_INFO | jq -r '.headers')
+        PROGRESS=$(echo $BTC_INFO | jq -r '.verificationprogress * 100' | cut -d. -f1)
+        SIZE=$(echo $BTC_INFO | jq -r '.size_on_disk / 1024 / 1024 / 1024' | cut -d. -f1)
+        
+        echo \"  Blocks: $BLOCKS / $HEADERS\"
+        echo \"  Progress: $PROGRESS%\"
+        echo \"  Size: ${SIZE}GB\"
+        
+        # Connection count
+        CONNECTIONS=$(bitcoin-cli getconnectioncount 2>/dev/null)
+        echo \"  Connections: $CONNECTIONS\"
+    else
+        echo -e \"${RED}✗ Cannot connect to Bitcoin RPC${NC}\"
+    fi
+else
+    echo -e \"${RED}✗ Bitcoin daemon is not running${NC}\"
+fi
+
+echo \"\"
+
+# Monero Status
+echo -e \"${YELLOW}=== Monero Status ===${NC}\"
+if pgrep -x \"monerod\" > /dev/null; then
+    echo -e \"${GREEN}✓ Monero daemon is running${NC}\"
+    
+    # Get Monero info
+    XMR_INFO=$(curl -s -X POST http://127.0.0.1:18081/json_rpc -d '{\"jsonrpc\":\"2.0\",\"id\":\"0\",\"method\":\"get_info\"}' -H 'Content-Type: application/json' 2>/dev/null)
+    if [ $? -eq 0 ] && [ \"$XMR_INFO\" != \"\" ]; then
+        HEIGHT=$(echo $XMR_INFO | jq -r '.result.height')
+        TARGET_HEIGHT=$(echo $XMR_INFO | jq -r '.result.target_height')
+        TX_POOL=$(echo $XMR_INFO | jq -r '.result.tx_pool_size')
+        
+        if [ \"$TARGET_HEIGHT\" != \"0\" ] && [ \"$TARGET_HEIGHT\" != \"null\" ]; then
+            PROGRESS=$(echo \"scale=2; $HEIGHT * 100 / $TARGET_HEIGHT\" | bc)
+            echo \"  Height: $HEIGHT / $TARGET_HEIGHT\"
+            echo \"  Progress: $PROGRESS%\"
+        else
+            echo \"  Height: $HEIGHT (synced)\"
+        fi
+        echo \"  TX Pool: $TX_POOL\"
+    else
+        echo -e \"${RED}✗ Cannot connect to Monero RPC${NC}\"
+    fi
+else
+    echo -e \"${RED}✗ Monero daemon is not running${NC}\"
+fi
+
+echo \"\"
+
+# System Resources
+echo -e \"${YELLOW}=== System Resources ===${NC}\"
+echo \"CPU Usage: $(top -bn1 | grep \"Cpu(s)\" | awk '{print $2}' | cut -d'%' -f1)%\"
+echo \"Memory: $(free -h | awk 'NR==2{printf \"%.1f/%.1fGB (%.2f%%)\", $3/1024/1024/1024,$2/1024/1024/1024,$3*100/$2 }')\"
+echo \"Disk: $(df -h / | awk 'NR==2{printf \"%s/%s (%s)\", $3,$2,$5}')\"
+
+# Network usage
+RX_BYTES=$(cat /sys/class/net/$(ip route | grep default | awk '{print $5}' | head -1)/statistics/rx_bytes)
+TX_BYTES=$(cat /sys/class/net/$(ip route | grep default | awk '{print $5}' | head -1)/statistics/tx_bytes)
+echo \"Network: RX $(numfmt --to=iec $RX_BYTES) / TX $(numfmt --to=iec $TX_BYTES)\"
+
+echo \"\"
+echo -e \"${BLUE}Press Ctrl+C to exit, or wait 30 seconds for refresh...${NC}\"
+EOF
+
+chmod +x ~/monitor_nodes.sh">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code>#!/bin/bash
+# Node Monitoring Dashboard Script
+
+cat > ~/monitor_nodes.sh << 'EOF'
+#!/bin/bash
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+clear
+echo -e "${BLUE}=== Cryptocurrency Node Monitoring Dashboard ===${NC}"
+echo -e "$(date)"
+echo ""
+
+# Bitcoin Core Status
+echo -e "${YELLOW}=== Bitcoin Core Status ===${NC}"
+if pgrep -x "bitcoind" > /dev/null; then
+    echo -e "${GREEN}✓ Bitcoin daemon is running${NC}"
+    
+    # Get blockchain info
+    BTC_INFO=$(bitcoin-cli getblockchaininfo 2>/dev/null)
+    if [ $? -eq 0 ]; then
+        BLOCKS=$(echo $BTC_INFO | jq -r '.blocks')
+        HEADERS=$(echo $BTC_INFO | jq -r '.headers')
+        PROGRESS=$(echo $BTC_INFO | jq -r '.verificationprogress * 100' | cut -d. -f1)
+        SIZE=$(echo $BTC_INFO | jq -r '.size_on_disk / 1024 / 1024 / 1024' | cut -d. -f1)
+        
+        echo "  Blocks: $BLOCKS / $HEADERS"
+        echo "  Progress: $PROGRESS%"
+        echo "  Size: ${SIZE}GB"
+        
+        # Connection count
+        CONNECTIONS=$(bitcoin-cli getconnectioncount 2>/dev/null)
+        echo "  Connections: $CONNECTIONS"
+    else
+        echo -e "${RED}✗ Cannot connect to Bitcoin RPC${NC}"
+    fi
+else
+    echo -e "${RED}✗ Bitcoin daemon is not running${NC}"
+fi
+
+echo ""
+
+# Monero Status
+echo -e "${YELLOW}=== Monero Status ===${NC}"
+if pgrep -x "monerod" > /dev/null; then
+    echo -e "${GREEN}✓ Monero daemon is running${NC}"
+    
+    # Get Monero info
+    XMR_INFO=$(curl -s -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_info"}' -H 'Content-Type: application/json' 2>/dev/null)
+    if [ $? -eq 0 ] && [ "$XMR_INFO" != "" ]; then
+        HEIGHT=$(echo $XMR_INFO | jq -r '.result.height')
+        TARGET_HEIGHT=$(echo $XMR_INFO | jq -r '.result.target_height')
+        TX_POOL=$(echo $XMR_INFO | jq -r '.result.tx_pool_size')
+        
+        if [ "$TARGET_HEIGHT" != "0" ] && [ "$TARGET_HEIGHT" != "null" ]; then
+            PROGRESS=$(echo "scale=2; $HEIGHT * 100 / $TARGET_HEIGHT" | bc)
+            echo "  Height: $HEIGHT / $TARGET_HEIGHT"
+            echo "  Progress: $PROGRESS%"
+        else
+            echo "  Height: $HEIGHT (synced)"
+        fi
+        echo "  TX Pool: $TX_POOL"
+    else
+        echo -e "${RED}✗ Cannot connect to Monero RPC${NC}"
+    fi
+else
+    echo -e "${RED}✗ Monero daemon is not running${NC}"
+fi
+
+echo ""
+
+# System Resources
+echo -e "${YELLOW}=== System Resources ===${NC}"
+echo "CPU Usage: $(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d'%' -f1)%"
+echo "Memory: $(free -h | awk 'NR==2{printf "%.1f/%.1fGB (%.2f%%)", $3/1024/1024/1024,$2/1024/1024/1024,$3*100/$2 }')"
+echo "Disk: $(df -h / | awk 'NR==2{printf "%s/%s (%s)", $3,$2,$5}')"
+
+# Network usage
+RX_BYTES=$(cat /sys/class/net/$(ip route | grep default | awk '{print $5}' | head -1)/statistics/rx_bytes)
+TX_BYTES=$(cat /sys/class/net/$(ip route | grep default | awk '{print $5}' | head -1)/statistics/tx_bytes)
+echo "Network: RX $(numfmt --to=iec $RX_BYTES) / TX $(numfmt --to=iec $TX_BYTES)"
+
+echo ""
+echo -e "${BLUE}Press Ctrl+C to exit, or wait 30 seconds for refresh...${NC}"
+EOF
+
+chmod +x ~/monitor_nodes.sh</code></pre>
+                        </div>
+                    </section>    
+                
+                    <section class="content-section">
+                        <h2>Running the Monitoring Dashboard</h2>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Start monitoring dashboard</span>
+                                <button class="code-copy" onclick="copyToClipboard(this)" data-code="# Run the monitoring script once
+~/monitor_nodes.sh
+
+# Run with auto-refresh every 30 seconds
+watch -n 30 ~/monitor_nodes.sh
+
+# Run in background and log to file
+nohup bash -c 'while true; do ~/monitor_nodes.sh >> ~/node_monitor.log; sleep 300; done' &">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <pre><code># Run the monitoring script once
+~/monitor_nodes.sh
+
+# Run with auto-refresh every 30 seconds
+watch -n 30 ~/monitor_nodes.sh
+
+# Run in background and log to file
+nohup bash -c 'while true; do ~/monitor_nodes.sh >> ~/node_monitor.log; sleep 300; done' &</code></pre>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Performance Optimization Tips</h2>
+                        
+                        <div class="principle-grid">
+                            <div class="principle-item">
+                                <h4>Monitor Disk I/O</h4>
+                                <p>High disk I/O is normal during sync. Ensure SSD usage for optimal performance.</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Network Bandwidth</h4>
+                                <p>Monitor bandwidth usage to avoid exceeding ISP limits during initial sync.</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Memory Usage</h4>
+                                <p>Ensure sufficient RAM is available. Consider increasing dbcache for Bitcoin.</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Temperature Monitoring</h4>
+                                <p>Monitor CPU/disk temperatures during intensive synchronization periods.</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <div class="admonition admonition-warning">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 15.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Troubleshooting Common Issues</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <ul>
+                                    <li><strong>Slow Progress:</strong> Check disk I/O and consider increasing dbcache settings</li>
+                                    <li><strong>Stalled Sync:</strong> Restart nodes and check peer connections</li>
+                                    <li><strong>High Memory Usage:</strong> Reduce dbcache or add swap space</li>
+                                    <li><strong>Network Issues:</strong> Verify firewall settings and port accessibility</li>
+                                    <li><strong>Disk Space:</strong> Monitor available space and consider pruning options</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation section" id="page-navigation">
+                    <div class="page-nav-content">
+                        <div class="page-nav-item page-nav-prev" id="page-nav-prev">
+                            <a href="/node-guides/synchronization/" class="page-nav-link" id="prev-page-link">
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                                </svg>
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Previous</span>
+                                    <span class="page-nav-title" id="prev-page-title">Synchronization Overview</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="page-nav-item page-nav-next" id="page-nav-next">
+                            <a href="testing.html" class="page-nav-link" id="next-page-link">
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Next</span>
+                                    <span class="page-nav-title" id="next-page-title">Testing & Validation</span>
+                                </div>
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/language-switcher.js"></script>
+    <script src="../../assets/js/page-loader.js"></script>
+    <script src="../../assets/js/utils.js"></script>
+    
+    <script>
+        function copyToClipboard(button) {
+            const code = button.getAttribute('data-code');
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

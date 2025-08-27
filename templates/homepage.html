@@ -1,0 +1,126 @@
+<!-- Homepage Template - extends base.html -->
+<!-- Variables: title, description -->
+
+<!-- Main Content -->
+<div class="homepage-content">
+    <!-- Hero Section -->
+    <section class="hero-section text-center section">
+        <div class="hero-content">
+            <h1 class="hero-title" id="hero-title">Welcome to The Road to Crypto</h1>
+            <p class="hero-subtitle" id="hero-subtitle">Your comprehensive guide to crypto development and node setup</p>
+            <p class="hero-description" id="hero-description">
+                Choose your path: Learn crypto development fundamentals or set up your own BTC & XMR nodes with our detailed guides.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Navigation Cards -->
+    <section class="navigation-cards section">
+        <div class="grid grid-cols-2">
+            <!-- Development Roadmap Card -->
+            <div class="nav-card" id="development-card">
+                <div class="nav-card-icon">
+                    <span class="card-emoji">🏗️</span>
+                </div>
+                <div class="nav-card-content">
+                    <h2 class="nav-card-title" id="dev-card-title">Development Roadmap</h2>
+                    <p class="nav-card-description" id="dev-card-description">
+                        Learn to integrate Bitcoin and Monero wallets with secure escrow systems. 
+                        A comprehensive 3-phase approach to crypto development.
+                    </p>
+                    <div class="nav-card-features">
+                        <ul class="feature-list">
+                            <li id="dev-feature-1">Database schema design</li>
+                            <li id="dev-feature-2">Payment gateway integration</li>
+                            <li id="dev-feature-3">Frontend wallet interfaces</li>
+                        </ul>
+                    </div>
+                    <a href="/development-roadmap/" class="nav-card-button" id="dev-card-button">
+                        <span>Start Learning</span>
+                        <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Node Guides Card -->
+            <div class="nav-card" id="node-guides-card">
+                <div class="nav-card-icon">
+                    <span class="card-emoji">🌐</span>
+                </div>
+                <div class="nav-card-content">
+                    <h2 class="nav-card-title" id="node-card-title">Node Setup Guides</h2>
+                    <p class="nav-card-description" id="node-card-description">
+                        Set up your own Bitcoin and Monero nodes for maximum privacy and decentralization. 
+                        Step-by-step guides from procurement to operation.
+                    </p>
+                    <div class="nav-card-features">
+                        <ul class="feature-list">
+                            <li id="node-feature-1">VPS procurement & setup</li>
+                            <li id="node-feature-2">Security hardening</li>
+                            <li id="node-feature-3">Node synchronization</li>
+                        </ul>
+                    </div>
+                    <a href="/node-guides/" class="nav-card-button" id="node-card-button">
+                        <span>Setup Nodes</span>
+                        <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Getting Started Section -->
+    <section class="getting-started section">
+        <div class="getting-started-content">
+            <h2 class="section-title" id="getting-started-title">Getting Started</h2>
+            <p class="section-description" id="getting-started-description">
+                New to crypto development or node setup? Here are some recommended starting points based on your experience level.
+            </p>
+            
+            <div class="grid grid-cols-3">
+                <div class="getting-started-card">
+                    <div class="card-header">
+                        <span class="card-icon">🌱</span>
+                        <h3 class="card-title" id="beginner-title">Beginner</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description" id="beginner-description">
+                            Start with the Development Roadmap to understand crypto fundamentals and implementation concepts.
+                        </p>
+                        <a href="/development-roadmap/" class="card-link" id="beginner-link">Start Here</a>
+                    </div>
+                </div>
+                
+                <div class="getting-started-card">
+                    <div class="card-header">
+                        <span class="card-icon">⚙️</span>
+                        <h3 class="card-title" id="intermediate-title">Intermediate</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description" id="intermediate-description">
+                            Ready to get hands-on? Jump into the Node Guides to set up your own infrastructure.
+                        </p>
+                        <a href="/node-guides/" class="card-link" id="intermediate-link">Setup Nodes</a>
+                    </div>
+                </div>
+                
+                <div class="getting-started-card">
+                    <div class="card-header">
+                        <span class="card-icon">🚀</span>
+                        <h3 class="card-title" id="advanced-title">Advanced</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description" id="advanced-description">
+                            Experienced developer? Dive deep into both tracks for comprehensive crypto integration knowledge.
+                        </p>
+                        <a href="/development-roadmap/phase-1/" class="card-link" id="advanced-link">Deep Dive</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

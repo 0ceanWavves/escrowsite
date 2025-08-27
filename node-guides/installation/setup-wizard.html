@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en" data-current-section="node-guides" data-current-page="setup-wizard">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Wizard - Node Software Installation</title>
+    <meta name="description" content="Step-by-step installation process with progress indicators and automated service configuration for Bitcoin and Monero nodes">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+</head>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link active" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link active" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar sidebar-nav" id="sidebar-nav" data-section="node-guides">
+            <!-- Search functionality -->
+            <div class="sidebar-search">
+                <div class="sidebar-search-container">
+                    <input type="text" class="sidebar-search-input" id="sidebar-search" placeholder="Search..." aria-label="Search content">
+                    <svg class="sidebar-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Progress indicator -->
+            <div class="sidebar-progress" id="sidebar-progress">
+                <div class="sidebar-progress-title" id="progress-title">Phase 3 Progress</div>
+                <div class="sidebar-progress-bar">
+                    <div class="sidebar-progress-fill" id="progress-fill" style="width: 100%;"></div>
+                </div>
+                <div class="sidebar-progress-text" id="progress-text">100% Complete</div>
+            </div>
+            
+            <!-- Navigation sections -->
+            <div class="sidebar-sections" id="sidebar-sections">
+                <div class="sidebar-section" id="node-guides-nav">
+                    <h3 class="sidebar-section-title">Node Setup Guides</h3>
+                    
+                    <!-- Phase indicators -->
+                    <div class="sidebar-phase-indicators">
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="1"></div>
+                            <span class="phase-label completed" data-phase="1">Procurement & Provisioning</span>
+                        </div>
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="2"></div>
+                            <span class="phase-label completed" data-phase="2">Server Foundation & Security</span>
+                        </div>
+                        <div class="sidebar-phase-indicator active">
+                            <div class="phase-dot active" data-phase="3"></div>
+                            <span class="phase-label active" data-phase="3">Node Software Installation</span>
+                        </div>
+                        <div class="sidebar-phase-indicator">
+                            <div class="phase-dot" data-phase="4"></div>
+                            <span class="phase-label" data-phase="4">Blockchain Synchronization</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="sidebar-nav-list">
+                        <li class="sidebar-nav-item">
+                            <a href="/node-guides/" class="sidebar-nav-link" data-page="overview">
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-1-content" aria-expanded="false">
+                                <span>Phase 1: Procurement & Provisioning</span>
+                                <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content" id="node-phase-1-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/vps-selection.html" class="sidebar-nav-link" data-page="vps-selection">VPS Selection</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/hardware-requirements.html" class="sidebar-nav-link" data-page="hardware-requirements">Hardware Requirements</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/cost-estimation.html" class="sidebar-nav-link" data-page="cost-estimation">Cost Estimation</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-2-content" aria-expanded="false">
+                                <span>Phase 2: Server Foundation & Security</span>
+                                <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content" id="node-phase-2-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/secure-connections.html" class="sidebar-nav-link" data-page="secure-connections">Secure Connections</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/firewall-config.html" class="sidebar-nav-link" data-page="firewall-config">Firewall Configuration</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/system-hardening.html" class="sidebar-nav-link" data-page="system-hardening">System Hardening</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-3-content" aria-expanded="true">
+                                <span>Phase 3: Node Software Installation</span>
+                                <svg class="sidebar-toggle-icon expanded" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content expanded" id="node-phase-3-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/installation/download-verification.html" class="sidebar-nav-link" data-page="download-verification">Download & Verification</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/installation/configuration.html" class="sidebar-nav-link" data-page="configuration">Configuration</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/installation/setup-wizard.html" class="sidebar-nav-link active" data-page="setup-wizard">Setup Wizard</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Page Content -->
+        <div class="content-area" id="content-area">
+            <!-- Content Page -->
+            <div class="content-page">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb navigation">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="breadcrumb-link">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/" class="breadcrumb-link">Node Guides</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/installation/" class="breadcrumb-link">Phase 3: Installation</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Setup Wizard
+                        </li>
+                    </ol>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header section">
+                    <div class="page-header-content">
+                        <h1 class="page-title" id="page-title">Setup Wizard</h1>
+                        <div class="page-meta">
+                            <span class="page-difficulty" id="page-difficulty">Intermediate</span>
+                            <span class="page-duration" id="page-duration">1-3 hours</span>
+                            <span class="page-updated" id="page-updated">Updated: January 2025</span>
+                        </div>
+                        <div class="page-description" id="page-description">
+                            <p>Complete the installation process with step-by-step guidance, progress indicators, and automated service configuration for both Bitcoin and Monero nodes.</p>
+                        </div>
+                    </div>
+                </header>
+                
+                <!-- Prerequisites -->
+                <section class="prerequisites-section" id="prerequisites-section">
+                    <div class="admonition admonition-warning">
+                        <div class="admonition-header">
+                            <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 15.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                            </svg>
+                            <h3 class="admonition-title">Prerequisites</h3>
+                        </div>
+                        <div class="admonition-content" id="prerequisites-content">
+                            <ul>
+                                <li>Completed software download and verification</li>
+                                <li>Created and deployed configuration files</li>
+                                <li>Verified user accounts and permissions are properly set</li>
+                                <li>Confirmed adequate disk space and system resources</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Setup Wizard Interface -->
+                <section class="setup-wizard" id="setup-wizard">
+                    <!-- Wizard Progress -->
+                    <div class="wizard-progress">
+                        <div class="wizard-steps">
+                            <div class="wizard-step active" data-step="1">
+                                <div class="step-circle">1</div>
+                                <span class="step-label">Pre-Installation</span>
+                            </div>
+                            <div class="wizard-step" data-step="2">
+                                <div class="step-circle">2</div>
+                                <span class="step-label">Bitcoin Setup</span>
+                            </div>
+                            <div class="wizard-step" data-step="3">
+                                <div class="step-circle">3</div>
+                                <span class="step-label">Monero Setup</span>
+                            </div>
+                            <div class="wizard-step" data-step="4">
+                                <div class="step-circle">4</div>
+                                <span class="step-label">Service Config</span>
+                            </div>
+                            <div class="wizard-step" data-step="5">
+                                <div class="step-circle">5</div>
+                                <span class="step-label">Verification</span>
+                            </div>
+                        </div>
+                        <div class="wizard-progress-bar">
+                            <div class="wizard-progress-fill" id="wizard-progress-fill" style="width: 20%;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 1: Pre-Installation Checks -->
+                    <div class="wizard-content active" id="step-1">
+                        <div class="wizard-header">
+                            <h2>Step 1: Pre-Installation Checks</h2>
+                            <p>Let's verify that your system is ready for node installation.</p>
+                        </div>
+                        
+                        <div class="checklist-container">
+                            <h3>System Requirements Verification</h3>
+                            <div class="interactive-checklist">
+                                <div class="checklist-item" data-check="disk-space">
+                                    <input type="checkbox" id="check-disk-space" class="checklist-checkbox">
+                                    <label for="check-disk-space" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Verify sufficient disk space (700GB+ available)</span>
+                                    </label>
+                                    <button class="check-button" onclick="checkDiskSpace()">Check Now</button>
+                                </div>
+                                
+                                <div class="checklist-item" data-check="memory">
+                                    <input type="checkbox" id="check-memory" class="checklist-checkbox">
+                                    <label for="check-memory" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Verify available memory (4GB+ RAM)</span>
+                                    </label>
+                                    <button class="check-button" onclick="checkMemory()">Check Now</button>
+                                </div>
+                                
+                                <div class="checklist-item" data-check="users">
+                                    <input type="checkbox" id="check-users" class="checklist-checkbox">
+                                    <label for="check-users" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Confirm user accounts exist (bitcoin, monero)</span>
+                                    </label>
+                                    <button class="check-button" onclick="checkUsers()">Check Now</button>
+                                </div>
+                                
+                                <div class="checklist-item" data-check="software">
+                                    <input type="checkbox" id="check-software" class="checklist-checkbox">
+                                    <label for="check-software" class="checklist-label">
+                                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span>Verify downloaded software integrity</span>
+                                    </label>
+                                    <button class="check-button" onclick="checkSoftware()">Check Now</button>
+                                </div>
+                            </div>
+                            
+                            <div class="check-results" id="check-results" style="display: none;">
+                                <h4>System Check Results</h4>
+                                <div class="results-content" id="results-content">
+                                    <!-- Results will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="wizard-actions">
+                            <button class="btn btn-primary" id="next-step-1" onclick="nextStep(2)" disabled>Continue to Bitcoin Setup</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Bitcoin Setup -->
+                    <div class="wizard-content" id="step-2">
+                        <div class="wizard-header">
+                            <h2>Step 2: Bitcoin Core Installation</h2>
+                            <p>Install and configure Bitcoin Core with your optimized settings.</p>
+                        </div>
+                        
+                        <div class="installation-steps">
+                            <div class="install-step" data-step="bitcoin-extract">
+                                <div class="step-header">
+                                    <h3>Extract Bitcoin Core</h3>
+                                    <div class="step-status" id="bitcoin-extract-status">Pending</div>
+                                </div>
+                                <div class="step-content">
+                                    <p>Extract the verified Bitcoin Core archive to the installation directory.</p>
+                                    <div class="code-block">
+                                        <pre><code># Extract Bitcoin Core
+cd /tmp
+sudo -u bitcoin tar -xzf bitcoin-26.0-x86_64-linux-gnu.tar.gz
+sudo -u bitcoin cp -r bitcoin-26.0/bin/* /home/bitcoin/bin/
+sudo -u bitcoin chmod +x /home/bitcoin/bin/*</code></pre>
+                                    </div>
+                                    <button class="btn btn-secondary" onclick="executeStep('bitcoin-extract')">Execute</button>
+                                </div>
+                            </div>
+                            
+                            <div class="install-step" data-step="bitcoin-config">
+                                <div class="step-header">
+                                    <h3>Deploy Configuration</h3>
+                                    <div class="step-status" id="bitcoin-config-status">Pending</div>
+                                </div>
+                                <div class="step-content">
+                                    <p>Create the Bitcoin configuration file with your optimized settings.</p>
+                                    <div class="code-block">
+                                        <pre><code># Verify configuration file exists
+sudo -u bitcoin ls -la /home/bitcoin/.bitcoin/bitcoin.conf
+sudo -u bitcoin cat /home/bitcoin/.bitcoin/bitcoin.conf</code></pre>
+                                    </div>
+                                    <button class="btn btn-secondary" onclick="executeStep('bitcoin-config')">Verify Config</button>
+                                </div>
+                            </div>
+                            
+                            <div class="install-step" data-step="bitcoin-test">
+                                <div class="step-header">
+                                    <h3>Test Installation</h3>
+                                    <div class="step-status" id="bitcoin-test-status">Pending</div>
+                                </div>
+                                <div class="step-content">
+                                    <p>Test Bitcoin Core installation and configuration.</p>
+                                    <div class="code-block">
+                                        <pre><code># Test Bitcoin Core
+sudo -u bitcoin /home/bitcoin/bin/bitcoind --version
+sudo -u bitcoin /home/bitcoin/bin/bitcoind --testnet --daemon
+sleep 5
+sudo -u bitcoin /home/bitcoin/bin/bitcoin-cli --testnet stop</code></pre>
+                                    </div>
+                                    <button class="btn btn-secondary" onclick="executeStep('bitcoin-test')">Test Installation</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="wizard-actions">
+                            <button class="btn btn-outline" onclick="previousStep(1)">Previous</button>
+                            <button class="btn btn-primary" id="next-step-2" onclick="nextStep(3)" disabled>Continue to Monero Setup</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Monero Setup -->
+                    <div class="wizard-content" id="step-3">
+                        <div class="wizard-header">
+                            <h2>Step 3: Monero Installation</h2>
+                            <p>Install and configure Monero daemon with your optimized settings.</p>
+                        </div>
+                        
+                        <div class="installation-steps">
+                            <div class="install-step" data-step="monero-extract">
+                                <div class="step-header">
+                                    <h3>Extract Monero</h3>
+                                    <div class="step-status" id="monero-extract-status">Pending</div>
+                                </div>
+                                <div class="step-content">
+                                    <p>Extract the verified Monero archive to the installation directory.</p>
+                                    <div class="code-block">
+                                        <pre><code># Extract Monero
+cd /tmp
+sudo -u monero tar -xjf monero-linux-x64-v0.18.3.1.tar.bz2
+sudo -u monero cp monero-x86_64-linux-gnu-v0.18.3.1/* /home/monero/bin/
+sudo -u monero chmod +x /home/monero/bin/*</code></pre>
+                                    </div>
+                                    <button class="btn btn-secondary" onclick="executeStep('monero-extract')">Execute</button>
+                                </div>
+                            </div>
+                            
+                            <div class="install-step" data-step="monero-config">
+                                <div class="step-header">
+                                    <h3>Deploy Configuration</h3>
+                                    <div class="step-status" id="monero-config-status">Pending</div>
+                                </div>
+                                <div class="step-content">
+                                    <p>Create the Monero configuration file with your optimized settings.</p>
+                                    <div class="code-block">
+                                        <pre><code># Verify configuration file exists
+sudo -u monero ls -la /home/monero/.monero/monerod.conf
+sudo -u monero cat /home/monero/.monero/monerod.conf</code></pre>
+                                    </div>
+                                    <button class="btn btn-secondary" onclick="executeStep('monero-config')">Verify Config</button>
+                                </div>
+                            </div>
+                            
+                            <div class="install-step" data-step="monero-test">
+                                <div class="step-header">
+                                    <h3>Test Installation</h3>
+                                    <div class="step-status" id="monero-test-status">Pending</div>
+                                </div>
+                                <div class="step-content">
+                                    <p>Test Monero daemon installation and configuration.</p>
+                                    <div class="code-block">
+                                        <pre><code># Test Monero daemon
+sudo -u monero /home/monero/bin/monerod --version
+sudo -u monero /home/monero/bin/monerod --testnet --detach --config-file /home/monero/.monero/monerod.conf
+sleep 10
+sudo -u monero pkill monerod</code></pre>
+                                    </div>
+                                    <button class="btn btn-secondary" onclick="executeStep('monero-test')">Test Installation</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="wizard-actions">
+                            <button class="btn btn-outline" onclick="previousStep(2)">Previous</button>
+                            <button class="btn btn-primary" id="next-step-3" onclick="nextStep(4)" disabled>Continue to Service Configuration</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4: Service Configuration -->
+                    <div class="wizard-content" id="step-4">
+                        <div class="wizard-header">
+                            <h2>Step 4: Systemd Service Configuration</h2>
+                            <p>Create and configure systemd services for automatic node management.</p>
+                        </div>
+                        
+                        <div class="service-config">
+                            <div class="service-item">
+                                <h3>Bitcoin Core Service</h3>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span class="code-title">/etc/systemd/system/bitcoind.service</span>
+                                        <button class="code-copy" data-clipboard-target="#bitcoind-service">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre id="bitcoind-service"><code>[Unit]
+Description=Bitcoin Core Daemon
+Documentation=https://github.com/bitcoin/bitcoin/blob/master/doc/init.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+NotifyAccess=all
+ExecStart=/home/bitcoin/bin/bitcoind -daemon -conf=/home/bitcoin/.bitcoin/bitcoin.conf -pid=/run/bitcoind/bitcoind.pid
+ExecStop=/home/bitcoin/bin/bitcoin-cli stop
+ExecReload=/bin/kill -HUP $MAINPID
+
+User=bitcoin
+Group=bitcoin
+
+RuntimeDirectory=bitcoind
+RuntimeDirectoryMode=0710
+PIDFile=/run/bitcoind/bitcoind.pid
+
+Restart=on-failure
+RestartSec=30
+TimeoutStartSec=infinity
+TimeoutStopSec=600
+
+PrivateTmp=true
+ProtectSystem=full
+NoNewPrivileges=true
+PrivateDevices=true
+MemoryDenyWriteExecute=true
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+                                </div>
+                                <button class="btn btn-secondary" onclick="createService('bitcoin')">Create Bitcoin Service</button>
+                            </div>
+                            
+                            <div class="service-item">
+                                <h3>Monero Daemon Service</h3>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span class="code-title">/etc/systemd/system/monerod.service</span>
+                                        <button class="code-copy" data-clipboard-target="#monerod-service">
+                                            <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                            </svg>
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre id="monerod-service"><code>[Unit]
+Description=Monero Daemon
+Documentation=https://github.com/monero-project/monero
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+ExecStart=/home/monero/bin/monerod --config-file /home/monero/.monero/monerod.conf --detach --pidfile /run/monerod/monerod.pid
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=mixed
+
+User=monero
+Group=monero
+
+RuntimeDirectory=monerod
+RuntimeDirectoryMode=0710
+PIDFile=/run/monerod/monerod.pid
+
+Restart=on-failure
+RestartSec=30
+TimeoutStartSec=infinity
+TimeoutStopSec=600
+
+PrivateTmp=true
+ProtectSystem=full
+NoNewPrivileges=true
+PrivateDevices=true
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+                                </div>
+                                <button class="btn btn-secondary" onclick="createService('monero')">Create Monero Service</button>
+                            </div>
+                        </div>
+                        
+                        <div class="service-management">
+                            <h3>Service Management Commands</h3>
+                            <div class="command-grid">
+                                <div class="command-item">
+                                    <h4>Enable Services</h4>
+                                    <div class="code-block">
+                                        <pre><code># Enable services to start on boot
+sudo systemctl enable bitcoind
+sudo systemctl enable monerod</code></pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="command-item">
+                                    <h4>Start Services</h4>
+                                    <div class="code-block">
+                                        <pre><code># Start services now
+sudo systemctl start bitcoind
+sudo systemctl start monerod</code></pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="command-item">
+                                    <h4>Check Status</h4>
+                                    <div class="code-block">
+                                        <pre><code># Check service status
+sudo systemctl status bitcoind
+sudo systemctl status monerod</code></pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="command-item">
+                                    <h4>View Logs</h4>
+                                    <div class="code-block">
+                                        <pre><code># View service logs
+sudo journalctl -u bitcoind -f
+sudo journalctl -u monerod -f</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="wizard-actions">
+                            <button class="btn btn-outline" onclick="previousStep(3)">Previous</button>
+                            <button class="btn btn-primary" id="next-step-4" onclick="nextStep(5)">Continue to Verification</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5: Verification -->
+                    <div class="wizard-content" id="step-5">
+                        <div class="wizard-header">
+                            <h2>Step 5: Installation Verification</h2>
+                            <p>Verify that both nodes are properly installed and ready for blockchain synchronization.</p>
+                        </div>
+                        
+                        <div class="verification-tests">
+                            <div class="test-category">
+                                <h3>Bitcoin Core Verification</h3>
+                                <div class="test-grid">
+                                    <div class="test-item" data-test="bitcoin-service">
+                                        <div class="test-header">
+                                            <span class="test-name">Service Status</span>
+                                            <div class="test-status" id="bitcoin-service-status">Not Tested</div>
+                                        </div>
+                                        <button class="btn btn-sm" onclick="runTest('bitcoin-service')">Test</button>
+                                    </div>
+                                    
+                                    <div class="test-item" data-test="bitcoin-rpc">
+                                        <div class="test-header">
+                                            <span class="test-name">RPC Connection</span>
+                                            <div class="test-status" id="bitcoin-rpc-status">Not Tested</div>
+                                        </div>
+                                        <button class="btn btn-sm" onclick="runTest('bitcoin-rpc')">Test</button>
+                                    </div>
+                                    
+                                    <div class="test-item" data-test="bitcoin-network">
+                                        <div class="test-header">
+                                            <span class="test-name">Network Connectivity</span>
+                                            <div class="test-status" id="bitcoin-network-status">Not Tested</div>
+                                        </div>
+                                        <button class="btn btn-sm" onclick="runTest('bitcoin-network')">Test</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="test-category">
+                                <h3>Monero Verification</h3>
+                                <div class="test-grid">
+                                    <div class="test-item" data-test="monero-service">
+                                        <div class="test-header">
+                                            <span class="test-name">Service Status</span>
+                                            <div class="test-status" id="monero-service-status">Not Tested</div>
+                                        </div>
+                                        <button class="btn btn-sm" onclick="runTest('monero-service')">Test</button>
+                                    </div>
+                                    
+                                    <div class="test-item" data-test="monero-rpc">
+                                        <div class="test-header">
+                                            <span class="test-name">RPC Connection</span>
+                                            <div class="test-status" id="monero-rpc-status">Not Tested</div>
+                                        </div>
+                                        <button class="btn btn-sm" onclick="runTest('monero-rpc')">Test</button>
+                                    </div>
+                                    
+                                    <div class="test-item" data-test="monero-network">
+                                        <div class="test-header">
+                                            <span class="test-name">Network Connectivity</span>
+                                            <div class="test-status" id="monero-network-status">Not Tested</div>
+                                        </div>
+                                        <button class="btn btn-sm" onclick="runTest('monero-network')">Test</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="verification-summary" id="verification-summary" style="display: none;">
+                            <div class="admonition admonition-success">
+                                <div class="admonition-header">
+                                    <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <h3 class="admonition-title">Installation Complete!</h3>
+                                </div>
+                                <div class="admonition-content">
+                                    <p>Both Bitcoin and Monero nodes have been successfully installed and configured. Your nodes are ready to begin blockchain synchronization.</p>
+                                    <h4>Next Steps:</h4>
+                                    <ul>
+                                        <li>Proceed to Phase 4: Blockchain Synchronization & Operation</li>
+                                        <li>Monitor initial sync progress using the provided commands</li>
+                                        <li>Set up monitoring and alerting for ongoing operations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="wizard-actions">
+                            <button class="btn btn-outline" onclick="previousStep(4)">Previous</button>
+                            <button class="btn btn-primary" id="complete-setup" onclick="completeSetup()" disabled>Complete Setup</button>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation section" id="page-navigation">
+                    <div class="page-nav-content">
+                        <div class="page-nav-item page-nav-prev" id="page-nav-prev">
+                            <a href="configuration.html" class="page-nav-link" id="prev-page-link">
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                                </svg>
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Previous</span>
+                                    <span class="page-nav-title" id="prev-page-title">Configuration</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="page-nav-item page-nav-next" id="page-nav-next">
+                            <a href="/node-guides/synchronization/" class="page-nav-link" id="next-page-link">
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Next Phase</span>
+                                    <span class="page-nav-title" id="next-page-title">Blockchain Synchronization</span>
+                                </div>
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" id="site-footer">
+        <p id="footer-text">© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="../../assets/js/utils.js"></script>
+    <script src="../../assets/js/language-switcher.js"></script>
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/page-loader.js"></script>
+    <script>
+        // Setup Wizard functionality
+        let currentStep = 1;
+        let completedChecks = new Set();
+        let completedSteps = new Set();
+        let testResults = new Map();
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            updateWizardProgress();
+        });
+        
+        function nextStep(step) {
+            // Hide current step
+            document.querySelector(`#step-${currentStep}`).classList.remove('active');
+            document.querySelector(`.wizard-step[data-step="${currentStep}"]`).classList.remove('active');
+            document.querySelector(`.wizard-step[data-step="${currentStep}"]`).classList.add('completed');
+            
+            // Show next step
+            currentStep = step;
+            document.querySelector(`#step-${currentStep}`).classList.add('active');
+            document.querySelector(`.wizard-step[data-step="${currentStep}"]`).classList.add('active');
+            
+            updateWizardProgress();
+        }
+        
+        function previousStep(step) {
+            // Hide current step
+            document.querySelector(`#step-${currentStep}`).classList.remove('active');
+            document.querySelector(`.wizard-step[data-step="${currentStep}"]`).classList.remove('active');
+            
+            // Show previous step
+            currentStep = step;
+            document.querySelector(`#step-${currentStep}`).classList.add('active');
+            document.querySelector(`.wizard-step[data-step="${currentStep}"]`).classList.add('active');
+            
+            updateWizardProgress();
+        }
+        
+        function updateWizardProgress() {
+            const progress = (currentStep / 5) * 100;
+            document.getElementById('wizard-progress-fill').style.width = `${progress}%`;
+        }
+        
+        // Step 1: Pre-installation checks
+        function checkDiskSpace() {
+            // Simulate disk space check
+            setTimeout(() => {
+                const checkbox = document.getElementById('check-disk-space');
+                checkbox.checked = true;
+                completedChecks.add('disk-space');
+                updateCheckResults('Disk Space', 'PASS', '850GB available');
+                checkStep1Completion();
+            }, 1000);
+        }
+        
+        function checkMemory() {
+            // Simulate memory check
+            setTimeout(() => {
+                const checkbox = document.getElementById('check-memory');
+                checkbox.checked = true;
+                completedChecks.add('memory');
+                updateCheckResults('Memory', 'PASS', '8GB RAM available');
+                checkStep1Completion();
+            }, 800);
+        }
+        
+        function checkUsers() {
+            // Simulate user check
+            setTimeout(() => {
+                const checkbox = document.getElementById('check-users');
+                checkbox.checked = true;
+                completedChecks.add('users');
+                updateCheckResults('User Accounts', 'PASS', 'bitcoin and monero users exist');
+                checkStep1Completion();
+            }, 600);
+        }
+        
+        function checkSoftware() {
+            // Simulate software check
+            setTimeout(() => {
+                const checkbox = document.getElementById('check-software');
+                checkbox.checked = true;
+                completedChecks.add('software');
+                updateCheckResults('Software Integrity', 'PASS', 'All signatures verified');
+                checkStep1Completion();
+            }, 1200);
+        }
+        
+        function updateCheckResults(checkName, status, details) {
+            const resultsContainer = document.getElementById('check-results');
+            const resultsContent = document.getElementById('results-content');
+            
+            resultsContainer.style.display = 'block';
+            
+            const resultItem = document.createElement('div');
+            resultItem.className = `result-item ${status.toLowerCase()}`;
+            resultItem.innerHTML = `
+                <div class="result-status">${status}</div>
+                <div class="result-details">
+                    <strong>${checkName}:</strong> ${details}
+                </div>
+            `;
+            
+            resultsContent.appendChild(resultItem);
+        }
+        
+        function checkStep1Completion() {
+            if (completedChecks.size === 4) {
+                document.getElementById('next-step-1').disabled = false;
+            }
+        }
+        
+        // Step 2 & 3: Installation steps
+        function executeStep(stepId) {
+            const statusElement = document.getElementById(`${stepId}-status`);
+            statusElement.textContent = 'Running...';
+            statusElement.className = 'step-status running';
+            
+            // Simulate execution
+            setTimeout(() => {
+                statusElement.textContent = 'Complete';
+                statusElement.className = 'step-status complete';
+                completedSteps.add(stepId);
+                
+                // Check if all steps in current phase are complete
+                if (currentStep === 2) {
+                    const bitcoinSteps = ['bitcoin-extract', 'bitcoin-config', 'bitcoin-test'];
+                    if (bitcoinSteps.every(step => completedSteps.has(step))) {
+                        document.getElementById('next-step-2').disabled = false;
+                    }
+                } else if (currentStep === 3) {
+                    const moneroSteps = ['monero-extract', 'monero-config', 'monero-test'];
+                    if (moneroSteps.every(step => completedSteps.has(step))) {
+                        document.getElementById('next-step-3').disabled = false;
+                    }
+                }
+            }, 2000 + Math.random() * 2000);
+        }
+        
+        // Step 4: Service creation
+        function createService(service) {
+            alert(`Service configuration for ${service} copied to clipboard. Please create the service file manually using the provided configuration.`);
+        }
+        
+        // Step 5: Verification tests
+        function runTest(testId) {
+            const statusElement = document.getElementById(`${testId}-status`);
+            statusElement.textContent = 'Testing...';
+            statusElement.className = 'test-status testing';
+            
+            // Simulate test execution
+            setTimeout(() => {
+                const success = Math.random() > 0.1; // 90% success rate
+                if (success) {
+                    statusElement.textContent = 'PASS';
+                    statusElement.className = 'test-status pass';
+                    testResults.set(testId, 'pass');
+                } else {
+                    statusElement.textContent = 'FAIL';
+                    statusElement.className = 'test-status fail';
+                    testResults.set(testId, 'fail');
+                }
+                
+                checkVerificationCompletion();
+            }, 1500 + Math.random() * 1500);
+        }
+        
+        function checkVerificationCompletion() {
+            const requiredTests = [
+                'bitcoin-service', 'bitcoin-rpc', 'bitcoin-network',
+                'monero-service', 'monero-rpc', 'monero-network'
+            ];
+            
+            if (requiredTests.every(test => testResults.has(test))) {
+                const allPassed = requiredTests.every(test => testResults.get(test) === 'pass');
+                
+                if (allPassed) {
+                    document.getElementById('verification-summary').style.display = 'block';
+                    document.getElementById('complete-setup').disabled = false;
+                }
+            }
+        }
+        
+        function completeSetup() {
+            alert('Setup completed successfully! You can now proceed to Phase 4: Blockchain Synchronization & Operation.');
+            // Redirect to next phase or update UI as needed
+        }
+    </script>
+</body>
+</html>

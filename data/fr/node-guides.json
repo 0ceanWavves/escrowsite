@@ -1,0 +1,66 @@
+{
+  "title": "Guides de Configuration de Nœuds",
+  "description": "Guides complets pour configurer des nœuds Bitcoin et Monero avec les meilleures pratiques de sécurité",
+  "navigation": {
+    "home": "Accueil",
+    "phases": "Phases",
+    "overview": "Aperçu",
+    "nextStep": "Étape Suivante",
+    "previousStep": "Étape Précédente",
+    "backToPhases": "Retour aux Phases",
+    "nodeGuides": "Guides de Nœuds",
+    "bitcoin": "Bitcoin",
+    "monero": "Monero"
+  },
+  "common": {
+    "estimatedTime": "Temps Estimé",
+    "difficulty": "Difficulté",
+    "prerequisites": "Prérequis",
+    "codeExample": "Exemple de Code",
+    "copyCode": "Copier le Code",
+    "copied": "Copié!",
+    "showMore": "Afficher Plus",
+    "showLess": "Afficher Moins",
+    "beginner": "Débutant",
+    "intermediate": "Intermédiaire",
+    "advanced": "Avancé",
+    "warning": "Avertissement",
+    "note": "Note",
+    "tip": "Conseil",
+    "important": "Important",
+    "osSpecific": "Instructions Spécifiques à l'OS",
+    "linux": "Linux",
+    "macos": "macOS",
+    "windows": "Windows"
+  },
+  "phases": [
+    {
+      "id": "procurement-provisioning",
+      "title": "Approvisionnement & Provisioning",
+      "description": "Sélectionner et provisionner l'infrastructure nécessaire pour faire fonctionner des nœuds de cryptomonnaie",
+      "estimatedTime": "2-4 heures",
+      "difficulty": "débutant"
+    },
+    {
+      "id": "server-security",
+      "title": "Fondation Serveur & Sécurité",
+      "description": "Sécuriser votre infrastructure serveur avant d'installer le logiciel de nœud",
+      "estimatedTime": "3-5 heures",
+      "difficulty": "intermédiaire"
+    },
+    {
+      "id": "installation",
+      "title": "Installation & Configuration du Logiciel de Nœud",
+      "description": "Télécharger, vérifier et configurer le logiciel de nœud Bitcoin et Monero",
+      "estimatedTime": "2-3 heures",
+      "difficulty": "intermédiaire"
+    },
+    {
+      "id": "synchronization",
+      "title": "Synchronisation Blockchain & Opération",
+      "description": "Surveiller la synchronisation et maintenir les opérations de nœud en cours",
+      "estimatedTime": "1-2 jours (principalement d'attente)",
+      "difficulty": "débutant"
+    }
+  ]
+}

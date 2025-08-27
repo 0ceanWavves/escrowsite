@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en" data-current-section="node-guides" data-current-page="vps-selection">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPS Selection - Procurement & Provisioning</title>
+    <meta name="description" content="Choose the right Virtual Private Server for your cryptocurrency node">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+    
+    <style>
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .comparison-table th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f9fafb;
+        }
+        
+        .privacy-rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .privacy-excellent { color: #059669; }
+        .privacy-good { color: #d97706; }
+        .privacy-fair { color: #dc2626; }
+        
+        .provider-logo {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .filter-group label {
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        .filter-group select {
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            background: white;
+        }
+        
+        .recommended-badge {
+            background: #10b981;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link active" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link active" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar sidebar-nav" id="sidebar-nav" data-section="node-guides">
+            <!-- Search functionality -->
+            <div class="sidebar-search">
+                <div class="sidebar-search-container">
+                    <input type="text" class="sidebar-search-input" id="sidebar-search" placeholder="Search..." aria-label="Search content">
+                    <svg class="sidebar-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Progress indicator -->
+            <div class="sidebar-progress" id="sidebar-progress">
+                <div class="sidebar-progress-title" id="progress-title">Phase 1 Progress</div>
+                <div class="sidebar-progress-bar">
+                    <div class="sidebar-progress-fill" id="progress-fill" style="width: 33%;"></div>
+                </div>
+                <div class="sidebar-progress-text" id="progress-text">33% Complete</div>
+            </div>
+            
+            <!-- Navigation sections -->
+            <div class="sidebar-sections" id="sidebar-sections">
+                <div class="sidebar-section" id="node-guides-nav">
+                    <h3 class="sidebar-section-title">Node Setup Guides</h3>
+                    
+                    <ul class="sidebar-nav-list">
+                        <li class="sidebar-nav-item">
+                            <a href="/node-guides/" class="sidebar-nav-link" data-page="overview">
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-1-content" aria-expanded="true">
+                                <span>Phase 1: Procurement & Provisioning</span>
+                                <svg class="sidebar-toggle-icon expanded" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content expanded" id="node-phase-1-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/vps-selection.html" class="sidebar-nav-link active" data-page="vps-selection">VPS Selection</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/hardware-requirements.html" class="sidebar-nav-link" data-page="hardware-requirements">Hardware Requirements</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/cost-estimation.html" class="sidebar-nav-link" data-page="cost-estimation">Cost Estimation</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Page Content -->
+        <div class="content-area" id="content-area">
+            <!-- Content Page -->
+            <div class="content-page">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb navigation">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="breadcrumb-link">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/" class="breadcrumb-link">Node Guides</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/procurement-provisioning/" class="breadcrumb-link">Procurement & Provisioning</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            VPS Selection
+                        </li>
+                    </ol>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header section">
+                    <div class="page-header-content">
+                        <h1 class="page-title" id="page-title">VPS Selection</h1>
+                        <div class="page-meta">
+                            <span class="page-difficulty" id="page-difficulty">Beginner</span>
+                            <span class="page-duration" id="page-duration">30-60 minutes</span>
+                            <span class="page-updated" id="page-updated">Updated: January 2025</span>
+                        </div>
+                        <div class="page-description" id="page-description">
+                            <p>Choose the right Virtual Private Server for your cryptocurrency node based on performance, reliability, privacy policies, and cost-effectiveness.</p>
+                        </div>
+                    </div>
+                </header>
+                
+                <!-- Prerequisites -->
+                <section class="prerequisites-section" id="prerequisites-section">
+                    <div class="admonition admonition-info">
+                        <div class="admonition-header">
+                            <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="admonition-title">Prerequisites</h3>
+                        </div>
+                        <div class="admonition-content" id="prerequisites-content">
+                            <ul>
+                                <li>Basic understanding of servers and hosting</li>
+                                <li>Budget planning for monthly hosting costs</li>
+                                <li>Understanding of your privacy requirements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Main Content Area -->
+                <main class="page-content" id="page-content">
+                    <section class="content-section">
+                        <h2>Key Selection Criteria</h2>
+                        <p>When selecting a VPS for your cryptocurrency node, consider these essential factors:</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                </div>
+                                <h3>Privacy & Jurisdiction</h3>
+                                <p>Choose providers in privacy-friendly jurisdictions with strong data protection laws and minimal logging policies.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <h3>Performance</h3>
+                                <p>Ensure adequate CPU, RAM, and SSD storage with high-speed network connectivity for optimal node performance.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <h3>Cost Effectiveness</h3>
+                                <p>Balance performance requirements with budget constraints, considering both monthly costs and bandwidth charges.</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>VPS Provider Comparison</h2>
+                        <p>Here's a comprehensive comparison of popular VPS providers suitable for cryptocurrency nodes:</p>
+                        
+                        <!-- Filter Controls -->
+                        <div class="filter-controls">
+                            <div class="filter-group">
+                                <label for="budget-filter">Budget Range</label>
+                                <select id="budget-filter">
+                                    <option value="all">All Budgets</option>
+                                    <option value="budget">Budget ($5-15/month)</option>
+                                    <option value="mid">Mid-range ($15-35/month)</option>
+                                    <option value="premium">Premium ($35+/month)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <label for="privacy-filter">Privacy Level</label>
+                                <select id="privacy-filter">
+                                    <option value="all">All Levels</option>
+                                    <option value="excellent">Excellent</option>
+                                    <option value="good">Good</option>
+                                    <option value="fair">Fair</option>
+                                </select>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <label for="location-filter">Location</label>
+                                <select id="location-filter">
+                                    <option value="all">All Locations</option>
+                                    <option value="europe">Europe</option>
+                                    <option value="usa">USA</option>
+                                    <option value="asia">Asia</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Comparison Table -->
+                        <div class="table-container">
+                            <table class="comparison-table" id="provider-table">
+                                <thead>
+                                    <tr>
+                                        <th>Provider</th>
+                                        <th>RAM</th>
+                                        <th>Storage</th>
+                                        <th>Bandwidth</th>
+                                        <th>Price/Month</th>
+                                        <th>Privacy Rating</th>
+                                        <th>Location</th>
+                                        <th>Notes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-budget="budget" data-privacy="excellent" data-location="europe">
+                                        <td>
+                                            <strong>Hetzner</strong>
+                                            <span class="recommended-badge">Recommended</span>
+                                        </td>
+                                        <td>4GB</td>
+                                        <td>80GB SSD</td>
+                                        <td>20TB</td>
+                                        <td>€4.90 (~$5.30)</td>
+                                        <td>
+                                            <span class="privacy-rating privacy-excellent">
+                                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                </svg>
+                                                Excellent
+                                            </span>
+                                        </td>
+                                        <td>Germany, Finland</td>
+                                        <td>Best value, EU privacy laws</td>
+                                    </tr>
+                                    <tr data-budget="budget" data-privacy="excellent" data-location="europe">
+                                        <td><strong>Vultr</strong></td>
+                                        <td>4GB</td>
+                                        <td>80GB SSD</td>
+                                        <td>3TB</td>
+                                        <td>$24</td>
+                                        <td>
+                                            <span class="privacy-rating privacy-excellent">
+                                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                </svg>
+                                                Excellent
+                                            </span>
+                                        </td>
+                                        <td>Global</td>
+                                        <td>Crypto payments accepted</td>
+                                    </tr>
+                                    <tr data-budget="mid" data-privacy="good" data-location="usa">
+                                        <td><strong>DigitalOcean</strong></td>
+                                        <td>4GB</td>
+                                        <td>80GB SSD</td>
+                                        <td>4TB</td>
+                                        <td>$24</td>
+                                        <td>
+                                            <span class="privacy-rating privacy-good">
+                                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                </svg>
+                                                Good
+                                            </span>
+                                        </td>
+                                        <td>USA, Europe, Asia</td>
+                                        <td>Excellent documentation</td>
+                                    </tr>
+                                    <tr data-budget="mid" data-privacy="good" data-location="usa">
+                                        <td><strong>Linode</strong></td>
+                                        <td>4GB</td>
+                                        <td>80GB SSD</td>
+                                        <td>4TB</td>
+                                        <td>$24</td>
+                                        <td>
+                                            <span class="privacy-rating privacy-good">
+                                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                </svg>
+                                                Good
+                                            </span>
+                                        </td>
+                                        <td>Global</td>
+                                        <td>Strong performance</td>
+                                    </tr>
+                                    <tr data-budget="budget" data-privacy="excellent" data-location="europe">
+                                        <td><strong>Contabo</strong></td>
+                                        <td>8GB</td>
+                                        <td>200GB SSD</td>
+                                        <td>Unlimited</td>
+                                        <td>€8.99 (~$9.70)</td>
+                                        <td>
+                                            <span class="privacy-rating privacy-excellent">
+                                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                </svg>
+                                                Excellent
+                                            </span>
+                                        </td>
+                                        <td>Germany, USA</td>
+                                        <td>High specs for price</td>
+                                    </tr>
+                                    <tr data-budget="premium" data-privacy="excellent" data-location="europe">
+                                        <td><strong>Njalla</strong></td>
+                                        <td>4GB</td>
+                                        <td>80GB SSD</td>
+                                        <td>2TB</td>
+                                        <td>€15 (~$16.20)</td>
+                                        <td>
+                                            <span class="privacy-rating privacy-excellent">
+                                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                </svg>
+                                                Excellent
+                                            </span>
+                                        </td>
+                                        <td>Sweden</td>
+                                        <td>Maximum privacy focus</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Server Specifications Check</h2>
+                        <p>Once you've selected a provider, use these commands to verify your server meets the requirements:</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Server Specifications Check</span>
+                                <button class="code-copy" onclick="copyToClipboard('server-check')">
+                                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre id="server-check"><code># Check available disk space
+df -h
+
+# Check RAM
+free -h
+
+# Check CPU cores
+nproc
+
+# Check network speed
+wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip
+
+# Check system information
+uname -a
+lscpu</code></pre>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <div class="admonition admonition-warning">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Important Considerations</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <ul>
+                                    <li><strong>Avoid free VPS providers</strong> - They often have unreliable uptime and may monitor traffic</li>
+                                    <li><strong>Check Terms of Service</strong> - Some providers prohibit cryptocurrency-related activities</li>
+                                    <li><strong>Consider backup options</strong> - Have a plan for migrating if your provider changes policies</li>
+                                    <li><strong>Start small</strong> - You can always upgrade your server as your needs grow</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation section" id="page-navigation">
+                    <div class="page-nav-content">
+                        <div class="page-nav-item page-nav-prev" id="page-nav-prev">
+                            <a href="index.html" class="page-nav-link" id="prev-page-link">
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                                </svg>
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Previous</span>
+                                    <span class="page-nav-title" id="prev-page-title">Phase Overview</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="page-nav-item page-nav-next" id="page-nav-next">
+                            <a href="hardware-requirements.html" class="page-nav-link" id="next-page-link">
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Next</span>
+                                    <span class="page-nav-title" id="next-page-title">Hardware Requirements</span>
+                                </div>
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" id="site-footer">
+        <p id="footer-text">© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="../../assets/js/utils.js"></script>
+    <script src="../../assets/js/language-switcher.js"></script>
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/page-loader.js"></script>
+    
+    <script>
+        // Table filtering functionality
+        function filterTable() {
+            const budgetFilter = document.getElementById('budget-filter').value;
+            const privacyFilter = document.getElementById('privacy-filter').value;
+            const locationFilter = document.getElementById('location-filter').value;
+            const rows = document.querySelectorAll('#provider-table tbody tr');
+            
+            rows.forEach(row => {
+                const budget = row.getAttribute('data-budget');
+                const privacy = row.getAttribute('data-privacy');
+                const location = row.getAttribute('data-location');
+                
+                const budgetMatch = budgetFilter === 'all' || budget === budgetFilter;
+                const privacyMatch = privacyFilter === 'all' || privacy === privacyFilter;
+                const locationMatch = locationFilter === 'all' || location === locationFilter;
+                
+                if (budgetMatch && privacyMatch && locationMatch) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+        
+        // Add event listeners for filters
+        document.getElementById('budget-filter').addEventListener('change', filterTable);
+        document.getElementById('privacy-filter').addEventListener('change', filterTable);
+        document.getElementById('location-filter').addEventListener('change', filterTable);
+        
+        // Copy to clipboard function
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                // Show feedback
+                const button = event.target.closest('.code-copy');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Copied!';
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

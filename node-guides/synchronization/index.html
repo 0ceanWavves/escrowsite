@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en" data-current-section="node-guides" data-current-page="synchronization">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 4: Blockchain Synchronization - Node Guides</title>
+    <meta name="description" content="Synchronize Bitcoin and Monero blockchains, monitor progress, and ensure proper node operation">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+</head>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link active" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>        
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link active" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar sidebar-nav" id="sidebar-nav" data-section="node-guides">
+            <!-- Search functionality -->
+            <div class="sidebar-search">
+                <div class="sidebar-search-container">
+                    <input type="text" class="sidebar-search-input" id="sidebar-search" placeholder="Search..." aria-label="Search content">
+                    <svg class="sidebar-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Progress indicator -->
+            <div class="sidebar-progress" id="sidebar-progress">
+                <div class="sidebar-progress-title" id="progress-title">Phase 4 Progress</div>
+                <div class="sidebar-progress-bar">
+                    <div class="sidebar-progress-fill" id="progress-fill" style="width: 0%;"></div>
+                </div>
+                <div class="sidebar-progress-text" id="progress-text">0% Complete</div>
+            </div>
+            
+            <!-- Navigation sections -->
+            <div class="sidebar-sections" id="sidebar-sections">
+                <div class="sidebar-section" id="node-guides-nav">
+                    <h3 class="sidebar-section-title">Node Setup Guides</h3>
+                    
+                    <!-- Phase indicators -->
+                    <div class="sidebar-phase-indicators">
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="1"></div>
+                            <span class="phase-label completed" data-phase="1">Procurement & Provisioning</span>
+                        </div>
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="2"></div>
+                            <span class="phase-label completed" data-phase="2">Server Foundation & Security</span>
+                        </div>
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="3"></div>
+                            <span class="phase-label completed" data-phase="3">Node Software Installation</span>
+                        </div>
+                        <div class="sidebar-phase-indicator active">
+                            <div class="phase-dot active" data-phase="4"></div>
+                            <span class="phase-label active" data-phase="4">Blockchain Synchronization</span>
+                        </div>
+                    </div> 
+                   
+                    <ul class="sidebar-nav-list">
+                        <li class="sidebar-nav-item">
+                            <a href="/node-guides/" class="sidebar-nav-link" data-page="overview">
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-1-content" aria-expanded="false">
+                                <span>Phase 1: Procurement & Provisioning</span>
+                                <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content" id="node-phase-1-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/vps-selection.html" class="sidebar-nav-link" data-page="vps-selection">VPS Selection</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/hardware-requirements.html" class="sidebar-nav-link" data-page="hardware-requirements">Hardware Requirements</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/cost-estimation.html" class="sidebar-nav-link" data-page="cost-estimation">Cost Estimation</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-2-content" aria-expanded="false">
+                                <span>Phase 2: Server Foundation & Security</span>
+                                <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content" id="node-phase-2-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/secure-connections.html" class="sidebar-nav-link" data-page="secure-connections">Secure Connections</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/firewall-config.html" class="sidebar-nav-link" data-page="firewall-config">Firewall Configuration</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/system-hardening.html" class="sidebar-nav-link" data-page="system-hardening">System Hardening</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>      
+                  <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-3-content" aria-expanded="false">
+                                <span>Phase 3: Node Software Installation</span>
+                                <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content" id="node-phase-3-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/installation/download-verification.html" class="sidebar-nav-link" data-page="download-verification">Download & Verification</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/installation/configuration.html" class="sidebar-nav-link" data-page="configuration">Configuration</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/installation/setup-wizard.html" class="sidebar-nav-link" data-page="setup-wizard">Setup Wizard</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-4-content" aria-expanded="true">
+                                <span>Phase 4: Blockchain Synchronization</span>
+                                <svg class="sidebar-toggle-icon expanded" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content expanded" id="node-phase-4-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/synchronization/monitoring.html" class="sidebar-nav-link" data-page="monitoring">Progress Monitoring</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/synchronization/testing.html" class="sidebar-nav-link" data-page="testing">Testing & Validation</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/synchronization/maintenance.html" class="sidebar-nav-link" data-page="maintenance">Ongoing Maintenance</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside> 
+       
+        <!-- Page Content -->
+        <div class="content-area" id="content-area">
+            <!-- Content Page -->
+            <div class="content-page">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb navigation">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="breadcrumb-link">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/" class="breadcrumb-link">Node Guides</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Phase 4: Blockchain Synchronization
+                        </li>
+                    </ol>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header section">
+                    <div class="page-header-content">
+                        <h1 class="page-title" id="page-title">Phase 4: Blockchain Synchronization & Operation</h1>
+                        <div class="page-meta">
+                            <span class="page-difficulty" id="page-difficulty">Advanced</span>
+                            <span class="page-duration" id="page-duration">1-7 days</span>
+                            <span class="page-updated" id="page-updated">Updated: January 2025</span>
+                        </div>
+                        <div class="page-description" id="page-description">
+                            <p>Synchronize your Bitcoin and Monero nodes with their respective blockchains, monitor progress, validate operation, and establish ongoing maintenance procedures. This final phase transforms your installed nodes into fully operational participants in the cryptocurrency networks.</p>
+                        </div>
+                    </div>
+                </header>
+                
+                <!-- Prerequisites -->
+                <section class="prerequisites-section" id="prerequisites-section">
+                    <div class="admonition admonition-warning">
+                        <div class="admonition-header">
+                            <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 15.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                            </svg>
+                            <h3 class="admonition-title">Prerequisites</h3>
+                        </div>
+                        <div class="admonition-content" id="prerequisites-content">
+                            <ul>
+                                <li>Completed Phase 1: Procurement & Provisioning</li>
+                                <li>Completed Phase 2: Server Foundation & Security</li>
+                                <li>Completed Phase 3: Node Software Installation</li>
+                                <li>Both Bitcoin and Monero nodes successfully installed and configured</li>
+                                <li>Sufficient bandwidth for initial blockchain download (100GB+ recommended)</li>
+                                <li>Patience for multi-day synchronization process</li>
+                                <li>Understanding of blockchain concepts and network protocols</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section> 
+               
+                <!-- Main Content Area -->
+                <main class="page-content" id="page-content">
+                    <section class="content-section">
+                        <h2>Phase Overview</h2>
+                        <p>The final phase involves synchronizing your nodes with the Bitcoin and Monero networks. This process downloads the entire blockchain history, validates all transactions, and establishes your nodes as full participants in the networks. Synchronization can take several days depending on your hardware and network connection.</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                </div>
+                                <h3>Progress Monitoring</h3>
+                                <p>Track synchronization progress with real-time dashboards, performance metrics, and estimated completion times.</p>
+                                <a href="monitoring.html" class="feature-link">Monitor Progress →</a>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <h3>Testing & Validation</h3>
+                                <p>Verify node operation with comprehensive validation checklists and network connectivity tests.</p>
+                                <a href="testing.html" class="feature-link">Validate Nodes →</a>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <h3>Ongoing Maintenance</h3>
+                                <p>Establish monitoring, backup, and maintenance procedures for long-term node operation and security.</p>
+                                <a href="maintenance.html" class="feature-link">Setup Maintenance →</a>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Synchronization Timeline</h2>
+                        <div class="timeline-grid">
+                            <div class="timeline-item">
+                                <div class="timeline-marker">1</div>
+                                <div class="timeline-content">
+                                    <h4>Initial Block Download (IBD)</h4>
+                                    <p><strong>Duration:</strong> 1-5 days</p>
+                                    <p>Download and validate the complete blockchain history from network peers</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker">2</div>
+                                <div class="timeline-content">
+                                    <h4>Network Synchronization</h4>
+                                    <p><strong>Duration:</strong> 1-6 hours</p>
+                                    <p>Catch up with the latest blocks and establish peer connections</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker">3</div>
+                                <div class="timeline-content">
+                                    <h4>Validation & Testing</h4>
+                                    <p><strong>Duration:</strong> 2-4 hours</p>
+                                    <p>Verify node operation and network participation</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker">4</div>
+                                <div class="timeline-content">
+                                    <h4>Maintenance Setup</h4>
+                                    <p><strong>Duration:</strong> 1-2 hours</p>
+                                    <p>Configure monitoring, backups, and ongoing maintenance procedures</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>  
+                  
+                    <section class="content-section">
+                        <h2>Synchronization Strategy</h2>
+                        <div class="principle-grid">
+                            <div class="principle-item">
+                                <h4>Parallel Synchronization</h4>
+                                <p>Run Bitcoin and Monero synchronization simultaneously to optimize time and resources</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Progress Monitoring</h4>
+                                <p>Continuously monitor synchronization progress and system performance metrics</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Network Optimization</h4>
+                                <p>Configure optimal peer connections and bandwidth usage for faster synchronization</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Validation Checks</h4>
+                                <p>Perform comprehensive validation tests to ensure proper node operation</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>What You'll Accomplish</h2>
+                        <div class="checklist">
+                            <div class="checklist-item">
+                                <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Complete blockchain synchronization for both Bitcoin and Monero nodes</span>
+                            </div>
+                            <div class="checklist-item">
+                                <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Establish monitoring dashboards for real-time progress tracking</span>
+                            </div>
+                            <div class="checklist-item">
+                                <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Validate node operation through comprehensive testing procedures</span>
+                            </div>
+                            <div class="checklist-item">
+                                <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Configure automated monitoring and maintenance systems</span>
+                            </div>
+                            <div class="checklist-item">
+                                <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Establish backup and disaster recovery procedures</span>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Network Requirements & Performance</h2>
+                        <div class="version-grid">
+                            <div class="version-card">
+                                <div class="version-header">
+                                    <h4>Bitcoin Network</h4>
+                                    <span class="version-badge">~500GB</span>
+                                </div>
+                                <div class="version-details">
+                                    <p><strong>Blockchain Size:</strong> ~500GB (growing ~50GB/year)</p>
+                                    <p><strong>Sync Time:</strong> 1-5 days (depending on hardware)</p>
+                                    <p><strong>Bandwidth:</strong> 100GB+ initial download</p>
+                                    <p><strong>Peers:</strong> 8-125 connections recommended</p>
+                                </div>
+                            </div>
+                            
+                            <div class="version-card">
+                                <div class="version-header">
+                                    <h4>Monero Network</h4>
+                                    <span class="version-badge">~200GB</span>
+                                </div>
+                                <div class="version-details">
+                                    <p><strong>Blockchain Size:</strong> ~200GB (growing ~20GB/year)</p>
+                                    <p><strong>Sync Time:</strong> 1-3 days (depending on hardware)</p>
+                                    <p><strong>Bandwidth:</strong> 50GB+ initial download</p>
+                                    <p><strong>Peers:</strong> 8-64 connections recommended</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>       
+             
+                    <section class="content-section">
+                        <div class="admonition admonition-info">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Synchronization Time Estimates</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <p>Synchronization times vary significantly based on hardware and network conditions:</p>
+                                <ul>
+                                    <li><strong>High-end Hardware (NVMe SSD, 16GB+ RAM):</strong> 1-2 days total</li>
+                                    <li><strong>Mid-range Hardware (SATA SSD, 8GB RAM):</strong> 2-4 days total</li>
+                                    <li><strong>Budget Hardware (HDD, 4GB RAM):</strong> 4-7 days total</li>
+                                    <li><strong>Network Speed:</strong> Faster internet significantly reduces download time</li>
+                                </ul>
+                                <p>The process is largely automated once started, but requires periodic monitoring to ensure smooth operation.</p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation section" id="page-navigation">
+                    <div class="page-nav-content">
+                        <div class="page-nav-item page-nav-prev" id="page-nav-prev">
+                            <a href="/node-guides/installation/setup-wizard.html" class="page-nav-link" id="prev-page-link">
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                                </svg>
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Previous</span>
+                                    <span class="page-nav-title" id="prev-page-title">Setup Wizard</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="page-nav-item page-nav-next" id="page-nav-next">
+                            <a href="monitoring.html" class="page-nav-link" id="next-page-link">
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Next</span>
+                                    <span class="page-nav-title" id="next-page-title">Progress Monitoring</span>
+                                </div>
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/language-switcher.js"></script>
+    <script src="../../assets/js/page-loader.js"></script>
+    <script src="../../assets/js/utils.js"></script>
+</body>
+</html>

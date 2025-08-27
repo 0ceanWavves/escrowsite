@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en" data-current-section="node-guides" data-current-page="configuration">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration - Node Software Installation</title>
+    <meta name="description" content="Generate optimized configuration files for Bitcoin and Monero nodes with security and performance settings">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+</head>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link active" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link active" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar sidebar-nav" id="sidebar-nav" data-section="node-guides">
+            <!-- Search functionality -->
+            <div class="sidebar-search">
+                <div class="sidebar-search-container">
+                    <input type="text" class="sidebar-search-input" id="sidebar-search" placeholder="Search..." aria-label="Search content">
+                    <svg class="sidebar-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Progress indicator -->
+            <div class="sidebar-progress" id="sidebar-progress">
+                <div class="sidebar-progress-title" id="progress-title">Phase 3 Progress</div>
+                <div class="sidebar-progress-bar">
+                    <div class="sidebar-progress-fill" id="progress-fill" style="width: 66%;"></div>
+                </div>
+                <div class="sidebar-progress-text" id="progress-text">66% Complete</div>
+            </div>
+            
+            <!-- Navigation sections -->
+            <div class="sidebar-sections" id="sidebar-sections">
+                <div class="sidebar-section" id="node-guides-nav">
+                    <h3 class="sidebar-section-title">Node Setup Guides</h3>
+                    
+                    <!-- Phase indicators -->
+                    <div class="sidebar-phase-indicators">
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="1"></div>
+                            <span class="phase-label completed" data-phase="1">Procurement & Provisioning</span>
+                        </div>
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="2"></div>
+                            <span class="phase-label completed" data-phase="2">Server Foundation & Security</span>
+                        </div>
+                        <div class="sidebar-phase-indicator active">
+                            <div class="phase-dot active" data-phase="3"></div>
+                            <span class="phase-label active" data-phase="3">Node Software Installation</span>
+                        </div>
+                        <div class="sidebar-phase-indicator">
+                            <div class="phase-dot" data-phase="4"></div>
+                            <span class="phase-label" data-phase="4">Blockchain Synchronization</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="sidebar-nav-list">
+                        <li class="sidebar-nav-item">
+                            <a href="/node-guides/" class="sidebar-nav-link" data-page="overview">
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-1-content" aria-expanded="false">
+                                <span>Phase 1: Procurement & Provisioning</span>
+                                <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content" id="node-phase-1-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/vps-selection.html" class="sidebar-nav-link" data-page="vps-selection">VPS Selection</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/hardware-requirements.html" class="sidebar-nav-link" data-page="hardware-requirements">Hardware Requirements</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/cost-estimation.html" class="sidebar-nav-link" data-page="cost-estimation">Cost Estimation</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-2-content" aria-expanded="false">
+                                <span>Phase 2: Server Foundation & Security</span>
+                                <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content" id="node-phase-2-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/secure-connections.html" class="sidebar-nav-link" data-page="secure-connections">Secure Connections</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/firewall-config.html" class="sidebar-nav-link" data-page="firewall-config">Firewall Configuration</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/system-hardening.html" class="sidebar-nav-link" data-page="system-hardening">System Hardening</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-3-content" aria-expanded="true">
+                                <span>Phase 3: Node Software Installation</span>
+                                <svg class="sidebar-toggle-icon expanded" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content expanded" id="node-phase-3-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/installation/download-verification.html" class="sidebar-nav-link" data-page="download-verification">Download & Verification</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/installation/configuration.html" class="sidebar-nav-link active" data-page="configuration">Configuration</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/installation/setup-wizard.html" class="sidebar-nav-link" data-page="setup-wizard">Setup Wizard</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Page Content -->
+        <div class="content-area" id="content-area">
+            <!-- Content Page -->
+            <div class="content-page">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb navigation">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="breadcrumb-link">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/" class="breadcrumb-link">Node Guides</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/installation/" class="breadcrumb-link">Phase 3: Installation</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Configuration
+                        </li>
+                    </ol>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header section">
+                    <div class="page-header-content">
+                        <h1 class="page-title" id="page-title">Node Configuration</h1>
+                        <div class="page-meta">
+                            <span class="page-difficulty" id="page-difficulty">Intermediate</span>
+                            <span class="page-duration" id="page-duration">2-3 hours</span>
+                            <span class="page-updated" id="page-updated">Updated: January 2025</span>
+                        </div>
+                        <div class="page-description" id="page-description">
+                            <p>Generate optimized configuration files for Bitcoin and Monero nodes with security and performance settings tailored to your server specifications.</p>
+                        </div>
+                    </div>
+                </header>
+                
+                <!-- Prerequisites -->
+                <section class="prerequisites-section" id="prerequisites-section">
+                    <div class="admonition admonition-info">
+                        <div class="admonition-header">
+                            <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="admonition-title">Prerequisites</h3>
+                        </div>
+                        <div class="admonition-content" id="prerequisites-content">
+                            <ul>
+                                <li>Completed download and verification of Bitcoin Core and Monero software</li>
+                                <li>Created dedicated user accounts (bitcoin and monero)</li>
+                                <li>Understanding of your server's hardware specifications</li>
+                                <li>Knowledge of your network configuration and firewall rules</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Main Content Area -->
+                <main class="page-content" id="page-content">
+                    <section class="content-section">
+                        <h2>Configuration Overview</h2>
+                        <p>Proper configuration is crucial for optimal node performance, security, and resource utilization. We'll create configuration files that balance security, performance, and resource usage based on your specific server setup.</p>
+                        
+                        <div class="principle-grid">
+                            <div class="principle-item">
+                                <h4>Security First</h4>
+                                <p>Disable unnecessary features and enable security-focused options</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Resource Optimization</h4>
+                                <p>Configure memory and disk usage based on available resources</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Network Efficiency</h4>
+                                <p>Optimize connection limits and bandwidth usage</p>
+                            </div>
+                            <div class="principle-item">
+                                <h4>Monitoring Ready</h4>
+                                <p>Enable logging and metrics for operational visibility</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Bitcoin Core Configuration</h2>
+                        <p>Bitcoin Core uses a <code>bitcoin.conf</code> file to define operational parameters. We'll create a configuration optimized for a dedicated node server.</p>
+                        
+                        <div class="accordion-container">
+                            <div class="accordion-item">
+                                <button class="accordion-header" aria-expanded="false">
+                                    <span>Basic Configuration Template</span>
+                                    <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div class="accordion-content" hidden>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span class="code-title">bitcoin.conf</span>
+                                            <button class="code-copy" data-clipboard-target="#bitcoin-basic-config">
+                                                <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                                </svg>
+                                                Copy
+                                            </button>
+                                        </div>
+                                        <pre id="bitcoin-basic-config"><code># Bitcoin Core Configuration
+# Network settings
+listen=1
+server=1
+daemon=1
+
+# Data directory
+datadir=/home/bitcoin/.bitcoin
+
+# Network connections
+maxconnections=125
+maxuploadtarget=5000
+
+# Memory settings
+dbcache=2048
+maxmempool=512
+
+# Security settings
+disablewallet=1
+blocksonly=0
+
+# Logging
+debug=0
+logips=0
+logtimestamps=1
+
+# RPC settings (disabled for security)
+server=0</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <button class="accordion-header" aria-expanded="false">
+                                    <span>Performance Optimized Configuration</span>
+                                    <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div class="accordion-content" hidden>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span class="code-title">bitcoin.conf (Performance)</span>
+                                            <button class="code-copy" data-clipboard-target="#bitcoin-performance-config">
+                                                <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                                </svg>
+                                                Copy
+                                            </button>
+                                        </div>
+                                        <pre id="bitcoin-performance-config"><code># Bitcoin Core Configuration - Performance Optimized
+# Network settings
+listen=1
+server=1
+daemon=1
+
+# Data directory
+datadir=/home/bitcoin/.bitcoin
+
+# Network connections (increased for better sync)
+maxconnections=200
+maxuploadtarget=10000
+
+# Memory settings (adjust based on available RAM)
+dbcache=4096
+maxmempool=1024
+
+# Performance optimizations
+assumevalid=0000000000000000000065bda8f8a88f2e1e00d9a6887a43d640e52a4c7660f2
+checkblocks=6
+checklevel=1
+
+# Security settings
+disablewallet=1
+blocksonly=0
+
+# Logging
+debug=0
+logips=0
+logtimestamps=1
+shrinkdebugfile=1
+
+# Pruning (optional - saves disk space)
+# prune=50000
+
+# RPC settings (disabled for security)
+server=0</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Monero Configuration</h2>
+                        <p>Monero uses command-line arguments or a configuration file. We'll create a <code>monerod.conf</code> file for consistent configuration management.</p>
+                        
+                        <div class="accordion-container">
+                            <div class="accordion-item">
+                                <button class="accordion-header" aria-expanded="false">
+                                    <span>Basic Monero Configuration</span>
+                                    <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div class="accordion-content" hidden>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span class="code-title">monerod.conf</span>
+                                            <button class="code-copy" data-clipboard-target="#monero-basic-config">
+                                                <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                                </svg>
+                                                Copy
+                                            </button>
+                                        </div>
+                                        <pre id="monero-basic-config"><code># Monero Daemon Configuration
+# Data directory
+data-dir=/home/monero/.monero
+
+# Network settings
+p2p-bind-ip=0.0.0.0
+p2p-bind-port=18080
+
+# Connection limits
+out-peers=64
+in-peers=32
+limit-rate-up=2048
+limit-rate-down=8192
+
+# Logging
+log-level=1
+log-file=/home/monero/.monero/monero.log
+
+# Security
+no-igd=1
+hide-my-port=1
+
+# Performance
+db-sync-mode=fast:async:250000000bytes
+block-sync-size=20
+
+# Disable unnecessary features
+disable-dns-checkpoints=1</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <button class="accordion-header" aria-expanded="false">
+                                    <span>Performance Optimized Monero Configuration</span>
+                                    <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div class="accordion-content" hidden>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span class="code-title">monerod.conf (Performance)</span>
+                                            <button class="code-copy" data-clipboard-target="#monero-performance-config">
+                                                <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                                </svg>
+                                                Copy
+                                            </button>
+                                        </div>
+                                        <pre id="monero-performance-config"><code># Monero Daemon Configuration - Performance Optimized
+# Data directory
+data-dir=/home/monero/.monero
+
+# Network settings
+p2p-bind-ip=0.0.0.0
+p2p-bind-port=18080
+
+# Connection limits (increased for faster sync)
+out-peers=128
+in-peers=64
+limit-rate-up=4096
+limit-rate-down=16384
+
+# Logging
+log-level=1
+log-file=/home/monero/.monero/monero.log
+max-log-file-size=104857600
+
+# Security
+no-igd=1
+hide-my-port=1
+
+# Performance optimizations
+db-sync-mode=fast:async:500000000bytes
+block-sync-size=50
+prep-blocks-threads=4
+fast-block-sync=1
+
+# Memory settings
+max-txpool-weight=268435456
+
+# Disable unnecessary features
+disable-dns-checkpoints=1
+enable-dns-blocklist=0
+
+# Bootstrap nodes for faster initial sync
+add-priority-node=nodes.hashvault.pro:18080
+add-priority-node=node.supportxmr.com:18080</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Configuration Generator</h2>
+                        <p>Use this interactive tool to generate configuration files tailored to your server specifications:</p>
+                        
+                        <div class="config-generator">
+                            <div class="generator-form">
+                                <h3>Server Specifications</h3>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="ram-amount">Available RAM (GB)</label>
+                                        <select id="ram-amount" class="form-control">
+                                            <option value="4">4 GB</option>
+                                            <option value="8" selected>8 GB</option>
+                                            <option value="16">16 GB</option>
+                                            <option value="32">32 GB</option>
+                                            <option value="64">64+ GB</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="storage-type">Storage Type</label>
+                                        <select id="storage-type" class="form-control">
+                                            <option value="hdd">HDD</option>
+                                            <option value="ssd" selected>SSD</option>
+                                            <option value="nvme">NVMe SSD</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="bandwidth-limit">Bandwidth Limit</label>
+                                        <select id="bandwidth-limit" class="form-control">
+                                            <option value="unlimited" selected>Unlimited</option>
+                                            <option value="1000">1 TB/month</option>
+                                            <option value="2000">2 TB/month</option>
+                                            <option value="5000">5 TB/month</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="node-purpose">Node Purpose</label>
+                                        <select id="node-purpose" class="form-control">
+                                            <option value="personal" selected>Personal Use</option>
+                                            <option value="public">Public Node</option>
+                                            <option value="development">Development/Testing</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="generator-actions">
+                                    <button class="btn btn-primary" id="generate-configs">Generate Configurations</button>
+                                    <button class="btn btn-secondary" id="reset-form">Reset</button>
+                                </div>
+                            </div>
+                            
+                            <div class="generated-configs" id="generated-configs" style="display: none;">
+                                <h3>Generated Configuration Files</h3>
+                                <div class="config-tabs">
+                                    <button class="tab-button active" data-tab="bitcoin-generated">Bitcoin Core</button>
+                                    <button class="tab-button" data-tab="monero-generated">Monero</button>
+                                </div>
+                                
+                                <div class="tab-content active" id="bitcoin-generated">
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span class="code-title">Generated bitcoin.conf</span>
+                                            <button class="code-copy" data-clipboard-target="#generated-bitcoin-config">
+                                                <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                                </svg>
+                                                Copy
+                                            </button>
+                                        </div>
+                                        <pre id="generated-bitcoin-config"><code># Generated configuration will appear here</code></pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="tab-content" id="monero-generated">
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span class="code-title">Generated monerod.conf</span>
+                                            <button class="code-copy" data-clipboard-target="#generated-monero-config">
+                                                <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                                </svg>
+                                                Copy
+                                            </button>
+                                        </div>
+                                        <pre id="generated-monero-config"><code># Generated configuration will appear here</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Configuration Deployment</h2>
+                        <p>Follow these steps to deploy your configuration files:</p>
+                        
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Create Configuration Directories</h4>
+                                    <div class="code-block">
+                                        <pre><code># Create Bitcoin configuration directory
+sudo -u bitcoin mkdir -p /home/bitcoin/.bitcoin
+
+# Create Monero configuration directory  
+sudo -u monero mkdir -p /home/monero/.monero</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Deploy Bitcoin Configuration</h4>
+                                    <div class="code-block">
+                                        <pre><code># Create bitcoin.conf file
+sudo -u bitcoin nano /home/bitcoin/.bitcoin/bitcoin.conf
+
+# Paste your generated Bitcoin configuration
+# Save and exit (Ctrl+X, Y, Enter)</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Deploy Monero Configuration</h4>
+                                    <div class="code-block">
+                                        <pre><code># Create monerod.conf file
+sudo -u monero nano /home/monero/.monero/monerod.conf
+
+# Paste your generated Monero configuration
+# Save and exit (Ctrl+X, Y, Enter)</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Set Proper Permissions</h4>
+                                    <div class="code-block">
+                                        <pre><code># Set Bitcoin configuration permissions
+sudo chmod 600 /home/bitcoin/.bitcoin/bitcoin.conf
+sudo chown bitcoin:bitcoin /home/bitcoin/.bitcoin/bitcoin.conf
+
+# Set Monero configuration permissions
+sudo chmod 600 /home/monero/.monero/monerod.conf
+sudo chown monero:monero /home/monero/.monero/monerod.conf</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <div class="admonition admonition-tip">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Configuration Tips</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <ul>
+                                    <li><strong>Start Conservative:</strong> Begin with lower resource allocations and increase as needed</li>
+                                    <li><strong>Monitor Performance:</strong> Watch system resources during initial sync to optimize settings</li>
+                                    <li><strong>Backup Configurations:</strong> Keep copies of working configurations before making changes</li>
+                                    <li><strong>Test Changes:</strong> Always test configuration changes in a controlled manner</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation section" id="page-navigation">
+                    <div class="page-nav-content">
+                        <div class="page-nav-item page-nav-prev" id="page-nav-prev">
+                            <a href="download-verification.html" class="page-nav-link" id="prev-page-link">
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                                </svg>
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Previous</span>
+                                    <span class="page-nav-title" id="prev-page-title">Download & Verification</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="page-nav-item page-nav-next" id="page-nav-next">
+                            <a href="setup-wizard.html" class="page-nav-link" id="next-page-link">
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Next</span>
+                                    <span class="page-nav-title" id="next-page-title">Setup Wizard</span>
+                                </div>
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" id="site-footer">
+        <p id="footer-text">© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="../../assets/js/utils.js"></script>
+    <script src="../../assets/js/language-switcher.js"></script>
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/page-loader.js"></script>
+    <script>
+        // Configuration generator functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const generateBtn = document.getElementById('generate-configs');
+            const resetBtn = document.getElementById('reset-form');
+            const configsContainer = document.getElementById('generated-configs');
+            
+            generateBtn.addEventListener('click', function() {
+                const ram = parseInt(document.getElementById('ram-amount').value);
+                const storage = document.getElementById('storage-type').value;
+                const bandwidth = document.getElementById('bandwidth-limit').value;
+                const purpose = document.getElementById('node-purpose').value;
+                
+                // Generate Bitcoin configuration
+                const bitcoinConfig = generateBitcoinConfig(ram, storage, bandwidth, purpose);
+                document.getElementById('generated-bitcoin-config').textContent = bitcoinConfig;
+                
+                // Generate Monero configuration
+                const moneroConfig = generateMoneroConfig(ram, storage, bandwidth, purpose);
+                document.getElementById('generated-monero-config').textContent = moneroConfig;
+                
+                // Show generated configs
+                configsContainer.style.display = 'block';
+                configsContainer.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            resetBtn.addEventListener('click', function() {
+                document.getElementById('ram-amount').value = '8';
+                document.getElementById('storage-type').value = 'ssd';
+                document.getElementById('bandwidth-limit').value = 'unlimited';
+                document.getElementById('node-purpose').value = 'personal';
+                configsContainer.style.display = 'none';
+            });
+            
+            // Tab functionality
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+                    
+                    // Update active tab button
+                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update active tab content
+                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+        
+        function generateBitcoinConfig(ram, storage, bandwidth, purpose) {
+            let dbcache = Math.min(ram * 256, 4096); // 25% of RAM, max 4GB
+            let maxmempool = Math.min(ram * 64, 1024); // ~6% of RAM, max 1GB
+            let maxconnections = purpose === 'public' ? 200 : 125;
+            let maxuploadtarget = bandwidth === 'unlimited' ? 0 : Math.floor(bandwidth * 0.8);
+            
+            return `# Bitcoin Core Configuration - Generated
+# Network settings
+listen=1
+server=1
+daemon=1
+
+# Data directory
+datadir=/home/bitcoin/.bitcoin
+
+# Network connections
+maxconnections=${maxconnections}
+${maxuploadtarget > 0 ? `maxuploadtarget=${maxuploadtarget}` : '# maxuploadtarget=0 (unlimited)'}
+
+# Memory settings (optimized for ${ram}GB RAM)
+dbcache=${dbcache}
+maxmempool=${maxmempool}
+
+# Performance optimizations
+${storage === 'nvme' ? 'assumevalid=0000000000000000000065bda8f8a88f2e1e00d9a6887a43d640e52a4c7660f2' : '# assumevalid disabled for HDD/SSD'}
+checkblocks=6
+checklevel=1
+
+# Security settings
+disablewallet=1
+blocksonly=0
+
+# Logging
+debug=0
+logips=0
+logtimestamps=1
+shrinkdebugfile=1
+
+# RPC settings (disabled for security)
+server=0
+
+# Generated on: ${new Date().toISOString()}
+# Configuration: ${ram}GB RAM, ${storage.toUpperCase()}, ${bandwidth === 'unlimited' ? 'Unlimited' : bandwidth + 'GB'} bandwidth, ${purpose} use`;
+        }
+        
+        function generateMoneroConfig(ram, storage, bandwidth, purpose) {
+            let outPeers = purpose === 'public' ? 128 : 64;
+            let inPeers = purpose === 'public' ? 64 : 32;
+            let limitRateUp = bandwidth === 'unlimited' ? 4096 : Math.floor(bandwidth * 0.1);
+            let limitRateDown = bandwidth === 'unlimited' ? 16384 : Math.floor(bandwidth * 0.4);
+            let blockSyncSize = storage === 'nvme' ? 50 : storage === 'ssd' ? 30 : 20;
+            let dbSyncMode = storage === 'hdd' ? 'safe' : 'fast:async:500000000bytes';
+            
+            return `# Monero Daemon Configuration - Generated
+# Data directory
+data-dir=/home/monero/.monero
+
+# Network settings
+p2p-bind-ip=0.0.0.0
+p2p-bind-port=18080
+
+# Connection limits (optimized for ${purpose} use)
+out-peers=${outPeers}
+in-peers=${inPeers}
+limit-rate-up=${limitRateUp}
+limit-rate-down=${limitRateDown}
+
+# Logging
+log-level=1
+log-file=/home/monero/.monero/monero.log
+max-log-file-size=104857600
+
+# Security
+no-igd=1
+hide-my-port=1
+
+# Performance optimizations (${storage.toUpperCase()} storage)
+db-sync-mode=${dbSyncMode}
+block-sync-size=${blockSyncSize}
+${storage !== 'hdd' ? 'fast-block-sync=1' : '# fast-block-sync disabled for HDD'}
+prep-blocks-threads=${Math.min(4, Math.floor(ram / 2))}
+
+# Memory settings
+max-txpool-weight=${Math.min(268435456, ram * 33554432)}
+
+# Disable unnecessary features
+disable-dns-checkpoints=1
+enable-dns-blocklist=0
+
+# Bootstrap nodes for faster initial sync
+add-priority-node=nodes.hashvault.pro:18080
+add-priority-node=node.supportxmr.com:18080
+
+# Generated on: ${new Date().toISOString()}
+# Configuration: ${ram}GB RAM, ${storage.toUpperCase()}, ${bandwidth === 'unlimited' ? 'Unlimited' : bandwidth + 'GB'} bandwidth, ${purpose} use`;
+        }
+    </script>
+</body>
+</html>

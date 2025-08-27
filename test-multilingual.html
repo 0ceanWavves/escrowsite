@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multilingual Content Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .loading { background-color: #fff3cd; border-color: #ffeaa7; }
+        button { margin: 5px; padding: 8px 16px; }
+        pre { background: #f8f9fa; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Multilingual Content Loading Test</h1>
+    
+    <div class="test-section">
+        <h2>Language Selection</h2>
+        <button onclick="testLanguage('en')">Test English</button>
+        <button onclick="testLanguage('nl')">Test Dutch</button>
+        <button onclick="testLanguage('fr')">Test French</button>
+        <button onclick="testAllLanguages()">Test All Languages</button>
+    </div>
+    
+    <div id="results"></div>
+
+    <script type="module">
+        import { i18n } from './assets/js/i18n.js';
+        import { contentLoader } from './assets/js/content-loader.js';
+        import { languageRouter } from './assets/js/language-router.js';
+
+        // Make functions available globally for button clicks
+        window.testLanguage = testLanguage;
+        window.testAllLanguages = testAllLanguages;
+
+        async function testLanguage(language) {
+            const resultsDiv = document.getElementById('results');
+            const testSection = document.createElement('div');
+            testSection.className = 'test-section loading';
+            testSection.innerHTML = `<h3>Testing ${language.toUpperCase()}</h3><p>Loading...</p>`;
+            resultsDiv.appendChild(testSection);
+
+            try {
+                // Test i18n translation loading
+                const devTranslations = await i18n.loadTranslations(language, 'development-roadmap');
+                const nodeTranslations = await i18n.loadTranslations(language, 'node-guides');
+
+                // Test content loading
+                const devContent = await contentLoader.loadContent('development-roadmap');
+                const nodeContent = await contentLoader.loadContent('node-guides');
+
+                // Test language router
+                await languageRouter.navigateTo('/development-roadmap', language, false);
+                const routeContent = await languageRouter.loadRouteContent({
+                    type: 'section',
+                    contentType: 'development-roadmap',
+                    language: language,
+                    phase: null,
+                    subsection: null
+                });
+
+                testSection.className = 'test-section success';
+                testSection.innerHTML = `
+                    <h3>✅ ${language.toUpperCase()} - SUCCESS</h3>
+                    <p><strong>Development Roadmap Title:</strong> ${devTranslations.title}</p>
+                    <p><strong>Node Guides Title:</strong> ${nodeTranslations.title}</p>
+                    <p><strong>Navigation Home:</strong> ${devTranslations.navigation?.home}</p>
+                    <p><strong>Common Difficulty:</strong> ${devTranslations.common?.difficulty}</p>
+                    <p><strong>Phases Count:</strong> ${devContent.phases.length} development, ${nodeContent.phases.length} node guide phases</p>
+                    <details>
+                        <summary>View Raw Translation Data</summary>
+                        <pre>${JSON.stringify({ devTranslations, nodeTranslations }, null, 2)}</pre>
+                    </details>
+                `;
+            } catch (error) {
+                testSection.className = 'test-section error';
+                testSection.innerHTML = `
+                    <h3>❌ ${language.toUpperCase()} - ERROR</h3>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                    <pre>${error.stack}</pre>
+                `;
+            }
+        }
+
+        async function testAllLanguages() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<h2>Testing All Languages...</h2>';
+            
+            const languages = ['en', 'nl', 'fr'];
+            for (const lang of languages) {
+                await testLanguage(lang);
+                // Small delay between tests
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            
+            // Test language switching
+            const switchTestDiv = document.createElement('div');
+            switchTestDiv.className = 'test-section';
+            switchTestDiv.innerHTML = '<h3>Testing Language Switching</h3>';
+            resultsDiv.appendChild(switchTestDiv);
+            
+            try {
+                for (const lang of languages) {
+                    await i18n.setLanguage(lang);
+                    const currentLang = i18n.getCurrentLanguage();
+                    if (currentLang !== lang) {
+                        throw new Error(`Language switch failed: expected ${lang}, got ${currentLang}`);
+                    }
+                }
+                
+                switchTestDiv.className = 'test-section success';
+                switchTestDiv.innerHTML += '<p>✅ Language switching works correctly</p>';
+            } catch (error) {
+                switchTestDiv.className = 'test-section error';
+                switchTestDiv.innerHTML += `<p>❌ Language switching failed: ${error.message}</p>`;
+            }
+        }
+
+        // Initialize and run basic test on page load
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                await i18n.initialize();
+                console.log('i18n initialized successfully');
+                console.log('Current language:', i18n.getCurrentLanguage());
+                console.log('Supported languages:', i18n.getSupportedLanguages());
+            } catch (error) {
+                console.error('Failed to initialize i18n:', error);
+            }
+        });
+    </script>
+</body>
+</html>

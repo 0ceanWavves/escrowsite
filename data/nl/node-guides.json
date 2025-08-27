@@ -1,0 +1,66 @@
+{
+  "title": "Node Setup Gidsen",
+  "description": "Uitgebreide gidsen voor het opzetten van Bitcoin en Monero nodes met beveiligingsbest practices",
+  "navigation": {
+    "home": "Home",
+    "phases": "Fasen",
+    "overview": "Overzicht",
+    "nextStep": "Volgende Stap",
+    "previousStep": "Vorige Stap",
+    "backToPhases": "Terug naar Fasen",
+    "nodeGuides": "Node Gidsen",
+    "bitcoin": "Bitcoin",
+    "monero": "Monero"
+  },
+  "common": {
+    "estimatedTime": "Geschatte Tijd",
+    "difficulty": "Moeilijkheidsgraad",
+    "prerequisites": "Vereisten",
+    "codeExample": "Code Voorbeeld",
+    "copyCode": "Code Kopiëren",
+    "copied": "Gekopieerd!",
+    "showMore": "Meer Tonen",
+    "showLess": "Minder Tonen",
+    "beginner": "Beginner",
+    "intermediate": "Gemiddeld",
+    "advanced": "Gevorderd",
+    "warning": "Waarschuwing",
+    "note": "Opmerking",
+    "tip": "Tip",
+    "important": "Belangrijk",
+    "osSpecific": "OS Specifieke Instructies",
+    "linux": "Linux",
+    "macos": "macOS",
+    "windows": "Windows"
+  },
+  "phases": [
+    {
+      "id": "procurement-provisioning",
+      "title": "Inkoop & Provisioning",
+      "description": "Selecteer en provision de infrastructuur die nodig is voor het draaien van cryptocurrency nodes",
+      "estimatedTime": "2-4 uur",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "server-security",
+      "title": "Server Fundament & Beveiliging",
+      "description": "Beveilig uw server infrastructuur voordat u node software installeert",
+      "estimatedTime": "3-5 uur",
+      "difficulty": "gemiddeld"
+    },
+    {
+      "id": "installation",
+      "title": "Node Software Installatie & Configuratie",
+      "description": "Download, verifieer en configureer Bitcoin en Monero node software",
+      "estimatedTime": "2-3 uur",
+      "difficulty": "gemiddeld"
+    },
+    {
+      "id": "synchronization",
+      "title": "Blockchain Synchronisatie & Operatie",
+      "description": "Monitor synchronisatie en onderhoud lopende node operaties",
+      "estimatedTime": "1-2 dagen (vooral wachten)",
+      "difficulty": "beginner"
+    }
+  ]
+}

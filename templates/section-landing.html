@@ -1,0 +1,94 @@
+<!-- Section Landing Page Template - extends base.html -->
+<!-- Variables: title, description, section_id, section_data -->
+
+<!-- Main Content -->
+<div class="section-landing-content">
+    <!-- Section Header -->
+    <header class="section-header section">
+        <div class="section-header-content text-center">
+            <h1 class="section-title" id="section-title">{{section_title}}</h1>
+            <p class="section-subtitle" id="section-subtitle">{{section_subtitle}}</p>
+            <div class="section-meta">
+                <span class="section-difficulty" id="section-difficulty">{{difficulty}}</span>
+                <span class="section-duration" id="section-duration">{{estimated_time}}</span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Section Overview -->
+    <section class="section-overview section">
+        <div class="overview-content">
+            <h2 class="overview-title" id="overview-title">Overview</h2>
+            <div class="overview-description" id="overview-description">
+                {{section_overview}}
+            </div>
+        </div>
+    </section>
+    
+    <!-- Phase/Chapter Navigation -->
+    <section class="phase-navigation section">
+        <h2 class="phases-title" id="phases-title">{{phases_title}}</h2>
+        <div class="phases-grid" id="phases-grid">
+            <!-- Phase cards will be populated by JavaScript -->
+        </div>
+    </section>
+    
+    <!-- Prerequisites (if applicable) -->
+    <section class="prerequisites section" id="prerequisites-section" style="display: none;">
+        <div class="prerequisites-content">
+            <h2 class="prerequisites-title" id="prerequisites-title">Prerequisites</h2>
+            <div class="prerequisites-list" id="prerequisites-list">
+                <!-- Prerequisites will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Quick Start (if applicable) -->
+    <section class="quick-start section" id="quick-start-section" style="display: none;">
+        <div class="quick-start-content">
+            <h2 class="quick-start-title" id="quick-start-title">Quick Start</h2>
+            <div class="quick-start-steps" id="quick-start-steps">
+                <!-- Quick start steps will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Progress Tracking (for node guides) -->
+    <section class="progress-section section" id="progress-section" style="display: none;">
+        <div class="progress-content">
+            <h2 class="progress-title" id="progress-title">Your Progress</h2>
+            <div class="progress-overview" id="progress-overview">
+                <div class="progress-bar-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="section-progress-fill" style="width: 0%;"></div>
+                    </div>
+                    <span class="progress-text" id="section-progress-text">0% Complete</span>
+                </div>
+                <div class="progress-actions">
+                    <button class="btn btn-secondary" id="reset-progress">Reset Progress</button>
+                    <button class="btn btn-primary" id="continue-where-left">Continue Where You Left Off</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Navigation Actions -->
+    <section class="navigation-actions section">
+        <div class="actions-content">
+            <div class="action-buttons">
+                <a href="/" class="btn btn-secondary" id="back-home">
+                    <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    <span>Back to Home</span>
+                </a>
+                <a href="#" class="btn btn-primary" id="start-section">
+                    <span>Get Started</span>
+                    <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

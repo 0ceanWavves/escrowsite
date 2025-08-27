@@ -1,0 +1,221 @@
+<!-- Sidebar Navigation Template -->
+<aside class="sidebar sidebar-nav" id="sidebar-nav" data-section="{{section}}">
+    <!-- Search functionality -->
+    <div class="sidebar-search">
+        <div class="sidebar-search-container">
+            <input type="text" class="sidebar-search-input" id="sidebar-search" placeholder="Search..." aria-label="Search content">
+            <svg class="sidebar-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Progress indicator (for sequential guides) -->
+    <div class="sidebar-progress" id="sidebar-progress" style="display: none;">
+        <div class="sidebar-progress-title" id="progress-title">Progress</div>
+        <div class="sidebar-progress-bar">
+            <div class="sidebar-progress-fill" id="progress-fill" style="width: 0%;"></div>
+        </div>
+        <div class="sidebar-progress-text" id="progress-text">0% Complete</div>
+    </div>
+    
+    <!-- Navigation sections -->
+    <div class="sidebar-sections" id="sidebar-sections">
+        <!-- Development Roadmap Navigation -->
+        <div class="sidebar-section" id="development-roadmap-nav" style="display: none;">
+            <h3 class="sidebar-section-title">Development Roadmap</h3>
+            <ul class="sidebar-nav-list">
+                <li class="sidebar-nav-item">
+                    <a href="/development-roadmap/" class="sidebar-nav-link" data-page="overview">
+                        <span>Overview</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav-item sidebar-collapsible">
+                    <button class="sidebar-toggle" data-target="phase-1-content" aria-expanded="false">
+                        <span>Phase 1: Foundational Infrastructure</span>
+                        <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                    <div class="sidebar-collapsible-content" id="phase-1-content">
+                        <ul class="sidebar-nav-list sidebar-nav-nested">
+                            <li class="sidebar-nav-item">
+                                <a href="/development-roadmap/phase-1/database-schemas.html" class="sidebar-nav-link" data-page="database-schemas">Database Schemas</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="/development-roadmap/phase-1/payment-gateways.html" class="sidebar-nav-link" data-page="payment-gateways">Payment Gateways</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="/development-roadmap/phase-1/self-hosted-nodes.html" class="sidebar-nav-link" data-page="self-hosted-nodes">Self-Hosted Nodes</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="sidebar-nav-item sidebar-collapsible">
+                    <button class="sidebar-toggle" data-target="phase-2-content" aria-expanded="false">
+                        <span>Phase 2: Backend & APIs</span>
+                        <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                    <div class="sidebar-collapsible-content" id="phase-2-content">
+                        <ul class="sidebar-nav-list sidebar-nav-nested">
+                            <li class="sidebar-nav-item">
+                                <a href="/development-roadmap/phase-2/api-endpoints.html" class="sidebar-nav-link" data-page="api-endpoints">API Endpoints</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="/development-roadmap/phase-2/escrow-logic.html" class="sidebar-nav-link" data-page="escrow-logic">Escrow Logic</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="/development-roadmap/phase-2/security-auditing.html" class="sidebar-nav-link" data-page="security-auditing">Security & Auditing</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="sidebar-nav-item sidebar-collapsible">
+                    <button class="sidebar-toggle" data-target="phase-3-content" aria-expanded="false">
+                        <span>Phase 3: Frontend & UI</span>
+                        <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                    <div class="sidebar-collapsible-content" id="phase-3-content">
+                        <ul class="sidebar-nav-list sidebar-nav-nested">
+                            <li class="sidebar-nav-item">
+                                <a href="/development-roadmap/phase-3/wallet-dashboard.html" class="sidebar-nav-link" data-page="wallet-dashboard">User Wallet Dashboard</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="/development-roadmap/phase-3/integrated-checkout.html" class="sidebar-nav-link" data-page="integrated-checkout">Integrated Checkout</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="/development-roadmap/phase-3/escrow-interface.html" class="sidebar-nav-link" data-page="escrow-interface">Escrow Interface</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Node Guides Navigation -->
+        <div class="sidebar-section" id="node-guides-nav" style="display: none;">
+            <h3 class="sidebar-section-title">Node Setup Guides</h3>
+            
+            <!-- Phase indicators for sequential guide -->
+            <div class="sidebar-phase-indicators">
+                <div class="sidebar-phase-indicator">
+                    <div class="phase-dot" data-phase="1"></div>
+                    <span class="phase-label" data-phase="1">Procurement & Provisioning</span>
+                </div>
+                <div class="sidebar-phase-indicator">
+                    <div class="phase-dot" data-phase="2"></div>
+                    <span class="phase-label" data-phase="2">Server Foundation & Security</span>
+                </div>
+                <div class="sidebar-phase-indicator">
+                    <div class="phase-dot" data-phase="3"></div>
+                    <span class="phase-label" data-phase="3">Node Software Installation</span>
+                </div>
+                <div class="sidebar-phase-indicator">
+                    <div class="phase-dot" data-phase="4"></div>
+                    <span class="phase-label" data-phase="4">Blockchain Synchronization</span>
+                </div>
+            </div>
+            
+            <ul class="sidebar-nav-list">
+                <li class="sidebar-nav-item">
+                    <a href="/node-guides/" class="sidebar-nav-link" data-page="overview">
+                        <span>Overview</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav-item sidebar-collapsible">
+                    <button class="sidebar-toggle" data-target="node-phase-1-content" aria-expanded="false">
+                        <span>Phase 1: Procurement & Provisioning</span>
+                        <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                    <div class="sidebar-collapsible-content" id="node-phase-1-content">
+                        <ul class="sidebar-nav-list sidebar-nav-nested">
+                            <li class="sidebar-nav-item">
+                                <a href="/node-guides/procurement-provisioning/vps-selection.html" class="sidebar-nav-link" data-page="vps-selection">VPS Selection</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="/node-guides/procurement-provisioning/hardware-requirements.html" class="sidebar-nav-link" data-page="hardware-requirements">Hardware Requirements</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="/node-guides/procurement-provisioning/cost-estimation.html" class="sidebar-nav-link" data-page="cost-estimation">Cost Estimation</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="sidebar-nav-item sidebar-collapsible">
+                    <button class="sidebar-toggle" data-target="node-phase-2-content" aria-expanded="false">
+                        <span>Phase 2: Server Foundation & Security</span>
+                        <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                    <div class="sidebar-collapsible-content" id="node-phase-2-content">
+                        <ul class="sidebar-nav-list sidebar-nav-nested">
+                            <li class="sidebar-nav-item">
+                                <a href="/node-guides/server-security/secure-connections.html" class="sidebar-nav-link" data-page="secure-connections">Secure Connections</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="/node-guides/server-security/firewall-config.html" class="sidebar-nav-link" data-page="firewall-config">Firewall Configuration</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="/node-guides/server-security/system-hardening.html" class="sidebar-nav-link" data-page="system-hardening">System Hardening</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="sidebar-nav-item sidebar-collapsible">
+                    <button class="sidebar-toggle" data-target="node-phase-3-content" aria-expanded="false">
+                        <span>Phase 3: Node Software Installation</span>
+                        <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                    <div class="sidebar-collapsible-content" id="node-phase-3-content">
+                        <ul class="sidebar-nav-list sidebar-nav-nested">
+                            <li class="sidebar-nav-item">
+                                <a href="/node-guides/installation/download-verification.html" class="sidebar-nav-link" data-page="download-verification">Download & Verification</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="/node-guides/installation/configuration.html" class="sidebar-nav-link" data-page="configuration">Configuration</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="/node-guides/installation/setup-wizard.html" class="sidebar-nav-link" data-page="setup-wizard">Setup Wizard</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="sidebar-nav-item sidebar-collapsible">
+                    <button class="sidebar-toggle" data-target="node-phase-4-content" aria-expanded="false">
+                        <span>Phase 4: Blockchain Synchronization</span>
+                        <svg class="sidebar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                    <div class="sidebar-collapsible-content" id="node-phase-4-content">
+                        <ul class="sidebar-nav-list sidebar-nav-nested">
+                            <li class="sidebar-nav-item">
+                                <a href="/node-guides/synchronization/monitoring.html" class="sidebar-nav-link" data-page="monitoring">Monitoring</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="/node-guides/synchronization/testing.html" class="sidebar-nav-link" data-page="testing">Testing</a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="/node-guides/synchronization/maintenance.html" class="sidebar-nav-link" data-page="maintenance">Maintenance</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Mobile sidebar toggle -->
+    <button class="sidebar-toggle-mobile" id="sidebar-toggle-mobile" style="display: none;">
+        <span>Navigation Menu</span>
+    </button>
+</aside>

@@ -1,0 +1,66 @@
+{
+  "title": "Node Setup Guides",
+  "description": "Comprehensive guides for setting up Bitcoin and Monero nodes with security best practices",
+  "navigation": {
+    "home": "Home",
+    "phases": "Phases",
+    "overview": "Overview",
+    "nextStep": "Next Step",
+    "previousStep": "Previous Step",
+    "backToPhases": "Back to Phases",
+    "nodeGuides": "Node Guides",
+    "bitcoin": "Bitcoin",
+    "monero": "Monero"
+  },
+  "common": {
+    "estimatedTime": "Estimated Time",
+    "difficulty": "Difficulty",
+    "prerequisites": "Prerequisites",
+    "codeExample": "Code Example",
+    "copyCode": "Copy Code",
+    "copied": "Copied!",
+    "showMore": "Show More",
+    "showLess": "Show Less",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "warning": "Warning",
+    "note": "Note",
+    "tip": "Tip",
+    "important": "Important",
+    "osSpecific": "OS Specific Instructions",
+    "linux": "Linux",
+    "macos": "macOS",
+    "windows": "Windows"
+  },
+  "phases": [
+    {
+      "id": "procurement-provisioning",
+      "title": "Procurement & Provisioning",
+      "description": "Select and provision the infrastructure needed for running cryptocurrency nodes",
+      "estimatedTime": "2-4 hours",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "server-security",
+      "title": "Server Foundation & Security", 
+      "description": "Secure your server infrastructure before installing node software",
+      "estimatedTime": "3-5 hours",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "installation",
+      "title": "Node Software Installation & Configuration",
+      "description": "Download, verify, and configure Bitcoin and Monero node software",
+      "estimatedTime": "2-3 hours",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "synchronization",
+      "title": "Blockchain Synchronization & Operation",
+      "description": "Monitor synchronization and maintain ongoing node operations",
+      "estimatedTime": "1-2 days (mostly waiting)",
+      "difficulty": "beginner"
+    }
+  ]
+}

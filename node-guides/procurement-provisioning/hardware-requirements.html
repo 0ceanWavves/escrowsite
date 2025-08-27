@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" data-current-section="node-guides" data-current-page="hardware-requirements">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Requirements - Procurement & Provisioning</title>
+    <meta name="description" content="Calculate the exact hardware specifications needed for Bitcoin and Monero nodes">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+    
+    <style>
+        .calculator-container {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .calculator-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .form-group label {
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        .form-group select,
+        .form-group input {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            background: white;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+        
+        .results-container {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .result-card {
+            background: #f3f4f6;
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        
+        .result-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        
+        .requirements-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .requirements-table th,
+        .requirements-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .requirements-table th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .spec-highlight {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .growth-chart {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .chart-placeholder {
+            height: 200px;
+            background: #f3f4f6;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link active" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link active" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar sidebar-nav" id="sidebar-nav" data-section="node-guides">
+            <!-- Search functionality -->
+            <div class="sidebar-search">
+                <div class="sidebar-search-container">
+                    <input type="text" class="sidebar-search-input" id="sidebar-search" placeholder="Search..." aria-label="Search content">
+                    <svg class="sidebar-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Progress indicator -->
+            <div class="sidebar-progress" id="sidebar-progress">
+                <div class="sidebar-progress-title" id="progress-title">Phase 1 Progress</div>
+                <div class="sidebar-progress-bar">
+                    <div class="sidebar-progress-fill" id="progress-fill" style="width: 66%;"></div>
+                </div>
+                <div class="sidebar-progress-text" id="progress-text">66% Complete</div>
+            </div>
+            
+            <!-- Navigation sections -->
+            <div class="sidebar-sections" id="sidebar-sections">
+                <div class="sidebar-section" id="node-guides-nav">
+                    <h3 class="sidebar-section-title">Node Setup Guides</h3>
+                    
+                    <ul class="sidebar-nav-list">
+                        <li class="sidebar-nav-item">
+                            <a href="/node-guides/" class="sidebar-nav-link" data-page="overview">
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-1-content" aria-expanded="true">
+                                <span>Phase 1: Procurement & Provisioning</span>
+                                <svg class="sidebar-toggle-icon expanded" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content expanded" id="node-phase-1-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/vps-selection.html" class="sidebar-nav-link" data-page="vps-selection">VPS Selection</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/hardware-requirements.html" class="sidebar-nav-link active" data-page="hardware-requirements">Hardware Requirements</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/procurement-provisioning/cost-estimation.html" class="sidebar-nav-link" data-page="cost-estimation">Cost Estimation</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Page Content -->
+        <div class="content-area" id="content-area">
+            <!-- Content Page -->
+            <div class="content-page">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb navigation">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="breadcrumb-link">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/" class="breadcrumb-link">Node Guides</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/procurement-provisioning/" class="breadcrumb-link">Procurement & Provisioning</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Hardware Requirements
+                        </li>
+                    </ol>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header section">
+                    <div class="page-header-content">
+                        <h1 class="page-title" id="page-title">Hardware Requirements</h1>
+                        <div class="page-meta">
+                            <span class="page-difficulty" id="page-difficulty">Beginner</span>
+                            <span class="page-duration" id="page-duration">15-30 minutes</span>
+                            <span class="page-updated" id="page-updated">Updated: January 2025</span>
+                        </div>
+                        <div class="page-description" id="page-description">
+                            <p>Calculate the exact hardware specifications needed for Bitcoin and Monero nodes, including storage growth projections and performance considerations.</p>
+                        </div>
+                    </div>
+                </header>
+                
+                <!-- Prerequisites -->
+                <section class="prerequisites-section" id="prerequisites-section">
+                    <div class="admonition admonition-info">
+                        <div class="admonition-header">
+                            <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="admonition-title">Prerequisites</h3>
+                        </div>
+                        <div class="admonition-content" id="prerequisites-content">
+                            <ul>
+                                <li>Basic hardware knowledge (CPU, RAM, Storage)</li>
+                                <li>Understanding of your node usage requirements</li>
+                                <li>Knowledge of which cryptocurrencies you want to support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Main Content Area -->
+                <main class="page-content" id="page-content">
+                    <section class="content-section">
+                        <h2>Hardware Requirements Calculator</h2>
+                        <p>Use this calculator to determine the exact hardware specifications needed for your cryptocurrency node setup:</p>
+                        
+                        <div class="calculator-container">
+                            <div class="calculator-form">
+                                <div class="form-group">
+                                    <label for="node-type">Node Type</label>
+                                    <select id="node-type">
+                                        <option value="bitcoin">Bitcoin Only</option>
+                                        <option value="monero">Monero Only</option>
+                                        <option value="both">Bitcoin + Monero</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="usage-type">Usage Type</label>
+                                    <select id="usage-type">
+                                        <option value="personal">Personal Use</option>
+                                        <option value="business">Business/Commercial</option>
+                                        <option value="development">Development/Testing</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="planning-horizon">Planning Horizon</label>
+                                    <select id="planning-horizon">
+                                        <option value="1">1 Year</option>
+                                        <option value="2" selected>2 Years</option>
+                                        <option value="3">3 Years</option>
+                                        <option value="5">5 Years</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="pruning" checked>
+                                        <label for="pruning">Enable Pruning (Reduces storage)</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="txindex">
+                                        <label for="txindex">Transaction Index (Increases storage)</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="high-performance">
+                                        <label for="high-performance">High Performance Mode</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="calculateRequirements()" class="btn btn-primary">Calculate Requirements</button>
+                            
+                            <div class="results-container" id="results-container" style="display: none;">
+                                <h3>Recommended Specifications</h3>
+                                <div class="results-grid">
+                                    <div class="result-card">
+                                        <div class="result-value" id="cpu-result">4 cores</div>
+                                        <div class="result-label">CPU Cores</div>
+                                    </div>
+                                    <div class="result-card">
+                                        <div class="result-value" id="ram-result">8 GB</div>
+                                        <div class="result-label">RAM</div>
+                                    </div>
+                                    <div class="result-card">
+                                        <div class="result-value" id="storage-result">500 GB</div>
+                                        <div class="result-label">Storage (SSD)</div>
+                                    </div>
+                                    <div class="result-card">
+                                        <div class="result-value" id="bandwidth-result">2 TB</div>
+                                        <div class="result-label">Monthly Bandwidth</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="admonition admonition-tip" style="margin-top: 1rem;">
+                                    <div class="admonition-header">
+                                        <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                        </svg>
+                                        <h4 class="admonition-title">Calculation Notes</h4>
+                                    </div>
+                                    <div class="admonition-content" id="calculation-notes">
+                                        <!-- Notes will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Minimum vs Recommended Specifications</h2>
+                        <p>Understanding the difference between minimum and recommended specifications:</p>
+                        
+                        <div class="table-container">
+                            <table class="requirements-table">
+                                <thead>
+                                    <tr>
+                                        <th>Component</th>
+                                        <th>Bitcoin Minimum</th>
+                                        <th>Bitcoin Recommended</th>
+                                        <th>Monero Minimum</th>
+                                        <th>Monero Recommended</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>CPU</strong></td>
+                                        <td>2 cores, 2.0 GHz</td>
+                                        <td><span class="spec-highlight">4 cores, 2.5 GHz+</span></td>
+                                        <td>2 cores, 2.0 GHz</td>
+                                        <td><span class="spec-highlight">4 cores, 2.5 GHz+</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>RAM</strong></td>
+                                        <td>2 GB</td>
+                                        <td><span class="spec-highlight">4-8 GB</span></td>
+                                        <td>2 GB</td>
+                                        <td><span class="spec-highlight">4-8 GB</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Storage</strong></td>
+                                        <td>500 GB HDD</td>
+                                        <td><span class="spec-highlight">1 TB+ SSD</span></td>
+                                        <td>200 GB HDD</td>
+                                        <td><span class="spec-highlight">500 GB+ SSD</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Network</strong></td>
+                                        <td>10 Mbps</td>
+                                        <td><span class="spec-highlight">100 Mbps+</span></td>
+                                        <td>10 Mbps</td>
+                                        <td><span class="spec-highlight">100 Mbps+</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Bandwidth</strong></td>
+                                        <td>500 GB/month</td>
+                                        <td><span class="spec-highlight">2 TB+/month</span></td>
+                                        <td>300 GB/month</td>
+                                        <td><span class="spec-highlight">1 TB+/month</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Blockchain Growth Projections</h2>
+                        <p>Understanding how blockchain sizes grow over time is crucial for long-term planning:</p>
+                        
+                        <div class="growth-chart">
+                            <h3>Storage Requirements Over Time</h3>
+                            <div class="chart-placeholder">
+                                Interactive growth chart would be displayed here
+                                <br>
+                                <small>Bitcoin: ~50GB/year growth | Monero: ~25GB/year growth</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                    </svg>
+                                </div>
+                                <h3>Bitcoin Growth</h3>
+                                <p>Current size: ~500GB<br>Annual growth: ~50GB<br>5-year projection: ~750GB</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                    </svg>
+                                </div>
+                                <h3>Monero Growth</h3>
+                                <p>Current size: ~180GB<br>Annual growth: ~25GB<br>5-year projection: ~305GB</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                </div>
+                                <h3>Pruning Benefits</h3>
+                                <p>Reduces storage by 80-90%<br>Bitcoin: ~50GB pruned<br>Monero: ~20GB pruned</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <h2>Hardware Verification Script</h2>
+                        <p>Use this script to check if your server meets the calculated requirements:</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Hardware Requirements Check</span>
+                                <button class="code-copy" onclick="copyToClipboard('hardware-check')">
+                                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre id="hardware-check"><code>#!/bin/bash
+
+echo "Hardware Requirements Check"
+echo "=========================="
+
+# Check CPU cores
+CPU_CORES=$(nproc)
+echo "CPU Cores: $CPU_CORES"
+
+# Check CPU frequency
+CPU_FREQ=$(lscpu | grep "CPU MHz" | awk '{print $3}')
+echo "CPU Frequency: ${CPU_FREQ} MHz"
+
+# Check RAM
+RAM_TOTAL=$(free -h | grep "Mem:" | awk '{print $2}')
+RAM_AVAILABLE=$(free -h | grep "Mem:" | awk '{print $7}')
+echo "Total RAM: $RAM_TOTAL"
+echo "Available RAM: $RAM_AVAILABLE"
+
+# Check disk space
+echo "Disk Space:"
+df -h | grep -E "^/dev/"
+
+# Check SSD vs HDD
+echo "Storage Type Check:"
+lsblk -d -o name,rota | grep -E "^[a-z]" | while read name rota; do
+    if [ "$rota" = "0" ]; then
+        echo "/dev/$name: SSD"
+    else
+        echo "/dev/$name: HDD"
+    fi
+done
+
+# Network speed test (optional)
+echo "Network Speed Test (downloading 10MB file):"
+time wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip 2>&1 | grep -E "(saved|real)"</code></pre>
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <div class="admonition admonition-warning">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Important Considerations</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <ul>
+                                    <li><strong>SSD is highly recommended</strong> - HDDs will significantly slow down sync and operation</li>
+                                    <li><strong>Plan for growth</strong> - Blockchain sizes increase continuously</li>
+                                    <li><strong>Consider redundancy</strong> - Have backup plans for hardware failures</li>
+                                    <li><strong>Monitor usage</strong> - Actual requirements may vary based on network conditions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation section" id="page-navigation">
+                    <div class="page-nav-content">
+                        <div class="page-nav-item page-nav-prev" id="page-nav-prev">
+                            <a href="vps-selection.html" class="page-nav-link" id="prev-page-link">
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                                </svg>
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Previous</span>
+                                    <span class="page-nav-title" id="prev-page-title">VPS Selection</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="page-nav-item page-nav-next" id="page-nav-next">
+                            <a href="cost-estimation.html" class="page-nav-link" id="next-page-link">
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Next</span>
+                                    <span class="page-nav-title" id="next-page-title">Cost Estimation</span>
+                                </div>
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" id="site-footer">
+        <p id="footer-text">© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="../../assets/js/utils.js"></script>
+    <script src="../../assets/js/language-switcher.js"></script>
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/page-loader.js"></script>
+    
+    <script>
+        // Hardware requirements calculator
+        function calculateRequirements() {
+            const nodeType = document.getElementById('node-type').value;
+            const usageType = document.getElementById('usage-type').value;
+            const planningHorizon = parseInt(document.getElementById('planning-horizon').value);
+            const pruning = document.getElementById('pruning').checked;
+            const txindex = document.getElementById('txindex').checked;
+            const highPerformance = document.getElementById('high-performance').checked;
+            
+            // Base requirements
+            let cpu = 2;
+            let ram = 4;
+            let storage = 0;
+            let bandwidth = 500;
+            
+            // Calculate storage based on node type
+            if (nodeType === 'bitcoin' || nodeType === 'both') {
+                storage += pruning ? 50 : (500 + (50 * planningHorizon));
+                if (txindex) storage += 100;
+            }
+            
+            if (nodeType === 'monero' || nodeType === 'both') {
+                storage += pruning ? 20 : (180 + (25 * planningHorizon));
+                if (txindex) storage += 50;
+            }
+            
+            // Adjust for usage type
+            if (usageType === 'business') {
+                cpu += 2;
+                ram += 4;
+                bandwidth += 1000;
+            } else if (usageType === 'development') {
+                cpu += 1;
+                ram += 2;
+                bandwidth += 500;
+            }
+            
+            // High performance adjustments
+            if (highPerformance) {
+                cpu += 2;
+                ram += 4;
+                bandwidth += 1000;
+            }
+            
+            // Ensure minimums
+            cpu = Math.max(cpu, 2);
+            ram = Math.max(ram, 4);
+            storage = Math.max(storage, 100);
+            bandwidth = Math.max(bandwidth, 500);
+            
+            // Update results
+            document.getElementById('cpu-result').textContent = cpu + ' cores';
+            document.getElementById('ram-result').textContent = ram + ' GB';
+            document.getElementById('storage-result').textContent = storage + ' GB';
+            document.getElementById('bandwidth-result').textContent = Math.ceil(bandwidth / 1000) + ' TB';
+            
+            // Generate notes
+            let notes = [];
+            if (pruning) {
+                notes.push('Pruning enabled - significantly reduces storage requirements');
+            }
+            if (txindex) {
+                notes.push('Transaction indexing enabled - increases storage and RAM usage');
+            }
+            if (highPerformance) {
+                notes.push('High performance mode - optimized for speed and reliability');
+            }
+            if (nodeType === 'both') {
+                notes.push('Running both Bitcoin and Monero nodes - consider separate servers for production');
+            }
+            
+            document.getElementById('calculation-notes').innerHTML = notes.length > 0 
+                ? '<ul><li>' + notes.join('</li><li>') + '</li></ul>'
+                : '<p>Standard configuration calculated based on your selections.</p>';
+            
+            // Show results
+            document.getElementById('results-container').style.display = 'block';
+        }
+        
+        // Copy to clipboard function
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                // Show feedback
+                const button = event.target.closest('.code-copy');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Copied!';
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

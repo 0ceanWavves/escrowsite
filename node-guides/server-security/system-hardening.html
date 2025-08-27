@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en" data-current-section="node-guides" data-current-page="system-hardening">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Hardening - Server Foundation & Security</title>
+    <meta name="description" content="Apply comprehensive security hardening measures to protect your cryptocurrency node server">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/layout.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/themes.css">
+</head>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link active" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>   
+     
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link active" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar sidebar-nav" id="sidebar-nav" data-section="node-guides">
+            <!-- Search functionality -->
+            <div class="sidebar-search">
+                <div class="sidebar-search-container">
+                    <input type="text" class="sidebar-search-input" id="sidebar-search" placeholder="Search..." aria-label="Search content">
+                    <svg class="sidebar-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Progress indicator -->
+            <div class="sidebar-progress" id="sidebar-progress">
+                <div class="sidebar-progress-title" id="progress-title">Phase 2 Progress</div>
+                <div class="sidebar-progress-bar">
+                    <div class="sidebar-progress-fill" id="progress-fill" style="width: 100%;"></div>
+                </div>
+                <div class="sidebar-progress-text" id="progress-text">100% Complete</div>
+            </div>
+            
+            <!-- Navigation sections -->
+            <div class="sidebar-sections" id="sidebar-sections">
+                <div class="sidebar-section" id="node-guides-nav">
+                    <h3 class="sidebar-section-title">Node Setup Guides</h3>
+                    
+                    <!-- Phase indicators -->
+                    <div class="sidebar-phase-indicators">
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="1"></div>
+                            <span class="phase-label completed" data-phase="1">Procurement & Provisioning</span>
+                        </div>
+                        <div class="sidebar-phase-indicator completed">
+                            <div class="phase-dot completed" data-phase="2"></div>
+                            <span class="phase-label completed" data-phase="2">Server Foundation & Security</span>
+                        </div>
+                        <div class="sidebar-phase-indicator">
+                            <div class="phase-dot" data-phase="3"></div>
+                            <span class="phase-label" data-phase="3">Node Software Installation</span>
+                        </div>
+                        <div class="sidebar-phase-indicator">
+                            <div class="phase-dot" data-phase="4"></div>
+                            <span class="phase-label" data-phase="4">Blockchain Synchronization</span>
+                        </div>
+                    </div>         
+           
+                    <ul class="sidebar-nav-list">
+                        <li class="sidebar-nav-item sidebar-collapsible">
+                            <button class="sidebar-toggle" data-target="node-phase-2-content" aria-expanded="true">
+                                <span>Phase 2: Server Foundation & Security</span>
+                                <svg class="sidebar-toggle-icon expanded" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                            <div class="sidebar-collapsible-content expanded" id="node-phase-2-content">
+                                <ul class="sidebar-nav-list sidebar-nav-nested">
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/secure-connections.html" class="sidebar-nav-link" data-page="secure-connections">Secure Connections</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/firewall-config.html" class="sidebar-nav-link" data-page="firewall-config">Firewall Configuration</a>
+                                    </li>
+                                    <li class="sidebar-nav-item">
+                                        <a href="/node-guides/server-security/system-hardening.html" class="sidebar-nav-link active" data-page="system-hardening">System Hardening</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Page Content -->
+        <div class="content-area" id="content-area">
+            <!-- Content Page -->
+            <div class="content-page">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb navigation">
+                    <ol class="breadcrumb-list">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="breadcrumb-link">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/" class="breadcrumb-link">Node Guides</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/node-guides/server-security/" class="breadcrumb-link">Server Foundation & Security</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            System Hardening
+                        </li>
+                    </ol>
+                </nav> 
+               
+                <!-- Page Header -->
+                <header class="page-header section">
+                    <div class="page-header-content">
+                        <h1 class="page-title" id="page-title">System Hardening</h1>
+                        <div class="page-meta">
+                            <span class="page-difficulty" id="page-difficulty">Advanced</span>
+                            <span class="page-duration" id="page-duration">2-4 hours</span>
+                            <span class="page-updated" id="page-updated">Updated: January 2025</span>
+                        </div>
+                        <div class="page-description" id="page-description">
+                            <p>Apply comprehensive security hardening measures including user management, service configuration, and monitoring setup to create a fortress-like environment for your cryptocurrency nodes.</p>
+                        </div>
+                    </div>
+                </header>
+                
+                <!-- Table of Contents -->
+                <nav class="table-of-contents" id="table-of-contents">
+                    <h3>Table of Contents</h3>
+                    <ul>
+                        <li><a href="#user-management">User Management</a></li>
+                        <li><a href="#system-updates">System Updates</a></li>
+                        <li><a href="#service-hardening">Service Hardening</a></li>
+                        <li><a href="#kernel-hardening">Kernel Hardening</a></li>
+                        <li><a href="#monitoring-setup">Monitoring Setup</a></li>
+                        <li><a href="#final-checklist">Final Security Checklist</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Main Content Area -->
+                <main class="page-content" id="page-content">
+                    <section class="content-section" id="user-management">
+                        <h2>User Management</h2>
+                        <p>Create dedicated users for node operations and implement proper privilege separation.</p>
+                        
+                        <div class="progress-checklist" id="user-checklist">
+                            <h3>User Management Checklist</h3>
+                            <div class="checklist-item" data-task="create-node-user">
+                                <input type="checkbox" id="task-create-node-user" class="checklist-checkbox">
+                                <label for="task-create-node-user" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Create dedicated node user accounts
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="disable-root">
+                                <input type="checkbox" id="task-disable-root" class="checklist-checkbox">
+                                <label for="task-disable-root" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Disable root login completely
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="sudo-config">
+                                <input type="checkbox" id="task-sudo-config" class="checklist-checkbox">
+                                <label for="task-sudo-config" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Configure sudo with minimal privileges
+                                </label>
+                            </div>
+                        </div> 
+                       
+                        <h3>Create Node Users</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Create Bitcoin User</span>
+                                <button class="code-copy-btn" data-clipboard-target="#create-bitcoin-user">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="create-bitcoin-user"><code>useradd -r -m -s /bin/bash bitcoin
+usermod -a -G bitcoin bitcoin
+mkdir -p /home/bitcoin/.bitcoin
+chown bitcoin:bitcoin /home/bitcoin/.bitcoin
+chmod 700 /home/bitcoin/.bitcoin</code></pre>
+                        </div>
+                        
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Create Monero User</span>
+                                <button class="code-copy-btn" data-clipboard-target="#create-monero-user">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="create-monero-user"><code>useradd -r -m -s /bin/bash monero
+usermod -a -G monero monero
+mkdir -p /home/monero/.bitmonero
+chown monero:monero /home/monero/.bitmonero
+chmod 700 /home/monero/.bitmonero</code></pre>
+                        </div>
+                        
+                        <h3>Create Admin User</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Create Admin User</span>
+                                <button class="code-copy-btn" data-clipboard-target="#create-admin-user">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="create-admin-user"><code>useradd -m -s /bin/bash nodeadmin
+usermod -a -G sudo nodeadmin
+mkdir -p /home/nodeadmin/.ssh
+chmod 700 /home/nodeadmin/.ssh
+
+# Copy your SSH key to the new admin user
+cp /root/.ssh/authorized_keys /home/nodeadmin/.ssh/
+chown nodeadmin:nodeadmin /home/nodeadmin/.ssh/authorized_keys
+chmod 600 /home/nodeadmin/.ssh/authorized_keys</code></pre>
+                        </div>
+                        
+                        <h3>Configure Sudo</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Secure Sudo Configuration</span>
+                                <button class="code-copy-btn" data-clipboard-target="#sudo-config">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="sudo-config"><code>cat > /etc/sudoers.d/nodeadmin << 'EOF'
+# Node admin user with limited sudo access
+nodeadmin ALL=(ALL) NOPASSWD: /bin/systemctl start bitcoin
+nodeadmin ALL=(ALL) NOPASSWD: /bin/systemctl stop bitcoin
+nodeadmin ALL=(ALL) NOPASSWD: /bin/systemctl restart bitcoin
+nodeadmin ALL=(ALL) NOPASSWD: /bin/systemctl start monero
+nodeadmin ALL=(ALL) NOPASSWD: /bin/systemctl stop monero
+nodeadmin ALL=(ALL) NOPASSWD: /bin/systemctl restart monero
+nodeadmin ALL=(ALL) NOPASSWD: /bin/systemctl status *
+nodeadmin ALL=(ALL) NOPASSWD: /usr/bin/tail -f /var/log/*
+EOF</code></pre>
+                        </div>
+                    </section>       
+             
+                    <section class="content-section" id="system-updates">
+                        <h2>System Updates</h2>
+                        <p>Configure automatic security updates and system maintenance.</p>
+                        
+                        <div class="progress-checklist" id="updates-checklist">
+                            <h3>System Updates Checklist</h3>
+                            <div class="checklist-item" data-task="enable-auto-updates">
+                                <input type="checkbox" id="task-enable-auto-updates" class="checklist-checkbox">
+                                <label for="task-enable-auto-updates" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Enable automatic security updates
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="configure-notifications">
+                                <input type="checkbox" id="task-configure-notifications" class="checklist-checkbox">
+                                <label for="task-configure-notifications" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Configure update notifications
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="update-system">
+                                <input type="checkbox" id="task-update-system" class="checklist-checkbox">
+                                <label for="task-update-system" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Update system to latest packages
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <h3>Enable Automatic Updates</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Ubuntu/Debian Auto Updates</span>
+                                <button class="code-copy-btn" data-clipboard-target="#auto-updates-ubuntu">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="auto-updates-ubuntu"><code>apt install unattended-upgrades apt-listchanges -y
+
+# Configure automatic updates
+cat > /etc/apt/apt.conf.d/50unattended-upgrades << 'EOF'
+Unattended-Upgrade::Allowed-Origins {
+    "${distro_id}:${distro_codename}-security";
+    "${distro_id}ESMApps:${distro_codename}-apps-security";
+    "${distro_id}ESM:${distro_codename}-infra-security";
+};
+Unattended-Upgrade::AutoFixInterruptedDpkg "true";
+Unattended-Upgrade::MinimalSteps "true";
+Unattended-Upgrade::Remove-Unused-Dependencies "true";
+Unattended-Upgrade::Automatic-Reboot "false";
+EOF
+
+# Enable automatic updates
+echo 'APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Unattended-Upgrade "1";' > /etc/apt/apt.conf.d/20auto-upgrades</code></pre>
+                        </div>
+                        
+                        <h3>Update System Now</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Full System Update</span>
+                                <button class="code-copy-btn" data-clipboard-target="#system-update">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="system-update"><code>apt update && apt upgrade -y
+apt autoremove -y
+apt autoclean</code></pre>
+                        </div>
+                    </section>        
+            
+                    <section class="content-section" id="service-hardening">
+                        <h2>Service Hardening</h2>
+                        <p>Disable unnecessary services and harden system configurations.</p>
+                        
+                        <div class="progress-checklist" id="service-checklist">
+                            <h3>Service Hardening Checklist</h3>
+                            <div class="checklist-item" data-task="disable-services">
+                                <input type="checkbox" id="task-disable-services" class="checklist-checkbox">
+                                <label for="task-disable-services" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Disable unnecessary services
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="secure-shared-memory">
+                                <input type="checkbox" id="task-secure-shared-memory" class="checklist-checkbox">
+                                <label for="task-secure-shared-memory" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Secure shared memory
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="configure-limits">
+                                <input type="checkbox" id="task-configure-limits" class="checklist-checkbox">
+                                <label for="task-configure-limits" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Configure system limits
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <h3>Disable Unnecessary Services</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Disable Services</span>
+                                <button class="code-copy-btn" data-clipboard-target="#disable-services">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="disable-services"><code># Disable unnecessary services
+systemctl disable avahi-daemon 2>/dev/null || true
+systemctl disable cups 2>/dev/null || true
+systemctl disable bluetooth 2>/dev/null || true
+systemctl disable ModemManager 2>/dev/null || true
+systemctl disable whoopsie 2>/dev/null || true
+
+# Stop services immediately
+systemctl stop avahi-daemon 2>/dev/null || true
+systemctl stop cups 2>/dev/null || true
+systemctl stop bluetooth 2>/dev/null || true
+systemctl stop ModemManager 2>/dev/null || true
+systemctl stop whoopsie 2>/dev/null || true</code></pre>
+                        </div>
+                        
+                        <h3>Secure Shared Memory</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Secure /tmp and /dev/shm</span>
+                                <button class="code-copy-btn" data-clipboard-target="#secure-memory">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="secure-memory"><code># Add secure mount options to /etc/fstab
+echo 'tmpfs /tmp tmpfs defaults,rw,nosuid,nodev,noexec,relatime 0 0' >> /etc/fstab
+echo 'tmpfs /dev/shm tmpfs defaults,noexec,nosuid,nodev 0 0' >> /etc/fstab
+
+# Apply immediately
+mount -o remount /tmp
+mount -o remount /dev/shm</code></pre>
+                        </div>
+                        
+                        <h3>Configure System Limits</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Security Limits</span>
+                                <button class="code-copy-btn" data-clipboard-target="#system-limits">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="system-limits"><code>cat >> /etc/security/limits.conf << 'EOF'
+# Prevent fork bombs
+* hard nproc 1000
+* soft nproc 1000
+
+# Limit core dumps
+* hard core 0
+* soft core 0
+
+# Node users get higher limits
+bitcoin soft nofile 65536
+bitcoin hard nofile 65536
+monero soft nofile 65536
+monero hard nofile 65536
+EOF</code></pre>
+                        </div>
+                    </section>          
+          
+                    <section class="content-section" id="kernel-hardening">
+                        <h2>Kernel Hardening</h2>
+                        <p>Apply kernel-level security configurations to prevent common attacks.</p>
+                        
+                        <div class="progress-checklist" id="kernel-checklist">
+                            <h3>Kernel Hardening Checklist</h3>
+                            <div class="checklist-item" data-task="sysctl-hardening">
+                                <input type="checkbox" id="task-sysctl-hardening" class="checklist-checkbox">
+                                <label for="task-sysctl-hardening" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Apply sysctl security settings
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="disable-modules">
+                                <input type="checkbox" id="task-disable-modules" class="checklist-checkbox">
+                                <label for="task-disable-modules" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Disable unnecessary kernel modules
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="enable-aslr">
+                                <input type="checkbox" id="task-enable-aslr" class="checklist-checkbox">
+                                <label for="task-enable-aslr" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Enable ASLR and other protections
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <h3>Sysctl Security Configuration</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Kernel Security Settings</span>
+                                <button class="code-copy-btn" data-clipboard-target="#sysctl-config">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="sysctl-config"><code>cat > /etc/sysctl.d/99-security.conf << 'EOF'
+# IP Spoofing protection
+net.ipv4.conf.default.rp_filter = 1
+net.ipv4.conf.all.rp_filter = 1
+
+# Ignore ICMP redirects
+net.ipv4.conf.all.accept_redirects = 0
+net.ipv6.conf.all.accept_redirects = 0
+net.ipv4.conf.default.accept_redirects = 0
+net.ipv6.conf.default.accept_redirects = 0
+
+# Ignore send redirects
+net.ipv4.conf.all.send_redirects = 0
+net.ipv4.conf.default.send_redirects = 0
+
+# Disable source packet routing
+net.ipv4.conf.all.accept_source_route = 0
+net.ipv6.conf.all.accept_source_route = 0
+net.ipv4.conf.default.accept_source_route = 0
+net.ipv6.conf.default.accept_source_route = 0
+
+# Log Martians
+net.ipv4.conf.all.log_martians = 1
+net.ipv4.conf.default.log_martians = 1
+
+# Ignore ICMP ping requests
+net.ipv4.icmp_echo_ignore_all = 1
+
+# Ignore Directed pings
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+
+# Disable IPv6 if not needed
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+
+# Enable ExecShield
+kernel.exec-shield = 1
+kernel.randomize_va_space = 2
+
+# Controls the System Request debugging functionality of the kernel
+kernel.sysrq = 0
+
+# Controls whether core dumps will append the PID to the core filename
+kernel.core_uses_pid = 1
+
+# Restrict access to kernel logs
+kernel.dmesg_restrict = 1
+
+# Restrict ptrace scope
+kernel.yama.ptrace_scope = 1
+EOF
+
+# Apply settings
+sysctl -p /etc/sysctl.d/99-security.conf</code></pre>
+                        </div>
+                    </section> 
+                   
+                    <section class="content-section" id="monitoring-setup">
+                        <h2>Monitoring Setup</h2>
+                        <p>Install and configure monitoring tools to detect security threats and system issues.</p>
+                        
+                        <div class="progress-checklist" id="monitoring-checklist">
+                            <h3>Monitoring Setup Checklist</h3>
+                            <div class="checklist-item" data-task="install-fail2ban">
+                                <input type="checkbox" id="task-install-fail2ban" class="checklist-checkbox">
+                                <label for="task-install-fail2ban" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Install and configure Fail2ban
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="setup-logwatch">
+                                <input type="checkbox" id="task-setup-logwatch" class="checklist-checkbox">
+                                <label for="task-setup-logwatch" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Setup log monitoring with Logwatch
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="configure-alerts">
+                                <input type="checkbox" id="task-configure-alerts" class="checklist-checkbox">
+                                <label for="task-configure-alerts" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Configure security alerts
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <h3>Install Fail2ban</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Install and Configure Fail2ban</span>
+                                <button class="code-copy-btn" data-clipboard-target="#install-fail2ban">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="install-fail2ban"><code>apt install fail2ban -y
+
+# Create custom configuration
+cat > /etc/fail2ban/jail.local << 'EOF'
+[DEFAULT]
+bantime = 3600
+findtime = 600
+maxretry = 3
+backend = systemd
+
+[sshd]
+enabled = true
+port = 2222
+filter = sshd
+logpath = /var/log/auth.log
+maxretry = 3
+bantime = 3600
+
+[ufw]
+enabled = true
+filter = ufw
+logpath = /var/log/ufw.log
+maxretry = 3
+bantime = 3600
+EOF
+
+systemctl enable fail2ban
+systemctl start fail2ban</code></pre>
+                        </div>
+                        
+                        <h3>Setup Logwatch</h3>
+                        <div class="code-block-container">
+                            <div class="code-block-header">
+                                <span class="code-block-title">Install Logwatch</span>
+                                <button class="code-copy-btn" data-clipboard-target="#install-logwatch">
+                                    <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre class="code-block" id="install-logwatch"><code>apt install logwatch -y
+
+# Configure logwatch
+sed -i 's/^Output = stdout/Output = mail/' /usr/share/logwatch/default.conf/logwatch.conf
+sed -i 's/^Format = text/Format = html/' /usr/share/logwatch/default.conf/logwatch.conf
+sed -i 's/^MailTo = root/MailTo = admin@yourdomain.com/' /usr/share/logwatch/default.conf/logwatch.conf
+sed -i 's/^Detail = Low/Detail = Med/' /usr/share/logwatch/default.conf/logwatch.conf</code></pre>
+                        </div>
+                    </section> 
+                   
+                    <section class="content-section" id="final-checklist">
+                        <h2>Final Security Checklist</h2>
+                        <p>Complete this comprehensive checklist to ensure your server is fully hardened.</p>
+                        
+                        <div class="progress-checklist" id="final-checklist-items">
+                            <h3>Complete Security Audit</h3>
+                            
+                            <h4>Authentication & Access</h4>
+                            <div class="checklist-item" data-task="ssh-keys-only">
+                                <input type="checkbox" id="task-ssh-keys-only" class="checklist-checkbox">
+                                <label for="task-ssh-keys-only" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    SSH key authentication working, password auth disabled
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="root-disabled">
+                                <input type="checkbox" id="task-root-disabled" class="checklist-checkbox">
+                                <label for="task-root-disabled" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Root login completely disabled
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="admin-user-created">
+                                <input type="checkbox" id="task-admin-user-created" class="checklist-checkbox">
+                                <label for="task-admin-user-created" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Admin user created with limited sudo access
+                                </label>
+                            </div>
+                            
+                            <h4>Network Security</h4>
+                            <div class="checklist-item" data-task="firewall-active">
+                                <input type="checkbox" id="task-firewall-active" class="checklist-checkbox">
+                                <label for="task-firewall-active" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Firewall active with proper rules
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="ports-secured">
+                                <input type="checkbox" id="task-ports-secured" class="checklist-checkbox">
+                                <label for="task-ports-secured" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Only necessary ports open (SSH, Bitcoin, Monero P2P)
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="rpc-secured">
+                                <input type="checkbox" id="task-rpc-secured" class="checklist-checkbox">
+                                <label for="task-rpc-secured" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    RPC ports restricted to localhost only
+                                </label>
+                            </div>
+                            
+                            <h4>System Hardening</h4>
+                            <div class="checklist-item" data-task="services-disabled">
+                                <input type="checkbox" id="task-services-disabled" class="checklist-checkbox">
+                                <label for="task-services-disabled" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Unnecessary services disabled
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="kernel-hardened">
+                                <input type="checkbox" id="task-kernel-hardened" class="checklist-checkbox">
+                                <label for="task-kernel-hardened" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Kernel security settings applied
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="auto-updates">
+                                <input type="checkbox" id="task-auto-updates" class="checklist-checkbox">
+                                <label for="task-auto-updates" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Automatic security updates enabled
+                                </label>
+                            </div>
+                            
+                            <h4>Monitoring & Logging</h4>
+                            <div class="checklist-item" data-task="fail2ban-active">
+                                <input type="checkbox" id="task-fail2ban-active" class="checklist-checkbox">
+                                <label for="task-fail2ban-active" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Fail2ban active and configured
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="logging-enabled">
+                                <input type="checkbox" id="task-logging-enabled" class="checklist-checkbox">
+                                <label for="task-logging-enabled" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Security logging enabled
+                                </label>
+                            </div>
+                            <div class="checklist-item" data-task="logwatch-configured">
+                                <input type="checkbox" id="task-logwatch-configured" class="checklist-checkbox">
+                                <label for="task-logwatch-configured" class="checklist-label">
+                                    <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Logwatch configured for daily reports
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-summary" id="progress-summary">
+                            <h4>Security Hardening Progress</h4>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar">
+                                    <div class="progress-bar-fill" id="overall-progress" style="width: 0%;"></div>
+                                </div>
+                                <span class="progress-percentage" id="progress-percentage">0% Complete</span>
+                            </div>
+                        </div>
+                    </section>    
+                
+                    <section class="content-section">
+                        <div class="admonition admonition-success">
+                            <div class="admonition-header">
+                                <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <h3 class="admonition-title">Phase 2 Complete!</h3>
+                            </div>
+                            <div class="admonition-content">
+                                <p>Congratulations! You've successfully hardened your server with comprehensive security measures:</p>
+                                <ul>
+                                    <li>✅ Secure SSH access with key-based authentication</li>
+                                    <li>✅ Robust firewall protecting against unauthorized access</li>
+                                    <li>✅ System hardening with kernel-level protections</li>
+                                    <li>✅ Dedicated user accounts for node operations</li>
+                                    <li>✅ Automated monitoring and intrusion detection</li>
+                                    <li>✅ Automatic security updates configured</li>
+                                </ul>
+                                <p>Your server is now ready for cryptocurrency node installation. The security foundation you've built will protect your nodes and funds from common attack vectors.</p>
+                                <p><strong>Next Phase:</strong> Install and configure Bitcoin and Monero node software.</p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation section" id="page-navigation">
+                    <div class="page-nav-content">
+                        <div class="page-nav-item page-nav-prev" id="page-nav-prev">
+                            <a href="firewall-config.html" class="page-nav-link" id="prev-page-link">
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                                </svg>
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Previous</span>
+                                    <span class="page-nav-title" id="prev-page-title">Firewall Configuration</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="page-nav-item page-nav-next" id="page-nav-next">
+                            <a href="/node-guides/installation/" class="page-nav-link" id="next-page-link">
+                                <div class="page-nav-text">
+                                    <span class="page-nav-label">Next Phase</span>
+                                    <span class="page-nav-title" id="next-page-title">Node Software Installation</span>
+                                </div>
+                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" id="site-footer">
+        <p id="footer-text">© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="../../assets/js/utils.js"></script>
+    <script src="../../assets/js/language-switcher.js"></script>
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/page-loader.js"></script>  
+  <script>
+        // Copy to clipboard functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButtons = document.querySelectorAll('.code-copy-btn');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-clipboard-target');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const textToCopy = targetElement.textContent;
+                        
+                        navigator.clipboard.writeText(textToCopy).then(() => {
+                            // Visual feedback
+                            const originalText = this.innerHTML;
+                            this.innerHTML = `
+                                <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Copied!
+                            `;
+                            
+                            setTimeout(() => {
+                                this.innerHTML = originalText;
+                            }, 2000);
+                        }).catch(err => {
+                            console.error('Failed to copy text: ', err);
+                        });
+                    }
+                });
+            });
+            
+            // Progress tracking functionality
+            const checkboxes = document.querySelectorAll('.checklist-checkbox');
+            const progressFill = document.getElementById('overall-progress');
+            const progressPercentage = document.getElementById('progress-percentage');
+            
+            function updateProgress() {
+                const totalTasks = checkboxes.length;
+                const completedTasks = document.querySelectorAll('.checklist-checkbox:checked').length;
+                const percentage = Math.round((completedTasks / totalTasks) * 100);
+                
+                progressFill.style.width = percentage + '%';
+                progressPercentage.textContent = percentage + '% Complete';
+                
+                // Save progress to localStorage
+                const progress = {};
+                checkboxes.forEach(checkbox => {
+                    progress[checkbox.id] = checkbox.checked;
+                });
+                localStorage.setItem('system-hardening-progress', JSON.stringify(progress));
+            }
+            
+            // Load saved progress
+            const savedProgress = localStorage.getItem('system-hardening-progress');
+            if (savedProgress) {
+                const progress = JSON.parse(savedProgress);
+                checkboxes.forEach(checkbox => {
+                    if (progress[checkbox.id]) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+            
+            // Add event listeners to checkboxes
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateProgress);
+            });
+            
+            // Initial progress update
+            updateProgress();
+        });
+    </script>
+</body>
+</html>

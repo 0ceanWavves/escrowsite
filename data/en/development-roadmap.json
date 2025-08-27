@@ -1,0 +1,48 @@
+{
+  "title": "Development Roadmap",
+  "description": "A comprehensive guide to building crypto applications from foundational infrastructure to user interfaces",
+  "navigation": {
+    "home": "Home",
+    "phases": "Phases",
+    "overview": "Overview",
+    "nextStep": "Next Step",
+    "previousStep": "Previous Step",
+    "backToPhases": "Back to Phases"
+  },
+  "common": {
+    "estimatedTime": "Estimated Time",
+    "difficulty": "Difficulty",
+    "prerequisites": "Prerequisites",
+    "codeExample": "Code Example",
+    "copyCode": "Copy Code",
+    "copied": "Copied!",
+    "showMore": "Show More",
+    "showLess": "Show Less",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "phases": [
+    {
+      "id": "phase-1",
+      "title": "Foundational Infrastructure",
+      "description": "Establish the core technical foundation for crypto applications",
+      "estimatedTime": "4-6 weeks",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "phase-2", 
+      "title": "Backend & APIs",
+      "description": "Build robust backend services and API endpoints",
+      "estimatedTime": "6-8 weeks",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "phase-3",
+      "title": "Frontend & UI",
+      "description": "Create intuitive user interfaces and user experiences", 
+      "estimatedTime": "4-6 weeks",
+      "difficulty": "intermediate"
+    }
+  ]
+}

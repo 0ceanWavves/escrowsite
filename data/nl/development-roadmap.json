@@ -1,0 +1,48 @@
+{
+  "title": "Ontwikkelingsroadmap",
+  "description": "Een uitgebreide gids voor het bouwen van crypto-applicaties van fundamentele infrastructuur tot gebruikersinterfaces",
+  "navigation": {
+    "home": "Home",
+    "phases": "Fasen",
+    "overview": "Overzicht",
+    "nextStep": "Volgende Stap",
+    "previousStep": "Vorige Stap",
+    "backToPhases": "Terug naar Fasen"
+  },
+  "common": {
+    "estimatedTime": "Geschatte Tijd",
+    "difficulty": "Moeilijkheidsgraad",
+    "prerequisites": "Vereisten",
+    "codeExample": "Code Voorbeeld",
+    "copyCode": "Code Kopiëren",
+    "copied": "Gekopieerd!",
+    "showMore": "Meer Tonen",
+    "showLess": "Minder Tonen",
+    "beginner": "Beginner",
+    "intermediate": "Gemiddeld",
+    "advanced": "Gevorderd"
+  },
+  "phases": [
+    {
+      "id": "phase-1",
+      "title": "Fundamentele Infrastructuur",
+      "description": "Vestig de kern technische basis voor crypto-applicaties",
+      "estimatedTime": "4-6 weken",
+      "difficulty": "gemiddeld"
+    },
+    {
+      "id": "phase-2",
+      "title": "Backend & APIs",
+      "description": "Bouw robuuste backend-services en API-eindpunten",
+      "estimatedTime": "6-8 weken", 
+      "difficulty": "gevorderd"
+    },
+    {
+      "id": "phase-3",
+      "title": "Frontend & UI",
+      "description": "Creëer intuïtieve gebruikersinterfaces en gebruikerservaringen",
+      "estimatedTime": "4-6 weken",
+      "difficulty": "gemiddeld"
+    }
+  ]
+}
