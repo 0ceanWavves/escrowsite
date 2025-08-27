@@ -25,7 +25,14 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     <a href="/" class="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
-                        [Placeholder SVG] The Road to Crypto
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="The Road to Crypto Logo" style="vertical-align: middle; margin-right: 8px;">
+  <!-- The Road/Path -->
+  <path d="M4 19c4-4 4-8 8-8s4 4 8 0" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Crypto Blocks/Nodes on the Road -->
+  <rect x="2.5" y="17.5" width="3" height="3" rx="0.5" fill="#007cba" stroke="#fff" stroke-width="1"/>
+  <rect x="10.5" y="9.5" width="3" height="3" rx="0.5" fill="#0056b3" stroke="#fff" stroke-width="1"/>
+  <rect x="18.5" y="7.5" width="3" height="3" rx="0.5" fill="#007cba" stroke="#fff" stroke-width="1"/>
+</svg> The Road to Crypto
                     </a>
                 </div>
                 
@@ -39,9 +46,46 @@
                 
                 <!-- Language Switcher -->
                 <div class="flex items-center space-x-2">
-                    <button class="language-btn active" data-lang="en">[Placeholder SVG]</button>
-                    <button class="language-btn" data-lang="nl">[Placeholder SVG]</button>
-                    <button class="language-btn" data-lang="fr">[Placeholder SVG]</button>
+                    <button class="language-btn active" data-lang="en"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-label="English Language">
+  <defs>
+    <clipPath id="circle-clip-en">
+      <circle cx="12" cy="12" r="11"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip-en)">
+    <rect width="24" height="24" fill="#0056b3"/>
+    <path d="M0 0L24 24M24 0L0 24" stroke="#ffffff" stroke-width="3"/>
+    <path d="M12 0V24M0 12H24" stroke="#ffffff" stroke-width="5"/>
+    <path d="M12 0V24M0 12H24" stroke="#dc3545" stroke-width="3"/>
+  </g>
+  <circle cx="12" cy="12" r="11" fill="none" stroke="#cccccc" stroke-width="1"/>
+</svg></button>
+                    <button class="language-btn" data-lang="nl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-label="Dutch Language">
+  <defs>
+    <clipPath id="circle-clip-nl-up">
+      <circle cx="12" cy="12" r="11"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip-nl-up)">
+    <rect width="24" height="8" y="0" fill="#dc3545"/>
+    <rect width="24" height="8" y="8" fill="#ffffff"/>
+    <rect width="24" height="8" y="16" fill="#0056b3"/>
+  </g>
+  <circle cx="12" cy="12" r="11" fill="none" stroke="#cccccc" stroke-width="1"/>
+</svg></button>
+                    <button class="language-btn" data-lang="fr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-label="French Language">
+  <defs>
+    <clipPath id="circle-clip-fr-up">
+      <circle cx="12" cy="12" r="11"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip-fr-up)">
+    <rect width="8" height="24" x="0" fill="#0056b3"/>
+    <rect width="8" height="24" x="8" fill="#ffffff"/>
+    <rect width="8" height="24" x="16" fill="#dc3545"/>
+  </g>
+  <circle cx="12" cy="12" r="11" fill="none" stroke="#cccccc" stroke-width="1"/>
+</svg></button>
                 </div>
                 
                 <!-- Mobile Menu Button -->

@@ -65,5 +65,16 @@
   "guides.phase3": "Fase 3: Node Software Installatie",
   "guides.phase4": "Fase 4: Blockchain Synchronisatie",
   
-  "footer.copyright": "© 2025 De Weg naar Crypto - Interactieve Implementatie Blueprint"
+  "footer.copyright": "© 2025 De Weg naar Crypto - Interactieve Implementatie Blueprint",
+  
+  "page.getting-started": "Aan de Slag",
+  "page.search": "Zoeken",
+  "page.user-progress": "Gebruikersvoortgang",
+  "page.development-roadmap": "Ontwikkelingsroadmap",
+  "page.node-guides": "Node Setup Gidsen",
+  
+  "quickstart.title": "Snelstart Gids",
+  "quickstart.setup": "Stel Je Eerste Node In",
+  "quickstart.learn": "Leer Ontwikkelingsbasics",
+  "quickstart.explore": "Verken Geavanceerde Onderwerpen"
 }

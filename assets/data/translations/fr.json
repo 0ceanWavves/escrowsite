@@ -65,5 +65,16 @@
   "guides.phase3": "Phase 3: Installation Logiciel de Nœud",
   "guides.phase4": "Phase 4: Synchronisation Blockchain",
   
-  "footer.copyright": "© 2025 La Voie vers la Crypto - Plan de Mise en Œuvre Interactif"
+  "footer.copyright": "© 2025 La Voie vers la Crypto - Plan de Mise en Œuvre Interactif",
+  
+  "page.getting-started": "Commencer",
+  "page.search": "Rechercher",
+  "page.user-progress": "Progrès Utilisateur",
+  "page.development-roadmap": "Feuille de Route de Développement",
+  "page.node-guides": "Guides de Configuration de Nœud",
+  
+  "quickstart.title": "Guide de Démarrage Rapide",
+  "quickstart.setup": "Configurez Votre Premier Nœud",
+  "quickstart.learn": "Apprenez les Bases du Développement",
+  "quickstart.explore": "Explorez les Sujets Avancés"
 }

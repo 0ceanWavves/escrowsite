@@ -1,605 +1,605 @@
 /**
- * Contextual Links Module
- * Provides related content suggestions and contextual navigation
- */
+[Placeholder SVG]*[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]Links[Placeholder SVG]M[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]vi[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG]*/
 
-class ContextualLinks {
-  constructor() {
-    this.contentMap = new Map();
-    this.currentPage = null;
-    this.relatedContent = [];
-    this.contextualSuggestions = [];
-    
-    this.init();
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]Links[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]u[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntM[Placeholder SVG]p[Placeholder SVG]=[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]M[Placeholder SVG]p();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG][];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns[Placeholder SVG]=[Placeholder SVG][];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.init();
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Initialize contextual links system
-   */
-  async init() {
-    await this.loadContentMap();
-    this.detectCurrentPage();
-    this.generateRelatedContent();
-    this.setupContextualSuggestions();
-    this.renderSuggestions();
-    
-    console.log('Contextual links initialized');
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]Initi[Placeholder SVG][Placeholder SVG]iz[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]inks[Placeholder SVG]syst[Placeholder SVG]m
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]init()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]ntM[Placeholder SVG]p();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]tCu[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]R[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.s[Placeholder SVG]tupC[Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('C[Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]inks[Placeholder SVG]initi[Placeholder SVG][Placeholder SVG]iz[Placeholder SVG][Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Load content mapping data
-   */
-  async loadContentMap() {
-    try {
-      // Try to load from search index first
-      const response = await fetch('/data/search-index.json');
-      if (response.ok) {
-        const data = await response.json();
-        this.buildContentMapFromIndex(data.searchIndex);
-      } else {
-        // Fallback to manual content mapping
-        this.buildManualContentMap();
-      }
-    } catch (error) {
-      console.error('Error loading content map:', error);
-      this.buildManualContentMap();
-    }
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]L[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]m[Placeholder SVG]pping[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]ntM[Placeholder SVG]p()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]T[Placeholder SVG]y[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]fi[Placeholder SVG]st
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]sp[Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]('/[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]/s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-in[Placeholder SVG][Placeholder SVG]x.js[Placeholder SVG]n');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG]sp[Placeholder SVG]ns[Placeholder SVG].[Placeholder SVG]k)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG][Placeholder SVG][Placeholder SVG]sp[Placeholder SVG]ns[Placeholder SVG].js[Placeholder SVG]n();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.bui[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]ntM[Placeholder SVG]pF[Placeholder SVG][Placeholder SVG]mIn[Placeholder SVG][Placeholder SVG]x([Placeholder SVG][Placeholder SVG]t[Placeholder SVG].s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]F[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]k[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]m[Placeholder SVG]pping
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.bui[Placeholder SVG][Placeholder SVG]M[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]ntM[Placeholder SVG]p();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]('E[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ing[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]m[Placeholder SVG]p:',[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.bui[Placeholder SVG][Placeholder SVG]M[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]ntM[Placeholder SVG]p();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Build content map from search index
-   */
-  buildContentMapFromIndex(searchIndex) {
-    searchIndex.forEach(item => {
-      this.contentMap.set(item.url, {
-        title: item.title,
-        description: item.description,
-        section: item.section,
-        phase: item.phase,
-        type: item.type,
-        keywords: item.keywords,
-        difficulty: item.difficulty || 'intermediate',
-        estimatedTime: item.estimatedTime || '10-15 minutes',
-        prerequisites: item.prerequisites || [],
-        relatedTopics: item.relatedTopics || []
-      });
-    });
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]Bui[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]m[Placeholder SVG]p[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG]bui[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]ntM[Placeholder SVG]pF[Placeholder SVG][Placeholder SVG]mIn[Placeholder SVG][Placeholder SVG]x(s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](it[Placeholder SVG]m[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntM[Placeholder SVG]p.s[Placeholder SVG]t(it[Placeholder SVG]m.u[Placeholder SVG][Placeholder SVG],[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]it[Placeholder SVG]m.tit[Placeholder SVG][Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]it[Placeholder SVG]m.[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n:[Placeholder SVG]it[Placeholder SVG]m.s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]:[Placeholder SVG]it[Placeholder SVG]m.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]it[Placeholder SVG]m.typ[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s:[Placeholder SVG]it[Placeholder SVG]m.k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]iffi[Placeholder SVG]u[Placeholder SVG]ty:[Placeholder SVG]it[Placeholder SVG]m.[Placeholder SVG]iffi[Placeholder SVG]u[Placeholder SVG]ty[Placeholder SVG]||[Placeholder SVG]'int[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]i[Placeholder SVG]t[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]stim[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Tim[Placeholder SVG]:[Placeholder SVG]it[Placeholder SVG]m.[Placeholder SVG]stim[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Tim[Placeholder SVG][Placeholder SVG]||[Placeholder SVG]'10-15[Placeholder SVG]minut[Placeholder SVG]s',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]quisit[Placeholder SVG]s:[Placeholder SVG]it[Placeholder SVG]m.p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]quisit[Placeholder SVG]s[Placeholder SVG]||[Placeholder SVG][],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]T[Placeholder SVG]pi[Placeholder SVG]s:[Placeholder SVG]it[Placeholder SVG]m.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]T[Placeholder SVG]pi[Placeholder SVG]s[Placeholder SVG]||[Placeholder SVG][]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Build manual content map (fallback)
-   */
-  buildManualContentMap() {
-    const manualMap = {
-      '/': {
-        title: 'The Road to Crypto - Home',
-        description: 'Your comprehensive guide to crypto development and node setup',
-        section: 'home',
-        type: 'overview',
-        keywords: ['crypto', 'development', 'node', 'guide'],
-        relatedTopics: ['development-roadmap', 'node-guides']
-      },
-      '/development-roadmap/': {
-        title: 'Development Roadmap',
-        description: 'Complete roadmap for crypto development',
-        section: 'development-roadmap',
-        type: 'overview',
-        keywords: ['development', 'roadmap', 'crypto', 'programming'],
-        relatedTopics: ['phase-1', 'phase-2', 'phase-3']
-      },
-      '/node-guides/': {
-        title: 'Node Setup Guides',
-        description: 'Comprehensive guides for setting up BTC & XMR nodes',
-        section: 'node-guides',
-        type: 'overview',
-        keywords: ['node', 'setup', 'bitcoin', 'monero', 'server'],
-        relatedTopics: ['procurement-provisioning', 'server-security', 'installation', 'synchronization']
-      },
-      // Add more manual mappings as needed
-    };
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]Bui[Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]m[Placeholder SVG]p[Placeholder SVG](f[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]k)
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG]bui[Placeholder SVG][Placeholder SVG]M[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]ntM[Placeholder SVG]p()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG]M[Placeholder SVG]p[Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'/':[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]'T[Placeholder SVG][Placeholder SVG][Placeholder SVG]R[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]ypt[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]H[Placeholder SVG]m[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]'Y[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nsiv[Placeholder SVG][Placeholder SVG]gui[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ypt[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]tup',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n:[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]'[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]vi[Placeholder SVG]w',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s:[Placeholder SVG]['[Placeholder SVG][Placeholder SVG]ypt[Placeholder SVG]',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt',[Placeholder SVG]'n[Placeholder SVG][Placeholder SVG][Placeholder SVG]',[Placeholder SVG]'gui[Placeholder SVG][Placeholder SVG]'],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]T[Placeholder SVG]pi[Placeholder SVG]s:[Placeholder SVG]['[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p',[Placeholder SVG]'n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s']
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]},
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'/[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p/':[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]'D[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt[Placeholder SVG]R[Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]'C[Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ypt[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n:[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]'[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]vi[Placeholder SVG]w',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s:[Placeholder SVG]['[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]ypt[Placeholder SVG]',[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]mming'],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]T[Placeholder SVG]pi[Placeholder SVG]s:[Placeholder SVG]['p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-1',[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-2',[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-3']
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]},
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'/n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s/':[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]'N[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tup[Placeholder SVG][Placeholder SVG]ui[Placeholder SVG][Placeholder SVG]s',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]'C[Placeholder SVG]mp[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nsiv[Placeholder SVG][Placeholder SVG]gui[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]tting[Placeholder SVG]up[Placeholder SVG]BTC[Placeholder SVG]&[Placeholder SVG]XMR[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]s',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n:[Placeholder SVG]'n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]'[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]vi[Placeholder SVG]w',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s:[Placeholder SVG]['n[Placeholder SVG][Placeholder SVG][Placeholder SVG]',[Placeholder SVG]'s[Placeholder SVG]tup',[Placeholder SVG]'bit[Placeholder SVG][Placeholder SVG]in',[Placeholder SVG]'m[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]',[Placeholder SVG]'s[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]'],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]T[Placeholder SVG]pi[Placeholder SVG]s:[Placeholder SVG]['p[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt-p[Placeholder SVG][Placeholder SVG]visi[Placeholder SVG]ning',[Placeholder SVG]'s[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]-s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ity',[Placeholder SVG]'inst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n',[Placeholder SVG]'syn[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]niz[Placeholder SVG]ti[Placeholder SVG]n']
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]},
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]ppings[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
 
-    Object.entries(manualMap).forEach(([url, data]) => {
-      this.contentMap.set(url, data);
-    });
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Obj[Placeholder SVG][Placeholder SVG]t.[Placeholder SVG]nt[Placeholder SVG]i[Placeholder SVG]s(m[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG]M[Placeholder SVG]p).f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](([u[Placeholder SVG][Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]])[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntM[Placeholder SVG]p.s[Placeholder SVG]t(u[Placeholder SVG][Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Detect current page context
-   */
-  detectCurrentPage() {
-    const path = window.location.pathname;
-    this.currentPage = this.contentMap.get(path) || this.inferPageContext(path);
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]D[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]p[Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xt
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]tCu[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]win[Placeholder SVG][Placeholder SVG]w.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.p[Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntM[Placeholder SVG]p.g[Placeholder SVG]t(p[Placeholder SVG]t[Placeholder SVG])[Placeholder SVG]||[Placeholder SVG]t[Placeholder SVG]is.inf[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]xt(p[Placeholder SVG]t[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Infer page context from URL
-   */
-  inferPageContext(path) {
-    let section = 'general';
-    let phase = null;
-    let type = 'guide';
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]Inf[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xt[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]URL
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG]inf[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]xt(p[Placeholder SVG]t[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]'g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]typ[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]'gui[Placeholder SVG][Placeholder SVG]';
 
-    if (path.includes('/development-roadmap/')) {
-      section = 'development-roadmap';
-      if (path.includes('/phase-1/')) phase = 'phase-1';
-      else if (path.includes('/phase-2/')) phase = 'phase-2';
-      else if (path.includes('/phase-3/')) phase = 'phase-3';
-    } else if (path.includes('/node-guides/')) {
-      section = 'node-guides';
-      if (path.includes('/procurement-provisioning/')) phase = 'procurement-provisioning';
-      else if (path.includes('/server-security/')) phase = 'server-security';
-      else if (path.includes('/installation/')) phase = 'installation';
-      else if (path.includes('/synchronization/')) phase = 'synchronization';
-    }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG]t[Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('/[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p/'))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG]t[Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('/p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-1/'))[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-1';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG]t[Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('/p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-2/'))[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-2';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG]t[Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('/p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-3/'))[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-3';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG]t[Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('/n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s/'))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]'n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG]t[Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('/p[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt-p[Placeholder SVG][Placeholder SVG]visi[Placeholder SVG]ning/'))[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt-p[Placeholder SVG][Placeholder SVG]visi[Placeholder SVG]ning';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG]t[Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('/s[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]-s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ity/'))[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]'s[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]-s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ity';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG]t[Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('/inst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n/'))[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]'inst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG]t[Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('/syn[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]niz[Placeholder SVG]ti[Placeholder SVG]n/'))[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]'syn[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]niz[Placeholder SVG]ti[Placeholder SVG]n';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    return {
-      title: document.title,
-      description: this.extractPageDescription(),
-      section,
-      phase,
-      type,
-      keywords: this.extractKeywords(),
-      url: path
-    };
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.tit[Placeholder SVG][Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]xt[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]D[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n(),
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s:[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]xt[Placeholder SVG][Placeholder SVG][Placeholder SVG]tK[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s(),
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Extract page description from meta tags or content
-   */
-  extractPageDescription() {
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) return metaDesc.content;
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]Ext[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]p[Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]m[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]gs[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]xt[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]D[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]t[Placeholder SVG]D[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.qu[Placeholder SVG][Placeholder SVG]y[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]('m[Placeholder SVG]t[Placeholder SVG][n[Placeholder SVG]m[Placeholder SVG]="[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n"]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](m[Placeholder SVG]t[Placeholder SVG]D[Placeholder SVG]s[Placeholder SVG])[Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG]t[Placeholder SVG]D[Placeholder SVG]s[Placeholder SVG].[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt;
 
-    const firstParagraph = document.querySelector('p');
-    if (firstParagraph) {
-      return firstParagraph.textContent.substring(0, 150) + '...';
-    }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG]st[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.qu[Placeholder SVG][Placeholder SVG]y[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]('p');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](fi[Placeholder SVG]st[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]p[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]fi[Placeholder SVG]st[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]p[Placeholder SVG].t[Placeholder SVG]xtC[Placeholder SVG]nt[Placeholder SVG]nt.subst[Placeholder SVG]ing(0,[Placeholder SVG]150)[Placeholder SVG]+[Placeholder SVG]'...';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    return '';
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]'';
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Extract keywords from page content
-   */
-  extractKeywords() {
-    const keywords = [];
-    const title = document.title.toLowerCase();
-    const headings = Array.from(document.querySelectorAll('h1, h2, h3')).map(h => h.textContent.toLowerCase());
-    
-    // Common crypto/tech keywords
-    const commonKeywords = [
-      'bitcoin', 'btc', 'monero', 'xmr', 'node', 'server', 'security',
-      'installation', 'configuration', 'development', 'api', 'database',
-      'frontend', 'backend', 'blockchain', 'cryptocurrency', 'wallet'
-    ];
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]Ext[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p[Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]xt[Placeholder SVG][Placeholder SVG][Placeholder SVG]tK[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]tit[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.tit[Placeholder SVG][Placeholder SVG].t[Placeholder SVG]L[Placeholder SVG]w[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]s[Placeholder SVG]();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ings[Placeholder SVG]=[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG]y.f[Placeholder SVG][Placeholder SVG]m([Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.qu[Placeholder SVG][Placeholder SVG]y[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]A[Placeholder SVG][Placeholder SVG]('[Placeholder SVG]1,[Placeholder SVG][Placeholder SVG]2,[Placeholder SVG][Placeholder SVG]3')).m[Placeholder SVG]p([Placeholder SVG][Placeholder SVG]=>[Placeholder SVG][Placeholder SVG].t[Placeholder SVG]xtC[Placeholder SVG]nt[Placeholder SVG]nt.t[Placeholder SVG]L[Placeholder SVG]w[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]s[Placeholder SVG]());
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG]mm[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]ypt[Placeholder SVG]/t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]nK[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'bit[Placeholder SVG][Placeholder SVG]in',[Placeholder SVG]'bt[Placeholder SVG]',[Placeholder SVG]'m[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]',[Placeholder SVG]'xm[Placeholder SVG]',[Placeholder SVG]'n[Placeholder SVG][Placeholder SVG][Placeholder SVG]',[Placeholder SVG]'s[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]',[Placeholder SVG]'s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ity',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'inst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]nfigu[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt',[Placeholder SVG]'[Placeholder SVG]pi',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]b[Placeholder SVG]s[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'f[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]n[Placeholder SVG]',[Placeholder SVG]'b[Placeholder SVG][Placeholder SVG]k[Placeholder SVG]n[Placeholder SVG]',[Placeholder SVG]'b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG]in',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]ypt[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]y',[Placeholder SVG]'w[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]];
 
-    commonKeywords.forEach(keyword => {
-      if (title.includes(keyword) || headings.some(h => h.includes(keyword))) {
-        keywords.push(keyword);
-      }
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]nK[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](tit[Placeholder SVG][Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s(k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]||[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ings.s[Placeholder SVG]m[Placeholder SVG]([Placeholder SVG][Placeholder SVG]=>[Placeholder SVG][Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s(k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG])))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s.pus[Placeholder SVG](k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    return keywords;
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s;
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Generate related content suggestions
-   */
-  generateRelatedContent() {
-    if (!this.currentPage) return;
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]R[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](!t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]g[Placeholder SVG])[Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n;
 
-    const related = [];
-    const currentSection = this.currentPage.section;
-    const currentPhase = this.currentPage.phase;
-    const currentKeywords = this.currentPage.keywords || [];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG][];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]g[Placeholder SVG].s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]g[Placeholder SVG].p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntK[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]g[Placeholder SVG].k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]||[Placeholder SVG][];
 
-    this.contentMap.forEach((content, url) => {
-      if (url === window.location.pathname) return;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntM[Placeholder SVG]p.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt,[Placeholder SVG]u[Placeholder SVG][Placeholder SVG])[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](u[Placeholder SVG][Placeholder SVG][Placeholder SVG]===[Placeholder SVG]win[Placeholder SVG][Placeholder SVG]w.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.p[Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG])[Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n;
 
-      let relevanceScore = 0;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]0;
 
-      // Same section bonus
-      if (content.section === currentSection) {
-        relevanceScore += 3;
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]b[Placeholder SVG]nus
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]===[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]+=[Placeholder SVG]3;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      // Same phase bonus
-      if (content.phase === currentPhase) {
-        relevanceScore += 2;
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]b[Placeholder SVG]nus
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]===[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]+=[Placeholder SVG]2;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      // Keyword matching
-      const matchingKeywords = content.keywords?.filter(k => 
-        currentKeywords.includes(k)
-      ) || [];
-      relevanceScore += matchingKeywords.length;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]K[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ing
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ingK[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s?.fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](k[Placeholder SVG]=>[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntK[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s.in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s(k)
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]||[Placeholder SVG][];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]+=[Placeholder SVG]m[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ingK[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG];
 
-      // Related topics matching
-      if (content.relatedTopics?.includes(currentPhase) || 
-          this.currentPage.relatedTopics?.includes(content.phase)) {
-        relevanceScore += 2;
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]R[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]pi[Placeholder SVG]s[Placeholder SVG]m[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ing
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]T[Placeholder SVG]pi[Placeholder SVG]s?.in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s([Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG])[Placeholder SVG]||[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]g[Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]T[Placeholder SVG]pi[Placeholder SVG]s?.in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]+=[Placeholder SVG]2;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      if (relevanceScore > 0) {
-        related.push({
-          ...content,
-          url,
-          relevanceScore
-        });
-      }
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]>[Placeholder SVG]0)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG].pus[Placeholder SVG]({
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]...[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    // Sort by relevance and take top suggestions
-    this.relatedContent = related
-      .sort((a, b) => b.relevanceScore - a.relevanceScore)
-      .slice(0, 6);
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]by[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]k[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]p[Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].s[Placeholder SVG][Placeholder SVG]t(([Placeholder SVG],[Placeholder SVG]b)[Placeholder SVG]=>[Placeholder SVG]b.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].s[Placeholder SVG]i[Placeholder SVG][Placeholder SVG](0,[Placeholder SVG]6);
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Setup contextual suggestions based on page content
-   */
-  setupContextualSuggestions() {
-    this.contextualSuggestions = [];
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG]tup[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns[Placeholder SVG]b[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]p[Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]tupC[Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns[Placeholder SVG]=[Placeholder SVG][];
 
-    if (!this.currentPage) return;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](!t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]g[Placeholder SVG])[Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n;
 
-    const { section, phase } = this.currentPage;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]{[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]}[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]g[Placeholder SVG];
 
-    // Add navigation suggestions based on current context
-    if (section === 'development-roadmap') {
-      this.addDevelopmentSuggestions(phase);
-    } else if (section === 'node-guides') {
-      this.addNodeGuideSuggestions(phase);
-    }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns[Placeholder SVG]b[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xt
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]===[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p')[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]D[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt[Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns(p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]if[Placeholder SVG](s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]===[Placeholder SVG]'n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s')[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]N[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ui[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns(p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    // Add cross-section suggestions
-    this.addCrossSectionSuggestions(section);
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss-s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG][Placeholder SVG]ss[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns(s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n);
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Add development roadmap specific suggestions
-   */
-  addDevelopmentSuggestions(currentPhase) {
-    const phases = ['phase-1', 'phase-2', 'phase-3'];
-    const phaseNames = {
-      'phase-1': 'Foundational Infrastructure',
-      'phase-2': 'Backend & APIs',
-      'phase-3': 'Frontend & UI'
-    };
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p[Placeholder SVG]sp[Placeholder SVG][Placeholder SVG]ifi[Placeholder SVG][Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]D[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt[Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns([Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]['p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-1',[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-2',[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-3'];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]N[Placeholder SVG]m[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-1':[Placeholder SVG]'F[Placeholder SVG]un[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]Inf[Placeholder SVG][Placeholder SVG]st[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-2':[Placeholder SVG]'B[Placeholder SVG][Placeholder SVG]k[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]&[Placeholder SVG]A[Placeholder SVG]Is',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-3':[Placeholder SVG]'F[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]&[Placeholder SVG]UI'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
 
-    phases.forEach(phase => {
-      if (phase !== currentPhase) {
-        this.contextualSuggestions.push({
-          title: `Phase ${phase.split('-')[1]}: ${phaseNames[phase]}`,
-          url: `/development-roadmap/${phase}/`,
-          type: 'next-phase',
-          description: `Continue your development journey with ${phaseNames[phase]}`,
-          icon: '[Placeholder SVG]'
-        });
-      }
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]!==[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns.pus[Placeholder SVG]({
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]`[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].sp[Placeholder SVG]it('-')[1]}:[Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]N[Placeholder SVG]m[Placeholder SVG]s[p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]]}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]`/[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p/${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]}/`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]'n[Placeholder SVG]xt-p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]`C[Placeholder SVG]ntinu[Placeholder SVG][Placeholder SVG]y[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt[Placeholder SVG]j[Placeholder SVG]u[Placeholder SVG]n[Placeholder SVG]y[Placeholder SVG]wit[Placeholder SVG][Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]N[Placeholder SVG]m[Placeholder SVG]s[p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]]}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]n:[Placeholder SVG]'[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]]'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    // Suggest node guides as practical application
-    this.contextualSuggestions.push({
-      title: 'Apply Your Skills: Node Setup',
-      url: '/node-guides/',
-      type: 'cross-section',
-      description: 'Put your development knowledge into practice by setting up crypto nodes',
-      icon: '[Placeholder SVG]'
-    });
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]st[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]gui[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]pp[Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns.pus[Placeholder SVG]({
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]'App[Placeholder SVG]y[Placeholder SVG]Y[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ki[Placeholder SVG][Placeholder SVG]s:[Placeholder SVG]N[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tup',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]'/n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s/',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]'[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss-s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]'[Placeholder SVG]ut[Placeholder SVG]y[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt[Placeholder SVG]kn[Placeholder SVG]w[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]int[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG][Placeholder SVG][Placeholder SVG]by[Placeholder SVG]s[Placeholder SVG]tting[Placeholder SVG]up[Placeholder SVG][Placeholder SVG][Placeholder SVG]ypt[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]s',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]n:[Placeholder SVG]'[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]]'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Add node guide specific suggestions
-   */
-  addNodeGuideSuggestions(currentPhase) {
-    const phases = ['procurement-provisioning', 'server-security', 'installation', 'synchronization'];
-    const phaseNames = {
-      'procurement-provisioning': 'Procurement & Provisioning',
-      'server-security': 'Server Foundation & Security',
-      'installation': 'Node Software Installation',
-      'synchronization': 'Blockchain Synchronization'
-    };
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]gui[Placeholder SVG][Placeholder SVG][Placeholder SVG]sp[Placeholder SVG][Placeholder SVG]ifi[Placeholder SVG][Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]N[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ui[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns([Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]['p[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt-p[Placeholder SVG][Placeholder SVG]visi[Placeholder SVG]ning',[Placeholder SVG]'s[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]-s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ity',[Placeholder SVG]'inst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n',[Placeholder SVG]'syn[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]niz[Placeholder SVG]ti[Placeholder SVG]n'];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]N[Placeholder SVG]m[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'p[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt-p[Placeholder SVG][Placeholder SVG]visi[Placeholder SVG]ning':[Placeholder SVG]'[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt[Placeholder SVG]&[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]visi[Placeholder SVG]ning',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'s[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]-s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ity':[Placeholder SVG]'[Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]F[Placeholder SVG]un[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]&[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ity',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'inst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n':[Placeholder SVG]'N[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ftw[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Inst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'syn[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]niz[Placeholder SVG]ti[Placeholder SVG]n':[Placeholder SVG]'B[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG]yn[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]niz[Placeholder SVG]ti[Placeholder SVG]n'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
 
-    // Suggest next phase in sequence
-    const currentIndex = phases.indexOf(currentPhase);
-    if (currentIndex >= 0 && currentIndex < phases.length - 1) {
-      const nextPhase = phases[currentIndex + 1];
-      this.contextualSuggestions.push({
-        title: `Next: ${phaseNames[nextPhase]}`,
-        url: `/node-guides/${nextPhase}/`,
-        type: 'next-phase',
-        description: `Continue with ${phaseNames[nextPhase]}`,
-        icon: '➡️'
-      });
-    }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]st[Placeholder SVG]n[Placeholder SVG]xt[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]in[Placeholder SVG]s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntIn[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.in[Placeholder SVG][Placeholder SVG]xOf([Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntIn[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]>=[Placeholder SVG]0[Placeholder SVG]&&[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntIn[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]<[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]1)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]n[Placeholder SVG]xt[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s[[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntIn[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns.pus[Placeholder SVG]({
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]`N[Placeholder SVG]xt:[Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]N[Placeholder SVG]m[Placeholder SVG]s[n[Placeholder SVG]xt[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]]}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]`/n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s/${n[Placeholder SVG]xt[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]}/`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]'n[Placeholder SVG]xt-p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]`C[Placeholder SVG]ntinu[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]N[Placeholder SVG]m[Placeholder SVG]s[n[Placeholder SVG]xt[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]]}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]n:[Placeholder SVG]'➡️'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    // Suggest previous phase for reference
-    if (currentIndex > 0) {
-      const prevPhase = phases[currentIndex - 1];
-      this.contextualSuggestions.push({
-        title: `Review: ${phaseNames[prevPhase]}`,
-        url: `/node-guides/${prevPhase}/`,
-        type: 'previous-phase',
-        description: `Review ${phaseNames[prevPhase]}`,
-        icon: '⬅️'
-      });
-    }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]st[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]vi[Placeholder SVG]us[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntIn[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]>[Placeholder SVG]0)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s[[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntIn[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]-[Placeholder SVG]1];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns.pus[Placeholder SVG]({
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]`R[Placeholder SVG]vi[Placeholder SVG]w:[Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]N[Placeholder SVG]m[Placeholder SVG]s[p[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]]}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]`/n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s/${p[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]}/`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]vi[Placeholder SVG]us-p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]`R[Placeholder SVG]vi[Placeholder SVG]w[Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]N[Placeholder SVG]m[Placeholder SVG]s[p[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]]}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]n:[Placeholder SVG]'⬅️'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    // Suggest development roadmap for background knowledge
-    this.contextualSuggestions.push({
-      title: 'Learn the Fundamentals',
-      url: '/development-roadmap/',
-      type: 'cross-section',
-      description: 'Build foundational development skills for better node management',
-      icon: '📚'
-    });
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]st[Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG][Placeholder SVG]kn[Placeholder SVG]w[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns.pus[Placeholder SVG]({
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]'L[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]Fun[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]s',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]'/[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p/',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]'[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss-s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]'Bui[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]un[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt[Placeholder SVG]ski[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG]tt[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]n[Placeholder SVG]g[Placeholder SVG]m[Placeholder SVG]nt',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]n:[Placeholder SVG]'📚'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Add cross-section suggestions
-   */
-  addCrossSectionSuggestions(currentSection) {
-    if (currentSection !== 'home') {
-      this.contextualSuggestions.push({
-        title: 'Back to Home',
-        url: '/',
-        type: 'navigation',
-        description: 'Return to the main page',
-        icon: '[Placeholder SVG]'
-      });
-    }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss-s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG][Placeholder SVG]ss[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns([Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]!==[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]')[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns.pus[Placeholder SVG]({
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]'B[Placeholder SVG][Placeholder SVG]k[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]H[Placeholder SVG]m[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]'/',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]'n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]'R[Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG]p[Placeholder SVG]g[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]n:[Placeholder SVG]'[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]]'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    // Add progress tracking suggestion
-    this.contextualSuggestions.push({
-      title: 'Track Your Progress',
-      url: '/user-progress.html',
-      type: 'utility',
-      description: 'View your learning progress and bookmarks',
-      icon: '[Placeholder SVG]'
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]king[Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]n
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns.pus[Placeholder SVG]({
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]'T[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]Y[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]'/us[Placeholder SVG][Placeholder SVG]-p[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]tm[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]'uti[Placeholder SVG]ity',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]'[Placeholder SVG]i[Placeholder SVG]w[Placeholder SVG]y[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ning[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]km[Placeholder SVG][Placeholder SVG]ks',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]n:[Placeholder SVG]'[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]]'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    // Add search suggestion
-    this.contextualSuggestions.push({
-      title: 'Search Content',
-      url: '/search.html',
-      type: 'utility',
-      description: 'Find specific topics and information',
-      icon: '[Placeholder SVG]'
-    });
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]n
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns.pus[Placeholder SVG]({
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]'[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]'/s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG]tm[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]'uti[Placeholder SVG]ity',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]'Fin[Placeholder SVG][Placeholder SVG]sp[Placeholder SVG][Placeholder SVG]ifi[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]pi[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]inf[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]ti[Placeholder SVG]n',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]n:[Placeholder SVG]'[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]]'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Render suggestions on the page
-   */
-  renderSuggestions() {
-    this.renderRelatedContent();
-    this.renderContextualSuggestions();
-    this.renderInlineLinks();
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]R[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG]g[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]R[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG]in[Placeholder SVG]Links();
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Render related content section
-   */
-  renderRelatedContent() {
-    if (this.relatedContent.length === 0) return;
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]R[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]R[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]===[Placeholder SVG]0)[Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n;
 
-    const container = this.createOrFindContainer('related-content', 'Related Content');
-    
-    const relatedHTML = this.relatedContent.map(content => `
-      <div class="related-item">
-        <a href="${content.url}" class="related-link">
-          <div class="related-header">
-            <h4 class="related-title">${content.title}</h4>
-            <span class="related-type">${this.formatType(content.type)}</span>
-          </div>
-          <p class="related-description">${content.description}</p>
-          <div class="related-meta">
-            ${content.difficulty ? `<span class="related-difficulty">${content.difficulty}</span>` : ''}
-            ${content.estimatedTime ? `<span class="related-time">${content.estimatedTime}</span>` : ''}
-          </div>
-        </a>
-      </div>
-    `).join('');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]O[Placeholder SVG]Fin[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]('[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt',[Placeholder SVG]'R[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]HTML[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt.m[Placeholder SVG]p([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=>[Placeholder SVG]`
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<[Placeholder SVG]iv[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-it[Placeholder SVG]m">
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f="${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.u[Placeholder SVG][Placeholder SVG]}"[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink">
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<[Placeholder SVG]iv[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]">
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<[Placeholder SVG]4[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-tit[Placeholder SVG][Placeholder SVG]">${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.tit[Placeholder SVG][Placeholder SVG]}</[Placeholder SVG]4>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<sp[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-typ[Placeholder SVG]">${t[Placeholder SVG]is.f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]tTyp[Placeholder SVG]([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.typ[Placeholder SVG])}</sp[Placeholder SVG]n>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]</[Placeholder SVG]iv>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n">${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n}</p>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<[Placeholder SVG]iv[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-m[Placeholder SVG]t[Placeholder SVG]">
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG]iffi[Placeholder SVG]u[Placeholder SVG]ty[Placeholder SVG]?[Placeholder SVG]`<sp[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]iffi[Placeholder SVG]u[Placeholder SVG]ty">${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG]iffi[Placeholder SVG]u[Placeholder SVG]ty}</sp[Placeholder SVG]n>`[Placeholder SVG]:[Placeholder SVG]''}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG]stim[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Tim[Placeholder SVG][Placeholder SVG]?[Placeholder SVG]`<sp[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-tim[Placeholder SVG]">${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG]stim[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Tim[Placeholder SVG]}</sp[Placeholder SVG]n>`[Placeholder SVG]:[Placeholder SVG]''}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]</[Placeholder SVG]iv>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]</[Placeholder SVG]>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]</[Placeholder SVG]iv>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`).j[Placeholder SVG]in('');
 
-    container.innerHTML = `
-      <h3 class="suggestions-title">
-        <svg class="suggestions-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-        </svg>
-        Related Content
-      </h3>
-      <div class="related-grid">
-        ${relatedHTML}
-      </div>
-    `;
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG].inn[Placeholder SVG][Placeholder SVG]HTML[Placeholder SVG]=[Placeholder SVG]`
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<[Placeholder SVG]3[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="sugg[Placeholder SVG]sti[Placeholder SVG]ns-tit[Placeholder SVG][Placeholder SVG]">
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<svg[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="sugg[Placeholder SVG]sti[Placeholder SVG]ns-i[Placeholder SVG][Placeholder SVG]n"[Placeholder SVG]vi[Placeholder SVG]wB[Placeholder SVG]x="0[Placeholder SVG]0[Placeholder SVG]24[Placeholder SVG]24"[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]="n[Placeholder SVG]n[Placeholder SVG]"[Placeholder SVG]st[Placeholder SVG][Placeholder SVG]k[Placeholder SVG]="[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntC[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]"[Placeholder SVG]st[Placeholder SVG][Placeholder SVG]k[Placeholder SVG]-wi[Placeholder SVG]t[Placeholder SVG]="2">
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<p[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]="M13[Placeholder SVG]2L3[Placeholder SVG]14[Placeholder SVG]9[Placeholder SVG]-1[Placeholder SVG]8[Placeholder SVG]10-12[Placeholder SVG]-9[Placeholder SVG]1-8z"></p[Placeholder SVG]t[Placeholder SVG]>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]</svg>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]R[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]</[Placeholder SVG]3>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<[Placeholder SVG]iv[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-g[Placeholder SVG]i[Placeholder SVG]">
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]HTML}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]</[Placeholder SVG]iv>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`;
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Render contextual suggestions
-   */
-  renderContextualSuggestions() {
-    if (this.contextualSuggestions.length === 0) return;
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]R[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]===[Placeholder SVG]0)[Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n;
 
-    const container = this.createOrFindContainer('contextual-suggestions', 'Quick Navigation');
-    
-    const suggestionsHTML = this.contextualSuggestions.map(suggestion => `
-      <a href="${suggestion.url}" class="contextual-link contextual-${suggestion.type}">
-        <span class="contextual-icon">${suggestion.icon}</span>
-        <div class="contextual-content">
-          <span class="contextual-title">${suggestion.title}</span>
-          <span class="contextual-description">${suggestion.description}</span>
-        </div>
-      </a>
-    `).join('');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]O[Placeholder SVG]Fin[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]('[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-sugg[Placeholder SVG]sti[Placeholder SVG]ns',[Placeholder SVG]'Qui[Placeholder SVG]k[Placeholder SVG]N[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]nsHTML[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns.m[Placeholder SVG]p(sugg[Placeholder SVG]sti[Placeholder SVG]n[Placeholder SVG]=>[Placeholder SVG]`
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f="${sugg[Placeholder SVG]sti[Placeholder SVG]n.u[Placeholder SVG][Placeholder SVG]}"[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-${sugg[Placeholder SVG]sti[Placeholder SVG]n.typ[Placeholder SVG]}">
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<sp[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-i[Placeholder SVG][Placeholder SVG]n">${sugg[Placeholder SVG]sti[Placeholder SVG]n.i[Placeholder SVG][Placeholder SVG]n}</sp[Placeholder SVG]n>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<[Placeholder SVG]iv[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt">
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<sp[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-tit[Placeholder SVG][Placeholder SVG]">${sugg[Placeholder SVG]sti[Placeholder SVG]n.tit[Placeholder SVG][Placeholder SVG]}</sp[Placeholder SVG]n>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<sp[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n">${sugg[Placeholder SVG]sti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n}</sp[Placeholder SVG]n>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]</[Placeholder SVG]iv>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]</[Placeholder SVG]>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`).j[Placeholder SVG]in('');
 
-    container.innerHTML = `
-      <h3 class="suggestions-title">
-        <svg class="suggestions-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="9,18 15,12 9,6"></polyline>
-        </svg>
-        Quick Navigation
-      </h3>
-      <div class="contextual-grid">
-        ${suggestionsHTML}
-      </div>
-    `;
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG].inn[Placeholder SVG][Placeholder SVG]HTML[Placeholder SVG]=[Placeholder SVG]`
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<[Placeholder SVG]3[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="sugg[Placeholder SVG]sti[Placeholder SVG]ns-tit[Placeholder SVG][Placeholder SVG]">
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<svg[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="sugg[Placeholder SVG]sti[Placeholder SVG]ns-i[Placeholder SVG][Placeholder SVG]n"[Placeholder SVG]vi[Placeholder SVG]wB[Placeholder SVG]x="0[Placeholder SVG]0[Placeholder SVG]24[Placeholder SVG]24"[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]="n[Placeholder SVG]n[Placeholder SVG]"[Placeholder SVG]st[Placeholder SVG][Placeholder SVG]k[Placeholder SVG]="[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntC[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]"[Placeholder SVG]st[Placeholder SVG][Placeholder SVG]k[Placeholder SVG]-wi[Placeholder SVG]t[Placeholder SVG]="2">
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<p[Placeholder SVG][Placeholder SVG]y[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]p[Placeholder SVG]ints="9,18[Placeholder SVG]15,12[Placeholder SVG]9,6"></p[Placeholder SVG][Placeholder SVG]y[Placeholder SVG]in[Placeholder SVG]>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]</svg>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Qui[Placeholder SVG]k[Placeholder SVG]N[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]</[Placeholder SVG]3>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]<[Placeholder SVG]iv[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-g[Placeholder SVG]i[Placeholder SVG]">
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]${sugg[Placeholder SVG]sti[Placeholder SVG]nsHTML}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]</[Placeholder SVG]iv>
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`;
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Render inline contextual links within content
-   */
-  renderInlineLinks() {
-    const contentContainer = document.querySelector('.content, main, article');
-    if (!contentContainer) return;
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]R[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]inks[Placeholder SVG]wit[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG]in[Placeholder SVG]Links()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntC[Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.qu[Placeholder SVG][Placeholder SVG]y[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]('.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt,[Placeholder SVG]m[Placeholder SVG]in,[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG][Placeholder SVG][Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](![Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntC[Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG])[Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n;
 
-    // Find text that could be enhanced with contextual links
-    const textNodes = this.getTextNodes(contentContainer);
-    
-    textNodes.forEach(node => {
-      this.enhanceTextWithLinks(node);
-    });
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]Fin[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]inks
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG]xtN[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.g[Placeholder SVG]tT[Placeholder SVG]xtN[Placeholder SVG][Placeholder SVG][Placeholder SVG]s([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntC[Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xtN[Placeholder SVG][Placeholder SVG][Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]T[Placeholder SVG]xtWit[Placeholder SVG]Links(n[Placeholder SVG][Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Get all text nodes in container
-   */
-  getTextNodes(container) {
-    const textNodes = [];
-    const walker = document.createTreeWalker(
-      container,
-      NodeFilter.SHOW_TEXT,
-      {
-        acceptNode: (node) => {
-          // Skip nodes inside links, code blocks, etc.
-          const parent = node.parentElement;
-          if (parent.tagName === 'A' || parent.tagName === 'CODE' || 
-              parent.tagName === 'PRE' || parent.classList.contains('no-enhance')) {
-            return NodeFilter.FILTER_REJECT;
-          }
-          return NodeFilter.FILTER_ACCEPT;
-        }
-      }
-    );
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]tT[Placeholder SVG]xtN[Placeholder SVG][Placeholder SVG][Placeholder SVG]s([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG]xtN[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]w[Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]T[Placeholder SVG][Placeholder SVG][Placeholder SVG]W[Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG](
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]N[Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG].[Placeholder SVG]HOW_TEXT,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ptN[Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG](n[Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG]kip[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]insi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]inks,[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]ks,[Placeholder SVG][Placeholder SVG]t[Placeholder SVG].
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG].p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntE[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt.t[Placeholder SVG]gN[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]===[Placeholder SVG]'A'[Placeholder SVG]||[Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt.t[Placeholder SVG]gN[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]===[Placeholder SVG]'CODE'[Placeholder SVG]||[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt.t[Placeholder SVG]gN[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]===[Placeholder SVG]'[Placeholder SVG]RE'[Placeholder SVG]||[Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG][Placeholder SVG]ssList.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ins('n[Placeholder SVG]-[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]'))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]N[Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG].FILTER_REJECT;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]N[Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG].FILTER_ACCE[Placeholder SVG]T;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]);
 
-    let node;
-    while (node = walker.nextNode()) {
-      if (node.textContent.trim().length > 10) {
-        textNodes.push(node);
-      }
-    }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG](n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]w[Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG].n[Placeholder SVG]xtN[Placeholder SVG][Placeholder SVG][Placeholder SVG]())[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](n[Placeholder SVG][Placeholder SVG][Placeholder SVG].t[Placeholder SVG]xtC[Placeholder SVG]nt[Placeholder SVG]nt.t[Placeholder SVG]im().[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]>[Placeholder SVG]10)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xtN[Placeholder SVG][Placeholder SVG][Placeholder SVG]s.pus[Placeholder SVG](n[Placeholder SVG][Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    return textNodes;
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG]xtN[Placeholder SVG][Placeholder SVG][Placeholder SVG]s;
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Enhance text with contextual links
-   */
-  enhanceTextWithLinks(textNode) {
-    const text = textNode.textContent;
-    let enhancedText = text;
-    let hasChanges = false;
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]En[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt[Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]inks
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]T[Placeholder SVG]xtWit[Placeholder SVG]Links(t[Placeholder SVG]xtN[Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG]xt[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]xtN[Placeholder SVG][Placeholder SVG][Placeholder SVG].t[Placeholder SVG]xtC[Placeholder SVG]nt[Placeholder SVG]nt;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]T[Placeholder SVG]xt[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]xt;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]sC[Placeholder SVG][Placeholder SVG]ng[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]s[Placeholder SVG];
 
-    // Define terms to link
-    const linkableTerms = {
-      'Bitcoin node': '/node-guides/installation/',
-      'Monero node': '/node-guides/installation/',
-      'server security': '/node-guides/server-security/',
-      'VPS setup': '/node-guides/procurement-provisioning/',
-      'blockchain sync': '/node-guides/synchronization/',
-      'development roadmap': '/development-roadmap/',
-      'API development': '/development-roadmap/phase-2/',
-      'database setup': '/development-roadmap/phase-1/',
-      'frontend development': '/development-roadmap/phase-3/'
-    };
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]D[Placeholder SVG]fin[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ms[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]ink
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG]ink[Placeholder SVG]b[Placeholder SVG][Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ms[Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'Bit[Placeholder SVG][Placeholder SVG]in[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]':[Placeholder SVG]'/n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s/inst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n/',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'M[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]':[Placeholder SVG]'/n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s/inst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n/',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'s[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ity':[Placeholder SVG]'/n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s/s[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]-s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ity/',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]tup':[Placeholder SVG]'/n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s/p[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt-p[Placeholder SVG][Placeholder SVG]visi[Placeholder SVG]ning/',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG]syn[Placeholder SVG]':[Placeholder SVG]'/n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s/syn[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]niz[Placeholder SVG]ti[Placeholder SVG]n/',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p':[Placeholder SVG]'/[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p/',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'A[Placeholder SVG]I[Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt':[Placeholder SVG]'/[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p/p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-2/',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]b[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]tup':[Placeholder SVG]'/[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p/p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-1/',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'f[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt':[Placeholder SVG]'/[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p/p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]-3/'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
 
-    Object.entries(linkableTerms).forEach(([term, url]) => {
-      const regex = new RegExp(`\\b${term}\\b`, 'gi');
-      if (regex.test(text) && !text.includes(`href="${url}"`)) {
-        enhancedText = enhancedText.replace(regex, `<a href="${url}" class="contextual-inline-link">${term}</a>`);
-        hasChanges = true;
-      }
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Obj[Placeholder SVG][Placeholder SVG]t.[Placeholder SVG]nt[Placeholder SVG]i[Placeholder SVG]s([Placeholder SVG]ink[Placeholder SVG]b[Placeholder SVG][Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ms).f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](([t[Placeholder SVG][Placeholder SVG]m,[Placeholder SVG]u[Placeholder SVG][Placeholder SVG]])[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]x[Placeholder SVG]=[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]R[Placeholder SVG]gExp(`\\b${t[Placeholder SVG][Placeholder SVG]m}\\b`,[Placeholder SVG]'gi');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG]g[Placeholder SVG]x.t[Placeholder SVG]st(t[Placeholder SVG]xt)[Placeholder SVG]&&[Placeholder SVG]!t[Placeholder SVG]xt.in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s(`[Placeholder SVG][Placeholder SVG][Placeholder SVG]f="${u[Placeholder SVG][Placeholder SVG]}"`))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]T[Placeholder SVG]xt[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]T[Placeholder SVG]xt.[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]g[Placeholder SVG]x,[Placeholder SVG]`<[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f="${u[Placeholder SVG][Placeholder SVG]}"[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss="[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-in[Placeholder SVG]in[Placeholder SVG]-[Placeholder SVG]ink">${t[Placeholder SVG][Placeholder SVG]m}</[Placeholder SVG]>`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]sC[Placeholder SVG][Placeholder SVG]ng[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]u[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    if (hasChanges) {
-      const wrapper = document.createElement('span');
-      wrapper.innerHTML = enhancedText;
-      textNode.parentNode.replaceChild(wrapper, textNode);
-    }
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG]sC[Placeholder SVG][Placeholder SVG]ng[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]w[Placeholder SVG][Placeholder SVG]pp[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]E[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt('sp[Placeholder SVG]n');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG][Placeholder SVG]pp[Placeholder SVG][Placeholder SVG].inn[Placeholder SVG][Placeholder SVG]HTML[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]T[Placeholder SVG]xt;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xtN[Placeholder SVG][Placeholder SVG][Placeholder SVG].p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntN[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG]i[Placeholder SVG][Placeholder SVG](w[Placeholder SVG][Placeholder SVG]pp[Placeholder SVG][Placeholder SVG],[Placeholder SVG]t[Placeholder SVG]xtN[Placeholder SVG][Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Create or find container for suggestions
-   */
-  createOrFindContainer(id, title) {
-    let container = document.getElementById(id);
-    
-    if (!container) {
-      container = document.createElement('div');
-      container.id = id;
-      container.className = 'suggestions-container';
-      
-      // Try to insert at the end of main content
-      const mainContent = document.querySelector('.content, main, article');
-      if (mainContent) {
-        mainContent.appendChild(container);
-      } else {
-        document.body.appendChild(container);
-      }
-    }
-    
-    return container;
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]fin[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]O[Placeholder SVG]Fin[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG](i[Placeholder SVG],[Placeholder SVG]tit[Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.g[Placeholder SVG]tE[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]ntByI[Placeholder SVG](i[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](![Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]E[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt('[Placeholder SVG]iv');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG].i[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]i[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG]ssN[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]'sugg[Placeholder SVG]sti[Placeholder SVG]ns-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]T[Placeholder SVG]y[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ins[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.qu[Placeholder SVG][Placeholder SVG]y[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]('.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt,[Placeholder SVG]m[Placeholder SVG]in,[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG][Placeholder SVG][Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](m[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG]pp[Placeholder SVG]n[Placeholder SVG]C[Placeholder SVG]i[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.b[Placeholder SVG][Placeholder SVG]y.[Placeholder SVG]pp[Placeholder SVG]n[Placeholder SVG]C[Placeholder SVG]i[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Format content type for display
-   */
-  formatType(type) {
-    const typeMap = {
-      'overview': 'Overview',
-      'guide': 'Guide',
-      'phase': 'Phase',
-      'tutorial': 'Tutorial'
-    };
-    
-    return typeMap[type] || type;
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]F[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]typ[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]tTyp[Placeholder SVG](typ[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]typ[Placeholder SVG]M[Placeholder SVG]p[Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]vi[Placeholder SVG]w':[Placeholder SVG]'Ov[Placeholder SVG][Placeholder SVG]vi[Placeholder SVG]w',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'gui[Placeholder SVG][Placeholder SVG]':[Placeholder SVG]'[Placeholder SVG]ui[Placeholder SVG][Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]':[Placeholder SVG]'[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'tut[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]':[Placeholder SVG]'Tut[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]typ[Placeholder SVG]M[Placeholder SVG]p[typ[Placeholder SVG]][Placeholder SVG]||[Placeholder SVG]typ[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Update suggestions for new page
-   */
-  updateForNewPage() {
-    this.detectCurrentPage();
-    this.generateRelatedContent();
-    this.setupContextualSuggestions();
-    this.renderSuggestions();
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]Up[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]p[Placeholder SVG]g[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG]up[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]F[Placeholder SVG][Placeholder SVG]N[Placeholder SVG]w[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]tCu[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]R[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.s[Placeholder SVG]tupC[Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns();
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Get suggestions data (for external use)
-   */
-  getSuggestions() {
-    return {
-      related: this.relatedContent,
-      contextual: this.contextualSuggestions,
-      currentPage: this.currentPage
-    };
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG](f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xt[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]us[Placeholder SVG])
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]t[Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]ns,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]:[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
+[Placeholder SVG][Placeholder SVG]}
 }
 
-// Initialize contextual links when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  window.contextualLinks = new ContextualLinks();
+//[Placeholder SVG]Initi[Placeholder SVG][Placeholder SVG]iz[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]inks[Placeholder SVG]w[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]DOM[Placeholder SVG]is[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Ev[Placeholder SVG]ntList[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]('DOMC[Placeholder SVG]nt[Placeholder SVG]ntL[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]win[Placeholder SVG][Placeholder SVG]w.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]Links[Placeholder SVG]=[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]Links();
 });
 
-// Update suggestions on navigation (for SPA-like behavior)
-window.addEventListener('popstate', () => {
-  if (window.contextualLinks) {
-    window.contextualLinks.updateForNewPage();
-  }
+//[Placeholder SVG]Up[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG](f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]A-[Placeholder SVG]ik[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]vi[Placeholder SVG][Placeholder SVG])
+win[Placeholder SVG][Placeholder SVG]w.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Ev[Placeholder SVG]ntList[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]('p[Placeholder SVG]pst[Placeholder SVG]t[Placeholder SVG]',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]if[Placeholder SVG](win[Placeholder SVG][Placeholder SVG]w.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]Links)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]win[Placeholder SVG][Placeholder SVG]w.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]Links.up[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]F[Placeholder SVG][Placeholder SVG]N[Placeholder SVG]w[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]();
+[Placeholder SVG][Placeholder SVG]}
 });
 
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = ContextualLinks;
+//[Placeholder SVG]Exp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]us[Placeholder SVG]g[Placeholder SVG]
+if[Placeholder SVG](typ[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]!==[Placeholder SVG]'un[Placeholder SVG][Placeholder SVG]fin[Placeholder SVG][Placeholder SVG]'[Placeholder SVG]&&[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG].[Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]ts)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG].[Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]ts[Placeholder SVG]=[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]Links;
 }

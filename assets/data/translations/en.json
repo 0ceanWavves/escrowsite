@@ -65,5 +65,16 @@
   "guides.phase3": "Phase 3: Node Software Installation",
   "guides.phase4": "Phase 4: Blockchain Synchronization",
   
-  "footer.copyright": "© 2025 The Road to Crypto - Interactive Implementation Blueprint"
+  "footer.copyright": "© 2025 The Road to Crypto - Interactive Implementation Blueprint",
+  
+  "page.getting-started": "Getting Started",
+  "page.search": "Search",
+  "page.user-progress": "User Progress",
+  "page.development-roadmap": "Development Roadmap",
+  "page.node-guides": "Node Setup Guides",
+  
+  "quickstart.title": "Quick Start Guide",
+  "quickstart.setup": "Setup Your First Node",
+  "quickstart.learn": "Learn Development Basics",
+  "quickstart.explore": "Explore Advanced Topics"
 }

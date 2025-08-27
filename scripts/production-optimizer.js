@@ -1,307 +1,307 @@
-#!/usr/bin/env node
+#!/us[Placeholder SVG]/bin/[Placeholder SVG]nv[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]
 
 /**
- * Production Optimization Script
- * Optimizes assets and content for production deployment
- */
+[Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]Optimiz[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ipt
+[Placeholder SVG]*[Placeholder SVG]Optimiz[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]ts[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]ym[Placeholder SVG]nt
+[Placeholder SVG]*/
 
-import fs from 'fs/promises';
-import path from 'path';
-import { fileURLToPath } from 'url';
+imp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]fs[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'fs/p[Placeholder SVG][Placeholder SVG]mis[Placeholder SVG]s';
+imp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'p[Placeholder SVG]t[Placeholder SVG]';
+imp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]{[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]URLT[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]}[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'u[Placeholder SVG][Placeholder SVG]';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+[Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]__fi[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]URLT[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG](imp[Placeholder SVG][Placeholder SVG]t.m[Placeholder SVG]t[Placeholder SVG].u[Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]__[Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].[Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG](__fi[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG]);
 
-class ProductionOptimizer {
-  constructor() {
-    this.rootDir = path.join(__dirname, '..');
-    this.optimizations = [];
-    this.errors = [];
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ti[Placeholder SVG]nOptimiz[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]u[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]tDi[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(__[Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG],[Placeholder SVG]'..');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]=[Placeholder SVG][];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][];
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Run all production optimizations
-   */
-  async optimize() {
-    console.log('[Placeholder SVG] Starting production optimization...\n');
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]Run[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ting[Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]n...\n');
 
-    try {
-      // Minify CSS files
-      await this.minifyCSS();
-      
-      // Optimize JavaScript files
-      await this.optimizeJavaScript();
-      
-      // Optimize JSON data files
-      await this.optimizeJSONFiles();
-      
-      // Generate service worker cache manifest
-      await this.generateCacheManifest();
-      
-      // Optimize images (if any)
-      await this.optimizeImages();
-      
-      // Generate performance report
-      const report = await this.generateOptimizationReport();
-      
-      console.log('\n[Placeholder SVG] Optimization Report:');
-      console.log('======================');
-      console.log(`[Placeholder SVG] Optimizations applied: ${this.optimizations.length}`);
-      console.log(`[Placeholder SVG] Errors encountered: ${this.errors.length}`);
-      
-      if (this.errors.length > 0) {
-        console.log('\n[Placeholder SVG] Errors:');
-        this.errors.forEach(error => console.log(`   - ${error}`));
-      }
-      
-      console.log('\n[Placeholder SVG] Production optimization completed!');
-      
-    } catch (error) {
-      console.error('[Placeholder SVG] Optimization failed:', error.message);
-      process.exit(1);
-    }
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]Minify[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.minifyC[Placeholder SVG][Placeholder SVG]();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]Optimiz[Placeholder SVG][Placeholder SVG]J[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ipt[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]ptimiz[Placeholder SVG]J[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ipt();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]Optimiz[Placeholder SVG][Placeholder SVG]J[Placeholder SVG]ON[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]ptimiz[Placeholder SVG]J[Placeholder SVG]ONFi[Placeholder SVG][Placeholder SVG]s();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]vi[Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nif[Placeholder SVG]st
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]M[Placeholder SVG]nif[Placeholder SVG]st();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]Optimiz[Placeholder SVG][Placeholder SVG]im[Placeholder SVG]g[Placeholder SVG]s[Placeholder SVG](if[Placeholder SVG][Placeholder SVG]ny)
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]ptimiz[Placeholder SVG]Im[Placeholder SVG]g[Placeholder SVG]s();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Optimiz[Placeholder SVG]ti[Placeholder SVG]nR[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]Optimiz[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]R[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t:');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('======================');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]Optimiz[Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]pp[Placeholder SVG]i[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${t[Placeholder SVG]is.[Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]ns.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]unt[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]>[Placeholder SVG]0)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s:');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}`));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]!');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]Optimiz[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]:',[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]xit(1);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Minify CSS files (basic minification)
-   */
-  async minifyCSS() {
-    console.log('[Placeholder SVG] Optimizing CSS files...');
-    
-    const cssDir = path.join(this.rootDir, 'assets', 'css');
-    
-    try {
-      const files = await fs.readdir(cssDir);
-      const cssFiles = files.filter(file => file.endsWith('.css'));
-      
-      for (const file of cssFiles) {
-        const filePath = path.join(cssDir, file);
-        const content = await fs.readFile(filePath, 'utf8');
-        
-        // Basic CSS minification
-        const minified = content
-          .replace(/\/\*[\s\S]*?\*\//g, '') // Remove comments
-          .replace(/\s+/g, ' ') // Collapse whitespace
-          .replace(/;\s*}/g, '}') // Remove unnecessary semicolons
-          .replace(/\s*{\s*/g, '{') // Clean up braces
-          .replace(/\s*}\s*/g, '}')
-          .replace(/\s*;\s*/g, ';')
-          .replace(/\s*,\s*/g, ',')
-          .replace(/\s*:\s*/g, ':')
-          .trim();
-        
-        if (minified.length < content.length) {
-          await fs.writeFile(filePath, minified);
-          const savings = ((content.length - minified.length) / content.length * 100).toFixed(1);
-          this.optimizations.push(`Minified ${file} (${savings}% reduction)`);
-        }
-      }
-      
-    } catch (error) {
-      this.errors.push(`CSS optimization failed: ${error.message}`);
-    }
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]Minify[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s[Placeholder SVG](b[Placeholder SVG]si[Placeholder SVG][Placeholder SVG]minifi[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n)
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]minifyC[Placeholder SVG][Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]Optimizing[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s...');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG]ssDi[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]tDi[Placeholder SVG],[Placeholder SVG]'[Placeholder SVG]ss[Placeholder SVG]ts',[Placeholder SVG]'[Placeholder SVG]ss');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG]([Placeholder SVG]ssDi[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG]ssFi[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s.fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG].[Placeholder SVG]n[Placeholder SVG]sWit[Placeholder SVG]('.[Placeholder SVG]ss'));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]ssFi[Placeholder SVG][Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in([Placeholder SVG]ssDi[Placeholder SVG],[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]B[Placeholder SVG]si[Placeholder SVG][Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]minifi[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]minifi[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](/\/\*[\s\[Placeholder SVG]]*?\*\//g,[Placeholder SVG]'')[Placeholder SVG]//[Placeholder SVG]R[Placeholder SVG]m[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]nts
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](/\s+/g,[Placeholder SVG]'[Placeholder SVG]')[Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ps[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]sp[Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](/;\s*}/g,[Placeholder SVG]'}')[Placeholder SVG]//[Placeholder SVG]R[Placeholder SVG]m[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]unn[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss[Placeholder SVG][Placeholder SVG]y[Placeholder SVG]s[Placeholder SVG]mi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](/\s*{\s*/g,[Placeholder SVG]'{')[Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]up[Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](/\s*}\s*/g,[Placeholder SVG]'}')
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](/\s*;\s*/g,[Placeholder SVG]';')
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](/\s*,\s*/g,[Placeholder SVG]',')
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](/\s*:\s*/g,[Placeholder SVG]':')
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].t[Placeholder SVG]im();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](minifi[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]<[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.w[Placeholder SVG]it[Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]minifi[Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]s[Placeholder SVG]vings[Placeholder SVG]=[Placeholder SVG](([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]minifi[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG])[Placeholder SVG]/[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]*[Placeholder SVG]100).t[Placeholder SVG]Fix[Placeholder SVG][Placeholder SVG](1);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]ns.pus[Placeholder SVG](`Minifi[Placeholder SVG][Placeholder SVG][Placeholder SVG]${fi[Placeholder SVG][Placeholder SVG]}[Placeholder SVG](${s[Placeholder SVG]vings}%[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ti[Placeholder SVG]n)`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.pus[Placeholder SVG](`C[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Optimize JavaScript files
-   */
-  async optimizeJavaScript() {
-    console.log('⚡ Optimizing JavaScript files...');
-    
-    const jsDir = path.join(this.rootDir, 'assets', 'js');
-    
-    try {
-      const files = await fs.readdir(jsDir);
-      const jsFiles = files.filter(file => file.endsWith('.js'));
-      
-      for (const file of jsFiles) {
-        const filePath = path.join(jsDir, file);
-        const content = await fs.readFile(filePath, 'utf8');
-        
-        // Basic JavaScript optimization
-        let optimized = content
-          .replace(/\/\*[\s\S]*?\*\//g, '') // Remove block comments
-          .replace(/\/\/.*$/gm, '') // Remove line comments
-          .replace(/\s+/g, ' ') // Collapse whitespace
-          .replace(/;\s*}/g, '}') // Clean up semicolons
-          .trim();
-        
-        // Remove console.log statements in production
-        optimized = optimized.replace(/console\.log\([^)]*\);?/g, '');
-        
-        if (optimized.length < content.length) {
-          await fs.writeFile(filePath, optimized);
-          const savings = ((content.length - optimized.length) / content.length * 100).toFixed(1);
-          this.optimizations.push(`Optimized ${file} (${savings}% reduction)`);
-        }
-      }
-      
-    } catch (error) {
-      this.errors.push(`JavaScript optimization failed: ${error.message}`);
-    }
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]Optimiz[Placeholder SVG][Placeholder SVG]J[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ipt[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]J[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ipt()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('⚡[Placeholder SVG]Optimizing[Placeholder SVG]J[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ipt[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s...');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]jsDi[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]tDi[Placeholder SVG],[Placeholder SVG]'[Placeholder SVG]ss[Placeholder SVG]ts',[Placeholder SVG]'js');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG](jsDi[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]jsFi[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s.fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG].[Placeholder SVG]n[Placeholder SVG]sWit[Placeholder SVG]('.js'));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]jsFi[Placeholder SVG][Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(jsDi[Placeholder SVG],[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]B[Placeholder SVG]si[Placeholder SVG][Placeholder SVG]J[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ipt[Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](/\/\*[\s\[Placeholder SVG]]*?\*\//g,[Placeholder SVG]'')[Placeholder SVG]//[Placeholder SVG]R[Placeholder SVG]m[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]nts
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](/\/\/.*$/gm,[Placeholder SVG]'')[Placeholder SVG]//[Placeholder SVG]R[Placeholder SVG]m[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]nts
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](/\s+/g,[Placeholder SVG]'[Placeholder SVG]')[Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ps[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]sp[Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](/;\s*}/g,[Placeholder SVG]'}')[Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]up[Placeholder SVG]s[Placeholder SVG]mi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].t[Placeholder SVG]im();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]R[Placeholder SVG]m[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]st[Placeholder SVG]t[Placeholder SVG]m[Placeholder SVG]nts[Placeholder SVG]in[Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](/[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG]\.[Placeholder SVG][Placeholder SVG]g\([^)]*\);?/g,[Placeholder SVG]'');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG]ptimiz[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]<[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.w[Placeholder SVG]it[Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]s[Placeholder SVG]vings[Placeholder SVG]=[Placeholder SVG](([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG])[Placeholder SVG]/[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]*[Placeholder SVG]100).t[Placeholder SVG]Fix[Placeholder SVG][Placeholder SVG](1);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]ns.pus[Placeholder SVG](`Optimiz[Placeholder SVG][Placeholder SVG][Placeholder SVG]${fi[Placeholder SVG][Placeholder SVG]}[Placeholder SVG](${s[Placeholder SVG]vings}%[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ti[Placeholder SVG]n)`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.pus[Placeholder SVG](`J[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ipt[Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Optimize JSON data files
-   */
-  async optimizeJSONFiles() {
-    console.log('📄 Optimizing JSON files...');
-    
-    const dataDir = path.join(this.rootDir, 'data');
-    
-    try {
-      const processDirectory = async (dir) => {
-        const files = await fs.readdir(dir);
-        
-        for (const file of files) {
-          const filePath = path.join(dir, file);
-          const stat = await fs.stat(filePath);
-          
-          if (stat.isDirectory()) {
-            await processDirectory(filePath);
-          } else if (file.endsWith('.json')) {
-            const content = await fs.readFile(filePath, 'utf8');
-            const data = JSON.parse(content);
-            
-            // Minify JSON (remove whitespace)
-            const minified = JSON.stringify(data);
-            
-            if (minified.length < content.length) {
-              await fs.writeFile(filePath, minified);
-              const savings = ((content.length - minified.length) / content.length * 100).toFixed(1);
-              this.optimizations.push(`Minified ${path.relative(this.rootDir, filePath)} (${savings}% reduction)`);
-            }
-          }
-        }
-      };
-      
-      await processDirectory(dataDir);
-      
-    } catch (error) {
-      this.errors.push(`JSON optimization failed: ${error.message}`);
-    }
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]Optimiz[Placeholder SVG][Placeholder SVG]J[Placeholder SVG]ON[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]J[Placeholder SVG]ONFi[Placeholder SVG][Placeholder SVG]s()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('📄[Placeholder SVG]Optimizing[Placeholder SVG]J[Placeholder SVG]ON[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s...');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]tDi[Placeholder SVG],[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ssDi[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]([Placeholder SVG]i[Placeholder SVG])[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG]([Placeholder SVG]i[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in([Placeholder SVG]i[Placeholder SVG],[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]st[Placeholder SVG]t[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.st[Placeholder SVG]t(fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](st[Placeholder SVG]t.isDi[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y())[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ssDi[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y(fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]if[Placeholder SVG](fi[Placeholder SVG][Placeholder SVG].[Placeholder SVG]n[Placeholder SVG]sWit[Placeholder SVG]('.js[Placeholder SVG]n'))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]Minify[Placeholder SVG]J[Placeholder SVG]ON[Placeholder SVG]([Placeholder SVG][Placeholder SVG]m[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]sp[Placeholder SVG][Placeholder SVG][Placeholder SVG])
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]minifi[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.st[Placeholder SVG]ingify([Placeholder SVG][Placeholder SVG]t[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](minifi[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]<[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.w[Placeholder SVG]it[Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]minifi[Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]s[Placeholder SVG]vings[Placeholder SVG]=[Placeholder SVG](([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]minifi[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG])[Placeholder SVG]/[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]*[Placeholder SVG]100).t[Placeholder SVG]Fix[Placeholder SVG][Placeholder SVG](1);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]ns.pus[Placeholder SVG](`Minifi[Placeholder SVG][Placeholder SVG][Placeholder SVG]${p[Placeholder SVG]t[Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tiv[Placeholder SVG](t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]tDi[Placeholder SVG],[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG])}[Placeholder SVG](${s[Placeholder SVG]vings}%[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ti[Placeholder SVG]n)`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ssDi[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y([Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.pus[Placeholder SVG](`J[Placeholder SVG]ON[Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Generate service worker cache manifest
-   */
-  async generateCacheManifest() {
-    console.log('📦 Generating cache manifest...');
-    
-    try {
-      const manifest = {
-        version: Date.now(),
-        static: [],
-        dynamic: []
-      };
-      
-      // Add static assets
-      const staticPaths = [
-        'assets/css',
-        'assets/js',
-        'assets/images'
-      ];
-      
-      for (const staticPath of staticPaths) {
-        const fullPath = path.join(this.rootDir, staticPath);
-        try {
-          await this.addFilesToManifest(fullPath, staticPath, manifest.static);
-        } catch (error) {
-          // Directory might not exist, skip
-        }
-      }
-      
-      // Add dynamic content
-      manifest.dynamic = [
-        '/data/*.json',
-        '/data/*/*.json'
-      ];
-      
-      // Write manifest
-      const manifestPath = path.join(this.rootDir, 'cache-manifest.json');
-      await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2));
-      
-      this.optimizations.push(`Generated cache manifest with ${manifest.static.length} static assets`);
-      
-    } catch (error) {
-      this.errors.push(`Cache manifest generation failed: ${error.message}`);
-    }
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]vi[Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nif[Placeholder SVG]st
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]M[Placeholder SVG]nif[Placeholder SVG]st()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('📦[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]ting[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nif[Placeholder SVG]st...');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]nif[Placeholder SVG]st[Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]si[Placeholder SVG]n:[Placeholder SVG]D[Placeholder SVG]t[Placeholder SVG].n[Placeholder SVG]w(),
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]st[Placeholder SVG]ti[Placeholder SVG]:[Placeholder SVG][],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]yn[Placeholder SVG]mi[Placeholder SVG]:[Placeholder SVG][]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG]st[Placeholder SVG]ti[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]ts
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]st[Placeholder SVG]ti[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'[Placeholder SVG]ss[Placeholder SVG]ts/[Placeholder SVG]ss',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'[Placeholder SVG]ss[Placeholder SVG]ts/js',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'[Placeholder SVG]ss[Placeholder SVG]ts/im[Placeholder SVG]g[Placeholder SVG]s'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]st[Placeholder SVG]ti[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]st[Placeholder SVG]ti[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]tDi[Placeholder SVG],[Placeholder SVG]st[Placeholder SVG]ti[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG]sT[Placeholder SVG]M[Placeholder SVG]nif[Placeholder SVG]st(fu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]st[Placeholder SVG]ti[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]m[Placeholder SVG]nif[Placeholder SVG]st.st[Placeholder SVG]ti[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]Di[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y[Placeholder SVG]mig[Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]xist,[Placeholder SVG]skip
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]yn[Placeholder SVG]mi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nif[Placeholder SVG]st.[Placeholder SVG]yn[Placeholder SVG]mi[Placeholder SVG][Placeholder SVG]=[Placeholder SVG][
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'/[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]/*.js[Placeholder SVG]n',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'/[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]/*/*.js[Placeholder SVG]n'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]W[Placeholder SVG]it[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nif[Placeholder SVG]st
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]nif[Placeholder SVG]st[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]tDi[Placeholder SVG],[Placeholder SVG]'[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-m[Placeholder SVG]nif[Placeholder SVG]st.js[Placeholder SVG]n');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.w[Placeholder SVG]it[Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](m[Placeholder SVG]nif[Placeholder SVG]st[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]J[Placeholder SVG]ON.st[Placeholder SVG]ingify(m[Placeholder SVG]nif[Placeholder SVG]st,[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG],[Placeholder SVG]2));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]ns.pus[Placeholder SVG](`[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nif[Placeholder SVG]st[Placeholder SVG]wit[Placeholder SVG][Placeholder SVG]${m[Placeholder SVG]nif[Placeholder SVG]st.st[Placeholder SVG]ti[Placeholder SVG].[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG]}[Placeholder SVG]st[Placeholder SVG]ti[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]ts`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.pus[Placeholder SVG](`C[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nif[Placeholder SVG]st[Placeholder SVG]g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Add files to cache manifest
-   */
-  async addFilesToManifest(dir, relativePath, manifest) {
-    const files = await fs.readdir(dir);
-    
-    for (const file of files) {
-      const filePath = path.join(dir, file);
-      const stat = await fs.stat(filePath);
-      
-      if (stat.isDirectory()) {
-        await this.addFilesToManifest(filePath, `${relativePath}/${file}`, manifest);
-      } else {
-        manifest.push(`/${relativePath}/${file}`);
-      }
-    }
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nif[Placeholder SVG]st
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG]sT[Placeholder SVG]M[Placeholder SVG]nif[Placeholder SVG]st([Placeholder SVG]i[Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tiv[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]m[Placeholder SVG]nif[Placeholder SVG]st)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG]([Placeholder SVG]i[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in([Placeholder SVG]i[Placeholder SVG],[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]st[Placeholder SVG]t[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.st[Placeholder SVG]t(fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](st[Placeholder SVG]t.isDi[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y())[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG]sT[Placeholder SVG]M[Placeholder SVG]nif[Placeholder SVG]st(fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tiv[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]}/${fi[Placeholder SVG][Placeholder SVG]}`,[Placeholder SVG]m[Placeholder SVG]nif[Placeholder SVG]st);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nif[Placeholder SVG]st.pus[Placeholder SVG](`/${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tiv[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]}/${fi[Placeholder SVG][Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Optimize images (placeholder for future implementation)
-   */
-  async optimizeImages() {
-    console.log('🖼️  Checking for image optimizations...');
-    
-    const imagesDir = path.join(this.rootDir, 'assets', 'images');
-    
-    try {
-      await fs.access(imagesDir);
-      const files = await fs.readdir(imagesDir);
-      const imageFiles = files.filter(file => 
-        file.endsWith('.jpg') || file.endsWith('.jpeg') || 
-        file.endsWith('.png') || file.endsWith('.svg')
-      );
-      
-      if (imageFiles.length > 0) {
-        this.optimizations.push(`Found ${imageFiles.length} images (optimization placeholder)`);
-        // TODO: Implement actual image optimization
-      }
-      
-    } catch (error) {
-      // Images directory doesn't exist, skip
-    }
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]Optimiz[Placeholder SVG][Placeholder SVG]im[Placeholder SVG]g[Placeholder SVG]s[Placeholder SVG](p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]futu[Placeholder SVG][Placeholder SVG][Placeholder SVG]imp[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt[Placeholder SVG]ti[Placeholder SVG]n)
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]Im[Placeholder SVG]g[Placeholder SVG]s()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('🖼️[Placeholder SVG][Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]king[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]im[Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]ns...');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]im[Placeholder SVG]g[Placeholder SVG]sDi[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]tDi[Placeholder SVG],[Placeholder SVG]'[Placeholder SVG]ss[Placeholder SVG]ts',[Placeholder SVG]'im[Placeholder SVG]g[Placeholder SVG]s');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss(im[Placeholder SVG]g[Placeholder SVG]sDi[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG](im[Placeholder SVG]g[Placeholder SVG]sDi[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]im[Placeholder SVG]g[Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s.fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]fi[Placeholder SVG][Placeholder SVG].[Placeholder SVG]n[Placeholder SVG]sWit[Placeholder SVG]('.jpg')[Placeholder SVG]||[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG].[Placeholder SVG]n[Placeholder SVG]sWit[Placeholder SVG]('.jp[Placeholder SVG]g')[Placeholder SVG]||[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]fi[Placeholder SVG][Placeholder SVG].[Placeholder SVG]n[Placeholder SVG]sWit[Placeholder SVG]('.png')[Placeholder SVG]||[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG].[Placeholder SVG]n[Placeholder SVG]sWit[Placeholder SVG]('.svg')
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](im[Placeholder SVG]g[Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]>[Placeholder SVG]0)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]ns.pus[Placeholder SVG](`F[Placeholder SVG]un[Placeholder SVG][Placeholder SVG]${im[Placeholder SVG]g[Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG]}[Placeholder SVG]im[Placeholder SVG]g[Placeholder SVG]s[Placeholder SVG]([Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]TODO:[Placeholder SVG]Imp[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG][Placeholder SVG][Placeholder SVG]im[Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]Im[Placeholder SVG]g[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]sn't[Placeholder SVG][Placeholder SVG]xist,[Placeholder SVG]skip
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Generate optimization report
-   */
-  async generateOptimizationReport() {
-    const report = {
-      timestamp: new Date().toISOString(),
-      optimizations: this.optimizations,
-      errors: this.errors,
-      summary: {
-        totalOptimizations: this.optimizations.length,
-        totalErrors: this.errors.length,
-        success: this.errors.length === 0
-      }
-    };
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Optimiz[Placeholder SVG]ti[Placeholder SVG]nR[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tim[Placeholder SVG]st[Placeholder SVG]mp:[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]D[Placeholder SVG]t[Placeholder SVG]().t[Placeholder SVG]I[Placeholder SVG]O[Placeholder SVG]t[Placeholder SVG]ing(),
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]ns:[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]ns,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s:[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]summ[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Optimiz[Placeholder SVG]ti[Placeholder SVG]ns:[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]ns.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s:[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]su[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss:[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]===[Placeholder SVG]0
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
 
-    // Write report
-    const reportPath = path.join(this.rootDir, 'optimization-report.json');
-    await fs.writeFile(reportPath, JSON.stringify(report, null, 2));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]W[Placeholder SVG]it[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]tDi[Placeholder SVG],[Placeholder SVG]'[Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]n-[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t.js[Placeholder SVG]n');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.w[Placeholder SVG]it[Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]J[Placeholder SVG]ON.st[Placeholder SVG]ingify([Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t,[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG],[Placeholder SVG]2));
 
-    return report;
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t;
+[Placeholder SVG][Placeholder SVG]}
 }
 
-// Run optimization if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  const optimizer = new ProductionOptimizer();
-  optimizer.optimize().catch(error => {
-    console.error('Optimization failed:', error);
-    process.exit(1);
-  });
+//[Placeholder SVG]Run[Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]if[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y
+if[Placeholder SVG](imp[Placeholder SVG][Placeholder SVG]t.m[Placeholder SVG]t[Placeholder SVG].u[Placeholder SVG][Placeholder SVG][Placeholder SVG]===[Placeholder SVG]`fi[Placeholder SVG][Placeholder SVG]://${p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG][Placeholder SVG]gv[1]}`)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ti[Placeholder SVG]nOptimiz[Placeholder SVG][Placeholder SVG]();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG][Placeholder SVG].[Placeholder SVG]ptimiz[Placeholder SVG]().[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]('Optimiz[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]:',[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]xit(1);
+[Placeholder SVG][Placeholder SVG]});
 }
 
-export default ProductionOptimizer;
+[Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]u[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ti[Placeholder SVG]nOptimiz[Placeholder SVG][Placeholder SVG];

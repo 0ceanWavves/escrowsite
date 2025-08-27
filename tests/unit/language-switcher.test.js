@@ -1,318 +1,318 @@
 /**
- * Language Switcher Unit Tests
- */
+[Placeholder SVG]*[Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Unit[Placeholder SVG]T[Placeholder SVG]sts
+[Placeholder SVG]*/
 
-import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { createMockElement, simulateUserInteraction } from '../setup.js';
+imp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]{[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ib[Placeholder SVG],[Placeholder SVG]it,[Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t,[Placeholder SVG]b[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]vi[Placeholder SVG]}[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'vit[Placeholder SVG]st';
+imp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]{[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]M[Placeholder SVG][Placeholder SVG]kE[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt,[Placeholder SVG]simu[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Us[Placeholder SVG][Placeholder SVG]Int[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]}[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'../s[Placeholder SVG]tup.js';
 
-describe('LanguageSwitcher', () => {
-  let languageSwitcher;
-  let mockLocalStorage;
+[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ib[Placeholder SVG]('L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]kL[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG];
 
-  beforeEach(() => {
-    // Reset DOM
-    document.body.innerHTML = '';
-    
-    // Mock localStorage
-    mockLocalStorage = {
-      getItem: vi.fn(),
-      setItem: vi.fn(),
-      removeItem: vi.fn(),
-      clear: vi.fn(),
-    };
-    Object.defineProperty(window, 'localStorage', {
-      value: mockLocalStorage,
-      writable: true,
-    });
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]R[Placeholder SVG]s[Placeholder SVG]t[Placeholder SVG]DOM
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.b[Placeholder SVG][Placeholder SVG]y.inn[Placeholder SVG][Placeholder SVG]HTML[Placeholder SVG]=[Placeholder SVG]'';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]M[Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]kL[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]tIt[Placeholder SVG]m:[Placeholder SVG]vi.fn(),
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]tIt[Placeholder SVG]m:[Placeholder SVG]vi.fn(),
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]v[Placeholder SVG]It[Placeholder SVG]m:[Placeholder SVG]vi.fn(),
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]vi.fn(),
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Obj[Placeholder SVG][Placeholder SVG]t.[Placeholder SVG][Placeholder SVG]fin[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]ty(win[Placeholder SVG][Placeholder SVG]w,[Placeholder SVG]'[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]',[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]:[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]kL[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]b[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]t[Placeholder SVG]u[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    // Mock navigator.language
-    Object.defineProperty(navigator, 'language', {
-      value: 'en-US',
-      writable: true,
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]M[Placeholder SVG][Placeholder SVG]k[Placeholder SVG]n[Placeholder SVG]vig[Placeholder SVG]t[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Obj[Placeholder SVG][Placeholder SVG]t.[Placeholder SVG][Placeholder SVG]fin[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]ty(n[Placeholder SVG]vig[Placeholder SVG]t[Placeholder SVG][Placeholder SVG],[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]',[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]:[Placeholder SVG]'[Placeholder SVG]n-U[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]b[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]t[Placeholder SVG]u[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    // Mock fetch
-    global.fetch = vi.fn();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]M[Placeholder SVG][Placeholder SVG]k[Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG].f[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]vi.fn();
 
-    // Create mock class for testing
-    class MockLanguageSwitcher {
-      constructor() {
-        this.currentLanguage = 'en';
-        this.supportedLanguages = ['en', 'nl', 'fr'];
-        this.translations = {};
-        this.fallbackLanguage = 'en';
-        this.init();
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]sting
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]M[Placeholder SVG][Placeholder SVG]kL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]u[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]'[Placeholder SVG]n';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]['[Placeholder SVG]n',[Placeholder SVG]'n[Placeholder SVG]',[Placeholder SVG]'f[Placeholder SVG]'];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]=[Placeholder SVG]{};
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.f[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]'[Placeholder SVG]n';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.init();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      init() {
-        this.detectLanguage();
-        this.loadEmbeddedTranslations();
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]init()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]tL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Emb[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      detectLanguage() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const urlLang = urlParams.get('lang');
-        
-        if (urlLang && this.supportedLanguages.includes(urlLang)) {
-          this.currentLanguage = urlLang;
-          return;
-        }
-        
-        const savedLang = localStorage.getItem('preferred-language');
-        if (savedLang && this.supportedLanguages.includes(savedLang)) {
-          this.currentLanguage = savedLang;
-          return;
-        }
-        
-        const browserLang = navigator.language.split('-')[0];
-        if (this.supportedLanguages.includes(browserLang)) {
-          this.currentLanguage = browserLang;
-          return;
-        }
-        
-        this.currentLanguage = this.fallbackLanguage;
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]tL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ms[Placeholder SVG]=[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]URL[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ms(win[Placeholder SVG][Placeholder SVG]w.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]u[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ng[Placeholder SVG]=[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ms.g[Placeholder SVG]t('[Placeholder SVG][Placeholder SVG]ng');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](u[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ng[Placeholder SVG]&&[Placeholder SVG]t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s.in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s(u[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ng))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]u[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ng;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ng[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG].g[Placeholder SVG]tIt[Placeholder SVG]m('p[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ng[Placeholder SVG]&&[Placeholder SVG]t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s.in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s(s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ng))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ng;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]b[Placeholder SVG][Placeholder SVG]ws[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ng[Placeholder SVG]=[Placeholder SVG]n[Placeholder SVG]vig[Placeholder SVG]t[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG].sp[Placeholder SVG]it('-')[0];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s.in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s(b[Placeholder SVG][Placeholder SVG]ws[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ng))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]b[Placeholder SVG][Placeholder SVG]ws[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ng;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.f[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      switchLanguage(lang) {
-        if (!this.supportedLanguages.includes(lang)) {
-          return;
-        }
-        
-        this.currentLanguage = lang;
-        localStorage.setItem('preferred-language', lang);
-        
-        window.dispatchEvent(new CustomEvent('languageChanged', {
-          detail: { language: lang }
-        }));
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]swit[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]([Placeholder SVG][Placeholder SVG]ng)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](!t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s.in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s([Placeholder SVG][Placeholder SVG]ng))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG].s[Placeholder SVG]tIt[Placeholder SVG]m('p[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]',[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]win[Placeholder SVG][Placeholder SVG]w.[Placeholder SVG]isp[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Ev[Placeholder SVG]nt(n[Placeholder SVG]w[Placeholder SVG]Cust[Placeholder SVG]mEv[Placeholder SVG]nt('[Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]C[Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]',[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]i[Placeholder SVG]:[Placeholder SVG]{[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]:[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng[Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      loadEmbeddedTranslations() {
-        this.translations = {
-          en: {
-            'nav.home': 'Home',
-            'nav.development-roadmap': 'Development Roadmap',
-            'common.search': 'Search',
-            'site.title': 'The Road to Crypto'
-          },
-          nl: {
-            'nav.home': 'Home',
-            'nav.development-roadmap': 'Ontwikkelingsroadmap',
-            'common.search': 'Zoeken',
-            'site.title': 'De Weg naar Crypto'
-          },
-          fr: {
-            'nav.home': 'Accueil',
-            'nav.development-roadmap': 'Feuille de Route',
-            'common.search': 'Rechercher',
-            'site.title': 'La Voie vers la Crypto'
-          }
-        };
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Emb[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n:[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'n[Placeholder SVG]v.[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]':[Placeholder SVG]'H[Placeholder SVG]m[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'n[Placeholder SVG]v.[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p':[Placeholder SVG]'D[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt[Placeholder SVG]R[Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'[Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n.s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]':[Placeholder SVG]'[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'sit[Placeholder SVG].tit[Placeholder SVG][Placeholder SVG]':[Placeholder SVG]'T[Placeholder SVG][Placeholder SVG][Placeholder SVG]R[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]C[Placeholder SVG]ypt[Placeholder SVG]'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]},
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]:[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'n[Placeholder SVG]v.[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]':[Placeholder SVG]'H[Placeholder SVG]m[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'n[Placeholder SVG]v.[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p':[Placeholder SVG]'Ontwikk[Placeholder SVG][Placeholder SVG]ings[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'[Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n.s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]':[Placeholder SVG]'Z[Placeholder SVG][Placeholder SVG]k[Placeholder SVG]n',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'sit[Placeholder SVG].tit[Placeholder SVG][Placeholder SVG]':[Placeholder SVG]'D[Placeholder SVG][Placeholder SVG]W[Placeholder SVG]g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG]ypt[Placeholder SVG]'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]},
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]:[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'n[Placeholder SVG]v.[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]':[Placeholder SVG]'A[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]i[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'n[Placeholder SVG]v.[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p':[Placeholder SVG]'F[Placeholder SVG]ui[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]R[Placeholder SVG]ut[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'[Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n.s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]':[Placeholder SVG]'R[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'sit[Placeholder SVG].tit[Placeholder SVG][Placeholder SVG]':[Placeholder SVG]'L[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG]ypt[Placeholder SVG]'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      getTranslation(key) {
-        const currentTranslations = this.translations[this.currentLanguage];
-        const fallbackTranslations = this.translations[this.fallbackLanguage];
-        
-        if (currentTranslations && currentTranslations[key]) {
-          return currentTranslations[key];
-        }
-        
-        if (fallbackTranslations && fallbackTranslations[key]) {
-          return fallbackTranslations[key];
-        }
-        
-        return key;
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]tT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n(k[Placeholder SVG]y)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[t[Placeholder SVG]is.f[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]&&[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[k[Placeholder SVG]y])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[k[Placeholder SVG]y];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](f[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]&&[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[k[Placeholder SVG]y])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[k[Placeholder SVG]y];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]k[Placeholder SVG]y;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      applyTranslations() {
-        document.querySelectorAll('[data-i18n]').forEach(element => {
-          const key = element.dataset.i18n;
-          const translation = this.getTranslation(key);
-          
-          if (element.tagName === 'INPUT' && element.type === 'text') {
-            element.placeholder = translation;
-          } else {
-            element.textContent = translation;
-          }
-        });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]pp[Placeholder SVG]yT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.qu[Placeholder SVG][Placeholder SVG]y[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]A[Placeholder SVG][Placeholder SVG]('[[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]-i18n]').f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]k[Placeholder SVG]y[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]s[Placeholder SVG]t.i18n;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.g[Placeholder SVG]tT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n(k[Placeholder SVG]y);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt.t[Placeholder SVG]gN[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]===[Placeholder SVG]'IN[Placeholder SVG]UT'[Placeholder SVG]&&[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt.typ[Placeholder SVG][Placeholder SVG]===[Placeholder SVG]'t[Placeholder SVG]xt')[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt.p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt.t[Placeholder SVG]xtC[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-        document.querySelectorAll('[data-i18n-html]').forEach(element => {
-          const key = element.dataset.i18nHtml;
-          const translation = this.getTranslation(key);
-          element.innerHTML = translation;
-        });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.qu[Placeholder SVG][Placeholder SVG]y[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]A[Placeholder SVG][Placeholder SVG]('[[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]-i18n-[Placeholder SVG]tm[Placeholder SVG]]').f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]k[Placeholder SVG]y[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]s[Placeholder SVG]t.i18nHtm[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.g[Placeholder SVG]tT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n(k[Placeholder SVG]y);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt.inn[Placeholder SVG][Placeholder SVG]HTML[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-        const titleKey = document.querySelector('meta[name="i18n-title"]')?.content;
-        if (titleKey) {
-          const titleTranslation = this.getTranslation(titleKey);
-          if (titleTranslation) {
-            document.title = titleTranslation;
-          }
-        }
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]K[Placeholder SVG]y[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.qu[Placeholder SVG][Placeholder SVG]y[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]('m[Placeholder SVG]t[Placeholder SVG][n[Placeholder SVG]m[Placeholder SVG]="i18n-tit[Placeholder SVG][Placeholder SVG]"]')?.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](tit[Placeholder SVG][Placeholder SVG]K[Placeholder SVG]y)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.g[Placeholder SVG]tT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n(tit[Placeholder SVG][Placeholder SVG]K[Placeholder SVG]y);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](tit[Placeholder SVG][Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.tit[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      getCurrentLanguage() {
-        return this.currentLanguage;
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]tCu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      getSupportedLanguages() {
-        return [...this.supportedLanguages];
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]t[Placeholder SVG]upp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG][...t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      isLanguageSupported(lang) {
-        return this.supportedLanguages.includes(lang);
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]isL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]upp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]ng)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s.in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s([Placeholder SVG][Placeholder SVG]ng);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      getLanguageDisplayName(lang) {
-        const displayNames = {
-          'en': 'English',
-          'nl': 'Nederlands',
-          'fr': 'Français'
-        };
-        return displayNames[lang] || lang;
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]tL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]Disp[Placeholder SVG][Placeholder SVG]yN[Placeholder SVG]m[Placeholder SVG]([Placeholder SVG][Placeholder SVG]ng)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]yN[Placeholder SVG]m[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'[Placeholder SVG]n':[Placeholder SVG]'Eng[Placeholder SVG]is[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'n[Placeholder SVG]':[Placeholder SVG]'N[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]s',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'f[Placeholder SVG]':[Placeholder SVG]'F[Placeholder SVG][Placeholder SVG]nç[Placeholder SVG]is'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]yN[Placeholder SVG]m[Placeholder SVG]s[[Placeholder SVG][Placeholder SVG]ng][Placeholder SVG]||[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      getLanguageFlag(lang) {
-        const flags = {
-          'en': '[Placeholder SVG]',
-          'nl': '[Placeholder SVG]',
-          'fr': '[Placeholder SVG]'
-        };
-        return flags[lang] || '[Placeholder SVG]';
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]tL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]F[Placeholder SVG][Placeholder SVG]g([Placeholder SVG][Placeholder SVG]ng)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]gs[Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'[Placeholder SVG]n':[Placeholder SVG]'[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'n[Placeholder SVG]':[Placeholder SVG]'[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'f[Placeholder SVG]':[Placeholder SVG]'[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]]'
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]gs[[Placeholder SVG][Placeholder SVG]ng][Placeholder SVG]||[Placeholder SVG]'[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]]';
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      addTranslation(lang, key, value) {
-        if (!this.translations[lang]) {
-          this.translations[lang] = {};
-        }
-        this.translations[lang][key] = value;
-      }
-    }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n([Placeholder SVG][Placeholder SVG]ng,[Placeholder SVG]k[Placeholder SVG]y,[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]u[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](!t[Placeholder SVG]is.t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[[Placeholder SVG][Placeholder SVG]ng])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[[Placeholder SVG][Placeholder SVG]ng][Placeholder SVG]=[Placeholder SVG]{};
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[[Placeholder SVG][Placeholder SVG]ng][k[Placeholder SVG]y][Placeholder SVG]=[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]u[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    languageSwitcher = new MockLanguageSwitcher();
-  });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]M[Placeholder SVG][Placeholder SVG]kL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]();
+[Placeholder SVG][Placeholder SVG]});
 
-  describe('Initialization', () => {
-    it('should initialize with default language', () => {
-      expect(languageSwitcher.currentLanguage).toBe('en');
-      expect(languageSwitcher.supportedLanguages).toContain('en');
-      expect(languageSwitcher.supportedLanguages).toContain('nl');
-      expect(languageSwitcher.supportedLanguages).toContain('fr');
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ib[Placeholder SVG]('Initi[Placeholder SVG][Placeholder SVG]iz[Placeholder SVG]ti[Placeholder SVG]n',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]initi[Placeholder SVG][Placeholder SVG]iz[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]u[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]).t[Placeholder SVG]B[Placeholder SVG]('[Placeholder SVG]n');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s).t[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]in('[Placeholder SVG]n');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s).t[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]in('n[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s).t[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]in('f[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    it('should detect language from localStorage', () => {
-      mockLocalStorage.getItem.mockReturnValue('nl');
-      
-      const switcher = new languageSwitcher.constructor();
-      expect(switcher.currentLanguage).toBe('nl');
-    });
-  });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]kL[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG].g[Placeholder SVG]tIt[Placeholder SVG]m.m[Placeholder SVG][Placeholder SVG]kR[Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]('n[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]swit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]u[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t(swit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]).t[Placeholder SVG]B[Placeholder SVG]('n[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]});
 
-  describe('Language Switching', () => {
-    it('should switch language successfully', () => {
-      languageSwitcher.switchLanguage('fr');
-      
-      expect(languageSwitcher.currentLanguage).toBe('fr');
-      expect(mockLocalStorage.setItem).toHaveBeenCalledWith('preferred-language', 'fr');
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ib[Placeholder SVG]('L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG]ing',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]swit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]su[Placeholder SVG][Placeholder SVG][Placeholder SVG]ssfu[Placeholder SVG][Placeholder SVG]y',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].swit[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]('f[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]).t[Placeholder SVG]B[Placeholder SVG]('f[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t(m[Placeholder SVG][Placeholder SVG]kL[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG].s[Placeholder SVG]tIt[Placeholder SVG]m).t[Placeholder SVG]H[Placeholder SVG]v[Placeholder SVG]B[Placeholder SVG][Placeholder SVG]nC[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Wit[Placeholder SVG]('p[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]',[Placeholder SVG]'f[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    it('should not switch to unsupported language', () => {
-      const originalLang = languageSwitcher.currentLanguage;
-      languageSwitcher.switchLanguage('de');
-      
-      expect(languageSwitcher.currentLanguage).toBe(originalLang);
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG]swit[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]unsupp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]igin[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ng[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].swit[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]('[Placeholder SVG][Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]).t[Placeholder SVG]B[Placeholder SVG]([Placeholder SVG][Placeholder SVG]igin[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ng);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    it('should dispatch language change event', () => {
-      const eventSpy = vi.fn();
-      window.addEventListener('languageChanged', eventSpy);
-      
-      languageSwitcher.switchLanguage('fr');
-      
-      expect(eventSpy).toHaveBeenCalledWith(
-        expect.objectContaining({
-          detail: { language: 'fr' }
-        })
-      );
-    });
-  });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG]nt',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG]v[Placeholder SVG]nt[Placeholder SVG]py[Placeholder SVG]=[Placeholder SVG]vi.fn();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]win[Placeholder SVG][Placeholder SVG]w.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Ev[Placeholder SVG]ntList[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]('[Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]C[Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]',[Placeholder SVG][Placeholder SVG]v[Placeholder SVG]nt[Placeholder SVG]py);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].swit[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]('f[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG]v[Placeholder SVG]nt[Placeholder SVG]py).t[Placeholder SVG]H[Placeholder SVG]v[Placeholder SVG]B[Placeholder SVG][Placeholder SVG]nC[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Wit[Placeholder SVG](
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t.[Placeholder SVG]bj[Placeholder SVG][Placeholder SVG]tC[Placeholder SVG]nt[Placeholder SVG]ining({
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]i[Placeholder SVG]:[Placeholder SVG]{[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]:[Placeholder SVG]'f[Placeholder SVG]'[Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]})
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]});
 
-  describe('Translation Application', () => {
-    it('should translate elements with data-i18n attribute', () => {
-      const element = createMockElement('span', {
-        dataset: { i18n: 'nav.home' }
-      });
-      document.body.appendChild(element);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ib[Placeholder SVG]('T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]App[Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nts[Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]-i18n[Placeholder SVG][Placeholder SVG]tt[Placeholder SVG]ibut[Placeholder SVG]',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]M[Placeholder SVG][Placeholder SVG]kE[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt('sp[Placeholder SVG]n',[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]s[Placeholder SVG]t:[Placeholder SVG]{[Placeholder SVG]i18n:[Placeholder SVG]'n[Placeholder SVG]v.[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'[Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.b[Placeholder SVG][Placeholder SVG]y.[Placeholder SVG]pp[Placeholder SVG]n[Placeholder SVG]C[Placeholder SVG]i[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt);
 
-      languageSwitcher.applyTranslations();
-      
-      expect(element.textContent).toBe('Home');
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG]pp[Placeholder SVG]yT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt.t[Placeholder SVG]xtC[Placeholder SVG]nt[Placeholder SVG]nt).t[Placeholder SVG]B[Placeholder SVG]('H[Placeholder SVG]m[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    it('should translate input placeholders', () => {
-      const input = createMockElement('input', {
-        type: 'text',
-        dataset: { i18n: 'common.search' }
-      });
-      document.body.appendChild(input);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]input[Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]input[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]M[Placeholder SVG][Placeholder SVG]kE[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt('input',[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]'t[Placeholder SVG]xt',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]s[Placeholder SVG]t:[Placeholder SVG]{[Placeholder SVG]i18n:[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n.s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'[Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.b[Placeholder SVG][Placeholder SVG]y.[Placeholder SVG]pp[Placeholder SVG]n[Placeholder SVG]C[Placeholder SVG]i[Placeholder SVG][Placeholder SVG](input);
 
-      languageSwitcher.applyTranslations();
-      
-      expect(input.placeholder).toBe('Search');
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG]pp[Placeholder SVG]yT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t(input.p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]).t[Placeholder SVG]B[Placeholder SVG]('[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    it('should handle missing translations gracefully', () => {
-      const element = createMockElement('span', {
-        dataset: { i18n: 'nonexistent.key' }
-      });
-      document.body.appendChild(element);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]missing[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]fu[Placeholder SVG][Placeholder SVG]y',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]M[Placeholder SVG][Placeholder SVG]kE[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt('sp[Placeholder SVG]n',[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]s[Placeholder SVG]t:[Placeholder SVG]{[Placeholder SVG]i18n:[Placeholder SVG]'n[Placeholder SVG]n[Placeholder SVG]xist[Placeholder SVG]nt.k[Placeholder SVG]y'[Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]um[Placeholder SVG]nt.b[Placeholder SVG][Placeholder SVG]y.[Placeholder SVG]pp[Placeholder SVG]n[Placeholder SVG]C[Placeholder SVG]i[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt);
 
-      languageSwitcher.applyTranslations();
-      
-      expect(element.textContent).toBe('nonexistent.key');
-    });
-  });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG]pp[Placeholder SVG]yT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nt.t[Placeholder SVG]xtC[Placeholder SVG]nt[Placeholder SVG]nt).t[Placeholder SVG]B[Placeholder SVG]('n[Placeholder SVG]n[Placeholder SVG]xist[Placeholder SVG]nt.k[Placeholder SVG]y');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]});
 
-  describe('Translation Utilities', () => {
-    it('should get translation with fallback', () => {
-      const translation = languageSwitcher.getTranslation('nav.home');
-      expect(translation).toBe('Home');
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ib[Placeholder SVG]('T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]Uti[Placeholder SVG]iti[Placeholder SVG]s',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]wit[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]k',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].g[Placeholder SVG]tT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n('n[Placeholder SVG]v.[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t(t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n).t[Placeholder SVG]B[Placeholder SVG]('H[Placeholder SVG]m[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    it('should add translation dynamically', () => {
-      languageSwitcher.addTranslation('en', 'test.key', 'Test Value');
-      
-      const translation = languageSwitcher.getTranslation('test.key');
-      expect(translation).toBe('Test Value');
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]yn[Placeholder SVG]mi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]y',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n('[Placeholder SVG]n',[Placeholder SVG]'t[Placeholder SVG]st.k[Placeholder SVG]y',[Placeholder SVG]'T[Placeholder SVG]st[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].g[Placeholder SVG]tT[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n('t[Placeholder SVG]st.k[Placeholder SVG]y');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t(t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n).t[Placeholder SVG]B[Placeholder SVG]('T[Placeholder SVG]st[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    it('should check if language is supported', () => {
-      expect(languageSwitcher.isLanguageSupported('en')).toBe(true);
-      expect(languageSwitcher.isLanguageSupported('de')).toBe(false);
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]if[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]is[Placeholder SVG]supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].isL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]upp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]('[Placeholder SVG]n')).t[Placeholder SVG]B[Placeholder SVG](t[Placeholder SVG]u[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].isL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]upp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]('[Placeholder SVG][Placeholder SVG]')).t[Placeholder SVG]B[Placeholder SVG](f[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    it('should get language display name', () => {
-      expect(languageSwitcher.getLanguageDisplayName('en')).toBe('English');
-      expect(languageSwitcher.getLanguageDisplayName('nl')).toBe('Nederlands');
-      expect(languageSwitcher.getLanguageDisplayName('fr')).toBe('Français');
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG]',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].g[Placeholder SVG]tL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]Disp[Placeholder SVG][Placeholder SVG]yN[Placeholder SVG]m[Placeholder SVG]('[Placeholder SVG]n')).t[Placeholder SVG]B[Placeholder SVG]('Eng[Placeholder SVG]is[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].g[Placeholder SVG]tL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]Disp[Placeholder SVG][Placeholder SVG]yN[Placeholder SVG]m[Placeholder SVG]('n[Placeholder SVG]')).t[Placeholder SVG]B[Placeholder SVG]('N[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]s');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].g[Placeholder SVG]tL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]Disp[Placeholder SVG][Placeholder SVG]yN[Placeholder SVG]m[Placeholder SVG]('f[Placeholder SVG]')).t[Placeholder SVG]B[Placeholder SVG]('F[Placeholder SVG][Placeholder SVG]nç[Placeholder SVG]is');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    it('should get language flag emoji', () => {
-      expect(languageSwitcher.getLanguageFlag('en')).toBe('[Placeholder SVG]');
-      expect(languageSwitcher.getLanguageFlag('nl')).toBe('[Placeholder SVG]');
-      expect(languageSwitcher.getLanguageFlag('fr')).toBe('[Placeholder SVG]');
-      expect(languageSwitcher.getLanguageFlag('unknown')).toBe('[Placeholder SVG]');
-    });
-  });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]ji',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].g[Placeholder SVG]tL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]F[Placeholder SVG][Placeholder SVG]g('[Placeholder SVG]n')).t[Placeholder SVG]B[Placeholder SVG]('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].g[Placeholder SVG]tL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]F[Placeholder SVG][Placeholder SVG]g('n[Placeholder SVG]')).t[Placeholder SVG]B[Placeholder SVG]('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].g[Placeholder SVG]tL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]F[Placeholder SVG][Placeholder SVG]g('f[Placeholder SVG]')).t[Placeholder SVG]B[Placeholder SVG]('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].g[Placeholder SVG]tL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]F[Placeholder SVG][Placeholder SVG]g('unkn[Placeholder SVG]wn')).t[Placeholder SVG]B[Placeholder SVG]('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]});
 
-  describe('API Methods', () => {
-    it('should return current language', () => {
-      expect(languageSwitcher.getCurrentLanguage()).toBe('en');
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ib[Placeholder SVG]('A[Placeholder SVG]I[Placeholder SVG]M[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]s',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].g[Placeholder SVG]tCu[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntL[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]()).t[Placeholder SVG]B[Placeholder SVG]('[Placeholder SVG]n');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    it('should return supported languages', () => {
-      const languages = languageSwitcher.getSupportedLanguages();
-      expect(languages).toEqual(['en', 'nl', 'fr']);
-    });
-  });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]it('s[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].g[Placeholder SVG]t[Placeholder SVG]upp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s).t[Placeholder SVG]Equ[Placeholder SVG][Placeholder SVG](['[Placeholder SVG]n',[Placeholder SVG]'n[Placeholder SVG]',[Placeholder SVG]'f[Placeholder SVG]']);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]});
 });

@@ -1,115 +1,115 @@
-#!/usr/bin/env node
+#!/us[Placeholder SVG]/bin/[Placeholder SVG]nv[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]
 
 /**
- * Test Runner Script
- * Runs all test suites in sequence
- */
+[Placeholder SVG]*[Placeholder SVG]T[Placeholder SVG]st[Placeholder SVG]Runn[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ipt
+[Placeholder SVG]*[Placeholder SVG]Runs[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]st[Placeholder SVG]suit[Placeholder SVG]s[Placeholder SVG]in[Placeholder SVG]s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG]*/
 
-import { spawn } from 'child_process';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+imp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]{[Placeholder SVG]sp[Placeholder SVG]wn[Placeholder SVG]}[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]_p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss';
+imp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]{[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]URLT[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]}[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'u[Placeholder SVG][Placeholder SVG]';
+imp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]{[Placeholder SVG][Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG],[Placeholder SVG]j[Placeholder SVG]in[Placeholder SVG]}[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'p[Placeholder SVG]t[Placeholder SVG]';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const rootDir = join(__dirname, '..');
+[Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]__fi[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]URLT[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG](imp[Placeholder SVG][Placeholder SVG]t.m[Placeholder SVG]t[Placeholder SVG].u[Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]__[Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG](__fi[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tDi[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]j[Placeholder SVG]in(__[Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG],[Placeholder SVG]'..');
 
-const testSuites = [
-  {
-    name: 'Unit Tests',
-    command: 'npm',
-    args: ['run', 'test'],
-    description: 'Running JavaScript unit tests with Vitest'
-  },
-  {
-    name: 'Integration Tests',
-    command: 'npm',
-    args: ['run', 'test:integration'],
-    description: 'Running browser integration tests with Playwright'
-  },
-  {
-    name: 'Accessibility Tests',
-    command: 'npm',
-    args: ['run', 'test:accessibility'],
-    description: 'Running accessibility tests with axe-core'
-  }
+[Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG]st[Placeholder SVG]uit[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][
+[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG]:[Placeholder SVG]'Unit[Placeholder SVG]T[Placeholder SVG]sts',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n[Placeholder SVG]:[Placeholder SVG]'npm',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]gs:[Placeholder SVG]['[Placeholder SVG]un',[Placeholder SVG]'t[Placeholder SVG]st'],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]'Running[Placeholder SVG]J[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ipt[Placeholder SVG]unit[Placeholder SVG]t[Placeholder SVG]sts[Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG]it[Placeholder SVG]st'
+[Placeholder SVG][Placeholder SVG]},
+[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG]:[Placeholder SVG]'Int[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]T[Placeholder SVG]sts',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n[Placeholder SVG]:[Placeholder SVG]'npm',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]gs:[Placeholder SVG]['[Placeholder SVG]un',[Placeholder SVG]'t[Placeholder SVG]st:int[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n'],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]'Running[Placeholder SVG]b[Placeholder SVG][Placeholder SVG]ws[Placeholder SVG][Placeholder SVG][Placeholder SVG]int[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG]sts[Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]yw[Placeholder SVG]ig[Placeholder SVG]t'
+[Placeholder SVG][Placeholder SVG]},
+[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG]:[Placeholder SVG]'A[Placeholder SVG][Placeholder SVG][Placeholder SVG]ssibi[Placeholder SVG]ity[Placeholder SVG]T[Placeholder SVG]sts',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n[Placeholder SVG]:[Placeholder SVG]'npm',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]gs:[Placeholder SVG]['[Placeholder SVG]un',[Placeholder SVG]'t[Placeholder SVG]st:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ssibi[Placeholder SVG]ity'],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]'Running[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ssibi[Placeholder SVG]ity[Placeholder SVG]t[Placeholder SVG]sts[Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG]x[Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'
+[Placeholder SVG][Placeholder SVG]}
 ];
 
-async function runCommand(command, args, description) {
-  console.log(`\n🧪 ${description}`);
-  console.log('='.repeat(50));
-  
-  return new Promise((resolve, reject) => {
-    const process = spawn(command, args, {
-      cwd: rootDir,
-      stdio: 'inherit',
-      shell: true
-    });
-    
-    process.on('close', (code) => {
-      if (code === 0) {
-        console.log(`[Placeholder SVG] ${description} - PASSED`);
-        resolve();
-      } else {
-        console.log(`[Placeholder SVG] ${description} - FAILED (exit code: ${code})`);
-        reject(new Error(`Test suite failed with exit code ${code}`));
-      }
-    });
-    
-    process.on('error', (error) => {
-      console.error(`[Placeholder SVG] ${description} - ERROR:`, error.message);
-      reject(error);
-    });
-  });
+[Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]fun[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]unC[Placeholder SVG]mm[Placeholder SVG]n[Placeholder SVG]([Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n[Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG]gs,[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`\n🧪[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('='.[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t(50));
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mis[Placeholder SVG](([Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]v[Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG]j[Placeholder SVG][Placeholder SVG]t)[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]=[Placeholder SVG]sp[Placeholder SVG]wn([Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n[Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG]gs,[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tDi[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]st[Placeholder SVG]i[Placeholder SVG]:[Placeholder SVG]'in[Placeholder SVG][Placeholder SVG][Placeholder SVG]it',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]t[Placeholder SVG]u[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]n('[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]',[Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]===[Placeholder SVG]0)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n}[Placeholder SVG]-[Placeholder SVG][Placeholder SVG]A[Placeholder SVG][Placeholder SVG]ED`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]v[Placeholder SVG]();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n}[Placeholder SVG]-[Placeholder SVG]FAILED[Placeholder SVG]([Placeholder SVG]xit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]})`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]j[Placeholder SVG][Placeholder SVG]t(n[Placeholder SVG]w[Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](`T[Placeholder SVG]st[Placeholder SVG]suit[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG]xit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}`));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]n('[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]',[Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](`[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n}[Placeholder SVG]-[Placeholder SVG]ERROR:`,[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]j[Placeholder SVG][Placeholder SVG]t([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]});
 }
 
-async function runAllTests() {
-  console.log('[Placeholder SVG] Starting comprehensive test suite...\n');
-  
-  const results = {
-    passed: 0,
-    failed: 0,
-    total: testSuites.length
-  };
-  
-  for (const suite of testSuites) {
-    try {
-      await runCommand(suite.command, suite.args, suite.description);
-      results.passed++;
-    } catch (error) {
-      results.failed++;
-      console.error(`\n[Placeholder SVG] ${suite.name} failed:`, error.message);
-    }
-  }
-  
-  console.log('\n' + '='.repeat(60));
-  console.log('[Placeholder SVG] TEST SUMMARY');
-  console.log('='.repeat(60));
-  console.log(`Total test suites: ${results.total}`);
-  console.log(`Passed: ${results.passed}`);
-  console.log(`Failed: ${results.failed}`);
-  
-  if (results.failed === 0) {
-    console.log('\n[Placeholder SVG] All tests passed successfully!');
-    process.exit(0);
-  } else {
-    console.log(`\n💥 ${results.failed} test suite(s) failed.`);
-    process.exit(1);
-  }
+[Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]fun[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]unA[Placeholder SVG][Placeholder SVG]T[Placeholder SVG]sts()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ting[Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nsiv[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]st[Placeholder SVG]suit[Placeholder SVG]...\n');
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]su[Placeholder SVG]ts[Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG]ss[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]0,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]0,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]t[Placeholder SVG]st[Placeholder SVG]uit[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG]};
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]suit[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]st[Placeholder SVG]uit[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG][Placeholder SVG]unC[Placeholder SVG]mm[Placeholder SVG]n[Placeholder SVG](suit[Placeholder SVG].[Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n[Placeholder SVG],[Placeholder SVG]suit[Placeholder SVG].[Placeholder SVG][Placeholder SVG]gs,[Placeholder SVG]suit[Placeholder SVG].[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]su[Placeholder SVG]ts.p[Placeholder SVG]ss[Placeholder SVG][Placeholder SVG]++;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]su[Placeholder SVG]ts.f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]++;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](`\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]${suit[Placeholder SVG].n[Placeholder SVG]m[Placeholder SVG]}[Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]:`,[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n'[Placeholder SVG]+[Placeholder SVG]'='.[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t(60));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]TE[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]UMMARY');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('='.[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t(60));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`T[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]st[Placeholder SVG]suit[Placeholder SVG]s:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]su[Placeholder SVG]ts.t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[Placeholder SVG][Placeholder SVG]ss[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]su[Placeholder SVG]ts.p[Placeholder SVG]ss[Placeholder SVG][Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`F[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]su[Placeholder SVG]ts.f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG]su[Placeholder SVG]ts.f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]===[Placeholder SVG]0)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]sts[Placeholder SVG]p[Placeholder SVG]ss[Placeholder SVG][Placeholder SVG][Placeholder SVG]su[Placeholder SVG][Placeholder SVG][Placeholder SVG]ssfu[Placeholder SVG][Placeholder SVG]y!');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]xit(0);
+[Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`\n💥[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]su[Placeholder SVG]ts.f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG]t[Placeholder SVG]st[Placeholder SVG]suit[Placeholder SVG](s)[Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG].`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]xit(1);
+[Placeholder SVG][Placeholder SVG]}
 }
 
-// Handle process termination
-process.on('SIGINT', () => {
-  console.log('\n\n[Placeholder SVG]  Test execution interrupted by user');
-  process.exit(1);
+//[Placeholder SVG]H[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]min[Placeholder SVG]ti[Placeholder SVG]n
+p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]n('[Placeholder SVG]I[Placeholder SVG]INT',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG]T[Placeholder SVG]st[Placeholder SVG][Placeholder SVG]x[Placeholder SVG][Placeholder SVG]uti[Placeholder SVG]n[Placeholder SVG]int[Placeholder SVG][Placeholder SVG][Placeholder SVG]upt[Placeholder SVG][Placeholder SVG][Placeholder SVG]by[Placeholder SVG]us[Placeholder SVG][Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]xit(1);
 });
 
-process.on('SIGTERM', () => {
-  console.log('\n\n[Placeholder SVG]  Test execution terminated');
-  process.exit(1);
+p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]n('[Placeholder SVG]I[Placeholder SVG]TERM',[Placeholder SVG]()[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG]T[Placeholder SVG]st[Placeholder SVG][Placeholder SVG]x[Placeholder SVG][Placeholder SVG]uti[Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]min[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]xit(1);
 });
 
-// Run the tests
-runAllTests().catch((error) => {
-  console.error('\n💥 Test runner failed:', error.message);
-  process.exit(1);
+//[Placeholder SVG]Run[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]sts
+[Placeholder SVG]unA[Placeholder SVG][Placeholder SVG]T[Placeholder SVG]sts().[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG](([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]('\n💥[Placeholder SVG]T[Placeholder SVG]st[Placeholder SVG][Placeholder SVG]unn[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]:',[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]xit(1);
 });

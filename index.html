@@ -48,9 +48,46 @@
             
             <!-- Language Switcher -->
             <div class="language-switcher" id="language-switcher">
-                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">[Placeholder SVG]</button>
-                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">[Placeholder SVG]</button>
-                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">[Placeholder SVG]</button>
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-label="English Language">
+  <defs>
+    <clipPath id="circle-clip">
+      <circle cx="12" cy="12" r="11"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip)">
+    <rect width="24" height="24" fill="#0056b3"/>
+    <path d="M0 0L24 24M24 0L0 24" stroke="#ffffff" stroke-width="3"/>
+    <path d="M12 0V24M0 12H24" stroke="#ffffff" stroke-width="5"/>
+    <path d="M12 0V24M0 12H24" stroke="#dc3545" stroke-width="3"/>
+  </g>
+  <circle cx="12" cy="12" r="11" fill="none" stroke="#cccccc" stroke-width="1"/>
+</svg></button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-label="Dutch Language">
+  <defs>
+    <clipPath id="circle-clip-nl">
+      <circle cx="12" cy="12" r="11"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip-nl)">
+    <rect width="24" height="8" y="0" fill="#dc3545"/>
+    <rect width="24" height="8" y="8" fill="#ffffff"/>
+    <rect width="24" height="8" y="16" fill="#0056b3"/>
+  </g>
+  <circle cx="12" cy="12" r="11" fill="none" stroke="#cccccc" stroke-width="1"/>
+</svg></button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-label="French Language">
+  <defs>
+    <clipPath id="circle-clip-fr">
+      <circle cx="12" cy="12" r="11"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip-fr)">
+    <rect width="8" height="24" x="0" fill="#0056b3"/>
+    <rect width="8" height="24" x="8" fill="#ffffff"/>
+    <rect width="8" height="24" x="16" fill="#dc3545"/>
+  </g>
+  <circle cx="12" cy="12" r="11" fill="none" stroke="#cccccc" stroke-width="1"/>
+</svg></button>
             </div>
             
             <!-- Mobile Menu Toggle -->
@@ -100,7 +137,13 @@
                     <!-- Development Roadmap Card -->
                     <div class="nav-card interactive-card" id="development-card">
                         <div class="nav-card-icon">
-                            <span class="card-emoji">[Placeholder SVG]</span>
+                            <span class="card-emoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" aria-label="Development Roadmap">
+  <g fill="none" stroke="#007cba" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 17l-5-5 5-5"/>
+    <path d="M15 7l5 5-5 5"/>
+    <path d="M13 21V3"/>
+  </g>
+</svg></span>
                         </div>
                         <div class="nav-card-content">
                             <h2 class="nav-card-title" id="dev-card-title" data-i18n="dev.card.title">Development Roadmap</h2>
@@ -127,7 +170,18 @@
                     <!-- Node Guides Card -->
                     <div class="nav-card interactive-card" id="node-guides-card">
                         <div class="nav-card-icon">
-                            <span class="card-emoji">[Placeholder SVG]</span>
+                            <span class="card-emoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" aria-label="Node Guides">
+  <g fill="none" stroke="#333" stroke-width="1.5">
+    <circle cx="12" cy="12" r="3" fill="#007cba" stroke="none"/>
+    <circle cx="12" cy="4" r="2.5"/>
+    <circle cx="12" cy="20" r="2.5"/>
+    <circle cx="5" cy="8" r="2.5"/>
+    <circle cx="19" cy="8" r="2.5"/>
+    <circle cx="5" cy="16" r="2.5"/>
+    <circle cx="19" cy="16" r="2.5"/>
+    <path stroke-linecap="round" d="M12 9V7 M12 15v-2 M12 17v-2 M7.5 9.5l2-1 M14.5 14.5l-2-1 M7.5 14.5l2 1 M14.5 9.5l-2 1"/>
+  </g>
+</svg></span>
                         </div>
                         <div class="nav-card-content">
                             <h2 class="nav-card-title" id="node-card-title" data-i18n="node.card.title">Node Setup Guides</h2>
@@ -164,7 +218,10 @@
                     <div class="grid grid-cols-3">
                         <div class="getting-started-card">
                             <div class="card-header">
-                                <span class="card-icon">[Placeholder SVG]</span>
+                                <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" aria-label="Beginner Level">
+  <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8c0-2.21-.9-4.2-2.35-5.65zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z" fill="#28a745"/>
+  <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" fill="#28a745"/>
+</svg></span>
                                 <h3 class="card-title" id="beginner-title" data-i18n="beginner.title">Beginner</h3>
                             </div>
                             <div class="card-content">
@@ -177,7 +234,9 @@
                         
                         <div class="getting-started-card">
                             <div class="card-header">
-                                <span class="card-icon">[Placeholder SVG]</span>
+                                <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" aria-label="Intermediate Level">
+  <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" fill="#007cba"/>
+</svg></span>
                                 <h3 class="card-title" id="intermediate-title" data-i18n="intermediate.title">Intermediate</h3>
                             </div>
                             <div class="card-content">
@@ -190,7 +249,9 @@
                         
                         <div class="getting-started-card">
                             <div class="card-header">
-                                <span class="card-icon">[Placeholder SVG]</span>
+                                <span class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" aria-label="Advanced Level">
+  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.01 14.22c-.44.44-1.16.44-1.6 0l-1.83-1.83c-.44-.44-.44-1.16 0-1.6s1.16-.44 1.6 0l1.03 1.03V9.5c0-.62.51-1.12 1.12-1.12s1.12.5 1.12 1.12v4.32l1.03-1.03c.44-.44 1.16-.44 1.6 0s.44 1.16 0 1.6l-1.83 1.83c-.45.44-1.17.44-1.61 0z" fill="#333"/>
+</svg></span>
                                 <h3 class="card-title" id="advanced-title" data-i18n="advanced.title">Advanced</h3>
                             </div>
                             <div class="card-content">

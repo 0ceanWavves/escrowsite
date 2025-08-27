@@ -1,16 +1,20 @@
 #!/usr/bin/env node
 
 /**
- * Script to replace all emojis with [Placeholder SVG] across the project
+ * Safe script to replace ONLY actual emojis with [Placeholder SVG]
  */
 
 import fs from 'fs';
 import path from 'path';
 
-// Common emojis used in the project
+// ONLY actual emojis used in the project - very specific Unicode ranges
 const emojiReplacements = {
+  // Flag emojis
   '[Placeholder SVG]': '[Placeholder SVG]',
   '[Placeholder SVG]': '[Placeholder SVG]',
+  '[Placeholder SVG]': '[Placeholder SVG]',
+  
+  // Common emojis used in the project
   '[Placeholder SVG]': '[Placeholder SVG]',
   '[Placeholder SVG]': '[Placeholder SVG]',
   '[Placeholder SVG]': '[Placeholder SVG]',
@@ -45,7 +49,7 @@ const emojiReplacements = {
 };
 
 // File extensions to process
-const fileExtensions = ['.html', '.js', '.json', '.md', '.css'];
+const fileExtensions = ['.html', '.js', '.json', '.md'];
 
 // Directories to skip
 const skipDirectories = ['node_modules', '.git', 'playwright-report', 'test-results', 'test-reports'];
@@ -66,7 +70,7 @@ function shouldSkipDirectory(dirName) {
 }
 
 /**
- * Replace emojis in text content
+ * Replace ONLY specific emojis in text content
  */
 function replaceEmojis(content) {
   let updatedContent = content;
@@ -74,8 +78,10 @@ function replaceEmojis(content) {
   
   for (const [emoji, replacement] of Object.entries(emojiReplacements)) {
     if (updatedContent.includes(emoji)) {
-      updatedContent = updatedContent.replace(new RegExp(emoji, 'g'), replacement);
+      // Use exact string replacement, not regex
+      updatedContent = updatedContent.split(emoji).join(replacement);
       hasChanges = true;
+      console.log(`  Found and replaced: ${emoji}`);
     }
   }
   
@@ -135,21 +141,21 @@ function processDirectory(dirPath) {
  * Main execution
  */
 function main() {
-  console.log('🔄 Starting emoji replacement across project...\n');
+  console.log('🔄 Safely replacing ONLY actual emojis...\n');
   
   const startTime = Date.now();
   const filesUpdated = processDirectory('.');
   const endTime = Date.now();
   
   console.log('\n' + '='.repeat(50));
-  console.log('[Placeholder SVG] EMOJI REPLACEMENT SUMMARY');
+  console.log('[Placeholder SVG] SAFE EMOJI REPLACEMENT SUMMARY');
   console.log('='.repeat(50));
   console.log(`Files updated: ${filesUpdated}`);
   console.log(`Time taken: ${endTime - startTime}ms`);
   
   if (filesUpdated > 0) {
-    console.log('\n[Placeholder SVG] Emoji replacement completed successfully!');
-    console.log('All emojis have been replaced with [Placeholder SVG]');
+    console.log('\n[Placeholder SVG] Safe emoji replacement completed successfully!');
+    console.log('Only actual emojis have been replaced with [Placeholder SVG]');
   } else {
     console.log('\n[Placeholder SVG] No emojis found to replace');
   }

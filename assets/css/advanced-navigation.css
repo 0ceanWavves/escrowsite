@@ -1,642 +1,642 @@
 /**
- * Advanced Navigation Styles
- * Styles for table of contents, contextual links, and sequential navigation
- */
+[Placeholder SVG]*[Placeholder SVG]A[Placeholder SVG]v[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]N[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]ty[Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG]*[Placeholder SVG][Placeholder SVG]ty[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nts,[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]inks,[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG]*/
 
-/* Table of Contents Styles */
-.table-of-contents {
-  background: var(--bg-secondary, #f8f9fa);
-  border: 1px solid var(--border-color, #e9ecef);
-  border-radius: 8px;
-  margin: 2rem 0;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/*[Placeholder SVG]T[Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nts[Placeholder SVG][Placeholder SVG]ty[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]*/
+.t[Placeholder SVG]b[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]f-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nts[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--bg-s[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#f8f9f[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]1px[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#[Placeholder SVG]9[Placeholder SVG][Placeholder SVG][Placeholder SVG]f);
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]ius:[Placeholder SVG]8px;
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]2[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]w:[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG]x-s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w:[Placeholder SVG]0[Placeholder SVG]2px[Placeholder SVG]4px[Placeholder SVG][Placeholder SVG]gb[Placeholder SVG](0,[Placeholder SVG]0,[Placeholder SVG]0,[Placeholder SVG]0.1);
 }
 
-.toc-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.25rem;
-  background: var(--bg-primary, #ffffff);
-  border-bottom: 1px solid var(--border-color, #e9ecef);
+.t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ign-it[Placeholder SVG]ms:[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]justify-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt:[Placeholder SVG]sp[Placeholder SVG][Placeholder SVG][Placeholder SVG]-b[Placeholder SVG]tw[Placeholder SVG][Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]1[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]1.25[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--bg-p[Placeholder SVG]im[Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#ffffff);
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-b[Placeholder SVG]tt[Placeholder SVG]m:[Placeholder SVG]1px[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#[Placeholder SVG]9[Placeholder SVG][Placeholder SVG][Placeholder SVG]f);
 }
 
-.toc-title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-primary, #212529);
+.t[Placeholder SVG][Placeholder SVG]-tit[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ign-it[Placeholder SVG]ms:[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]p:[Placeholder SVG]0.5[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]1.1[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]600;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--t[Placeholder SVG]xt-p[Placeholder SVG]im[Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#212529);
 }
 
-.toc-icon {
-  width: 18px;
-  height: 18px;
-  color: var(--accent-color, #007bff);
+.t[Placeholder SVG][Placeholder SVG]-i[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]wi[Placeholder SVG]t[Placeholder SVG]:[Placeholder SVG]18px;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]18px;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#007bff);
 }
 
-.toc-toggle {
-  background: none;
-  border: none;
-  padding: 0.25rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
+.t[Placeholder SVG][Placeholder SVG]-t[Placeholder SVG]gg[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]n[Placeholder SVG]n[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]n[Placeholder SVG]n[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]0.25[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]p[Placeholder SVG]int[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]ius:[Placeholder SVG]4px;
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]nsiti[Placeholder SVG]n:[Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]0.2s[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG];
 }
 
-.toc-toggle:hover {
-  background: var(--bg-hover, #f1f3f4);
+.t[Placeholder SVG][Placeholder SVG]-t[Placeholder SVG]gg[Placeholder SVG][Placeholder SVG]:[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--bg-[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG],[Placeholder SVG]#f1f3f4);
 }
 
-.toc-toggle-icon {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.2s ease;
+.t[Placeholder SVG][Placeholder SVG]-t[Placeholder SVG]gg[Placeholder SVG][Placeholder SVG]-i[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]wi[Placeholder SVG]t[Placeholder SVG]:[Placeholder SVG]16px;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]16px;
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]nsiti[Placeholder SVG]n:[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]nsf[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0.2s[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG];
 }
 
-.toc-nav {
-  max-height: 400px;
-  overflow-y: auto;
-  padding: 0.5rem 0;
+.t[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]x-[Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]400px;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]w-y:[Placeholder SVG][Placeholder SVG]ut[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]0.5[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0;
 }
 
-.toc-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ist[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]ist-sty[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]n[Placeholder SVG]n[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]0;
 }
 
-.toc-sublist {
-  list-style: none;
-  margin: 0;
-  padding-left: 1.5rem;
+.t[Placeholder SVG][Placeholder SVG]-sub[Placeholder SVG]ist[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]ist-sty[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]n[Placeholder SVG]n[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing-[Placeholder SVG][Placeholder SVG]ft:[Placeholder SVG]1.5[Placeholder SVG][Placeholder SVG]m;
 }
 
-.toc-item {
-  margin: 0;
+.t[Placeholder SVG][Placeholder SVG]-it[Placeholder SVG]m[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]0;
 }
 
-.toc-link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1.25rem;
-  text-decoration: none;
-  color: var(--text-secondary, #6c757d);
-  transition: all 0.2s ease;
-  border-left: 3px solid transparent;
+.t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ign-it[Placeholder SVG]ms:[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]p:[Placeholder SVG]0.5[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]0.5[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]1.25[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n:[Placeholder SVG]n[Placeholder SVG]n[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--t[Placeholder SVG]xt-s[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#6[Placeholder SVG]757[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]nsiti[Placeholder SVG]n:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]0.2s[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ft:[Placeholder SVG]3px[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]nsp[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt;
 }
 
-.toc-link:hover {
-  background: var(--bg-hover, #f1f3f4);
-  color: var(--text-primary, #212529);
+.t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink:[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--bg-[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG],[Placeholder SVG]#f1f3f4);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--t[Placeholder SVG]xt-p[Placeholder SVG]im[Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#212529);
 }
 
-.toc-link.active {
-  background: var(--accent-bg, #e3f2fd);
-  color: var(--accent-color, #007bff);
-  border-left-color: var(--accent-color, #007bff);
-  font-weight: 500;
+.t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink.[Placeholder SVG][Placeholder SVG]tiv[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-bg,[Placeholder SVG]#[Placeholder SVG]3f2f[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#007bff);
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ft-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#007bff);
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]500;
 }
 
-.toc-number {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-muted, #868e96);
-  min-width: 2rem;
+.t[Placeholder SVG][Placeholder SVG]-numb[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]0.875[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]500;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--t[Placeholder SVG]xt-mut[Placeholder SVG][Placeholder SVG],[Placeholder SVG]#868[Placeholder SVG]96);
+[Placeholder SVG][Placeholder SVG]min-wi[Placeholder SVG]t[Placeholder SVG]:[Placeholder SVG]2[Placeholder SVG][Placeholder SVG]m;
 }
 
-.toc-text {
-  flex: 1;
-  line-height: 1.4;
+.t[Placeholder SVG][Placeholder SVG]-t[Placeholder SVG]xt[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x:[Placeholder SVG]1;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]1.4;
 }
 
-/* Collapsed state */
-.toc-collapsible.toc-collapsed .toc-nav {
-  display: none;
+/*[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ps[Placeholder SVG][Placeholder SVG][Placeholder SVG]st[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]*/
+.t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]psib[Placeholder SVG][Placeholder SVG].t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ps[Placeholder SVG][Placeholder SVG][Placeholder SVG].t[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]n[Placeholder SVG]n[Placeholder SVG];
 }
 
-/* Sticky positioning for desktop */
-@media (min-width: 1200px) {
-  .table-of-contents.toc-sticky {
-    position: sticky;
-    top: 2rem;
-    max-height: calc(100vh - 4rem);
-  }
-  
-  .table-of-contents.toc-sticky .toc-nav {
-    max-height: calc(100vh - 8rem);
-  }
+/*[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ky[Placeholder SVG]p[Placeholder SVG]siti[Placeholder SVG]ning[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]skt[Placeholder SVG]p[Placeholder SVG]*/
+@m[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG](min-wi[Placeholder SVG]t[Placeholder SVG]:[Placeholder SVG]1200px)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG].t[Placeholder SVG]b[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]f-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nts.t[Placeholder SVG][Placeholder SVG]-sti[Placeholder SVG]ky[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG]siti[Placeholder SVG]n:[Placeholder SVG]sti[Placeholder SVG]ky;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]p:[Placeholder SVG]2[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]x-[Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](100v[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]4[Placeholder SVG][Placeholder SVG]m);
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].t[Placeholder SVG]b[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]f-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nts.t[Placeholder SVG][Placeholder SVG]-sti[Placeholder SVG]ky[Placeholder SVG].t[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]x-[Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](100v[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]8[Placeholder SVG][Placeholder SVG]m);
+[Placeholder SVG][Placeholder SVG]}
 }
 
-/* Contextual Links Styles */
-.suggestions-container {
-  margin: 3rem 0;
-  padding: 2rem;
-  background: var(--bg-secondary, #f8f9fa);
-  border-radius: 12px;
-  border: 1px solid var(--border-color, #e9ecef);
+/*[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]Links[Placeholder SVG][Placeholder SVG]ty[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]*/
+.sugg[Placeholder SVG]sti[Placeholder SVG]ns-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]3[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]2[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--bg-s[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#f8f9f[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]ius:[Placeholder SVG]12px;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]1px[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#[Placeholder SVG]9[Placeholder SVG][Placeholder SVG][Placeholder SVG]f);
 }
 
-.suggestions-title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 0 0 1.5rem 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-primary, #212529);
+.sugg[Placeholder SVG]sti[Placeholder SVG]ns-tit[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ign-it[Placeholder SVG]ms:[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]p:[Placeholder SVG]0.5[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]0[Placeholder SVG]0[Placeholder SVG]1.5[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]1.25[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]600;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--t[Placeholder SVG]xt-p[Placeholder SVG]im[Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#212529);
 }
 
-.suggestions-icon {
-  width: 20px;
-  height: 20px;
-  color: var(--accent-color, #007bff);
+.sugg[Placeholder SVG]sti[Placeholder SVG]ns-i[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]wi[Placeholder SVG]t[Placeholder SVG]:[Placeholder SVG]20px;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]20px;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#007bff);
 }
 
-/* Related Content Grid */
-.related-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+/*[Placeholder SVG]R[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]*/
+.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-g[Placeholder SVG]i[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]g[Placeholder SVG]i[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]i[Placeholder SVG]-t[Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]umns:[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t([Placeholder SVG]ut[Placeholder SVG]-fit,[Placeholder SVG]minm[Placeholder SVG]x(300px,[Placeholder SVG]1f[Placeholder SVG]));
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]p:[Placeholder SVG]1.5[Placeholder SVG][Placeholder SVG]m;
 }
 
-.related-item {
-  background: var(--bg-primary, #ffffff);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-it[Placeholder SVG]m[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--bg-p[Placeholder SVG]im[Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#ffffff);
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]ius:[Placeholder SVG]8px;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]w:[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG]x-s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w:[Placeholder SVG]0[Placeholder SVG]2px[Placeholder SVG]4px[Placeholder SVG][Placeholder SVG]gb[Placeholder SVG](0,[Placeholder SVG]0,[Placeholder SVG]0,[Placeholder SVG]0.1);
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]nsiti[Placeholder SVG]n:[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]nsf[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0.2s[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG],[Placeholder SVG]b[Placeholder SVG]x-s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]0.2s[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG];
 }
 
-.related-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-it[Placeholder SVG]m:[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]nsf[Placeholder SVG][Placeholder SVG]m:[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Y(-2px);
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG]x-s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w:[Placeholder SVG]0[Placeholder SVG]4px[Placeholder SVG]12px[Placeholder SVG][Placeholder SVG]gb[Placeholder SVG](0,[Placeholder SVG]0,[Placeholder SVG]0,[Placeholder SVG]0.15);
 }
 
-.related-link {
-  display: block;
-  padding: 1.5rem;
-  text-decoration: none;
-  color: inherit;
+.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k;
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]1.5[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n:[Placeholder SVG]n[Placeholder SVG]n[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]it;
 }
 
-.related-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.75rem;
+.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ign-it[Placeholder SVG]ms:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x-st[Placeholder SVG][Placeholder SVG]t;
+[Placeholder SVG][Placeholder SVG]justify-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt:[Placeholder SVG]sp[Placeholder SVG][Placeholder SVG][Placeholder SVG]-b[Placeholder SVG]tw[Placeholder SVG][Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]p:[Placeholder SVG]1[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin-b[Placeholder SVG]tt[Placeholder SVG]m:[Placeholder SVG]0.75[Placeholder SVG][Placeholder SVG]m;
 }
 
-.related-title {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-primary, #212529);
-  line-height: 1.3;
+.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-tit[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]1.1[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]600;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--t[Placeholder SVG]xt-p[Placeholder SVG]im[Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#212529);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]1.3;
 }
 
-.related-type {
-  background: var(--accent-bg, #e3f2fd);
-  color: var(--accent-color, #007bff);
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  white-space: nowrap;
+.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-typ[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-bg,[Placeholder SVG]#[Placeholder SVG]3f2f[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#007bff);
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]0.25[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0.5[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]ius:[Placeholder SVG]4px;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]0.75[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]500;
+[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]-sp[Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG][Placeholder SVG]p;
 }
 
-.related-description {
-  margin: 0 0 1rem 0;
-  color: var(--text-secondary, #6c757d);
-  line-height: 1.5;
+.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]0[Placeholder SVG]0[Placeholder SVG]1[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--t[Placeholder SVG]xt-s[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#6[Placeholder SVG]757[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]1.5;
 }
 
-.related-meta {
-  display: flex;
-  gap: 0.75rem;
-  font-size: 0.875rem;
+.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-m[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x;
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]p:[Placeholder SVG]0.75[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]0.875[Placeholder SVG][Placeholder SVG]m;
 }
 
-.related-difficulty,
-.related-time {
-  color: var(--text-muted, #868e96);
+.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]iffi[Placeholder SVG]u[Placeholder SVG]ty,
+.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-tim[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--t[Placeholder SVG]xt-mut[Placeholder SVG][Placeholder SVG],[Placeholder SVG]#868[Placeholder SVG]96);
 }
 
-.related-difficulty::before {
-  content: "[Placeholder SVG] ";
+.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]iffi[Placeholder SVG]u[Placeholder SVG]ty::b[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt:[Placeholder SVG]"[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]";
 }
 
-.related-time::before {
-  content: "⏱️ ";
+.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-tim[Placeholder SVG]::b[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt:[Placeholder SVG]"⏱️[Placeholder SVG]";
 }
 
-/* Contextual Navigation Grid */
-.contextual-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+/*[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG]N[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]*/
+.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-g[Placeholder SVG]i[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]g[Placeholder SVG]i[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]i[Placeholder SVG]-t[Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]umns:[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t([Placeholder SVG]ut[Placeholder SVG]-fit,[Placeholder SVG]minm[Placeholder SVG]x(250px,[Placeholder SVG]1f[Placeholder SVG]));
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]p:[Placeholder SVG]1[Placeholder SVG][Placeholder SVG]m;
 }
 
-.contextual-link {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  background: var(--bg-primary, #ffffff);
-  border-radius: 8px;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.2s ease;
-  border: 1px solid var(--border-color, #e9ecef);
+.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ign-it[Placeholder SVG]ms:[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]p:[Placeholder SVG]1[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]1[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--bg-p[Placeholder SVG]im[Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#ffffff);
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]ius:[Placeholder SVG]8px;
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n:[Placeholder SVG]n[Placeholder SVG]n[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]it;
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]nsiti[Placeholder SVG]n:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]0.2s[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]1px[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#[Placeholder SVG]9[Placeholder SVG][Placeholder SVG][Placeholder SVG]f);
 }
 
-.contextual-link:hover {
-  background: var(--bg-hover, #f1f3f4);
-  transform: translateX(4px);
+.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink:[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--bg-[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG],[Placeholder SVG]#f1f3f4);
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]nsf[Placeholder SVG][Placeholder SVG]m:[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]X(4px);
 }
 
-.contextual-icon {
-  font-size: 1.5rem;
-  flex-shrink: 0;
+.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-i[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]1.5[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x-s[Placeholder SVG][Placeholder SVG]ink:[Placeholder SVG]0;
 }
 
-.contextual-content {
-  flex: 1;
+.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x:[Placeholder SVG]1;
 }
 
-.contextual-title {
-  display: block;
-  font-weight: 600;
-  color: var(--text-primary, #212529);
-  margin-bottom: 0.25rem;
+.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-tit[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]600;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--t[Placeholder SVG]xt-p[Placeholder SVG]im[Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#212529);
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin-b[Placeholder SVG]tt[Placeholder SVG]m:[Placeholder SVG]0.25[Placeholder SVG][Placeholder SVG]m;
 }
 
-.contextual-description {
-  display: block;
-  font-size: 0.875rem;
-  color: var(--text-secondary, #6c757d);
-  line-height: 1.4;
+.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]0.875[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--t[Placeholder SVG]xt-s[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#6[Placeholder SVG]757[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]1.4;
 }
 
-/* Contextual link types */
-.contextual-next-phase {
-  border-left: 4px solid var(--success-color, #28a745);
+/*[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ink[Placeholder SVG]typ[Placeholder SVG]s[Placeholder SVG]*/
+.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]xt-p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ft:[Placeholder SVG]4px[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--su[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#28[Placeholder SVG]745);
 }
 
-.contextual-previous-phase {
-  border-left: 4px solid var(--info-color, #17a2b8);
+.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-p[Placeholder SVG][Placeholder SVG]vi[Placeholder SVG]us-p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ft:[Placeholder SVG]4px[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--inf[Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#17[Placeholder SVG]2b8);
 }
 
-.contextual-cross-section {
-  border-left: 4px solid var(--warning-color, #ffc107);
+.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss-s[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ft:[Placeholder SVG]4px[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--w[Placeholder SVG][Placeholder SVG]ning-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#ff[Placeholder SVG]107);
 }
 
-.contextual-utility {
-  border-left: 4px solid var(--secondary-color, #6c757d);
+.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-uti[Placeholder SVG]ity[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ft:[Placeholder SVG]4px[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--s[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]y-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#6[Placeholder SVG]757[Placeholder SVG]);
 }
 
-/* Inline contextual links */
-.contextual-inline-link {
-  color: var(--accent-color, #007bff);
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-underline-offset: 2px;
+/*[Placeholder SVG]In[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]inks[Placeholder SVG]*/
+.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-in[Placeholder SVG]in[Placeholder SVG]-[Placeholder SVG]ink[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#007bff);
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n:[Placeholder SVG]un[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n-sty[Placeholder SVG][Placeholder SVG]:[Placeholder SVG][Placeholder SVG][Placeholder SVG]tt[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt-un[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG]-[Placeholder SVG]ffs[Placeholder SVG]t:[Placeholder SVG]2px;
 }
 
-.contextual-inline-link:hover {
-  text-decoration-style: solid;
+.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-in[Placeholder SVG]in[Placeholder SVG]-[Placeholder SVG]ink:[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n-sty[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]i[Placeholder SVG];
 }
 
-/* Sequential Navigation Styles */
-.sequential-nav {
-  margin: 3rem 0;
-  padding: 2rem 0;
-  border-top: 2px solid var(--border-color, #e9ecef);
+/*[Placeholder SVG][Placeholder SVG][Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG][Placeholder SVG]N[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]ty[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]*/
+.s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]3[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]2[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-t[Placeholder SVG]p:[Placeholder SVG]2px[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#[Placeholder SVG]9[Placeholder SVG][Placeholder SVG][Placeholder SVG]f);
 }
 
-.sequential-nav-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+.s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]g[Placeholder SVG]i[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]i[Placeholder SVG]-t[Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]umns:[Placeholder SVG]1f[Placeholder SVG][Placeholder SVG]1f[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]p:[Placeholder SVG]2[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]x-wi[Placeholder SVG]t[Placeholder SVG]:[Placeholder SVG]1200px;
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]0[Placeholder SVG][Placeholder SVG]ut[Placeholder SVG];
 }
 
-.sequential-nav-link {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
-  background: var(--bg-primary, #ffffff);
-  border: 1px solid var(--border-color, #e9ecef);
-  border-radius: 12px;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-[Placeholder SVG]ink[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ign-it[Placeholder SVG]ms:[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]p:[Placeholder SVG]1[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]1.5[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--bg-p[Placeholder SVG]im[Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#ffffff);
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]1px[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#[Placeholder SVG]9[Placeholder SVG][Placeholder SVG][Placeholder SVG]f);
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]ius:[Placeholder SVG]12px;
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n:[Placeholder SVG]n[Placeholder SVG]n[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]it;
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]nsiti[Placeholder SVG]n:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]0.3s[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG]x-s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w:[Placeholder SVG]0[Placeholder SVG]2px[Placeholder SVG]4px[Placeholder SVG][Placeholder SVG]gb[Placeholder SVG](0,[Placeholder SVG]0,[Placeholder SVG]0,[Placeholder SVG]0.1);
 }
 
-.sequential-nav-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border-color: var(--accent-color, #007bff);
+.s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-[Placeholder SVG]ink:[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]nsf[Placeholder SVG][Placeholder SVG]m:[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Y(-2px);
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG]x-s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w:[Placeholder SVG]0[Placeholder SVG]4px[Placeholder SVG]12px[Placeholder SVG][Placeholder SVG]gb[Placeholder SVG](0,[Placeholder SVG]0,[Placeholder SVG]0,[Placeholder SVG]0.15);
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#007bff);
 }
 
-.sequential-nav-prev {
-  justify-content: flex-start;
+.s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-p[Placeholder SVG][Placeholder SVG]v[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]justify-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x-st[Placeholder SVG][Placeholder SVG]t;
 }
 
-.sequential-nav-next {
-  justify-content: flex-end;
-  text-align: right;
+.s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-n[Placeholder SVG]xt[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]justify-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x-[Placeholder SVG]n[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt-[Placeholder SVG][Placeholder SVG]ign:[Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t;
 }
 
-.sequential-nav-direction {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--accent-color, #007bff);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ign-it[Placeholder SVG]ms:[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]p:[Placeholder SVG]0.5[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]0.875[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]500;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#007bff);
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt-t[Placeholder SVG][Placeholder SVG]nsf[Placeholder SVG][Placeholder SVG]m:[Placeholder SVG]upp[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tt[Placeholder SVG][Placeholder SVG]-sp[Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]0.5px;
 }
 
-.sequential-nav-icon {
-  width: 16px;
-  height: 16px;
+.s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-i[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]wi[Placeholder SVG]t[Placeholder SVG]:[Placeholder SVG]16px;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]16px;
 }
 
-.sequential-nav-content {
-  flex: 1;
+.s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x:[Placeholder SVG]1;
 }
 
-.sequential-nav-title {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-primary, #212529);
+.s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-tit[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]0[Placeholder SVG]0[Placeholder SVG]0.5[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]1.1[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]600;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--t[Placeholder SVG]xt-p[Placeholder SVG]im[Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#212529);
 }
 
-.sequential-nav-description {
-  margin: 0;
-  font-size: 0.875rem;
-  color: var(--text-secondary, #6c757d);
-  line-height: 1.4;
+.s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]0.875[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--t[Placeholder SVG]xt-s[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#6[Placeholder SVG]757[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]1.4;
 }
 
-.sequential-nav-spacer {
-  /* Empty space for alignment when only one nav link exists */
+.s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-sp[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]/*[Placeholder SVG]Empty[Placeholder SVG]sp[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ignm[Placeholder SVG]nt[Placeholder SVG]w[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]y[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ink[Placeholder SVG][Placeholder SVG]xists[Placeholder SVG]*/
 }
 
-/* Sequence Progress Styles */
-.sequence-progress {
-  background: linear-gradient(135deg, var(--accent-color, #007bff), var(--accent-dark, #0056b3));
-  color: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-bottom: 2rem;
+/*[Placeholder SVG][Placeholder SVG][Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss[Placeholder SVG][Placeholder SVG]ty[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]*/
+.s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-p[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]-g[Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG]nt(135[Placeholder SVG][Placeholder SVG]g,[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#007bff),[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG]k,[Placeholder SVG]#0056b3));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]1.5[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]ius:[Placeholder SVG]12px;
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin-b[Placeholder SVG]tt[Placeholder SVG]m:[Placeholder SVG]2[Placeholder SVG][Placeholder SVG]m;
 }
 
-.progress-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+.p[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ign-it[Placeholder SVG]ms:[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]justify-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt:[Placeholder SVG]sp[Placeholder SVG][Placeholder SVG][Placeholder SVG]-b[Placeholder SVG]tw[Placeholder SVG][Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin-b[Placeholder SVG]tt[Placeholder SVG]m:[Placeholder SVG]1[Placeholder SVG][Placeholder SVG]m;
 }
 
-.progress-title {
-  margin: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
+.p[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss-tit[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]1.25[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]600;
 }
 
-.progress-stats {
-  font-size: 0.875rem;
-  opacity: 0.9;
-  font-weight: 500;
+.p[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss-st[Placeholder SVG]ts[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]0.875[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]ity:[Placeholder SVG]0.9;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]500;
 }
 
-.progress-bar-container {
-  background: rgba(255, 255, 255, 0.2);
-  height: 8px;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 0.75rem;
+.p[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss-b[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG][Placeholder SVG]gb[Placeholder SVG](255,[Placeholder SVG]255,[Placeholder SVG]255,[Placeholder SVG]0.2);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]8px;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]ius:[Placeholder SVG]4px;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]w:[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]n;
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin-b[Placeholder SVG]tt[Placeholder SVG]m:[Placeholder SVG]0.75[Placeholder SVG][Placeholder SVG]m;
 }
 
-.progress-bar {
-  background: white;
-  height: 100%;
-  border-radius: 4px;
-  transition: width 0.3s ease;
+.p[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss-b[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]100%;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]ius:[Placeholder SVG]4px;
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]nsiti[Placeholder SVG]n:[Placeholder SVG]wi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]0.3s[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG];
 }
 
-.progress-description {
-  margin: 0;
-  font-size: 0.875rem;
-  opacity: 0.9;
-  line-height: 1.4;
+.p[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss-[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]0.875[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]ity:[Placeholder SVG]0.9;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG]-[Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]1.4;
 }
 
-/* Sequence Overview Styles */
-.sequence-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/*[Placeholder SVG][Placeholder SVG][Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]Ov[Placeholder SVG][Placeholder SVG]vi[Placeholder SVG]w[Placeholder SVG][Placeholder SVG]ty[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]*/
+.s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ist[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]ist-sty[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]n[Placeholder SVG]n[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]0;
 }
 
-.sequence-item {
-  margin-bottom: 0.5rem;
+.s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-it[Placeholder SVG]m[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin-b[Placeholder SVG]tt[Placeholder SVG]m:[Placeholder SVG]0.5[Placeholder SVG][Placeholder SVG]m;
 }
 
-.sequence-link {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  text-decoration: none;
-  color: inherit;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+.s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ign-it[Placeholder SVG]ms:[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]p:[Placeholder SVG]0.75[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]0.75[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n:[Placeholder SVG]n[Placeholder SVG]n[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]it;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]ius:[Placeholder SVG]6px;
+[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]nsiti[Placeholder SVG]n:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]0.2s[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG];
 }
 
-.sequence-link:not(.disabled):hover {
-  background: var(--bg-hover, #f1f3f4);
+.s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink:n[Placeholder SVG]t(.[Placeholder SVG]is[Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]):[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--bg-[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG],[Placeholder SVG]#f1f3f4);
 }
 
-.sequence-link.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink.[Placeholder SVG]is[Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]ity:[Placeholder SVG]0.5;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]n[Placeholder SVG]t-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG][Placeholder SVG];
 }
 
-.sequence-number {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  background: var(--bg-secondary, #f8f9fa);
-  border-radius: 50%;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--text-secondary, #6c757d);
+.s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-numb[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]isp[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ign-it[Placeholder SVG]ms:[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]justify-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt:[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG][Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]wi[Placeholder SVG]t[Placeholder SVG]:[Placeholder SVG]24px;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]24px;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--bg-s[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#f8f9f[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]ius:[Placeholder SVG]50%;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]0.75[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]600;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--t[Placeholder SVG]xt-s[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]y,[Placeholder SVG]#6[Placeholder SVG]757[Placeholder SVG]);
 }
 
-.sequence-item.current .sequence-number {
-  background: var(--accent-color, #007bff);
-  color: white;
+.s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-it[Placeholder SVG]m.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-numb[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#007bff);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG];
 }
 
-.sequence-item.completed .sequence-number {
-  background: var(--success-color, #28a745);
-  color: white;
+.s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-it[Placeholder SVG]m.[Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-numb[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--su[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#28[Placeholder SVG]745);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG];
 }
 
-.sequence-title {
-  flex: 1;
-  font-weight: 500;
+.s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-tit[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x:[Placeholder SVG]1;
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]500;
 }
 
-.sequence-item.current .sequence-title {
-  font-weight: 600;
-  color: var(--accent-color, #007bff);
+.s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-it[Placeholder SVG]m.[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-tit[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]600;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#007bff);
 }
 
-.sequence-indicator {
-  font-size: 0.75rem;
-  background: var(--accent-color, #007bff);
-  color: white;
-  padding: 0.125rem 0.5rem;
-  border-radius: 12px;
+.s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-in[Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-siz[Placeholder SVG]:[Placeholder SVG]0.75[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]kg[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#007bff);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]0.125[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0.5[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]ius:[Placeholder SVG]12px;
 }
 
-.sequence-check {
-  color: var(--success-color, #28a745);
-  font-weight: bold;
+.s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG](--su[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG],[Placeholder SVG]#28[Placeholder SVG]745);
+[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]nt-w[Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG];
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .suggestions-container {
-    padding: 1.5rem;
-  }
-  
-  .related-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .contextual-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .sequential-nav-container {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .sequential-nav-link {
-    padding: 1rem;
-  }
-  
-  .sequential-nav-next {
-    text-align: left;
-    justify-content: flex-start;
-  }
-  
-  .sequential-nav-next .sequential-nav-direction {
-    order: 2;
-  }
-  
-  .sequential-nav-next .sequential-nav-content {
-    order: 1;
-  }
-  
-  .progress-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  
-  .table-of-contents {
-    margin: 1rem 0;
-  }
-  
-  .toc-nav {
-    max-height: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .suggestions-container {
-    padding: 1rem;
-    margin: 2rem 0;
-  }
-  
-  .sequential-nav {
-    margin: 2rem 0;
-    padding: 1.5rem 0;
-  }
-  
-  .sequence-progress {
-    padding: 1rem;
-  }
-  
-  .related-item,
-  .contextual-link,
-  .sequential-nav-link {
-    padding: 1rem;
-  }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-primary: #1a1a1a;
-    --bg-secondary: #2d2d2d;
-    --bg-hover: #3a3a3a;
-    --text-primary: #ffffff;
-    --text-secondary: #b0b0b0;
-    --text-muted: #888888;
-    --border-color: #404040;
-    --accent-color: #4dabf7;
-    --accent-bg: #1c3a5e;
-    --accent-dark: #2c5aa0;
-    --success-color: #51cf66;
-    --info-color: #22b8cf;
-    --warning-color: #ffd43b;
-    --secondary-color: #868e96;
-  }
-  
-  .related-item,
-  .contextual-link,
-  .sequential-nav-link {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  .related-item:hover,
-  .sequential-nav-link:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  }
-}
-
-/* Print styles */
-@media print {
-  .table-of-contents,
-  .suggestions-container,
-  .sequential-nav,
-  .sequence-progress {
-    break-inside: avoid;
-  }
-  
-  .sequential-nav-link,
-  .related-link,
-  .contextual-link {
-    break-inside: avoid;
-  }
+/*[Placeholder SVG]R[Placeholder SVG]sp[Placeholder SVG]nsiv[Placeholder SVG][Placeholder SVG]D[Placeholder SVG]sign[Placeholder SVG]*/
+@m[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG](m[Placeholder SVG]x-wi[Placeholder SVG]t[Placeholder SVG]:[Placeholder SVG]768px)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG].sugg[Placeholder SVG]sti[Placeholder SVG]ns-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]1.5[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-g[Placeholder SVG]i[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]i[Placeholder SVG]-t[Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]umns:[Placeholder SVG]1f[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-g[Placeholder SVG]i[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]i[Placeholder SVG]-t[Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]umns:[Placeholder SVG]1f[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]i[Placeholder SVG]-t[Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG]umns:[Placeholder SVG]1f[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]p:[Placeholder SVG]1[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-[Placeholder SVG]ink[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]1[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-n[Placeholder SVG]xt[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt-[Placeholder SVG][Placeholder SVG]ign:[Placeholder SVG][Placeholder SVG][Placeholder SVG]ft;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]justify-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x-st[Placeholder SVG][Placeholder SVG]t;
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-n[Placeholder SVG]xt[Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]2;
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-n[Placeholder SVG]xt[Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]1;
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].p[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x-[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]umn;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ign-it[Placeholder SVG]ms:[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]x-st[Placeholder SVG][Placeholder SVG]t;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG]p:[Placeholder SVG]0.5[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].t[Placeholder SVG]b[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]f-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nts[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]1[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].t[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]x-[Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]t:[Placeholder SVG]300px;
+[Placeholder SVG][Placeholder SVG]}
+}
+
+@m[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG](m[Placeholder SVG]x-wi[Placeholder SVG]t[Placeholder SVG]:[Placeholder SVG]480px)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG].sugg[Placeholder SVG]sti[Placeholder SVG]ns-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]1[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]2[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]gin:[Placeholder SVG]2[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]1.5[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-p[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]1[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-it[Placeholder SVG]m,
+[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink,
+[Placeholder SVG][Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-[Placeholder SVG]ink[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]ing:[Placeholder SVG]1[Placeholder SVG][Placeholder SVG]m;
+[Placeholder SVG][Placeholder SVG]}
+}
+
+/*[Placeholder SVG]D[Placeholder SVG][Placeholder SVG]k[Placeholder SVG]m[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]*/
+@m[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG](p[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]s-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-s[Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]k)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG]:[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]--bg-p[Placeholder SVG]im[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]#1[Placeholder SVG]1[Placeholder SVG]1[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]--bg-s[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]#2[Placeholder SVG]2[Placeholder SVG]2[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]--bg-[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]#3[Placeholder SVG]3[Placeholder SVG]3[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]--t[Placeholder SVG]xt-p[Placeholder SVG]im[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]#ffffff;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]--t[Placeholder SVG]xt-s[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]#b0b0b0;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]--t[Placeholder SVG]xt-mut[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]#888888;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]--b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]#404040;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]#4[Placeholder SVG][Placeholder SVG]bf7;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-bg:[Placeholder SVG]#1[Placeholder SVG]3[Placeholder SVG]5[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]--[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG]k:[Placeholder SVG]#2[Placeholder SVG]5[Placeholder SVG][Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]--su[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]#51[Placeholder SVG]f66;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]--inf[Placeholder SVG]-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]#22b8[Placeholder SVG]f;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]--w[Placeholder SVG][Placeholder SVG]ning-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]#ff[Placeholder SVG]43b;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]--s[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]y-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]#868[Placeholder SVG]96;
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-it[Placeholder SVG]m,
+[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink,
+[Placeholder SVG][Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-[Placeholder SVG]ink[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG]x-s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w:[Placeholder SVG]0[Placeholder SVG]2px[Placeholder SVG]4px[Placeholder SVG][Placeholder SVG]gb[Placeholder SVG](0,[Placeholder SVG]0,[Placeholder SVG]0,[Placeholder SVG]0.3);
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-it[Placeholder SVG]m:[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG],
+[Placeholder SVG][Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-[Placeholder SVG]ink:[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG]x-s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w:[Placeholder SVG]0[Placeholder SVG]4px[Placeholder SVG]12px[Placeholder SVG][Placeholder SVG]gb[Placeholder SVG](0,[Placeholder SVG]0,[Placeholder SVG]0,[Placeholder SVG]0.4);
+[Placeholder SVG][Placeholder SVG]}
+}
+
+/*[Placeholder SVG][Placeholder SVG][Placeholder SVG]int[Placeholder SVG]sty[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]*/
+@m[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]p[Placeholder SVG]int[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG].t[Placeholder SVG]b[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]f-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nts,
+[Placeholder SVG][Placeholder SVG].sugg[Placeholder SVG]sti[Placeholder SVG]ns-[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG],
+[Placeholder SVG][Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v,
+[Placeholder SVG][Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]-p[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k-insi[Placeholder SVG][Placeholder SVG]:[Placeholder SVG][Placeholder SVG]v[Placeholder SVG]i[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG].s[Placeholder SVG]qu[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG]-n[Placeholder SVG]v-[Placeholder SVG]ink,
+[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink,
+[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]xtu[Placeholder SVG][Placeholder SVG]-[Placeholder SVG]ink[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k-insi[Placeholder SVG][Placeholder SVG]:[Placeholder SVG][Placeholder SVG]v[Placeholder SVG]i[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG]}
 }

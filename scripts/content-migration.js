@@ -1,373 +1,373 @@
-#!/usr/bin/env node
+#!/us[Placeholder SVG]/bin/[Placeholder SVG]nv[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]
 
 /**
- * Content Migration and Integration Script
- * Ensures all content is properly migrated and translations are complete
- */
+[Placeholder SVG]*[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]Mig[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]Int[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ipt
+[Placeholder SVG]*[Placeholder SVG]Ensu[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]is[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG]y[Placeholder SVG]mig[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]
+[Placeholder SVG]*/
 
-import fs from 'fs/promises';
-import path from 'path';
-import { fileURLToPath } from 'url';
+imp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]fs[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'fs/p[Placeholder SVG][Placeholder SVG]mis[Placeholder SVG]s';
+imp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'p[Placeholder SVG]t[Placeholder SVG]';
+imp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]{[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]URLT[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]}[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'u[Placeholder SVG][Placeholder SVG]';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+[Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]__fi[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]URLT[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG](imp[Placeholder SVG][Placeholder SVG]t.m[Placeholder SVG]t[Placeholder SVG].u[Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]__[Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].[Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG](__fi[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG]);
 
-class ContentMigrator {
-  constructor() {
-    this.supportedLanguages = ['en', 'nl', 'fr'];
-    this.contentTypes = ['development-roadmap', 'node-guides'];
-    this.dataDir = path.join(__dirname, '..', 'data');
-    this.errors = [];
-    this.warnings = [];
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]ntMig[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]u[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]['[Placeholder SVG]n',[Placeholder SVG]'n[Placeholder SVG]',[Placeholder SVG]'f[Placeholder SVG]'];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]['[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p',[Placeholder SVG]'n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s'];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(__[Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG],[Placeholder SVG]'..',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.w[Placeholder SVG][Placeholder SVG]nings[Placeholder SVG]=[Placeholder SVG][];
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Run complete content migration
-   */
-  async migrate() {
-    console.log('[Placeholder SVG] Starting content migration...\n');
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]Run[Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]mig[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]mig[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ting[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]mig[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n...\n');
 
-    try {
-      // Step 1: Validate directory structure
-      await this.validateDirectoryStructure();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]p[Placeholder SVG]1:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y[Placeholder SVG]st[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y[Placeholder SVG]t[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]();
 
-      // Step 2: Validate main content files
-      await this.validateMainContent();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]p[Placeholder SVG]2:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]M[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt();
 
-      // Step 3: Validate and complete translations
-      await this.validateTranslations();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]p[Placeholder SVG]3:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns();
 
-      // Step 4: Generate search index
-      await this.generateSearchIndex();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]p[Placeholder SVG]4:[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x();
 
-      // Step 5: Generate migration report
-      const report = await this.generateReport();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]p[Placeholder SVG]5:[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]mig[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]R[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t();
 
-      console.log('\n[Placeholder SVG] Migration Report:');
-      console.log('===================');
-      console.log(`[Placeholder SVG] Content types processed: ${report.contentTypes.length}`);
-      console.log(`[Placeholder SVG] Languages supported: ${report.languages.length}`);
-      console.log(`📄 Total phases: ${report.totalPhases}`);
-      console.log(`[Placeholder SVG] Total subsections: ${report.totalSubsections}`);
-      console.log(`[Placeholder SVG]  Warnings: ${this.warnings.length}`);
-      console.log(`[Placeholder SVG] Errors: ${this.errors.length}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]Mig[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]R[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t:');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('===================');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]typ[Placeholder SVG]s[Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s[Placeholder SVG]supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t.[Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`📄[Placeholder SVG]T[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t.t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]T[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t.t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]ubs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG]W[Placeholder SVG][Placeholder SVG]nings:[Placeholder SVG]${t[Placeholder SVG]is.w[Placeholder SVG][Placeholder SVG]nings.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s:[Placeholder SVG]${t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG]}`);
 
-      if (this.warnings.length > 0) {
-        console.log('\n[Placeholder SVG]  Warnings:');
-        this.warnings.forEach(warning => console.log(`   - ${warning}`));
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG]is.w[Placeholder SVG][Placeholder SVG]nings.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]>[Placeholder SVG]0)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG]W[Placeholder SVG][Placeholder SVG]nings:');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.w[Placeholder SVG][Placeholder SVG]nings.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](w[Placeholder SVG][Placeholder SVG]ning[Placeholder SVG]=>[Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG]${w[Placeholder SVG][Placeholder SVG]ning}`));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      if (this.errors.length > 0) {
-        console.log('\n[Placeholder SVG] Errors:');
-        this.errors.forEach(error => console.log(`   - ${error}`));
-        process.exit(1);
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]>[Placeholder SVG]0)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s:');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}`));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]xit(1);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      console.log('\n[Placeholder SVG] Content migration completed successfully!');
-    } catch (error) {
-      console.error('[Placeholder SVG] Migration failed:', error.message);
-      process.exit(1);
-    }
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]mig[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]su[Placeholder SVG][Placeholder SVG][Placeholder SVG]ssfu[Placeholder SVG][Placeholder SVG]y!');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]Mig[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]:',[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]xit(1);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Validate directory structure
-   */
-  async validateDirectoryStructure() {
-    console.log('📁 Validating directory structure...');
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y[Placeholder SVG]st[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y[Placeholder SVG]t[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('📁[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ting[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y[Placeholder SVG]st[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]...');
 
-    try {
-      await fs.access(this.dataDir);
-    } catch (error) {
-      throw new Error(`Data directory not found: ${this.dataDir}`);
-    }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](`D[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y[Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG]f[Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]${t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    // Check language directories
-    for (const lang of this.supportedLanguages) {
-      const langDir = path.join(this.dataDir, lang);
-      try {
-        await fs.access(langDir);
-        console.log(`   [Placeholder SVG] ${lang} directory exists`);
-      } catch (error) {
-        console.log(`   📁 Creating ${lang} directory...`);
-        await fs.mkdir(langDir, { recursive: true });
-      }
-    }
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]i[Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngDi[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss([Placeholder SVG][Placeholder SVG]ngDi[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[Placeholder SVG][Placeholder SVG][Placeholder SVG][[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]ng}[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y[Placeholder SVG][Placeholder SVG]xists`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[Placeholder SVG][Placeholder SVG][Placeholder SVG]📁[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]ting[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]ng}[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y...`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.mk[Placeholder SVG]i[Placeholder SVG]([Placeholder SVG][Placeholder SVG]ngDi[Placeholder SVG],[Placeholder SVG]{[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG]siv[Placeholder SVG]:[Placeholder SVG]t[Placeholder SVG]u[Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Validate main content files
-   */
-  async validateMainContent() {
-    console.log('\n📄 Validating main content files...');
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]M[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n📄[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ting[Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s...');
 
-    for (const contentType of this.contentTypes) {
-      const filePath = path.join(this.dataDir, `${contentType}.json`);
-      
-      try {
-        const content = await fs.readFile(filePath, 'utf8');
-        const data = JSON.parse(content);
-        
-        // Validate structure
-        this.validateContentStructure(data, contentType);
-        console.log(`   [Placeholder SVG] ${contentType}.json is valid`);
-      } catch (error) {
-        this.errors.push(`Invalid main content file ${contentType}.json: ${error.message}`);
-      }
-    }
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]st[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]t[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[Placeholder SVG][Placeholder SVG][Placeholder SVG][[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n[Placeholder SVG]is[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG]`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.pus[Placeholder SVG](`Inv[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Validate content structure
-   */
-  validateContentStructure(data, contentType) {
-    const required = ['title', 'description', 'phases'];
-    
-    for (const field of required) {
-      if (!data[field]) {
-        throw new Error(`Missing required field: ${field}`);
-      }
-    }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]st[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]t[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]['tit[Placeholder SVG][Placeholder SVG]',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n',[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s'];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](![Placeholder SVG][Placeholder SVG]t[Placeholder SVG][fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](`Missing[Placeholder SVG][Placeholder SVG][Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    if (!Array.isArray(data.phases)) {
-      throw new Error('Phases must be an array');
-    }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](!A[Placeholder SVG][Placeholder SVG][Placeholder SVG]y.isA[Placeholder SVG][Placeholder SVG][Placeholder SVG]y([Placeholder SVG][Placeholder SVG]t[Placeholder SVG].p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]('[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s[Placeholder SVG]must[Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]y');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    data.phases.forEach((phase, index) => {
-      const phaseRequired = ['id', 'title', 'description', 'estimatedTime', 'difficulty'];
-      for (const field of phaseRequired) {
-        if (!phase[field]) {
-          throw new Error(`Phase ${index + 1} missing required field: ${field}`);
-        }
-      }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG].p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]((p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG],[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x)[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]R[Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]['i[Placeholder SVG]',[Placeholder SVG]'tit[Placeholder SVG][Placeholder SVG]',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n',[Placeholder SVG]'[Placeholder SVG]stim[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Tim[Placeholder SVG]',[Placeholder SVG]'[Placeholder SVG]iffi[Placeholder SVG]u[Placeholder SVG]ty'];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]R[Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](!p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](`[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]${in[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}[Placeholder SVG]missing[Placeholder SVG][Placeholder SVG][Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-      if (phase.subsections && !Array.isArray(phase.subsections)) {
-        throw new Error(`Phase ${index + 1} subsections must be an array`);
-      }
-    });
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]&&[Placeholder SVG]!A[Placeholder SVG][Placeholder SVG][Placeholder SVG]y.isA[Placeholder SVG][Placeholder SVG][Placeholder SVG]y(p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](`[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]${in[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]must[Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]y`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Validate and complete translations
-   */
-  async validateTranslations() {
-    console.log('\n[Placeholder SVG] Validating translations...');
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ting[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns...');
 
-    for (const contentType of this.contentTypes) {
-      console.log(`\n   Processing ${contentType} translations:`);
-      
-      // Load main content as reference
-      const mainPath = path.join(this.dataDir, `${contentType}.json`);
-      const mainContent = JSON.parse(await fs.readFile(mainPath, 'utf8'));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`\n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ssing[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns:`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]L[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]([Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8'));
 
-      for (const lang of this.supportedLanguages) {
-        const langPath = path.join(this.dataDir, lang, `${contentType}.json`);
-        
-        try {
-          const translationContent = await fs.readFile(langPath, 'utf8');
-          const translation = JSON.parse(translationContent);
-          
-          // Validate translation completeness
-          const validation = this.validateTranslationCompleteness(mainContent, translation, lang, contentType);
-          
-          if (validation.complete) {
-            console.log(`     [Placeholder SVG] ${lang} translation complete`);
-          } else {
-            console.log(`     [Placeholder SVG]  ${lang} translation incomplete (${validation.completeness}%)`);
-            this.warnings.push(`${contentType} ${lang} translation is ${validation.completeness}% complete`);
-          }
-        } catch (error) {
-          console.log(`     [Placeholder SVG] ${lang} translation missing or invalid`);
-          this.errors.push(`${contentType} ${lang} translation error: ${error.message}`);
-        }
-      }
-    }
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng,[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]nC[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG](t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]nC[Placeholder SVG]nt[Placeholder SVG]nt);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]ss
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]nC[Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]ss(m[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt,[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng,[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]ng}[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]ng}[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG](${v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]ss}%)`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.w[Placeholder SVG][Placeholder SVG]nings.pus[Placeholder SVG](`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]ng}[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]is[Placeholder SVG]${v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]ss}%[Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]ng}[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]missing[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]inv[Placeholder SVG][Placeholder SVG]i[Placeholder SVG]`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.pus[Placeholder SVG](`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]ng}[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Validate translation completeness
-   */
-  validateTranslationCompleteness(mainContent, translation, lang, contentType) {
-    let totalFields = 0;
-    let translatedFields = 0;
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]ss
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]nC[Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]ss(m[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt,[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng,[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]0;
 
-    // Check main fields
-    const mainFields = ['title', 'description'];
-    mainFields.forEach(field => {
-      totalFields++;
-      if (translation[field]) translatedFields++;
-    });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]inFi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]['tit[Placeholder SVG][Placeholder SVG]',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n'];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]inFi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s++;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]])[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s++;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-    // Check navigation
-    if (translation.navigation) {
-      const navFields = ['home', 'phases', 'overview', 'nextStep', 'previousStep', 'backToPhases'];
-      navFields.forEach(field => {
-        totalFields++;
-        if (translation.navigation[field]) translatedFields++;
-      });
-    }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]n[Placeholder SVG]vFi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]['[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]',[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s',[Placeholder SVG]'[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]vi[Placeholder SVG]w',[Placeholder SVG]'n[Placeholder SVG]xt[Placeholder SVG]t[Placeholder SVG]p',[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]vi[Placeholder SVG]us[Placeholder SVG]t[Placeholder SVG]p',[Placeholder SVG]'b[Placeholder SVG][Placeholder SVG]kT[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s'];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]vFi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s++;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n[fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]])[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s++;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    // Check common terms
-    if (translation.common) {
-      const commonFields = ['estimatedTime', 'difficulty', 'prerequisites', 'beginner', 'intermediate', 'advanced'];
-      commonFields.forEach(field => {
-        totalFields++;
-        if (translation.common[field]) translatedFields++;
-      });
-    }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ms
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]nFi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]['[Placeholder SVG]stim[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Tim[Placeholder SVG]',[Placeholder SVG]'[Placeholder SVG]iffi[Placeholder SVG]u[Placeholder SVG]ty',[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]quisit[Placeholder SVG]s',[Placeholder SVG]'b[Placeholder SVG]ginn[Placeholder SVG][Placeholder SVG]',[Placeholder SVG]'int[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]i[Placeholder SVG]t[Placeholder SVG]',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]v[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]'];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]nFi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s++;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n[fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]])[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s++;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    // Check phases
-    if (translation.phases && Array.isArray(translation.phases)) {
-      mainContent.phases.forEach((mainPhase, index) => {
-        const translatedPhase = translation.phases.find(p => p.id === mainPhase.id);
-        
-        ['title', 'description', 'estimatedTime', 'difficulty'].forEach(field => {
-          totalFields++;
-          if (translatedPhase && translatedPhase[field]) translatedFields++;
-        });
-      });
-    }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s[Placeholder SVG]&&[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG]y.isA[Placeholder SVG][Placeholder SVG][Placeholder SVG]y(t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]((m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG],[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x)[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.fin[Placeholder SVG](p[Placeholder SVG]=>[Placeholder SVG]p.i[Placeholder SVG][Placeholder SVG]===[Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG].i[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]['tit[Placeholder SVG][Placeholder SVG]',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n',[Placeholder SVG]'[Placeholder SVG]stim[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Tim[Placeholder SVG]',[Placeholder SVG]'[Placeholder SVG]iffi[Placeholder SVG]u[Placeholder SVG]ty'].f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s++;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]&&[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]])[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s++;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    const completeness = Math.round((translatedFields / totalFields) * 100);
-    
-    return {
-      complete: completeness >= 90, // Consider 90%+ as complete
-      completeness,
-      translatedFields,
-      totalFields
-    };
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]ss[Placeholder SVG]=[Placeholder SVG]M[Placeholder SVG]t[Placeholder SVG].[Placeholder SVG][Placeholder SVG]un[Placeholder SVG]((t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]/[Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s)[Placeholder SVG]*[Placeholder SVG]100);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]:[Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]ss[Placeholder SVG]>=[Placeholder SVG]90,[Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG]nsi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]90%+[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]ss,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Generate search index
-   */
-  async generateSearchIndex() {
-    console.log('\n[Placeholder SVG] Generating search index...');
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]ting[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x...');
 
-    const searchIndex = {
-      timestamp: new Date().toISOString(),
-      languages: {},
-      totalEntries: 0
-    };
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tim[Placeholder SVG]st[Placeholder SVG]mp:[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]D[Placeholder SVG]t[Placeholder SVG]().t[Placeholder SVG]I[Placeholder SVG]O[Placeholder SVG]t[Placeholder SVG]ing(),
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s:[Placeholder SVG]{},
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Ent[Placeholder SVG]i[Placeholder SVG]s:[Placeholder SVG]0
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
 
-    for (const lang of this.supportedLanguages) {
-      searchIndex.languages[lang] = [];
-      
-      for (const contentType of this.contentTypes) {
-        try {
-          const langPath = path.join(this.dataDir, lang, `${contentType}.json`);
-          const translation = JSON.parse(await fs.readFile(langPath, 'utf8'));
-          
-          // Load main content for detailed data
-          const mainPath = path.join(this.dataDir, `${contentType}.json`);
-          const mainContent = JSON.parse(await fs.readFile(mainPath, 'utf8'));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x.[Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s[[Placeholder SVG][Placeholder SVG]ng][Placeholder SVG]=[Placeholder SVG][];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng,[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]([Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8'));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]L[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]([Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8'));
 
-          // Index phases and subsections
-          mainContent.phases.forEach(phase => {
-            const translatedPhase = translation.phases?.find(p => p.id === phase.id);
-            
-            searchIndex.languages[lang].push({
-              type: 'phase',
-              contentType,
-              id: phase.id,
-              title: translatedPhase?.title || phase.title,
-              description: translatedPhase?.description || phase.description,
-              url: `/${contentType}/${phase.id}/`,
-              keywords: [contentType, phase.id, 'phase']
-            });
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s?.fin[Placeholder SVG](p[Placeholder SVG]=>[Placeholder SVG]p.i[Placeholder SVG][Placeholder SVG]===[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].i[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x.[Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s[[Placeholder SVG][Placeholder SVG]ng].pus[Placeholder SVG]({
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG]:[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].i[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]?.tit[Placeholder SVG][Placeholder SVG][Placeholder SVG]||[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].tit[Placeholder SVG][Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]?.[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n[Placeholder SVG]||[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]`/${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}/${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].i[Placeholder SVG]}/`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s:[Placeholder SVG][[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG],[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].i[Placeholder SVG],[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]']
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
 
-            if (phase.subsections) {
-              phase.subsections.forEach(subsection => {
-                const translatedSubsection = translatedPhase?.subsections?.find(s => s.id === subsection.id);
-                
-                searchIndex.languages[lang].push({
-                  type: 'subsection',
-                  contentType,
-                  phaseId: phase.id,
-                  id: subsection.id,
-                  title: translatedSubsection?.title || subsection.title,
-                  description: translatedSubsection?.description || subsection.description,
-                  url: `/${contentType}/${phase.id}/${subsection.id}.html`,
-                  keywords: [contentType, phase.id, subsection.id, 'guide']
-                });
-              });
-            }
-          });
-        } catch (error) {
-          this.warnings.push(`Failed to index ${contentType} for ${lang}: ${error.message}`);
-        }
-      }
-      
-      searchIndex.totalEntries += searchIndex.languages[lang].length;
-    }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]ubs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]?.subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns?.fin[Placeholder SVG](s[Placeholder SVG]=>[Placeholder SVG]s.i[Placeholder SVG][Placeholder SVG]===[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.i[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x.[Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s[[Placeholder SVG][Placeholder SVG]ng].pus[Placeholder SVG]({
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]typ[Placeholder SVG]:[Placeholder SVG]'subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]I[Placeholder SVG]:[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].i[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG]:[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.i[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]ubs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n?.tit[Placeholder SVG][Placeholder SVG][Placeholder SVG]||[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.tit[Placeholder SVG][Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n:[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]ubs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n?.[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n[Placeholder SVG]||[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]`/${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}/${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].i[Placeholder SVG]}/${subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.i[Placeholder SVG]}.[Placeholder SVG]tm[Placeholder SVG]`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]yw[Placeholder SVG][Placeholder SVG][Placeholder SVG]s:[Placeholder SVG][[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG],[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].i[Placeholder SVG],[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.i[Placeholder SVG],[Placeholder SVG]'gui[Placeholder SVG][Placeholder SVG]']
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.w[Placeholder SVG][Placeholder SVG]nings.pus[Placeholder SVG](`F[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]ng}:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x.t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Ent[Placeholder SVG]i[Placeholder SVG]s[Placeholder SVG]+=[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x.[Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s[[Placeholder SVG][Placeholder SVG]ng].[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    // Write search index
-    const indexPath = path.join(this.dataDir, 'search-index.json');
-    await fs.writeFile(indexPath, JSON.stringify(searchIndex, null, 2));
-    
-    console.log(`   [Placeholder SVG] Search index generated with ${searchIndex.totalEntries} entries`);
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]W[Placeholder SVG]it[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG]'s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-in[Placeholder SVG][Placeholder SVG]x.js[Placeholder SVG]n');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.w[Placeholder SVG]it[Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](in[Placeholder SVG][Placeholder SVG]x[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]J[Placeholder SVG]ON.st[Placeholder SVG]ingify(s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x,[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG],[Placeholder SVG]2));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[Placeholder SVG][Placeholder SVG][Placeholder SVG][[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG]${s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x.t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Ent[Placeholder SVG]i[Placeholder SVG]s}[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]i[Placeholder SVG]s`);
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Generate migration report
-   */
-  async generateReport() {
-    const report = {
-      timestamp: new Date().toISOString(),
-      contentTypes: this.contentTypes,
-      languages: this.supportedLanguages,
-      totalPhases: 0,
-      totalSubsections: 0,
-      translationStatus: {}
-    };
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]mig[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]R[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tim[Placeholder SVG]st[Placeholder SVG]mp:[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]D[Placeholder SVG]t[Placeholder SVG]().t[Placeholder SVG]I[Placeholder SVG]O[Placeholder SVG]t[Placeholder SVG]ing(),
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s:[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s:[Placeholder SVG]t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s:[Placeholder SVG]0,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]ubs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns:[Placeholder SVG]0,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG]tus:[Placeholder SVG]{}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
 
-    for (const contentType of this.contentTypes) {
-      try {
-        const mainPath = path.join(this.dataDir, `${contentType}.json`);
-        const mainContent = JSON.parse(await fs.readFile(mainPath, 'utf8'));
-        
-        report.totalPhases += mainContent.phases.length;
-        report.totalSubsections += mainContent.phases.reduce((total, phase) => 
-          total + (phase.subsections ? phase.subsections.length : 0), 0);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]([Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8'));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t.t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s[Placeholder SVG]+=[Placeholder SVG]m[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t.t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]ubs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]+=[Placeholder SVG]m[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]((t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG],[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG])[Placeholder SVG]=>[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]+[Placeholder SVG](p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]?[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]0),[Placeholder SVG]0);
 
-        report.translationStatus[contentType] = {};
-        
-        for (const lang of this.supportedLanguages) {
-          try {
-            const langPath = path.join(this.dataDir, lang, `${contentType}.json`);
-            const translation = JSON.parse(await fs.readFile(langPath, 'utf8'));
-            const validation = this.validateTranslationCompleteness(mainContent, translation, lang, contentType);
-            
-            report.translationStatus[contentType][lang] = {
-              completeness: validation.completeness,
-              complete: validation.complete
-            };
-          } catch (error) {
-            report.translationStatus[contentType][lang] = {
-              error: error.message
-            };
-          }
-        }
-      } catch (error) {
-        this.errors.push(`Failed to process ${contentType}: ${error.message}`);
-      }
-    }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t.t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG]tus[[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]][Placeholder SVG]=[Placeholder SVG]{};
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng,[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]([Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8'));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]nC[Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]ss(m[Placeholder SVG]inC[Placeholder SVG]nt[Placeholder SVG]nt,[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng,[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t.t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG]tus[[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]][[Placeholder SVG][Placeholder SVG]ng][Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]ss:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]ss,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]:[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t.t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG]tus[[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]][[Placeholder SVG][Placeholder SVG]ng][Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s.pus[Placeholder SVG](`F[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
 
-    // Write report
-    const reportPath = path.join(__dirname, '..', 'migration-report.json');
-    await fs.writeFile(reportPath, JSON.stringify(report, null, 2));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]W[Placeholder SVG]it[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(__[Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG],[Placeholder SVG]'..',[Placeholder SVG]'mig[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n-[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t.js[Placeholder SVG]n');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.w[Placeholder SVG]it[Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]J[Placeholder SVG]ON.st[Placeholder SVG]ingify([Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t,[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG],[Placeholder SVG]2));
 
-    return report;
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t;
+[Placeholder SVG][Placeholder SVG]}
 }
 
-// Run migration if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  const migrator = new ContentMigrator();
-  migrator.migrate().catch(error => {
-    console.error('Migration failed:', error);
-    process.exit(1);
-  });
+//[Placeholder SVG]Run[Placeholder SVG]mig[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]if[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y
+if[Placeholder SVG](imp[Placeholder SVG][Placeholder SVG]t.m[Placeholder SVG]t[Placeholder SVG].u[Placeholder SVG][Placeholder SVG][Placeholder SVG]===[Placeholder SVG]`fi[Placeholder SVG][Placeholder SVG]://${p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG][Placeholder SVG]gv[1]}`)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]mig[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]ntMig[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]();
+[Placeholder SVG][Placeholder SVG]mig[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG].mig[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]().[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]('Mig[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]:',[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]xit(1);
+[Placeholder SVG][Placeholder SVG]});
 }
 
-export default ContentMigrator;
+[Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]u[Placeholder SVG]t[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]ntMig[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG];

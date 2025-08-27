@@ -1,495 +1,495 @@
-#!/usr/bin/env node
+#!/us[Placeholder SVG]/bin/[Placeholder SVG]nv[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]
 
 /**
- * Quality Assurance System
- * Comprehensive content quality checks and validation
- */
+[Placeholder SVG]*[Placeholder SVG]Qu[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG]Assu[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]yst[Placeholder SVG]m
+[Placeholder SVG]*[Placeholder SVG]C[Placeholder SVG]mp[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nsiv[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]qu[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG]*/
 
-import fs from 'fs/promises';
-import path from 'path';
-import { fileURLToPath } from 'url';
+imp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]fs[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'fs/p[Placeholder SVG][Placeholder SVG]mis[Placeholder SVG]s';
+imp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'p[Placeholder SVG]t[Placeholder SVG]';
+imp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]{[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]URLT[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]}[Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]'u[Placeholder SVG][Placeholder SVG]';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+[Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]__fi[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]URLT[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG](imp[Placeholder SVG][Placeholder SVG]t.m[Placeholder SVG]t[Placeholder SVG].u[Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]__[Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].[Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG](__fi[Placeholder SVG][Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG]);
 
-class QualityAssurance {
-  constructor() {
-    this.supportedLanguages = ['en', 'nl', 'fr'];
-    this.contentTypes = ['development-roadmap', 'node-guides'];
-    this.dataDir = path.join(__dirname, '..', 'data');
-    this.issues = [];
-    this.checks = [];
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]ss[Placeholder SVG]Qu[Placeholder SVG][Placeholder SVG]ityAssu[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]u[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]['[Placeholder SVG]n',[Placeholder SVG]'n[Placeholder SVG]',[Placeholder SVG]'f[Placeholder SVG]'];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]['[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG]pm[Placeholder SVG]nt-[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]p',[Placeholder SVG]'n[Placeholder SVG][Placeholder SVG][Placeholder SVG]-gui[Placeholder SVG][Placeholder SVG]s'];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(__[Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG],[Placeholder SVG]'..',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.issu[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG][];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks[Placeholder SVG]=[Placeholder SVG][];
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Run comprehensive quality assurance
-   */
-  async runQA() {
-    console.log('[Placeholder SVG] Starting Quality Assurance checks...\n');
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]Run[Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nsiv[Placeholder SVG][Placeholder SVG]qu[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG][Placeholder SVG]ssu[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG][Placeholder SVG]unQA()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ting[Placeholder SVG]Qu[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG]Assu[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks...\n');
 
-    try {
-      // Content structure validation
-      await this.validateContentStructure();
-      
-      // Translation consistency checks
-      await this.validateTranslationConsistency();
-      
-      // Code block validation
-      await this.validateCodeBlocks();
-      
-      // Link validation
-      await this.validateLinks();
-      
-      // Accessibility checks
-      await this.validateAccessibility();
-      
-      // Performance checks
-      await this.validatePerformance();
-      
-      // Generate QA report
-      const report = await this.generateQAReport();
-      
-      console.log('\n[Placeholder SVG] Quality Assurance Report:');
-      console.log('============================');
-      console.log(`[Placeholder SVG] Total checks performed: ${this.checks.length}`);
-      console.log(`[Placeholder SVG]  Issues found: ${this.issues.length}`);
-      console.log(`[Placeholder SVG] Quality score: ${this.calculateQualityScore()}%`);
-      
-      if (this.issues.length > 0) {
-        console.log('\n[Placeholder SVG] Issues found:');
-        this.issues.forEach((issue, index) => {
-          console.log(`   ${index + 1}. [${issue.severity}] ${issue.message}`);
-          if (issue.location) {
-            console.log(`      Location: ${issue.location}`);
-          }
-          if (issue.suggestion) {
-            console.log(`      Suggestion: ${issue.suggestion}`);
-          }
-        });
-      }
-      
-      console.log('\n[Placeholder SVG] Quality assurance completed!');
-      
-      // Exit with error code if critical issues found
-      const criticalIssues = this.issues.filter(issue => issue.severity === 'critical');
-      if (criticalIssues.length > 0) {
-        console.log(`\n[Placeholder SVG] ${criticalIssues.length} critical issues found. Please fix before deployment.`);
-        process.exit(1);
-      }
-      
-    } catch (error) {
-      console.error('[Placeholder SVG] Quality assurance failed:', error.message);
-      process.exit(1);
-    }
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]st[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]t[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]nsist[Placeholder SVG]n[Placeholder SVG]y[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]nC[Placeholder SVG]nsist[Placeholder SVG]n[Placeholder SVG]y();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]B[Placeholder SVG][Placeholder SVG][Placeholder SVG]ks();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]Link[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Links();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG]ssibi[Placeholder SVG]ity[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG]ssibi[Placeholder SVG]ity();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]QA[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]t[Placeholder SVG]is.g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]QAR[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]Qu[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG]Assu[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]R[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t:');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('============================');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]T[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]s[Placeholder SVG]f[Placeholder SVG]un[Placeholder SVG]:[Placeholder SVG]${t[Placeholder SVG]is.issu[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]Qu[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Qu[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]()}%`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG]is.issu[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]>[Placeholder SVG]0)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]Issu[Placeholder SVG]s[Placeholder SVG]f[Placeholder SVG]un[Placeholder SVG]:');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.issu[Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]((issu[Placeholder SVG],[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x)[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[Placeholder SVG][Placeholder SVG][Placeholder SVG]${in[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}.[Placeholder SVG][${issu[Placeholder SVG].s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ity}][Placeholder SVG]${issu[Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](issu[Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]L[Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n:[Placeholder SVG]${issu[Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](issu[Placeholder SVG].sugg[Placeholder SVG]sti[Placeholder SVG]n)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ugg[Placeholder SVG]sti[Placeholder SVG]n:[Placeholder SVG]${issu[Placeholder SVG].sugg[Placeholder SVG]sti[Placeholder SVG]n}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]Qu[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG][Placeholder SVG]ssu[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]!');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]Exit[Placeholder SVG]wit[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG][Placeholder SVG][Placeholder SVG]iti[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]issu[Placeholder SVG]s[Placeholder SVG]f[Placeholder SVG]un[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]iti[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.issu[Placeholder SVG]s.fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](issu[Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]issu[Placeholder SVG].s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG]===[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]iti[Placeholder SVG][Placeholder SVG][Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG]iti[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]>[Placeholder SVG]0)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g(`\n[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]iti[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]iti[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]issu[Placeholder SVG]s[Placeholder SVG]f[Placeholder SVG]un[Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]fix[Placeholder SVG]b[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]ym[Placeholder SVG]nt.`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]xit(1);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]Qu[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG][Placeholder SVG]ssu[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]:',[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]xit(1);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Validate content structure and completeness
-   */
-  async validateContentStructure() {
-    console.log('[Placeholder SVG] Validating content structure...');
-    
-    for (const contentType of this.contentTypes) {
-      try {
-        const mainPath = path.join(this.dataDir, `${contentType}.json`);
-        const content = JSON.parse(await fs.readFile(mainPath, 'utf8'));
-        
-        // Check required fields
-        this.checkRequiredFields(content, ['title', 'description', 'phases'], `${contentType} main`);
-        
-        // Validate phases
-        content.phases.forEach((phase, phaseIndex) => {
-          this.checkRequiredFields(phase, ['id', 'title', 'description', 'estimatedTime', 'difficulty'], 
-            `${contentType} phase ${phaseIndex + 1}`);
-          
-          // Validate subsections if they exist
-          if (phase.subsections) {
-            phase.subsections.forEach((subsection, subIndex) => {
-              this.checkRequiredFields(subsection, ['id', 'title', 'description', 'content'], 
-                `${contentType} phase ${phaseIndex + 1} subsection ${subIndex + 1}`);
-              
-              // Check content length
-              if (subsection.content && subsection.content.length < 50) {
-                this.addIssue('warning', 
-                  `Content too short in ${contentType} phase ${phaseIndex + 1} subsection ${subIndex + 1}`,
-                  `${contentType}/${phase.id}/${subsection.id}`,
-                  'Consider expanding the content to provide more value to users');
-              }
-            });
-          }
-        });
-        
-        this.addCheck(`Content structure validation for ${contentType}`);
-        
-      } catch (error) {
-        this.addIssue('critical', `Failed to validate ${contentType} structure: ${error.message}`);
-      }
-    }
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]st[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]ss
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]C[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]t[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ting[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]st[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]...');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]([Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8'));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]kR[Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s([Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt,[Placeholder SVG]['tit[Placeholder SVG][Placeholder SVG]',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n',[Placeholder SVG]'p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s'],[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}[Placeholder SVG]m[Placeholder SVG]in`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]((p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG],[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x)[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]kR[Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s(p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG],[Placeholder SVG]['i[Placeholder SVG]',[Placeholder SVG]'tit[Placeholder SVG][Placeholder SVG]',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n',[Placeholder SVG]'[Placeholder SVG]stim[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Tim[Placeholder SVG]',[Placeholder SVG]'[Placeholder SVG]iffi[Placeholder SVG]u[Placeholder SVG]ty'],[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]if[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]y[Placeholder SVG][Placeholder SVG]xist
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]((subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,[Placeholder SVG]subIn[Placeholder SVG][Placeholder SVG]x)[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]kR[Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s(subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,[Placeholder SVG]['i[Placeholder SVG]',[Placeholder SVG]'tit[Placeholder SVG][Placeholder SVG]',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt'],[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]${subIn[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]&&[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]<[Placeholder SVG]50)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('w[Placeholder SVG][Placeholder SVG]ning',[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`C[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]in[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]${subIn[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}/${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].i[Placeholder SVG]}/${subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.i[Placeholder SVG]}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'C[Placeholder SVG]nsi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG]n[Placeholder SVG]ing[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]vi[Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]us[Placeholder SVG][Placeholder SVG]s');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k(`C[Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]st[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('[Placeholder SVG][Placeholder SVG]iti[Placeholder SVG][Placeholder SVG][Placeholder SVG]',[Placeholder SVG]`F[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}[Placeholder SVG]st[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Validate translation consistency
-   */
-  async validateTranslationConsistency() {
-    console.log('[Placeholder SVG] Validating translation consistency...');
-    
-    for (const contentType of this.contentTypes) {
-      const translations = {};
-      
-      // Load all translations
-      for (const lang of this.supportedLanguages) {
-        try {
-          const langPath = path.join(this.dataDir, lang, `${contentType}.json`);
-          translations[lang] = JSON.parse(await fs.readFile(langPath, 'utf8'));
-        } catch (error) {
-          this.addIssue('high', `Missing ${lang} translation for ${contentType}`);
-          continue;
-        }
-      }
-      
-      // Check consistency across languages
-      const baseTranslation = translations['en'];
-      if (baseTranslation) {
-        for (const lang of this.supportedLanguages) {
-          if (lang === 'en' || !translations[lang]) continue;
-          
-          // Check phase count consistency
-          if (baseTranslation.phases && translations[lang].phases) {
-            if (baseTranslation.phases.length !== translations[lang].phases.length) {
-              this.addIssue('high', 
-                `Phase count mismatch in ${lang} translation for ${contentType}`,
-                `${contentType}/${lang}`,
-                'Ensure all phases are translated');
-            }
-          }
-          
-          // Check navigation completeness
-          if (baseTranslation.navigation && translations[lang].navigation) {
-            const baseNavKeys = Object.keys(baseTranslation.navigation);
-            const langNavKeys = Object.keys(translations[lang].navigation);
-            
-            const missingKeys = baseNavKeys.filter(key => !langNavKeys.includes(key));
-            if (missingKeys.length > 0) {
-              this.addIssue('medium', 
-                `Missing navigation translations in ${lang} for ${contentType}: ${missingKeys.join(', ')}`,
-                `${contentType}/${lang}/navigation`);
-            }
-          }
-        }
-      }
-      
-      this.addCheck(`Translation consistency for ${contentType}`);
-    }
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]nsist[Placeholder SVG]n[Placeholder SVG]y
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]nC[Placeholder SVG]nsist[Placeholder SVG]n[Placeholder SVG]y()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ting[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]nsist[Placeholder SVG]n[Placeholder SVG]y...');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]=[Placeholder SVG]{};
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]L[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng,[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[[Placeholder SVG][Placeholder SVG]ng][Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]([Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8'));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('[Placeholder SVG]ig[Placeholder SVG]',[Placeholder SVG]`Missing[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]ng}[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ntinu[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG]nsist[Placeholder SVG]n[Placeholder SVG]y[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]b[Placeholder SVG]s[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns['[Placeholder SVG]n'];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](b[Placeholder SVG]s[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]ng[Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.supp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]L[Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG]ng[Placeholder SVG]===[Placeholder SVG]'[Placeholder SVG]n'[Placeholder SVG]||[Placeholder SVG]!t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[[Placeholder SVG][Placeholder SVG]ng])[Placeholder SVG][Placeholder SVG][Placeholder SVG]ntinu[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]unt[Placeholder SVG][Placeholder SVG][Placeholder SVG]nsist[Placeholder SVG]n[Placeholder SVG]y
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](b[Placeholder SVG]s[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s[Placeholder SVG]&&[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[[Placeholder SVG][Placeholder SVG]ng].p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](b[Placeholder SVG]s[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]!==[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[[Placeholder SVG][Placeholder SVG]ng].p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('[Placeholder SVG]ig[Placeholder SVG]',[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]unt[Placeholder SVG]mism[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]ng}[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}/${[Placeholder SVG][Placeholder SVG]ng}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'Ensu[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG]ss
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](b[Placeholder SVG]s[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]&&[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[[Placeholder SVG][Placeholder SVG]ng].n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]b[Placeholder SVG]s[Placeholder SVG]N[Placeholder SVG]vK[Placeholder SVG]ys[Placeholder SVG]=[Placeholder SVG]Obj[Placeholder SVG][Placeholder SVG]t.k[Placeholder SVG]ys(b[Placeholder SVG]s[Placeholder SVG]T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngN[Placeholder SVG]vK[Placeholder SVG]ys[Placeholder SVG]=[Placeholder SVG]Obj[Placeholder SVG][Placeholder SVG]t.k[Placeholder SVG]ys(t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[[Placeholder SVG][Placeholder SVG]ng].n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]missingK[Placeholder SVG]ys[Placeholder SVG]=[Placeholder SVG]b[Placeholder SVG]s[Placeholder SVG]N[Placeholder SVG]vK[Placeholder SVG]ys.fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](k[Placeholder SVG]y[Placeholder SVG]=>[Placeholder SVG]![Placeholder SVG][Placeholder SVG]ngN[Placeholder SVG]vK[Placeholder SVG]ys.in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s(k[Placeholder SVG]y));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](missingK[Placeholder SVG]ys.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]>[Placeholder SVG]0)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('m[Placeholder SVG][Placeholder SVG]ium',[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`Missing[Placeholder SVG]n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]in[Placeholder SVG]${[Placeholder SVG][Placeholder SVG]ng}[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}:[Placeholder SVG]${missingK[Placeholder SVG]ys.j[Placeholder SVG]in(',[Placeholder SVG]')}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}/${[Placeholder SVG][Placeholder SVG]ng}/n[Placeholder SVG]vig[Placeholder SVG]ti[Placeholder SVG]n`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k(`T[Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]nsist[Placeholder SVG]n[Placeholder SVG]y[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Validate code blocks
-   */
-  async validateCodeBlocks() {
-    console.log('[Placeholder SVG] Validating code blocks...');
-    
-    for (const contentType of this.contentTypes) {
-      try {
-        const mainPath = path.join(this.dataDir, `${contentType}.json`);
-        const content = JSON.parse(await fs.readFile(mainPath, 'utf8'));
-        
-        content.phases.forEach((phase, phaseIndex) => {
-          if (phase.subsections) {
-            phase.subsections.forEach((subsection, subIndex) => {
-              if (subsection.codeBlocks) {
-                subsection.codeBlocks.forEach((codeBlock, codeIndex) => {
-                  // Check required code block fields
-                  this.checkRequiredFields(codeBlock, ['language', 'code'], 
-                    `${contentType} phase ${phaseIndex + 1} subsection ${subIndex + 1} code block ${codeIndex + 1}`);
-                  
-                  // Validate code syntax (basic checks)
-                  if (codeBlock.code) {
-                    this.validateCodeSyntax(codeBlock, 
-                      `${contentType} phase ${phaseIndex + 1} subsection ${subIndex + 1} code block ${codeIndex + 1}`);
-                  }
-                });
-              }
-            });
-          }
-        });
-        
-        this.addCheck(`Code block validation for ${contentType}`);
-        
-      } catch (error) {
-        this.addIssue('medium', `Failed to validate code blocks for ${contentType}: ${error.message}`);
-      }
-    }
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]ks
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]B[Placeholder SVG][Placeholder SVG][Placeholder SVG]ks()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('[[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ting[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]ks...');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]([Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8'));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]((p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG],[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x)[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]((subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,[Placeholder SVG]subIn[Placeholder SVG][Placeholder SVG]x)[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]B[Placeholder SVG][Placeholder SVG][Placeholder SVG]ks)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]B[Placeholder SVG][Placeholder SVG][Placeholder SVG]ks.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]B[Placeholder SVG][Placeholder SVG][Placeholder SVG]k,[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x)[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]kR[Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]B[Placeholder SVG][Placeholder SVG][Placeholder SVG]k,[Placeholder SVG]['[Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]',[Placeholder SVG]'[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'],[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]${subIn[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]synt[Placeholder SVG]x[Placeholder SVG](b[Placeholder SVG]si[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks)
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]B[Placeholder SVG][Placeholder SVG][Placeholder SVG]k.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ynt[Placeholder SVG]x([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]B[Placeholder SVG][Placeholder SVG][Placeholder SVG]k,[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]${subIn[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k(`C[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('m[Placeholder SVG][Placeholder SVG]ium',[Placeholder SVG]`F[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]ks[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Validate code syntax (basic checks)
-   */
-  validateCodeSyntax(codeBlock, location) {
-    const { language, code } = codeBlock;
-    
-    // Basic syntax checks based on language
-    switch (language) {
-      case 'javascript':
-      case 'js':
-        // Check for common JS syntax issues
-        if (code.includes('function') && !code.includes('{')) {
-          this.addIssue('low', `Potential syntax issue in JavaScript code`, location,
-            'Check for missing opening braces in function declarations');
-        }
-        break;
-        
-      case 'bash':
-      case 'shell':
-        // Check for common bash issues
-        if (code.includes('sudo') && !code.includes('apt') && !code.includes('yum') && !code.includes('systemctl')) {
-          this.addIssue('low', `Sudo usage without common commands`, location,
-            'Verify sudo usage is appropriate and safe');
-        }
-        break;
-        
-      case 'json':
-        // Validate JSON syntax
-        try {
-          JSON.parse(code);
-        } catch (error) {
-          this.addIssue('medium', `Invalid JSON syntax`, location,
-            'Fix JSON syntax errors');
-        }
-        break;
-    }
-    
-    // Check for placeholder values that might need updating
-    if (code.includes('your_email@example.com') || code.includes('your_password_here')) {
-      this.addIssue('low', `Placeholder values found in code`, location,
-        'Consider using more descriptive placeholder text');
-    }
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]synt[Placeholder SVG]x[Placeholder SVG](b[Placeholder SVG]si[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks)
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ynt[Placeholder SVG]x([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]B[Placeholder SVG][Placeholder SVG][Placeholder SVG]k,[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]{[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG]=[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]B[Placeholder SVG][Placeholder SVG][Placeholder SVG]k;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]B[Placeholder SVG]si[Placeholder SVG][Placeholder SVG]synt[Placeholder SVG]x[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks[Placeholder SVG]b[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]swit[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]ngu[Placeholder SVG]g[Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]'j[Placeholder SVG]v[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipt':
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]'js':
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n[Placeholder SVG]J[Placeholder SVG][Placeholder SVG]synt[Placeholder SVG]x[Placeholder SVG]issu[Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('fun[Placeholder SVG]ti[Placeholder SVG]n')[Placeholder SVG]&&[Placeholder SVG]![Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('{'))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('[Placeholder SVG][Placeholder SVG]w',[Placeholder SVG]`[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]nti[Placeholder SVG][Placeholder SVG][Placeholder SVG]synt[Placeholder SVG]x[Placeholder SVG]issu[Placeholder SVG][Placeholder SVG]in[Placeholder SVG]J[Placeholder SVG]v[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ipt[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`,[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]missing[Placeholder SVG][Placeholder SVG]p[Placeholder SVG]ning[Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]in[Placeholder SVG]fun[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]'b[Placeholder SVG]s[Placeholder SVG]':
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]'s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]':
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n[Placeholder SVG]b[Placeholder SVG]s[Placeholder SVG][Placeholder SVG]issu[Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('su[Placeholder SVG][Placeholder SVG]')[Placeholder SVG]&&[Placeholder SVG]![Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('[Placeholder SVG]pt')[Placeholder SVG]&&[Placeholder SVG]![Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('yum')[Placeholder SVG]&&[Placeholder SVG]![Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('syst[Placeholder SVG]m[Placeholder SVG]t[Placeholder SVG]'))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('[Placeholder SVG][Placeholder SVG]w',[Placeholder SVG]`[Placeholder SVG]u[Placeholder SVG][Placeholder SVG][Placeholder SVG]us[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]wit[Placeholder SVG][Placeholder SVG]ut[Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]mm[Placeholder SVG]n[Placeholder SVG]s`,[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'[Placeholder SVG][Placeholder SVG][Placeholder SVG]ify[Placeholder SVG]su[Placeholder SVG][Placeholder SVG][Placeholder SVG]us[Placeholder SVG]g[Placeholder SVG][Placeholder SVG]is[Placeholder SVG][Placeholder SVG]pp[Placeholder SVG][Placeholder SVG]p[Placeholder SVG]i[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]f[Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]'js[Placeholder SVG]n':
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]J[Placeholder SVG]ON[Placeholder SVG]synt[Placeholder SVG]x
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('m[Placeholder SVG][Placeholder SVG]ium',[Placeholder SVG]`Inv[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]J[Placeholder SVG]ON[Placeholder SVG]synt[Placeholder SVG]x`,[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'Fix[Placeholder SVG]J[Placeholder SVG]ON[Placeholder SVG]synt[Placeholder SVG]x[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG][Placeholder SVG]k;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]s[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]mig[Placeholder SVG]t[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]up[Placeholder SVG][Placeholder SVG]ting
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('y[Placeholder SVG]u[Placeholder SVG]_[Placeholder SVG]m[Placeholder SVG]i[Placeholder SVG]@[Placeholder SVG]x[Placeholder SVG]mp[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]m')[Placeholder SVG]||[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('y[Placeholder SVG]u[Placeholder SVG]_p[Placeholder SVG]ssw[Placeholder SVG][Placeholder SVG][Placeholder SVG]_[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('[Placeholder SVG][Placeholder SVG]w',[Placeholder SVG]`[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]s[Placeholder SVG]f[Placeholder SVG]un[Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`,[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'C[Placeholder SVG]nsi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]using[Placeholder SVG]m[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]iptiv[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]xt');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Validate internal links
-   */
-  async validateLinks() {
-    console.log('🔗 Validating links...');
-    
-    for (const contentType of this.contentTypes) {
-      try {
-        const mainPath = path.join(this.dataDir, `${contentType}.json`);
-        const content = JSON.parse(await fs.readFile(mainPath, 'utf8'));
-        
-        // Collect all valid internal IDs
-        const validIds = new Set();
-        content.phases.forEach(phase => {
-          validIds.add(phase.id);
-          if (phase.subsections) {
-            phase.subsections.forEach(subsection => {
-              validIds.add(`${phase.id}/${subsection.id}`);
-              validIds.add(subsection.id);
-            });
-          }
-        });
-        
-        // Check for broken internal references
-        content.phases.forEach((phase, phaseIndex) => {
-          if (phase.subsections) {
-            phase.subsections.forEach((subsection, subIndex) => {
-              if (subsection.content) {
-                const links = subsection.content.match(/\[([^\]]+)\]\(#([^)]+)\)/g);
-                if (links) {
-                  links.forEach(link => {
-                    const match = link.match(/\[([^\]]+)\]\(#([^)]+)\)/);
-                    if (match) {
-                      const linkTarget = match[2];
-                      if (!validIds.has(linkTarget)) {
-                        this.addIssue('medium', 
-                          `Broken internal link: ${linkTarget}`,
-                          `${contentType} phase ${phaseIndex + 1} subsection ${subIndex + 1}`,
-                          'Update link target or create missing content');
-                      }
-                    }
-                  });
-                }
-              }
-            });
-          }
-        });
-        
-        this.addCheck(`Link validation for ${contentType}`);
-        
-      } catch (error) {
-        this.addIssue('medium', `Failed to validate links for ${contentType}: ${error.message}`);
-      }
-    }
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]int[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]inks
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Links()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('🔗[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ting[Placeholder SVG][Placeholder SVG]inks...');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]([Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8'));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]int[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]IDs
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG]I[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG][Placeholder SVG][Placeholder SVG]t();
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG]I[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG][Placeholder SVG](p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].i[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG]I[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG][Placeholder SVG](`${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].i[Placeholder SVG]}/${subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.i[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG]I[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG][Placeholder SVG](subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.i[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG][Placeholder SVG]k[Placeholder SVG]n[Placeholder SVG]int[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]((p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG],[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x)[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]((subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,[Placeholder SVG]subIn[Placeholder SVG][Placeholder SVG]x)[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG]inks[Placeholder SVG]=[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.m[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](/\[([^\]]+)\]\(#([^)]+)\)/g);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG]([Placeholder SVG]inks)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]inks.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG]ink[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG][Placeholder SVG]ink.m[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](/\[([^\]]+)\]\(#([^)]+)\)/);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](m[Placeholder SVG]t[Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG]inkT[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]t[Placeholder SVG]=[Placeholder SVG]m[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][2];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](!v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG]I[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]s([Placeholder SVG]inkT[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]t))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('m[Placeholder SVG][Placeholder SVG]ium',[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`B[Placeholder SVG][Placeholder SVG]k[Placeholder SVG]n[Placeholder SVG]int[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ink:[Placeholder SVG]${[Placeholder SVG]inkT[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]t}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]${subIn[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'Up[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]ink[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]missing[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k(`Link[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('m[Placeholder SVG][Placeholder SVG]ium',[Placeholder SVG]`F[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]inks[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Validate accessibility requirements
-   */
-  async validateAccessibility() {
-    console.log('♿ Validating accessibility...');
-    
-    // Check for proper heading structure
-    for (const contentType of this.contentTypes) {
-      try {
-        const mainPath = path.join(this.dataDir, `${contentType}.json`);
-        const content = JSON.parse(await fs.readFile(mainPath, 'utf8'));
-        
-        content.phases.forEach((phase, phaseIndex) => {
-          // Check for descriptive titles
-          if (phase.title && phase.title.length < 5) {
-            this.addIssue('low', 
-              `Phase title too short for accessibility`,
-              `${contentType} phase ${phaseIndex + 1}`,
-              'Use more descriptive titles for better screen reader experience');
-          }
-          
-          if (phase.subsections) {
-            phase.subsections.forEach((subsection, subIndex) => {
-              // Check for alt text in content (basic check)
-              if (subsection.content && subsection.content.includes('![') && 
-                  !subsection.content.includes('![') || subsection.content.includes('![]')) {
-                this.addIssue('medium', 
-                  `Missing or empty alt text for images`,
-                  `${contentType} phase ${phaseIndex + 1} subsection ${subIndex + 1}`,
-                  'Add descriptive alt text for all images');
-              }
-            });
-          }
-        });
-        
-        this.addCheck(`Accessibility validation for ${contentType}`);
-        
-      } catch (error) {
-        this.addIssue('low', `Failed to validate accessibility for ${contentType}: ${error.message}`);
-      }
-    }
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ssibi[Placeholder SVG]ity[Placeholder SVG][Placeholder SVG][Placeholder SVG]qui[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nts
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG]ssibi[Placeholder SVG]ity()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('♿[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ting[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ssibi[Placeholder SVG]ity...');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ing[Placeholder SVG]st[Placeholder SVG]u[Placeholder SVG]tu[Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]([Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8'));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]((p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG],[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x)[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]iptiv[Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].tit[Placeholder SVG][Placeholder SVG][Placeholder SVG]&&[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].tit[Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]<[Placeholder SVG]5)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('[Placeholder SVG][Placeholder SVG]w',[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ssibi[Placeholder SVG]ity`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'Us[Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]iptiv[Placeholder SVG][Placeholder SVG]tit[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG]tt[Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG].subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG]((subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,[Placeholder SVG]subIn[Placeholder SVG][Placeholder SVG]x)[Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG]xt[Placeholder SVG]in[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG](b[Placeholder SVG]si[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]k)
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]&&[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('![')[Placeholder SVG]&&[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]!subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('![')[Placeholder SVG]||[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt.in[Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]s('![]'))[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('m[Placeholder SVG][Placeholder SVG]ium',[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`Missing[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mpty[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG]xt[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]im[Placeholder SVG]g[Placeholder SVG]s`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]${p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}[Placeholder SVG]subs[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]${subIn[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]+[Placeholder SVG]1}`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'A[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]iptiv[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG]xt[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]im[Placeholder SVG]g[Placeholder SVG]s');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k(`A[Placeholder SVG][Placeholder SVG][Placeholder SVG]ssibi[Placeholder SVG]ity[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('[Placeholder SVG][Placeholder SVG]w',[Placeholder SVG]`F[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ssibi[Placeholder SVG]ity[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Validate performance considerations
-   */
-  async validatePerformance() {
-    console.log('⚡ Validating performance considerations...');
-    
-    try {
-      // Check search index size
-      const searchIndexPath = path.join(this.dataDir, 'search-index.json');
-      const searchIndex = JSON.parse(await fs.readFile(searchIndexPath, 'utf8'));
-      
-      if (searchIndex.totalEntries > 1000) {
-        this.addIssue('low', 
-          `Large search index (${searchIndex.totalEntries} entries)`,
-          'search-index.json',
-          'Consider implementing search index pagination or optimization');
-      }
-      
-      // Check content file sizes
-      for (const contentType of this.contentTypes) {
-        const mainPath = path.join(this.dataDir, `${contentType}.json`);
-        const stats = await fs.stat(mainPath);
-        
-        if (stats.size > 100000) { // 100KB
-          this.addIssue('low', 
-            `Large content file (${Math.round(stats.size / 1024)}KB)`,
-            `${contentType}.json`,
-            'Consider splitting large content files for better performance');
-        }
-      }
-      
-      this.addCheck('Performance validation');
-      
-    } catch (error) {
-      this.addIssue('low', `Failed to validate performance: ${error.message}`);
-    }
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nsi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG]g('⚡[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ting[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nsi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]ns...');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]siz[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG]'s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-in[Placeholder SVG][Placeholder SVG]x.js[Placeholder SVG]n');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]=[Placeholder SVG]J[Placeholder SVG]ON.p[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]([Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG](s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]'utf8'));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x.t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Ent[Placeholder SVG]i[Placeholder SVG]s[Placeholder SVG]>[Placeholder SVG]1000)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('[Placeholder SVG][Placeholder SVG]w',[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`L[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x[Placeholder SVG](${s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]In[Placeholder SVG][Placeholder SVG]x.t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Ent[Placeholder SVG]i[Placeholder SVG]s}[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]i[Placeholder SVG]s)`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-in[Placeholder SVG][Placeholder SVG]x.js[Placeholder SVG]n',
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'C[Placeholder SVG]nsi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]imp[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]nting[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]in[Placeholder SVG][Placeholder SVG]x[Placeholder SVG]p[Placeholder SVG]gin[Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ptimiz[Placeholder SVG]ti[Placeholder SVG]n');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]siz[Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]s)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Di[Placeholder SVG],[Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]st[Placeholder SVG]ts[Placeholder SVG]=[Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.st[Placeholder SVG]t(m[Placeholder SVG]in[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](st[Placeholder SVG]ts.siz[Placeholder SVG][Placeholder SVG]>[Placeholder SVG]100000)[Placeholder SVG]{[Placeholder SVG]//[Placeholder SVG]100KB
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('[Placeholder SVG][Placeholder SVG]w',[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`L[Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG](${M[Placeholder SVG]t[Placeholder SVG].[Placeholder SVG][Placeholder SVG]un[Placeholder SVG](st[Placeholder SVG]ts.siz[Placeholder SVG][Placeholder SVG]/[Placeholder SVG]1024)}KB)`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]`${[Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]ntTyp[Placeholder SVG]}.js[Placeholder SVG]n`,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]'C[Placeholder SVG]nsi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]sp[Placeholder SVG]itting[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]g[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nt[Placeholder SVG]nt[Placeholder SVG]fi[Placeholder SVG][Placeholder SVG]s[Placeholder SVG]f[Placeholder SVG][Placeholder SVG][Placeholder SVG]b[Placeholder SVG]tt[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k('[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('[Placeholder SVG][Placeholder SVG]w',[Placeholder SVG]`F[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]f[Placeholder SVG][Placeholder SVG]m[Placeholder SVG]n[Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG].m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG]}`);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Check required fields
-   */
-  checkRequiredFields(obj, requiredFields, location) {
-    requiredFields.forEach(field => {
-      if (!obj.hasOwnProperty(field) || obj[field] === null || obj[field] === undefined || obj[field] === '') {
-        this.addIssue('high', `Missing required field: ${field}`, location);
-      }
-    });
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k[Placeholder SVG][Placeholder SVG][Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]kR[Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s([Placeholder SVG]bj,[Placeholder SVG][Placeholder SVG][Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s,[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]s.f[Placeholder SVG][Placeholder SVG]E[Placeholder SVG][Placeholder SVG][Placeholder SVG](fi[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](![Placeholder SVG]bj.[Placeholder SVG][Placeholder SVG]sOwn[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]ty(fi[Placeholder SVG][Placeholder SVG][Placeholder SVG])[Placeholder SVG]||[Placeholder SVG][Placeholder SVG]bj[fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]===[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG][Placeholder SVG]||[Placeholder SVG][Placeholder SVG]bj[fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]===[Placeholder SVG]un[Placeholder SVG][Placeholder SVG]fin[Placeholder SVG][Placeholder SVG][Placeholder SVG]||[Placeholder SVG][Placeholder SVG]bj[fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]][Placeholder SVG]===[Placeholder SVG]'')[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]('[Placeholder SVG]ig[Placeholder SVG]',[Placeholder SVG]`Missing[Placeholder SVG][Placeholder SVG][Placeholder SVG]qui[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]${fi[Placeholder SVG][Placeholder SVG][Placeholder SVG]}`,[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Add an issue to the list
-   */
-  addIssue(severity, message, location = null, suggestion = null) {
-    this.issues.push({
-      severity,
-      message,
-      location,
-      suggestion,
-      timestamp: new Date().toISOString()
-    });
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG]issu[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ist
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG](s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ity,[Placeholder SVG]m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG],[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG],[Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]n[Placeholder SVG]=[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG])[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.issu[Placeholder SVG]s.pus[Placeholder SVG]({
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ity,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG]ss[Placeholder SVG]g[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ti[Placeholder SVG]n,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]sugg[Placeholder SVG]sti[Placeholder SVG]n,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tim[Placeholder SVG]st[Placeholder SVG]mp:[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]D[Placeholder SVG]t[Placeholder SVG]().t[Placeholder SVG]I[Placeholder SVG]O[Placeholder SVG]t[Placeholder SVG]ing()
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Add a completed check
-   */
-  addCheck(description) {
-    this.checks.push({
-      description,
-      timestamp: new Date().toISOString()
-    });
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]A[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]mp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]k
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]k([Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks.pus[Placeholder SVG]({
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]s[Placeholder SVG][Placeholder SVG]ipti[Placeholder SVG]n,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tim[Placeholder SVG]st[Placeholder SVG]mp:[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]D[Placeholder SVG]t[Placeholder SVG]().t[Placeholder SVG]I[Placeholder SVG]O[Placeholder SVG]t[Placeholder SVG]ing()
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]});
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Calculate quality score
-   */
-  calculateQualityScore() {
-    if (this.checks.length === 0) return 0;
-    
-    const criticalIssues = this.issues.filter(issue => issue.severity === 'critical').length;
-    const highIssues = this.issues.filter(issue => issue.severity === 'high').length;
-    const mediumIssues = this.issues.filter(issue => issue.severity === 'medium').length;
-    const lowIssues = this.issues.filter(issue => issue.severity === 'low').length;
-    
-    // Weight issues by severity
-    const totalDeductions = (criticalIssues * 20) + (highIssues * 10) + (mediumIssues * 5) + (lowIssues * 2);
-    const maxScore = 100;
-    
-    return Math.max(0, maxScore - totalDeductions);
-  }
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]qu[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG]s[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Qu[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]if[Placeholder SVG](t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG][Placeholder SVG]===[Placeholder SVG]0)[Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]0;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]iti[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.issu[Placeholder SVG]s.fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](issu[Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]issu[Placeholder SVG].s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG]===[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]iti[Placeholder SVG][Placeholder SVG][Placeholder SVG]').[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]Issu[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.issu[Placeholder SVG]s.fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](issu[Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]issu[Placeholder SVG].s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG]===[Placeholder SVG]'[Placeholder SVG]ig[Placeholder SVG]').[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG][Placeholder SVG]iumIssu[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.issu[Placeholder SVG]s.fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](issu[Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]issu[Placeholder SVG].s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG]===[Placeholder SVG]'m[Placeholder SVG][Placeholder SVG]ium').[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]wIssu[Placeholder SVG]s[Placeholder SVG]=[Placeholder SVG]t[Placeholder SVG]is.issu[Placeholder SVG]s.fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](issu[Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]issu[Placeholder SVG].s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG]===[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]w').[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG];
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]W[Placeholder SVG]ig[Placeholder SVG]t[Placeholder SVG]issu[Placeholder SVG]s[Placeholder SVG]by[Placeholder SVG]s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ity
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]D[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ti[Placeholder SVG]ns[Placeholder SVG]=[Placeholder SVG]([Placeholder SVG][Placeholder SVG]iti[Placeholder SVG][Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]s[Placeholder SVG]*[Placeholder SVG]20)[Placeholder SVG]+[Placeholder SVG]([Placeholder SVG]ig[Placeholder SVG]Issu[Placeholder SVG]s[Placeholder SVG]*[Placeholder SVG]10)[Placeholder SVG]+[Placeholder SVG](m[Placeholder SVG][Placeholder SVG]iumIssu[Placeholder SVG]s[Placeholder SVG]*[Placeholder SVG]5)[Placeholder SVG]+[Placeholder SVG]([Placeholder SVG][Placeholder SVG]wIssu[Placeholder SVG]s[Placeholder SVG]*[Placeholder SVG]2);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]m[Placeholder SVG]x[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=[Placeholder SVG]100;
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG]M[Placeholder SVG]t[Placeholder SVG].m[Placeholder SVG]x(0,[Placeholder SVG]m[Placeholder SVG]x[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]-[Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]D[Placeholder SVG][Placeholder SVG]u[Placeholder SVG]ti[Placeholder SVG]ns);
+[Placeholder SVG][Placeholder SVG]}
 
-  /**
-   * Generate QA report
-   */
-  async generateQAReport() {
-    const report = {
-      timestamp: new Date().toISOString(),
-      summary: {
-        totalChecks: this.checks.length,
-        totalIssues: this.issues.length,
-        qualityScore: this.calculateQualityScore(),
-        issuesBySeverity: {
-          critical: this.issues.filter(issue => issue.severity === 'critical').length,
-          high: this.issues.filter(issue => issue.severity === 'high').length,
-          medium: this.issues.filter(issue => issue.severity === 'medium').length,
-          low: this.issues.filter(issue => issue.severity === 'low').length
-        }
-      },
-      checks: this.checks,
-      issues: this.issues
-    };
+[Placeholder SVG][Placeholder SVG]/**
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*[Placeholder SVG][Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]QA[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]*/
+[Placeholder SVG][Placeholder SVG][Placeholder SVG]syn[Placeholder SVG][Placeholder SVG]g[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]QAR[Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t()[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]=[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tim[Placeholder SVG]st[Placeholder SVG]mp:[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]D[Placeholder SVG]t[Placeholder SVG]().t[Placeholder SVG]I[Placeholder SVG]O[Placeholder SVG]t[Placeholder SVG]ing(),
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]summ[Placeholder SVG][Placeholder SVG]y:[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]C[Placeholder SVG][Placeholder SVG][Placeholder SVG]ks:[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]t[Placeholder SVG][Placeholder SVG]Issu[Placeholder SVG]s:[Placeholder SVG]t[Placeholder SVG]is.issu[Placeholder SVG]s.[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]qu[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]u[Placeholder SVG][Placeholder SVG]t[Placeholder SVG]Qu[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG](),
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]issu[Placeholder SVG]sBy[Placeholder SVG][Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ity:[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]iti[Placeholder SVG][Placeholder SVG][Placeholder SVG]:[Placeholder SVG]t[Placeholder SVG]is.issu[Placeholder SVG]s.fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](issu[Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]issu[Placeholder SVG].s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG]===[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]iti[Placeholder SVG][Placeholder SVG][Placeholder SVG]').[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ig[Placeholder SVG]:[Placeholder SVG]t[Placeholder SVG]is.issu[Placeholder SVG]s.fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](issu[Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]issu[Placeholder SVG].s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG]===[Placeholder SVG]'[Placeholder SVG]ig[Placeholder SVG]').[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]m[Placeholder SVG][Placeholder SVG]ium:[Placeholder SVG]t[Placeholder SVG]is.issu[Placeholder SVG]s.fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](issu[Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]issu[Placeholder SVG].s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG]===[Placeholder SVG]'m[Placeholder SVG][Placeholder SVG]ium').[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG],
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w:[Placeholder SVG]t[Placeholder SVG]is.issu[Placeholder SVG]s.fi[Placeholder SVG]t[Placeholder SVG][Placeholder SVG](issu[Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]issu[Placeholder SVG].s[Placeholder SVG]v[Placeholder SVG][Placeholder SVG]ity[Placeholder SVG]===[Placeholder SVG]'[Placeholder SVG][Placeholder SVG]w').[Placeholder SVG][Placeholder SVG]ngt[Placeholder SVG]
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]}
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]},
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks:[Placeholder SVG]t[Placeholder SVG]is.[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ks,
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]issu[Placeholder SVG]s:[Placeholder SVG]t[Placeholder SVG]is.issu[Placeholder SVG]s
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]};
 
-    // Write report
-    const reportPath = path.join(__dirname, '..', 'qa-report.json');
-    await fs.writeFile(reportPath, JSON.stringify(report, null, 2));
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]//[Placeholder SVG]W[Placeholder SVG]it[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]p[Placeholder SVG]t[Placeholder SVG].j[Placeholder SVG]in(__[Placeholder SVG]i[Placeholder SVG]n[Placeholder SVG]m[Placeholder SVG],[Placeholder SVG]'..',[Placeholder SVG]'q[Placeholder SVG]-[Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t.js[Placeholder SVG]n');
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]w[Placeholder SVG]it[Placeholder SVG]fs.w[Placeholder SVG]it[Placeholder SVG]Fi[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]t[Placeholder SVG],[Placeholder SVG]J[Placeholder SVG]ON.st[Placeholder SVG]ingify([Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t,[Placeholder SVG]nu[Placeholder SVG][Placeholder SVG],[Placeholder SVG]2));
 
-    return report;
-  }
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]tu[Placeholder SVG]n[Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG]t;
+[Placeholder SVG][Placeholder SVG]}
 }
 
-// Run QA if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  const qa = new QualityAssurance();
-  qa.runQA().catch(error => {
-    console.error('QA failed:', error);
-    process.exit(1);
-  });
+//[Placeholder SVG]Run[Placeholder SVG]QA[Placeholder SVG]if[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]t[Placeholder SVG]y
+if[Placeholder SVG](imp[Placeholder SVG][Placeholder SVG]t.m[Placeholder SVG]t[Placeholder SVG].u[Placeholder SVG][Placeholder SVG][Placeholder SVG]===[Placeholder SVG]`fi[Placeholder SVG][Placeholder SVG]://${p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG][Placeholder SVG]gv[1]}`)[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]nst[Placeholder SVG]q[Placeholder SVG][Placeholder SVG]=[Placeholder SVG]n[Placeholder SVG]w[Placeholder SVG]Qu[Placeholder SVG][Placeholder SVG]ityAssu[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG]();
+[Placeholder SVG][Placeholder SVG]q[Placeholder SVG].[Placeholder SVG]unQA().[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG]([Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]=>[Placeholder SVG]{
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ns[Placeholder SVG][Placeholder SVG][Placeholder SVG].[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]('QA[Placeholder SVG]f[Placeholder SVG]i[Placeholder SVG][Placeholder SVG][Placeholder SVG]:',[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]);
+[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]p[Placeholder SVG][Placeholder SVG][Placeholder SVG][Placeholder SVG]ss.[Placeholder SVG]xit(1);
+[Placeholder SVG][Placeholder SVG]});
 }
 
-export default QualityAssurance;
+[Placeholder SVG]xp[Placeholder SVG][Placeholder SVG]t[Placeholder SVG][Placeholder SVG][Placeholder SVG]f[Placeholder SVG]u[Placeholder SVG]t[Placeholder SVG]Qu[Placeholder SVG][Placeholder SVG]ityAssu[Placeholder SVG][Placeholder SVG]n[Placeholder SVG][Placeholder SVG];
