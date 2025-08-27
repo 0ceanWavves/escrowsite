@@ -296,7 +296,8 @@ class LanguageSwitcher {
             const key = element.dataset.i18n;
             const translation = this.getTranslation(key);
             
-            if (translation) {
+            // Only replace if translation is found and different from key
+            if (translation && translation !== key) {
                 if (element.tagName === 'INPUT' && element.type === 'text') {
                     element.placeholder = translation;
                 } else {
@@ -310,7 +311,8 @@ class LanguageSwitcher {
             const key = element.dataset.i18nHtml;
             const translation = this.getTranslation(key);
             
-            if (translation) {
+            // Only replace if translation is found and different from key
+            if (translation && translation !== key) {
                 element.innerHTML = translation;
             }
         });
