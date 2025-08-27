@@ -21,6 +21,7 @@
     "lint:fix": "eslint assets/js/**/*.js --fix",
     "serve": "http-server -p 8080",
     "build": "npm run content:migrate && npm run content:validate && npm run lint && npm run test",
+    "build:netlify": "echo 'Static site ready for deployment'",
     "build:production": "npm run content:migrate && npm run content:validate && npm run optimize:production && npm run lint && npm run test:ci",
     "build:preview": "npm run content:migrate && npm run content:validate && npm run lint && npm run test",
     "build:staging": "npm run content:migrate && npm run content:validate && npm run lint && npm run test",

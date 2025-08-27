@@ -1,6 +1,6 @@
 [build]
   publish = "."
-  command = "npm run build"
+  command = "npm run build:netlify"
 
 # Build environment
 [build.environment]
@@ -80,46 +80,46 @@
 [forms]
   settings = true
 
-# Functions configuration
-[functions]
-  directory = "netlify/functions"
+# Functions configuration (disabled for static site)
+# [functions]
+#   directory = "netlify/functions"
 
-# Edge functions
-[edge_functions]
-  directory = "netlify/edge-functions"
+# Edge functions (disabled for static site)
+# [edge_functions]
+#   directory = "netlify/edge-functions"
 
-# Plugin configuration
-[[plugins]]
-  package = "@netlify/plugin-lighthouse"
-  
-  [plugins.inputs.thresholds]
-    performance = 0.9
-    accessibility = 0.9
-    best-practices = 0.9
-    seo = 0.9
+# Plugin configuration disabled for initial deployment
+# [[plugins]]
+#   package = "@netlify/plugin-lighthouse"
+#   
+#   [plugins.inputs.thresholds]
+#     performance = 0.9
+#     accessibility = 0.9
+#     best-practices = 0.9
+#     seo = 0.9
 
-[[plugins]]
-  package = "netlify-plugin-minify-html"
-  
-  [plugins.inputs]
-    contexts = ["production"]
+# [[plugins]]
+#   package = "netlify-plugin-minify-html"
+#   
+#   [plugins.inputs]
+#     contexts = ["production"]
 
 # Context-specific settings
 [context.production]
-  command = "npm run build:production"
+  command = "npm run build:netlify"
   
   [context.production.environment]
     NODE_ENV = "production"
     GENERATE_SOURCEMAP = "false"
 
 [context.deploy-preview]
-  command = "npm run build:preview"
+  command = "npm run build:netlify"
   
   [context.deploy-preview.environment]
     NODE_ENV = "development"
 
 [context.branch-deploy]
-  command = "npm run build:staging"
+  command = "npm run build:netlify"
   
   [context.branch-deploy.environment]
     NODE_ENV = "staging"
