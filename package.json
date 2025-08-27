@@ -1,0 +1,10 @@
+{
+  "name": "escrowsite",
+  "version": "1.0.0",
+  "description": "Static escrow site",
+  "scripts": {
+    "build": "echo 'No build needed for static site'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
