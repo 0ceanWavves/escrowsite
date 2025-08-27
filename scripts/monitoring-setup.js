@@ -22,7 +22,7 @@ class MonitoringSetup {
    * Set up comprehensive monitoring
    */
   async setupMonitoring() {
-    console.log('📊 Setting up monitoring and analytics...\n');
+    console.log('[Placeholder SVG] Setting up monitoring and analytics...\n');
 
     try {
       // Create error tracking system
@@ -43,17 +43,17 @@ class MonitoringSetup {
       // Generate monitoring configuration
       await this.generateMonitoringConfig();
       
-      console.log('\n📊 Monitoring Setup Complete:');
+      console.log('\n[Placeholder SVG] Monitoring Setup Complete:');
       console.log('=============================');
-      console.log(`✅ Components created: ${this.monitoringComponents.length}`);
+      console.log(`[Placeholder SVG] Components created: ${this.monitoringComponents.length}`);
       this.monitoringComponents.forEach(component => {
         console.log(`   - ${component}`);
       });
       
-      console.log('\n✅ Monitoring setup completed successfully!');
+      console.log('\n[Placeholder SVG] Monitoring setup completed successfully!');
       
     } catch (error) {
-      console.error('❌ Monitoring setup failed:', error.message);
+      console.error('[Placeholder SVG] Monitoring setup failed:', error.message);
       process.exit(1);
     }
   }
@@ -561,7 +561,7 @@ if (typeof module !== 'undefined' && module.exports) {
    * Create analytics tracking
    */
   async createAnalyticsTracking() {
-    console.log('📈 Setting up analytics tracking...');
+    console.log('[Placeholder SVG] Setting up analytics tracking...');
     
     const analyticsScript = `/**
  * Privacy-Focused Analytics System
@@ -845,7 +845,7 @@ if (typeof module !== 'undefined' && module.exports) {
    * Create uptime monitoring
    */
   async createUptimeMonitoring() {
-    console.log('🔍 Setting up uptime monitoring...');
+    console.log('[Placeholder SVG] Setting up uptime monitoring...');
     
     const uptimeScript = `/**
  * Client-Side Uptime Monitoring
@@ -1095,7 +1095,7 @@ if (typeof module !== 'undefined' && module.exports) {
    * Create monitoring dashboard
    */
   async createMonitoringDashboard() {
-    console.log('📊 Creating monitoring dashboard...');
+    console.log('[Placeholder SVG] Creating monitoring dashboard...');
     
     const dashboardHTML = `<!DOCTYPE html>
 <html lang="en">
@@ -1197,7 +1197,7 @@ if (typeof module !== 'undefined' && module.exports) {
         <div class="dashboard-grid">
             <!-- Uptime Status -->
             <div class="dashboard-card">
-                <h3>🔍 Uptime Status</h3>
+                <h3>[Placeholder SVG] Uptime Status</h3>
                 <div id="uptime-metrics">
                     <div class="metric">
                         <span>Current Status</span>
@@ -1267,7 +1267,7 @@ if (typeof module !== 'undefined' && module.exports) {
             
             <!-- Analytics -->
             <div class="dashboard-card">
-                <h3>📈 Analytics</h3>
+                <h3>[Placeholder SVG] Analytics</h3>
                 <div id="analytics-metrics">
                     <div class="metric">
                         <span>Page Views</span>
@@ -1406,7 +1406,7 @@ if (typeof module !== 'undefined' && module.exports) {
    * Generate monitoring configuration
    */
   async generateMonitoringConfig() {
-    console.log('⚙️  Generating monitoring configuration...');
+    console.log('[Placeholder SVG]  Generating monitoring configuration...');
     
     const config = {
       timestamp: new Date().toISOString(),

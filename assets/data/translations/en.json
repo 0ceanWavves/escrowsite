@@ -17,7 +17,40 @@
   "common.menu": "Menu",
   
   "site.title": "The Road to Crypto",
-  "site.subtitle": "An Interactive Implementation Blueprint",
+  "site.subtitle": "Interactive Implementation Blueprint",
+  
+  "hero.title": "Welcome to The Road to Crypto",
+  "hero.subtitle": "Your comprehensive guide to crypto development and node setup",
+  "hero.description": "Choose your path: Learn crypto development fundamentals or set up your own BTC & XMR nodes with our detailed guides.",
+  
+  "dev.card.title": "Development Roadmap",
+  "dev.card.description": "Learn to integrate Bitcoin and Monero wallets with secure escrow systems. A comprehensive 3-phase approach to crypto development.",
+  "dev.feature.1": "Database schema design",
+  "dev.feature.2": "Payment gateway integration",
+  "dev.feature.3": "Frontend wallet interfaces",
+  "dev.card.button": "Start Learning",
+  
+  "node.card.title": "Node Setup Guides",
+  "node.card.description": "Set up your own Bitcoin and Monero nodes for maximum privacy and decentralization. Step-by-step guides from procurement to operation.",
+  "node.feature.1": "VPS procurement & setup",
+  "node.feature.2": "Security hardening",
+  "node.feature.3": "Node synchronization",
+  "node.card.button": "Setup Nodes",
+  
+  "getting.started.title": "Getting Started",
+  "getting.started.description": "New to crypto development or node setup? Here are some recommended starting points based on your experience level.",
+  
+  "beginner.title": "Beginner",
+  "beginner.description": "Start with the Development Roadmap to understand crypto fundamentals and implementation concepts.",
+  "beginner.link": "Start Here",
+  
+  "intermediate.title": "Intermediate",
+  "intermediate.description": "Ready to get hands-on? Jump into the Node Guides to set up your own infrastructure.",
+  "intermediate.link": "Setup Nodes",
+  
+  "advanced.title": "Advanced",
+  "advanced.description": "Experienced developer? Dive deep into both tracks for comprehensive crypto integration knowledge.",
+  "advanced.link": "Deep Dive",
   
   "roadmap.title": "Development Roadmap",
   "roadmap.subtitle": "A Phased Approach to Secure Crypto Integration",
@@ -32,5 +65,5 @@
   "guides.phase3": "Phase 3: Node Software Installation",
   "guides.phase4": "Phase 4: Blockchain Synchronization",
   
-  "footer.copyright": "© 2025 The Road to Crypto"
+  "footer.copyright": "© 2025 The Road to Crypto - Interactive Implementation Blueprint"
 }

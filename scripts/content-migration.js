@@ -25,7 +25,7 @@ class ContentMigrator {
    * Run complete content migration
    */
   async migrate() {
-    console.log('🚀 Starting content migration...\n');
+    console.log('[Placeholder SVG] Starting content migration...\n');
 
     try {
       // Step 1: Validate directory structure
@@ -43,29 +43,29 @@ class ContentMigrator {
       // Step 5: Generate migration report
       const report = await this.generateReport();
 
-      console.log('\n📊 Migration Report:');
+      console.log('\n[Placeholder SVG] Migration Report:');
       console.log('===================');
-      console.log(`✅ Content types processed: ${report.contentTypes.length}`);
-      console.log(`🌍 Languages supported: ${report.languages.length}`);
+      console.log(`[Placeholder SVG] Content types processed: ${report.contentTypes.length}`);
+      console.log(`[Placeholder SVG] Languages supported: ${report.languages.length}`);
       console.log(`📄 Total phases: ${report.totalPhases}`);
-      console.log(`📝 Total subsections: ${report.totalSubsections}`);
-      console.log(`⚠️  Warnings: ${this.warnings.length}`);
-      console.log(`❌ Errors: ${this.errors.length}`);
+      console.log(`[Placeholder SVG] Total subsections: ${report.totalSubsections}`);
+      console.log(`[Placeholder SVG]  Warnings: ${this.warnings.length}`);
+      console.log(`[Placeholder SVG] Errors: ${this.errors.length}`);
 
       if (this.warnings.length > 0) {
-        console.log('\n⚠️  Warnings:');
+        console.log('\n[Placeholder SVG]  Warnings:');
         this.warnings.forEach(warning => console.log(`   - ${warning}`));
       }
 
       if (this.errors.length > 0) {
-        console.log('\n❌ Errors:');
+        console.log('\n[Placeholder SVG] Errors:');
         this.errors.forEach(error => console.log(`   - ${error}`));
         process.exit(1);
       }
 
-      console.log('\n✅ Content migration completed successfully!');
+      console.log('\n[Placeholder SVG] Content migration completed successfully!');
     } catch (error) {
-      console.error('❌ Migration failed:', error.message);
+      console.error('[Placeholder SVG] Migration failed:', error.message);
       process.exit(1);
     }
   }
@@ -87,7 +87,7 @@ class ContentMigrator {
       const langDir = path.join(this.dataDir, lang);
       try {
         await fs.access(langDir);
-        console.log(`   ✅ ${lang} directory exists`);
+        console.log(`   [Placeholder SVG] ${lang} directory exists`);
       } catch (error) {
         console.log(`   📁 Creating ${lang} directory...`);
         await fs.mkdir(langDir, { recursive: true });
@@ -110,7 +110,7 @@ class ContentMigrator {
         
         // Validate structure
         this.validateContentStructure(data, contentType);
-        console.log(`   ✅ ${contentType}.json is valid`);
+        console.log(`   [Placeholder SVG] ${contentType}.json is valid`);
       } catch (error) {
         this.errors.push(`Invalid main content file ${contentType}.json: ${error.message}`);
       }
@@ -151,7 +151,7 @@ class ContentMigrator {
    * Validate and complete translations
    */
   async validateTranslations() {
-    console.log('\n🌍 Validating translations...');
+    console.log('\n[Placeholder SVG] Validating translations...');
 
     for (const contentType of this.contentTypes) {
       console.log(`\n   Processing ${contentType} translations:`);
@@ -171,13 +171,13 @@ class ContentMigrator {
           const validation = this.validateTranslationCompleteness(mainContent, translation, lang, contentType);
           
           if (validation.complete) {
-            console.log(`     ✅ ${lang} translation complete`);
+            console.log(`     [Placeholder SVG] ${lang} translation complete`);
           } else {
-            console.log(`     ⚠️  ${lang} translation incomplete (${validation.completeness}%)`);
+            console.log(`     [Placeholder SVG]  ${lang} translation incomplete (${validation.completeness}%)`);
             this.warnings.push(`${contentType} ${lang} translation is ${validation.completeness}% complete`);
           }
         } catch (error) {
-          console.log(`     ❌ ${lang} translation missing or invalid`);
+          console.log(`     [Placeholder SVG] ${lang} translation missing or invalid`);
           this.errors.push(`${contentType} ${lang} translation error: ${error.message}`);
         }
       }
@@ -242,7 +242,7 @@ class ContentMigrator {
    * Generate search index
    */
   async generateSearchIndex() {
-    console.log('\n🔍 Generating search index...');
+    console.log('\n[Placeholder SVG] Generating search index...');
 
     const searchIndex = {
       timestamp: new Date().toISOString(),
@@ -305,7 +305,7 @@ class ContentMigrator {
     const indexPath = path.join(this.dataDir, 'search-index.json');
     await fs.writeFile(indexPath, JSON.stringify(searchIndex, null, 2));
     
-    console.log(`   ✅ Search index generated with ${searchIndex.totalEntries} entries`);
+    console.log(`   [Placeholder SVG] Search index generated with ${searchIndex.totalEntries} entries`);
   }
 
   /**

@@ -47,23 +47,23 @@ async function runCommand(command, args, description) {
     
     process.on('close', (code) => {
       if (code === 0) {
-        console.log(`✅ ${description} - PASSED`);
+        console.log(`[Placeholder SVG] ${description} - PASSED`);
         resolve();
       } else {
-        console.log(`❌ ${description} - FAILED (exit code: ${code})`);
+        console.log(`[Placeholder SVG] ${description} - FAILED (exit code: ${code})`);
         reject(new Error(`Test suite failed with exit code ${code}`));
       }
     });
     
     process.on('error', (error) => {
-      console.error(`❌ ${description} - ERROR:`, error.message);
+      console.error(`[Placeholder SVG] ${description} - ERROR:`, error.message);
       reject(error);
     });
   });
 }
 
 async function runAllTests() {
-  console.log('🚀 Starting comprehensive test suite...\n');
+  console.log('[Placeholder SVG] Starting comprehensive test suite...\n');
   
   const results = {
     passed: 0,
@@ -77,19 +77,19 @@ async function runAllTests() {
       results.passed++;
     } catch (error) {
       results.failed++;
-      console.error(`\n❌ ${suite.name} failed:`, error.message);
+      console.error(`\n[Placeholder SVG] ${suite.name} failed:`, error.message);
     }
   }
   
   console.log('\n' + '='.repeat(60));
-  console.log('📊 TEST SUMMARY');
+  console.log('[Placeholder SVG] TEST SUMMARY');
   console.log('='.repeat(60));
   console.log(`Total test suites: ${results.total}`);
   console.log(`Passed: ${results.passed}`);
   console.log(`Failed: ${results.failed}`);
   
   if (results.failed === 0) {
-    console.log('\n🎉 All tests passed successfully!');
+    console.log('\n[Placeholder SVG] All tests passed successfully!');
     process.exit(0);
   } else {
     console.log(`\n💥 ${results.failed} test suite(s) failed.`);
@@ -99,12 +99,12 @@ async function runAllTests() {
 
 // Handle process termination
 process.on('SIGINT', () => {
-  console.log('\n\n⚠️  Test execution interrupted by user');
+  console.log('\n\n[Placeholder SVG]  Test execution interrupted by user');
   process.exit(1);
 });
 
 process.on('SIGTERM', () => {
-  console.log('\n\n⚠️  Test execution terminated');
+  console.log('\n\n[Placeholder SVG]  Test execution terminated');
   process.exit(1);
 });
 

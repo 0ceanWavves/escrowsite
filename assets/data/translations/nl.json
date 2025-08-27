@@ -17,7 +17,40 @@
   "common.menu": "Menu",
   
   "site.title": "De Weg naar Crypto",
-  "site.subtitle": "Een Interactieve Implementatie Blueprint",
+  "site.subtitle": "Interactieve Implementatie Blueprint",
+  
+  "hero.title": "Welkom bij De Weg naar Crypto",
+  "hero.subtitle": "Jouw uitgebreide gids voor crypto-ontwikkeling en node-setup",
+  "hero.description": "Kies je pad: Leer crypto-ontwikkelingsfundamenten of stel je eigen BTC & XMR nodes in met onze gedetailleerde gidsen.",
+  
+  "dev.card.title": "Ontwikkelingsroadmap",
+  "dev.card.description": "Leer Bitcoin en Monero wallets integreren met veilige escrow-systemen. Een uitgebreide 3-fasen aanpak voor crypto-ontwikkeling.",
+  "dev.feature.1": "Database schema ontwerp",
+  "dev.feature.2": "Betaalgateway integratie",
+  "dev.feature.3": "Frontend wallet interfaces",
+  "dev.card.button": "Begin met Leren",
+  
+  "node.card.title": "Node Setup Gidsen",
+  "node.card.description": "Stel je eigen Bitcoin en Monero nodes in voor maximale privacy en decentralisatie. Stap-voor-stap gidsen van inkoop tot gebruik.",
+  "node.feature.1": "VPS inkoop & setup",
+  "node.feature.2": "Beveiligingsharding",
+  "node.feature.3": "Node synchronisatie",
+  "node.card.button": "Setup Nodes",
+  
+  "getting.started.title": "Aan de Slag",
+  "getting.started.description": "Nieuw in crypto-ontwikkeling of node-setup? Hier zijn enkele aanbevolen startpunten gebaseerd op je ervaringsniveau.",
+  
+  "beginner.title": "Beginner",
+  "beginner.description": "Begin met de Ontwikkelingsroadmap om crypto-fundamenten en implementatieconcepten te begrijpen.",
+  "beginner.link": "Start Hier",
+  
+  "intermediate.title": "Gemiddeld",
+  "intermediate.description": "Klaar om hands-on te gaan? Spring in de Node Gidsen om je eigen infrastructuur op te zetten.",
+  "intermediate.link": "Setup Nodes",
+  
+  "advanced.title": "Gevorderd",
+  "advanced.description": "Ervaren ontwikkelaar? Duik diep in beide tracks voor uitgebreide crypto-integratiekennis.",
+  "advanced.link": "Diep Duiken",
   
   "roadmap.title": "Ontwikkelingsroadmap",
   "roadmap.subtitle": "Een Gefaseerde Aanpak voor Veilige Crypto-integratie",
@@ -32,5 +65,5 @@
   "guides.phase3": "Fase 3: Node Software Installatie",
   "guides.phase4": "Fase 4: Blockchain Synchronisatie",
   
-  "footer.copyright": "© 2025 De Weg naar Crypto"
+  "footer.copyright": "© 2025 De Weg naar Crypto - Interactieve Implementatie Blueprint"
 }

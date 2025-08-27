@@ -274,7 +274,7 @@ class ContextualLinks {
           url: `/development-roadmap/${phase}/`,
           type: 'next-phase',
           description: `Continue your development journey with ${phaseNames[phase]}`,
-          icon: '🚀'
+          icon: '[Placeholder SVG]'
         });
       }
     });
@@ -285,7 +285,7 @@ class ContextualLinks {
       url: '/node-guides/',
       type: 'cross-section',
       description: 'Put your development knowledge into practice by setting up crypto nodes',
-      icon: '⚙️'
+      icon: '[Placeholder SVG]'
     });
   }
 
@@ -346,7 +346,7 @@ class ContextualLinks {
         url: '/',
         type: 'navigation',
         description: 'Return to the main page',
-        icon: '🏠'
+        icon: '[Placeholder SVG]'
       });
     }
 
@@ -356,7 +356,7 @@ class ContextualLinks {
       url: '/user-progress.html',
       type: 'utility',
       description: 'View your learning progress and bookmarks',
-      icon: '📊'
+      icon: '[Placeholder SVG]'
     });
 
     // Add search suggestion
@@ -365,7 +365,7 @@ class ContextualLinks {
       url: '/search.html',
       type: 'utility',
       description: 'Find specific topics and information',
-      icon: '🔍'
+      icon: '[Placeholder SVG]'
     });
   }
 

@@ -42,7 +42,7 @@ Header Navigation
 │       ├── Synchronization Process
 │       ├── Testing & Validation
 │       └── Ongoing Maintenance
-└── Language Switcher (🇬🇧 🇳🇱 🇫🇷)
+└── Language Switcher ([Placeholder SVG] [Placeholder SVG] [Placeholder SVG])
 ```
 
 ## Components and Interfaces

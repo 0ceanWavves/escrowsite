@@ -64,7 +64,7 @@
 
                 testSection.className = 'test-section success';
                 testSection.innerHTML = `
-                    <h3>✅ ${language.toUpperCase()} - SUCCESS</h3>
+                    <h3>[Placeholder SVG] ${language.toUpperCase()} - SUCCESS</h3>
                     <p><strong>Development Roadmap Title:</strong> ${devTranslations.title}</p>
                     <p><strong>Node Guides Title:</strong> ${nodeTranslations.title}</p>
                     <p><strong>Navigation Home:</strong> ${devTranslations.navigation?.home}</p>
@@ -78,7 +78,7 @@
             } catch (error) {
                 testSection.className = 'test-section error';
                 testSection.innerHTML = `
-                    <h3>❌ ${language.toUpperCase()} - ERROR</h3>
+                    <h3>[Placeholder SVG] ${language.toUpperCase()} - ERROR</h3>
                     <p><strong>Error:</strong> ${error.message}</p>
                     <pre>${error.stack}</pre>
                 `;
@@ -112,10 +112,10 @@
                 }
                 
                 switchTestDiv.className = 'test-section success';
-                switchTestDiv.innerHTML += '<p>✅ Language switching works correctly</p>';
+                switchTestDiv.innerHTML += '<p>[Placeholder SVG] Language switching works correctly</p>';
             } catch (error) {
                 switchTestDiv.className = 'test-section error';
-                switchTestDiv.innerHTML += `<p>❌ Language switching failed: ${error.message}</p>`;
+                switchTestDiv.innerHTML += `<p>[Placeholder SVG] Language switching failed: ${error.message}</p>`;
             }
         }
 

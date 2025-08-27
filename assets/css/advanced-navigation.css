@@ -228,7 +228,7 @@
 }
 
 .related-difficulty::before {
-  content: "📊 ";
+  content: "[Placeholder SVG] ";
 }
 
 .related-time::before {

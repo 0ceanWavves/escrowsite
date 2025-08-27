@@ -83,10 +83,10 @@ class UXTestRunner {
         this.results.testSuites.push(suiteResult);
         
         if (success) {
-          console.log(`✅ ${name} - PASSED (${duration}ms)`);
+          console.log(`[Placeholder SVG] ${name} - PASSED (${duration}ms)`);
           this.results.summary.passed++;
         } else {
-          console.log(`❌ ${name} - FAILED (${duration}ms)`);
+          console.log(`[Placeholder SVG] ${name} - FAILED (${duration}ms)`);
           this.results.summary.failed++;
         }
         
@@ -95,7 +95,7 @@ class UXTestRunner {
       });
       
       testProcess.on('error', (error) => {
-        console.error(`❌ ${name} - ERROR:`, error.message);
+        console.error(`[Placeholder SVG] ${name} - ERROR:`, error.message);
         
         const suiteResult = {
           name,
@@ -386,7 +386,7 @@ class UXTestRunner {
         
         <div class="content">
             <div class="section">
-                <h2>📊 Test Suite Results</h2>
+                <h2>[Placeholder SVG] Test Suite Results</h2>
                 ${this.results.testSuites.map(suite => `
                     <div class="test-suite ${suite.success ? 'success' : 'failure'}">
                         <h3>
@@ -397,7 +397,7 @@ class UXTestRunner {
                         <div class="test-details">
                             <div class="test-detail">
                                 <strong>Status</strong>
-                                ${suite.success ? '✅ Passed' : '❌ Failed'}
+                                ${suite.success ? '[Placeholder SVG] Passed' : '[Placeholder SVG] Failed'}
                             </div>
                             <div class="test-detail">
                                 <strong>Duration</strong>
@@ -419,7 +419,7 @@ class UXTestRunner {
             
             ${this.results.recommendations.length > 0 ? `
             <div class="section">
-                <h2>💡 Recommendations</h2>
+                <h2>[Placeholder SVG] Recommendations</h2>
                 <div class="recommendations">
                     ${this.results.recommendations.map(rec => `
                         <div class="recommendation ${rec.priority.toLowerCase()}">
@@ -470,7 +470,7 @@ class UXTestRunner {
 `;
 
     this.results.testSuites.forEach(suite => {
-      const status = suite.success ? '✅ PASSED' : '❌ FAILED';
+      const status = suite.success ? '[Placeholder SVG] PASSED' : '[Placeholder SVG] FAILED';
       markdown += `### ${suite.name} - ${status}
 
 **Description:** ${suite.description}
@@ -544,7 +544,7 @@ Based on the test results:
   }
 
   async runAllTests() {
-    console.log('🚀 Starting comprehensive UX testing suite...\n');
+    console.log('[Placeholder SVG] Starting comprehensive UX testing suite...\n');
     
     const testSuites = [
       {
@@ -611,7 +611,7 @@ Based on the test results:
     await this.saveReports();
     
     console.log('\n' + '='.repeat(80));
-    console.log('📊 UX TESTING SUMMARY');
+    console.log('[Placeholder SVG] UX TESTING SUMMARY');
     console.log('='.repeat(80));
     console.log(`Total test suites: ${this.results.summary.total}`);
     console.log(`Passed: ${this.results.summary.passed}`);
@@ -623,14 +623,14 @@ Based on the test results:
     console.log(`Pass rate: ${passRate}%`);
     
     if (this.results.recommendations.length > 0) {
-      console.log(`\n💡 ${this.results.recommendations.length} recommendations generated`);
+      console.log(`\n[Placeholder SVG] ${this.results.recommendations.length} recommendations generated`);
     }
     
     if (this.results.summary.failed === 0) {
-      console.log('\n🎉 All UX tests passed successfully!');
+      console.log('\n[Placeholder SVG] All UX tests passed successfully!');
       return true;
     } else {
-      console.log(`\n⚠️  ${this.results.summary.failed} test suite(s) need attention.`);
+      console.log(`\n[Placeholder SVG]  ${this.results.summary.failed} test suite(s) need attention.`);
       return false;
     }
   }
@@ -638,12 +638,12 @@ Based on the test results:
 
 // Handle process termination
 process.on('SIGINT', () => {
-  console.log('\n\n⚠️  UX test execution interrupted by user');
+  console.log('\n\n[Placeholder SVG]  UX test execution interrupted by user');
   process.exit(1);
 });
 
 process.on('SIGTERM', () => {
-  console.log('\n\n⚠️  UX test execution terminated');
+  console.log('\n\n[Placeholder SVG]  UX test execution terminated');
   process.exit(1);
 });
 

@@ -13,9 +13,9 @@ class I18n {
     
     // Language metadata
     this.languageInfo = {
-      en: { name: 'English', nativeName: 'English', flag: '🇬🇧' },
-      nl: { name: 'Dutch', nativeName: 'Nederlands', flag: '🇳🇱' },
-      fr: { name: 'French', nativeName: 'Français', flag: '🇫🇷' }
+      en: { name: 'English', nativeName: 'English', flag: '[Placeholder SVG]' },
+      nl: { name: 'Dutch', nativeName: 'Nederlands', flag: '[Placeholder SVG]' },
+      fr: { name: 'French', nativeName: 'Français', flag: '[Placeholder SVG]' }
     };
     
     // Initialize with browser language or default

@@ -391,15 +391,15 @@ class LanguageSwitcher {
     }
     
     /**
-     * Get language flag emoji
+     * Get language flag placeholder
      */
     getLanguageFlag(lang) {
         const flags = {
-            'en': '🇬🇧',
-            'nl': '🇳🇱',
-            'fr': '🇫🇷'
+            'en': '[Placeholder SVG]',
+            'nl': '[Placeholder SVG]',
+            'fr': '[Placeholder SVG]'
         };
-        return flags[lang] || '🌐';
+        return flags[lang] || '[Placeholder SVG]';
     }
 }
 

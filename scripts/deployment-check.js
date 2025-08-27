@@ -24,7 +24,7 @@ class DeploymentChecker {
    * Run comprehensive deployment checks
    */
   async checkDeploymentReadiness() {
-    console.log('🔍 Checking deployment readiness...\n');
+    console.log('[Placeholder SVG] Checking deployment readiness...\n');
 
     try {
       // Essential file checks
@@ -48,29 +48,29 @@ class DeploymentChecker {
       // Generate deployment report
       const report = await this.generateDeploymentReport();
       
-      console.log('\n📊 Deployment Readiness Report:');
+      console.log('\n[Placeholder SVG] Deployment Readiness Report:');
       console.log('===============================');
-      console.log(`✅ Checks passed: ${this.checks.length}`);
-      console.log(`⚠️  Warnings: ${this.warnings.length}`);
-      console.log(`❌ Critical failures: ${this.failures.length}`);
-      console.log(`🚀 Ready for deployment: ${this.failures.length === 0 ? 'YES' : 'NO'}`);
+      console.log(`[Placeholder SVG] Checks passed: ${this.checks.length}`);
+      console.log(`[Placeholder SVG]  Warnings: ${this.warnings.length}`);
+      console.log(`[Placeholder SVG] Critical failures: ${this.failures.length}`);
+      console.log(`[Placeholder SVG] Ready for deployment: ${this.failures.length === 0 ? 'YES' : 'NO'}`);
       
       if (this.warnings.length > 0) {
-        console.log('\n⚠️  Warnings:');
+        console.log('\n[Placeholder SVG]  Warnings:');
         this.warnings.forEach(warning => console.log(`   - ${warning}`));
       }
       
       if (this.failures.length > 0) {
-        console.log('\n❌ Critical Issues:');
+        console.log('\n[Placeholder SVG] Critical Issues:');
         this.failures.forEach(failure => console.log(`   - ${failure}`));
         console.log('\n🛑 Deployment blocked due to critical issues!');
         process.exit(1);
       }
       
-      console.log('\n✅ Site is ready for deployment!');
+      console.log('\n[Placeholder SVG] Site is ready for deployment!');
       
     } catch (error) {
-      console.error('❌ Deployment check failed:', error.message);
+      console.error('[Placeholder SVG] Deployment check failed:', error.message);
       process.exit(1);
     }
   }
@@ -125,7 +125,7 @@ class DeploymentChecker {
    * Validate configuration files
    */
   async validateConfiguration() {
-    console.log('⚙️  Validating configuration...');
+    console.log('[Placeholder SVG]  Validating configuration...');
     
     // Check netlify.toml
     try {
@@ -285,7 +285,7 @@ class DeploymentChecker {
    * Validate security configuration
    */
   async validateSecurityConfiguration() {
-    console.log('🔒 Validating security configuration...');
+    console.log('[Placeholder SVG] Validating security configuration...');
     
     // Check netlify.toml for security headers
     try {

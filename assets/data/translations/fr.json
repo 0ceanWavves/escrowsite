@@ -17,7 +17,40 @@
   "common.menu": "Menu",
   
   "site.title": "La Voie vers la Crypto",
-  "site.subtitle": "Un Plan de Mise en Œuvre Interactif",
+  "site.subtitle": "Plan de Mise en Œuvre Interactif",
+  
+  "hero.title": "Bienvenue sur La Voie vers la Crypto",
+  "hero.subtitle": "Votre guide complet pour le développement crypto et la configuration de nœuds",
+  "hero.description": "Choisissez votre chemin : Apprenez les fondamentaux du développement crypto ou configurez vos propres nœuds BTC & XMR avec nos guides détaillés.",
+  
+  "dev.card.title": "Feuille de Route de Développement",
+  "dev.card.description": "Apprenez à intégrer les portefeuilles Bitcoin et Monero avec des systèmes d'entiercement sécurisés. Une approche complète en 3 phases pour le développement crypto.",
+  "dev.feature.1": "Conception de schéma de base de données",
+  "dev.feature.2": "Intégration de passerelle de paiement",
+  "dev.feature.3": "Interfaces de portefeuille frontend",
+  "dev.card.button": "Commencer l'Apprentissage",
+  
+  "node.card.title": "Guides de Configuration de Nœud",
+  "node.card.description": "Configurez vos propres nœuds Bitcoin et Monero pour une confidentialité et une décentralisation maximales. Guides étape par étape de l'approvisionnement au fonctionnement.",
+  "node.feature.1": "Approvisionnement et configuration VPS",
+  "node.feature.2": "Durcissement de la sécurité",
+  "node.feature.3": "Synchronisation des nœuds",
+  "node.card.button": "Configurer les Nœuds",
+  
+  "getting.started.title": "Commencer",
+  "getting.started.description": "Nouveau dans le développement crypto ou la configuration de nœuds ? Voici quelques points de départ recommandés basés sur votre niveau d'expérience.",
+  
+  "beginner.title": "Débutant",
+  "beginner.description": "Commencez par la Feuille de Route de Développement pour comprendre les fondamentaux crypto et les concepts d'implémentation.",
+  "beginner.link": "Commencer Ici",
+  
+  "intermediate.title": "Intermédiaire",
+  "intermediate.description": "Prêt à vous lancer ? Plongez dans les Guides de Nœud pour configurer votre propre infrastructure.",
+  "intermediate.link": "Configurer les Nœuds",
+  
+  "advanced.title": "Avancé",
+  "advanced.description": "Développeur expérimenté ? Plongez profondément dans les deux pistes pour une connaissance complète de l'intégration crypto.",
+  "advanced.link": "Plongée Profonde",
   
   "roadmap.title": "Feuille de Route de Développement",
   "roadmap.subtitle": "Une Approche en Phases pour une Intégration Crypto Sécurisée",
@@ -32,5 +65,5 @@
   "guides.phase3": "Phase 3: Installation Logiciel de Nœud",
   "guides.phase4": "Phase 4: Synchronisation Blockchain",
   
-  "footer.copyright": "© 2025 La Voie vers la Crypto"
+  "footer.copyright": "© 2025 La Voie vers la Crypto - Plan de Mise en Œuvre Interactif"
 }

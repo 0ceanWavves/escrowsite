@@ -174,11 +174,11 @@ describe('LanguageSwitcher', () => {
 
       getLanguageFlag(lang) {
         const flags = {
-          'en': '🇬🇧',
-          'nl': '🇳🇱',
-          'fr': '🇫🇷'
+          'en': '[Placeholder SVG]',
+          'nl': '[Placeholder SVG]',
+          'fr': '[Placeholder SVG]'
         };
-        return flags[lang] || '🌐';
+        return flags[lang] || '[Placeholder SVG]';
       }
 
       addTranslation(lang, key, value) {
@@ -298,10 +298,10 @@ describe('LanguageSwitcher', () => {
     });
 
     it('should get language flag emoji', () => {
-      expect(languageSwitcher.getLanguageFlag('en')).toBe('🇬🇧');
-      expect(languageSwitcher.getLanguageFlag('nl')).toBe('🇳🇱');
-      expect(languageSwitcher.getLanguageFlag('fr')).toBe('🇫🇷');
-      expect(languageSwitcher.getLanguageFlag('unknown')).toBe('🌐');
+      expect(languageSwitcher.getLanguageFlag('en')).toBe('[Placeholder SVG]');
+      expect(languageSwitcher.getLanguageFlag('nl')).toBe('[Placeholder SVG]');
+      expect(languageSwitcher.getLanguageFlag('fr')).toBe('[Placeholder SVG]');
+      expect(languageSwitcher.getLanguageFlag('unknown')).toBe('[Placeholder SVG]');
     });
   });
 

@@ -31,7 +31,7 @@ class TestReportGenerator {
   }
 
   async generateReport() {
-    console.log('📊 Generating comprehensive test report...\n');
+    console.log('[Placeholder SVG] Generating comprehensive test report...\n');
 
     // Read test results from various sources
     await this.readUnitTestResults();
@@ -45,7 +45,7 @@ class TestReportGenerator {
     await this.generateJSONReport();
     await this.generateMarkdownReport();
     
-    console.log('✅ Test reports generated successfully!');
+    console.log('[Placeholder SVG] Test reports generated successfully!');
     console.log(`📁 Reports saved in: ${path.join(__dirname, '../test-reports/')}`);
   }
 
@@ -197,7 +197,7 @@ class TestReportGenerator {
             </div>
 
             <div class="test-category">
-                <h2>📊 Test Categories</h2>
+                <h2>[Placeholder SVG] Test Categories</h2>
                 
                 <h3>Unit Tests</h3>
                 <div class="test-results">
@@ -309,7 +309,7 @@ class TestReportGenerator {
 
 Generated on: ${new Date(this.results.timestamp).toLocaleString()}
 
-## 📊 Summary
+## [Placeholder SVG] Summary
 
 - **Overall Status**: ${this.results.summary.overallStatus}
 - **Total Tests**: ${this.results.summary.totalTests}
@@ -317,20 +317,20 @@ Generated on: ${new Date(this.results.timestamp).toLocaleString()}
 - **Failed**: ${this.results.summary.totalFailed}
 - **Pass Rate**: ${((this.results.summary.totalPassed / this.results.summary.totalTests) * 100).toFixed(1)}%
 
-## 📋 Test Categories
+## [Placeholder SVG] Test Categories
 
 ### Unit Tests
-- ✅ Passed: ${this.results.unit.passed}
-- ❌ Failed: ${this.results.unit.failed}
-- 📊 Coverage: ${this.results.unit.coverage}%
+- [Placeholder SVG] Passed: ${this.results.unit.passed}
+- [Placeholder SVG] Failed: ${this.results.unit.failed}
+- [Placeholder SVG] Coverage: ${this.results.unit.coverage}%
 
 ### Integration Tests
-- ✅ Passed: ${this.results.integration.passed}
-- ❌ Failed: ${this.results.integration.failed}
+- [Placeholder SVG] Passed: ${this.results.integration.passed}
+- [Placeholder SVG] Failed: ${this.results.integration.failed}
 
 ### Accessibility Tests
-- ✅ Passed: ${this.results.accessibility.passed}
-- ❌ Failed: ${this.results.accessibility.failed}
+- [Placeholder SVG] Passed: ${this.results.accessibility.passed}
+- [Placeholder SVG] Failed: ${this.results.accessibility.failed}
 
 ${this.results.accessibility.violations.length > 0 ? `
 #### Accessibility Violations:
@@ -338,8 +338,8 @@ ${this.results.accessibility.violations.map(v => `- **${v.rule}** (${v.impact}):
 ` : ''}
 
 ### UX Tests
-- ✅ Passed: ${this.results.ux.passed}
-- ❌ Failed: ${this.results.ux.failed}
+- [Placeholder SVG] Passed: ${this.results.ux.passed}
+- [Placeholder SVG] Failed: ${this.results.ux.failed}
 
 ${this.results.ux.issues.length > 0 ? `
 #### UX Issues:
@@ -347,10 +347,10 @@ ${this.results.ux.issues.map(i => `- **${i.type}** (${i.severity})`).join('\n')}
 ` : ''}
 
 ### Cross-Browser Tests
-- ✅ Passed: ${this.results.crossBrowser.passed}
-- ❌ Failed: ${this.results.crossBrowser.failed}
+- [Placeholder SVG] Passed: ${this.results.crossBrowser.passed}
+- [Placeholder SVG] Failed: ${this.results.crossBrowser.failed}
 
-## 🎯 Recommendations
+## [Placeholder SVG] Recommendations
 
 ${this.generateRecommendations()}
 
