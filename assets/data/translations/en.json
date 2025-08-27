@@ -1,0 +1,36 @@
+{
+  "nav.home": "Home",
+  "nav.development-roadmap": "Development Roadmap",
+  "nav.node-guides": "Node Guides",
+  
+  "common.loading": "Loading...",
+  "common.error": "Error",
+  "common.success": "Success",
+  "common.warning": "Warning",
+  "common.info": "Information",
+  "common.next": "Next",
+  "common.previous": "Previous",
+  "common.continue": "Continue",
+  "common.back": "Back",
+  "common.close": "Close",
+  "common.search": "Search",
+  "common.menu": "Menu",
+  
+  "site.title": "The Road to Crypto",
+  "site.subtitle": "An Interactive Implementation Blueprint",
+  
+  "roadmap.title": "Development Roadmap",
+  "roadmap.subtitle": "A Phased Approach to Secure Crypto Integration",
+  "roadmap.phase1": "Phase 1: Foundational Infrastructure",
+  "roadmap.phase2": "Phase 2: Backend & APIs",
+  "roadmap.phase3": "Phase 3: Frontend & UI",
+  
+  "guides.title": "Node Setup Guides",
+  "guides.subtitle": "Complete BTC & XMR Node Setup",
+  "guides.phase1": "Phase 1: Procurement & Provisioning",
+  "guides.phase2": "Phase 2: Server Foundation & Security",
+  "guides.phase3": "Phase 3: Node Software Installation",
+  "guides.phase4": "Phase 4: Blockchain Synchronization",
+  
+  "footer.copyright": "© 2025 The Road to Crypto"
+}

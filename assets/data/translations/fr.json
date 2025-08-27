@@ -1,0 +1,36 @@
+{
+  "nav.home": "Accueil",
+  "nav.development-roadmap": "Feuille de Route",
+  "nav.node-guides": "Guides de Nœud",
+  
+  "common.loading": "Chargement...",
+  "common.error": "Erreur",
+  "common.success": "Succès",
+  "common.warning": "Avertissement",
+  "common.info": "Information",
+  "common.next": "Suivant",
+  "common.previous": "Précédent",
+  "common.continue": "Continuer",
+  "common.back": "Retour",
+  "common.close": "Fermer",
+  "common.search": "Rechercher",
+  "common.menu": "Menu",
+  
+  "site.title": "La Voie vers la Crypto",
+  "site.subtitle": "Un Plan de Mise en Œuvre Interactif",
+  
+  "roadmap.title": "Feuille de Route de Développement",
+  "roadmap.subtitle": "Une Approche en Phases pour une Intégration Crypto Sécurisée",
+  "roadmap.phase1": "Phase 1: Infrastructure Fondamentale",
+  "roadmap.phase2": "Phase 2: Backend & APIs",
+  "roadmap.phase3": "Phase 3: Frontend & UI",
+  
+  "guides.title": "Guides de Configuration de Nœud",
+  "guides.subtitle": "Configuration Complète de Nœud BTC & XMR",
+  "guides.phase1": "Phase 1: Approvisionnement & Provisioning",
+  "guides.phase2": "Phase 2: Fondation Serveur & Sécurité",
+  "guides.phase3": "Phase 3: Installation Logiciel de Nœud",
+  "guides.phase4": "Phase 4: Synchronisation Blockchain",
+  
+  "footer.copyright": "© 2025 La Voie vers la Crypto"
+}

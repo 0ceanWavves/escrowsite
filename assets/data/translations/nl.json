@@ -1,0 +1,36 @@
+{
+  "nav.home": "Home",
+  "nav.development-roadmap": "Ontwikkelingsroadmap",
+  "nav.node-guides": "Node Gidsen",
+  
+  "common.loading": "Laden...",
+  "common.error": "Fout",
+  "common.success": "Succes",
+  "common.warning": "Waarschuwing",
+  "common.info": "Informatie",
+  "common.next": "Volgende",
+  "common.previous": "Vorige",
+  "common.continue": "Doorgaan",
+  "common.back": "Terug",
+  "common.close": "Sluiten",
+  "common.search": "Zoeken",
+  "common.menu": "Menu",
+  
+  "site.title": "De Weg naar Crypto",
+  "site.subtitle": "Een Interactieve Implementatie Blueprint",
+  
+  "roadmap.title": "Ontwikkelingsroadmap",
+  "roadmap.subtitle": "Een Gefaseerde Aanpak voor Veilige Crypto-integratie",
+  "roadmap.phase1": "Fase 1: Fundamentele Infrastructuur",
+  "roadmap.phase2": "Fase 2: Backend & API's",
+  "roadmap.phase3": "Fase 3: Frontend & UI",
+  
+  "guides.title": "Node Setup Gidsen",
+  "guides.subtitle": "Volledige BTC & XMR Node Setup",
+  "guides.phase1": "Fase 1: Inkoop & Provisioning",
+  "guides.phase2": "Fase 2: Server Fundament & Beveiliging",
+  "guides.phase3": "Fase 3: Node Software Installatie",
+  "guides.phase4": "Fase 4: Blockchain Synchronisatie",
+  
+  "footer.copyright": "© 2025 De Weg naar Crypto"
+}
