@@ -1,19 +1,481 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-current-section="node-guides" data-current-page="index">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Node Setup Guides - The Road to Crypto</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../assets/css/layout.css">
-    <link rel="stylesheet" href="../assets/css/components.css">
+    <meta name="description" content="Set up your own Bitcoin and Monero nodes for maximum privacy and decentralization. Step-by-step guides from procurement to operation.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/sidebar.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/section-overview.css">
 </head>
-<body>
-    <div id="app">
-        <!-- Content will be loaded dynamically -->
-    </div>
-    <script src="../assets/js/navigation.js"></script>
-    <script src="../assets/js/language-switcher.js"></script>
-    <script src="../assets/js/page-loader.js"></script>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link active" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link active" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <nav class="sidebar-nav">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-section-title" id="sidebar-title">Node Setup Guides</h3>
+                    <ul class="sidebar-menu" id="sidebar-menu">
+                        <li class="sidebar-menu-item active">
+                            <a href="/node-guides/" class="sidebar-menu-link" id="sidebar-overview">Overview</a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a href="/node-guides/procurement-provisioning/" class="sidebar-menu-link" id="sidebar-phase-1">
+                                <span class="phase-icon">🛒</span>
+                                Phase 1: Procurement & Provisioning
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a href="/node-guides/server-security/" class="sidebar-menu-link" id="sidebar-phase-2">
+                                <span class="phase-icon">🔒</span>
+                                Phase 2: Server Security
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a href="/node-guides/installation/" class="sidebar-menu-link" id="sidebar-phase-3">
+                                <span class="phase-icon">⚙️</span>
+                                Phase 3: Installation & Config
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a href="/node-guides/synchronization/" class="sidebar-menu-link" id="sidebar-phase-4">
+                                <span class="phase-icon">🔄</span>
+                                Phase 4: Synchronization
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Page Content -->
+        <div class="content-area section-overview" id="content-area">
+            <!-- Hero Section -->
+            <section class="section-hero">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-icon">🌐</span>
+                        <span class="badge-text" id="hero-badge">Node Setup Track</span>
+                    </div>
+                    <h1 class="hero-title" id="hero-title">Node Setup Guides</h1>
+                    <p class="hero-subtitle" id="hero-subtitle">
+                        Set up your own Bitcoin and Monero nodes for maximum privacy and decentralization
+                    </p>
+                    <p class="hero-description" id="hero-description">
+                        Complete step-by-step guides covering everything from VPS procurement to full node 
+                        operation. Learn to run your own infrastructure for true financial sovereignty 
+                        and privacy protection.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Phase Navigator -->
+            <section class="phase-navigator">
+                <div class="navigator-header">
+                    <h2 class="navigator-title" id="navigator-title">Setup Phases</h2>
+                    <p class="navigator-description" id="navigator-description">
+                        Follow our comprehensive 4-phase approach to node deployment and operation
+                    </p>
+                </div>
+                
+                <div class="phase-grid">
+                    <!-- Phase 1 -->
+                    <div class="phase-card" data-phase="1">
+                        <div class="phase-header">
+                            <div class="phase-icon-large">🛒</div>
+                            <div class="phase-info">
+                                <h3 class="phase-title" id="phase-1-title">Phase 1: Procurement & Provisioning</h3>
+                                <div class="phase-meta">
+                                    <span class="phase-difficulty beginner" id="phase-1-difficulty">Beginner</span>
+                                    <span class="phase-duration" id="phase-1-duration">2-4 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-content">
+                            <p class="phase-description" id="phase-1-description">
+                                Choose and set up your server infrastructure. Learn about VPS providers, 
+                                hardware requirements, and cost considerations for running crypto nodes.
+                            </p>
+                            
+                            <div class="phase-topics">
+                                <h4 class="topics-title" id="phase-1-topics-title">Key Topics:</h4>
+                                <ul class="topics-list">
+                                    <li id="phase-1-topic-1">VPS provider comparison</li>
+                                    <li id="phase-1-topic-2">Hardware requirements analysis</li>
+                                    <li id="phase-1-topic-3">Cost estimation tools</li>
+                                    <li id="phase-1-topic-4">Initial server setup</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="phase-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text" id="phase-1-progress">Not Started</span>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-actions">
+                            <a href="/node-guides/procurement-provisioning/" class="phase-button primary" id="phase-1-button">
+                                Start Phase 1
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 2 -->
+                    <div class="phase-card" data-phase="2">
+                        <div class="phase-header">
+                            <div class="phase-icon-large">🔒</div>
+                            <div class="phase-info">
+                                <h3 class="phase-title" id="phase-2-title">Phase 2: Server Foundation & Security</h3>
+                                <div class="phase-meta">
+                                    <span class="phase-difficulty intermediate" id="phase-2-difficulty">Intermediate</span>
+                                    <span class="phase-duration" id="phase-2-duration">4-6 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-content">
+                            <p class="phase-description" id="phase-2-description">
+                                Secure your server with proper configurations, firewall rules, and system 
+                                hardening. Essential security practices for protecting your node infrastructure.
+                            </p>
+                            
+                            <div class="phase-topics">
+                                <h4 class="topics-title" id="phase-2-topics-title">Key Topics:</h4>
+                                <ul class="topics-list">
+                                    <li id="phase-2-topic-1">SSH security configuration</li>
+                                    <li id="phase-2-topic-2">Firewall setup and rules</li>
+                                    <li id="phase-2-topic-3">System hardening checklist</li>
+                                    <li id="phase-2-topic-4">Monitoring and logging</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="phase-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text" id="phase-2-progress">Locked</span>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-actions">
+                            <button class="phase-button disabled" id="phase-2-button" disabled>
+                                Complete Phase 1 First
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 3 -->
+                    <div class="phase-card" data-phase="3">
+                        <div class="phase-header">
+                            <div class="phase-icon-large">⚙️</div>
+                            <div class="phase-info">
+                                <h3 class="phase-title" id="phase-3-title">Phase 3: Node Software Installation & Configuration</h3>
+                                <div class="phase-meta">
+                                    <span class="phase-difficulty intermediate" id="phase-3-difficulty">Intermediate</span>
+                                    <span class="phase-duration" id="phase-3-duration">3-5 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-content">
+                            <p class="phase-description" id="phase-3-description">
+                                Install and configure Bitcoin Core and Monero daemon software. Learn about 
+                                configuration options, security settings, and optimization techniques.
+                            </p>
+                            
+                            <div class="phase-topics">
+                                <h4 class="topics-title" id="phase-3-topics-title">Key Topics:</h4>
+                                <ul class="topics-list">
+                                    <li id="phase-3-topic-1">Software download & verification</li>
+                                    <li id="phase-3-topic-2">Configuration file setup</li>
+                                    <li id="phase-3-topic-3">Service management</li>
+                                    <li id="phase-3-topic-4">Initial testing & validation</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="phase-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text" id="phase-3-progress">Locked</span>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-actions">
+                            <button class="phase-button disabled" id="phase-3-button" disabled>
+                                Complete Phase 2 First
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 4 -->
+                    <div class="phase-card" data-phase="4">
+                        <div class="phase-header">
+                            <div class="phase-icon-large">🔄</div>
+                            <div class="phase-info">
+                                <h3 class="phase-title" id="phase-4-title">Phase 4: Blockchain Synchronization & Operation</h3>
+                                <div class="phase-meta">
+                                    <span class="phase-difficulty advanced" id="phase-4-difficulty">Advanced</span>
+                                    <span class="phase-duration" id="phase-4-duration">24-48 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-content">
+                            <p class="phase-description" id="phase-4-description">
+                                Complete the synchronization process and establish ongoing operations. 
+                                Learn monitoring, maintenance, and troubleshooting for long-term node health.
+                            </p>
+                            
+                            <div class="phase-topics">
+                                <h4 class="topics-title" id="phase-4-topics-title">Key Topics:</h4>
+                                <ul class="topics-list">
+                                    <li id="phase-4-topic-1">Blockchain synchronization</li>
+                                    <li id="phase-4-topic-2">Performance monitoring</li>
+                                    <li id="phase-4-topic-3">Maintenance procedures</li>
+                                    <li id="phase-4-topic-4">Troubleshooting guide</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="phase-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text" id="phase-4-progress">Locked</span>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-actions">
+                            <button class="phase-button disabled" id="phase-4-button" disabled>
+                                Complete Phase 3 First
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Node Types -->
+            <section class="node-types">
+                <div class="types-content">
+                    <h2 class="types-title" id="types-title">Supported Node Types</h2>
+                    <p class="types-description" id="types-description">
+                        Our guides cover setup for both Bitcoin and Monero nodes, with specific 
+                        instructions for each cryptocurrency's unique requirements.
+                    </p>
+                    
+                    <div class="types-grid">
+                        <div class="type-card">
+                            <div class="type-header">
+                                <div class="type-icon">₿</div>
+                                <h3 class="type-title" id="btc-title">Bitcoin Core Node</h3>
+                            </div>
+                            <div class="type-content">
+                                <p class="type-description" id="btc-description">
+                                    Run a full Bitcoin node to validate transactions and contribute to network security. 
+                                    Requires ~500GB storage and grows over time.
+                                </p>
+                                <div class="type-specs">
+                                    <div class="spec-item">
+                                        <span class="spec-label" id="btc-storage-label">Storage:</span>
+                                        <span class="spec-value" id="btc-storage">500GB+ SSD</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label" id="btc-ram-label">RAM:</span>
+                                        <span class="spec-value" id="btc-ram">2GB minimum</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label" id="btc-sync-label">Sync Time:</span>
+                                        <span class="spec-value" id="btc-sync">24-48 hours</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="type-card">
+                            <div class="type-header">
+                                <div class="type-icon">ɱ</div>
+                                <h3 class="type-title" id="xmr-title">Monero Node</h3>
+                            </div>
+                            <div class="type-content">
+                                <p class="type-description" id="xmr-description">
+                                    Operate a Monero node for enhanced privacy and network participation. 
+                                    Smaller blockchain size but requires careful privacy configuration.
+                                </p>
+                                <div class="type-specs">
+                                    <div class="spec-item">
+                                        <span class="spec-label" id="xmr-storage-label">Storage:</span>
+                                        <span class="spec-value" id="xmr-storage">200GB+ SSD</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label" id="xmr-ram-label">RAM:</span>
+                                        <span class="spec-value" id="xmr-ram">4GB recommended</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label" id="xmr-sync-label">Sync Time:</span>
+                                        <span class="spec-value" id="xmr-sync">12-24 hours</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Learning Path -->
+            <section class="learning-path">
+                <div class="path-content">
+                    <h2 class="path-title" id="path-title">Why Run Your Own Node?</h2>
+                    <p class="path-description" id="path-description">
+                        Running your own cryptocurrency node provides numerous benefits for privacy, 
+                        security, and network participation. Here's what you'll gain.
+                    </p>
+                    
+                    <div class="path-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">🔒</div>
+                            <div class="feature-content">
+                                <h3 class="feature-title" id="feature-1-title">Enhanced Privacy</h3>
+                                <p class="feature-description" id="feature-1-desc">
+                                    Don't rely on third-party services that can track your transactions and balances
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">🌐</div>
+                            <div class="feature-content">
+                                <h3 class="feature-title" id="feature-2-title">Network Contribution</h3>
+                                <p class="feature-description" id="feature-2-desc">
+                                    Help strengthen the network by validating transactions and maintaining decentralization
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">⚡</div>
+                            <div class="feature-content">
+                                <h3 class="feature-title" id="feature-3-title">Full Control</h3>
+                                <p class="feature-description" id="feature-3-desc">
+                                    Complete sovereignty over your node configuration and transaction validation
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <div class="actions-content">
+                    <h2 class="actions-title" id="actions-title">Ready to Setup Your Node?</h2>
+                    <div class="actions-grid">
+                        <a href="/node-guides/procurement-provisioning/" class="action-card primary">
+                            <div class="action-icon">🚀</div>
+                            <h3 class="action-title" id="action-1-title">Start Phase 1</h3>
+                            <p class="action-description" id="action-1-desc">Begin with server procurement</p>
+                        </a>
+                        
+                        <a href="/getting-started.html" class="action-card">
+                            <div class="action-icon">❓</div>
+                            <h3 class="action-title" id="action-2-title">Need Help?</h3>
+                            <p class="action-description" id="action-2-desc">Check our getting started guide</p>
+                        </a>
+                        
+                        <a href="/development-roadmap/" class="action-card">
+                            <div class="action-icon">🏗️</div>
+                            <h3 class="action-title" id="action-3-title">Learn Development</h3>
+                            <p class="action-description" id="action-3-desc">Explore crypto development alongside nodes</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" id="site-footer">
+        <p id="footer-text">© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/language-switcher.js"></script>
+    <script src="/assets/js/navigation.js"></script>
+    <script src="/assets/js/phase-navigator.js"></script>
 </body>
 </html>

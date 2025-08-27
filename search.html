@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - The Road to Crypto</title>
+    <meta name="description" content="Search through comprehensive crypto development guides and node setup tutorials">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/search.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/" class="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+                        🛣️ The Road to Crypto
+                    </a>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="/development-roadmap/" class="text-gray-700 hover:text-blue-600 transition-colors">Development Roadmap</a>
+                    <a href="/node-guides/" class="text-gray-700 hover:text-blue-600 transition-colors">Node Guides</a>
+                    <a href="/search.html" class="text-blue-600 font-medium">Search</a>
+                </nav>
+                
+                <!-- Language Switcher -->
+                <div class="flex items-center space-x-2">
+                    <button class="language-btn active" data-lang="en">🇬🇧</button>
+                    <button class="language-btn" data-lang="nl">🇳🇱</button>
+                    <button class="language-btn" data-lang="fr">🇫🇷</button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+                <a href="/development-roadmap/" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Development Roadmap</a>
+                <a href="/node-guides/" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Node Guides</a>
+                <a href="/search.html" class="block px-3 py-2 text-blue-600 font-medium">Search</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Page Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">Search Documentation</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Find information across our comprehensive crypto development guides and node setup tutorials. 
+                Use <kbd class="px-2 py-1 bg-gray-100 rounded text-sm">Ctrl+K</kbd> for quick access.
+            </p>
+        </div>
+
+        <!-- Search Interface -->
+        <div class="search-container mb-8" id="search-container">
+            <!-- Search Input -->
+            <div class="relative">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    class="search-input" 
+                    placeholder="Search guides, tutorials, and documentation..."
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+                <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <span class="search-shortcut-hint">Ctrl+K</span>
+            </div>
+
+            <!-- Search Filters -->
+            <div class="search-filters">
+                <div class="search-filter">
+                    <label for="section-filter">Section</label>
+                    <select id="section-filter">
+                        <option value="all">All Sections</option>
+                        <option value="development-roadmap">Development Roadmap</option>
+                        <option value="node-guides">Node Guides</option>
+                    </select>
+                </div>
+                
+                <div class="search-filter">
+                    <label for="type-filter">Content Type</label>
+                    <select id="type-filter">
+                        <option value="all">All Types</option>
+                        <option value="overview">Overviews</option>
+                        <option value="phase">Phases</option>
+                        <option value="guide">Guides</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Search Results -->
+            <div id="search-results" class="search-results"></div>
+        </div>
+
+        <!-- Search Tips -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Search Tips</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-medium text-gray-900 mb-2">Quick Searches</h3>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Use <kbd class="px-1 bg-gray-100 rounded">Ctrl+K</kbd> to focus search from anywhere</li>
+                        <li>• Press <kbd class="px-1 bg-gray-100 rounded">Enter</kbd> to go to first result</li>
+                        <li>• Press <kbd class="px-1 bg-gray-100 rounded">Escape</kbd> to clear search</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-medium text-gray-900 mb-2">Search Examples</h3>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• "bitcoin node setup" - Find node installation guides</li>
+                        <li>• "database schema" - Find development database info</li>
+                        <li>• "security firewall" - Find security configuration guides</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popular Searches -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Popular Searches</h2>
+            <div class="flex flex-wrap gap-2">
+                <button class="popular-search-tag" data-query="bitcoin node">Bitcoin Node</button>
+                <button class="popular-search-tag" data-query="monero setup">Monero Setup</button>
+                <button class="popular-search-tag" data-query="VPS selection">VPS Selection</button>
+                <button class="popular-search-tag" data-query="firewall configuration">Firewall Config</button>
+                <button class="popular-search-tag" data-query="database schema">Database Schema</button>
+                <button class="popular-search-tag" data-query="payment gateway">Payment Gateway</button>
+                <button class="popular-search-tag" data-query="API development">API Development</button>
+                <button class="popular-search-tag" data-query="React development">React Development</button>
+                <button class="popular-search-tag" data-query="security implementation">Security</button>
+                <button class="popular-search-tag" data-query="synchronization monitoring">Sync Monitoring</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-gray-600">
+                <p>&copy; 2024 The Road to Crypto. Educational content for crypto development and node operations.</p>
+                <p class="mt-2 text-sm">
+                    <a href="/development-roadmap/" class="hover:text-blue-600">Development Roadmap</a> • 
+                    <a href="/node-guides/" class="hover:text-blue-600">Node Guides</a> • 
+                    <a href="/search.html" class="hover:text-blue-600">Search</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/search.js"></script>
+    <script>
+        // Popular search tags functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const popularTags = document.querySelectorAll('.popular-search-tag');
+            const searchInput = document.getElementById('search-input');
+            
+            popularTags.forEach(tag => {
+                tag.addEventListener('click', () => {
+                    const query = tag.dataset.query;
+                    searchInput.value = query;
+                    searchInput.focus();
+                    
+                    // Trigger search
+                    if (window.searchEngine) {
+                        window.searchEngine.performSearch(query);
+                    }
+                });
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+    
+    <style>
+        .popular-search-tag {
+            @apply px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium hover:bg-blue-100 transition-colors cursor-pointer;
+        }
+        
+        .language-btn {
+            @apply p-2 rounded-md hover:bg-gray-100 transition-colors;
+        }
+        
+        .language-btn.active {
+            @apply bg-blue-50 text-blue-600;
+        }
+        
+        kbd {
+            @apply font-mono font-medium;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Blocks Test - The Road to Crypto</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/code-blocks.css">
+    
+    <style>
+        body { padding: 20px; background-color: #f9fafb; }
+        .test-section { margin-bottom: 40px; }
+        .test-title { font-size: 24px; font-weight: bold; margin-bottom: 16px; color: #111827; }
+    </style>
+</head>
+<body>
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Code Blocks Component Test</h1>
+        
+        <!-- JavaScript Example -->
+        <div class="test-section">
+            <h2 class="test-title">JavaScript Example</h2>
+            <pre><code class="language-javascript" data-title="Bitcoin Payment Integration">const bitcoin = require('bitcoinjs-lib');
+
+function createPaymentAddress() {
+  const keyPair = bitcoin.ECPair.makeRandom();
+  const address = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey }).address;
+  return { address, privateKey: keyPair.toWIF() };
+}
+
+// Example usage
+const payment = createPaymentAddress();
+console.log('Address:', payment.address);
+console.log('Private Key:', payment.privateKey);</code></pre>
+        </div>
+
+        <!-- Bash Example -->
+        <div class="test-section">
+            <h2 class="test-title">Bash Commands</h2>
+            <pre><code class="language-bash" data-title="Bitcoin Node Setup">#!/bin/bash
+
+# Download Bitcoin Core
+wget https://bitcoin.org/bin/bitcoin-core-25.0/bitcoin-25.0-x86_64-linux-gnu.tar.gz
+
+# Verify and extract
+tar -xzf bitcoin-25.0-x86_64-linux-gnu.tar.gz
+
+# Start Bitcoin daemon
+./bitcoin-25.0/bin/bitcoind -daemon
+
+# Check status
+bitcoin-cli getblockchaininfo</code></pre>
+        </div>
+
+        <!-- Python Example -->
+        <div class="test-section">
+            <h2 class="test-title">Python Script</h2>
+            <pre><code class="language-python" data-title="Crypto Price Monitor">import requests
+import json
+from datetime import datetime
+
+def get_crypto_price(symbol):
+    """Fetch cryptocurrency price from API"""
+    url = f"https://api.coinbase.com/v2/exchange-rates?currency={symbol}"
+    
+    try:
+        response = requests.get(url)
+        data = response.json()
+        
+        if 'data' in data:
+            usd_rate = data['data']['rates']['USD']
+            return float(usd_rate)
+        else:
+            return None
+            
+    except Exception as e:
+        print(f"Error fetching price: {e}")
+        return None
+
+# Monitor Bitcoin and Ethereum prices
+btc_price = get_crypto_price('BTC')
+eth_price = get_crypto_price('ETH')
+
+print(f"Bitcoin: ${btc_price:,.2f}")
+print(f"Ethereum: ${eth_price:,.2f}")
+print(f"Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")</code></pre>
+        </div>
+
+        <!-- SQL Example -->
+        <div class="test-section">
+            <h2 class="test-title">Database Schema</h2>
+            <pre><code class="language-sql" data-title="User Account Schema">-- Create users table for crypto application
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    wallet_address VARCHAR(64),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create transactions table
+CREATE TABLE transactions (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    transaction_hash VARCHAR(64) UNIQUE NOT NULL,
+    amount DECIMAL(18, 8) NOT NULL,
+    currency VARCHAR(10) NOT NULL,
+    status VARCHAR(20) DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create indexes for performance
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_transactions_user_id ON transactions(user_id);
+CREATE INDEX idx_transactions_hash ON transactions(transaction_hash);</code></pre>
+        </div>
+
+        <!-- JSON Configuration -->
+        <div class="test-section">
+            <h2 class="test-title">Configuration File</h2>
+            <pre><code class="language-json" data-title="Bitcoin Node Configuration">{
+  "network": "mainnet",
+  "rpc": {
+    "host": "127.0.0.1",
+    "port": 8332,
+    "username": "bitcoinrpc",
+    "password": "secure_password_here"
+  },
+  "node": {
+    "datadir": "/home/bitcoin/.bitcoin",
+    "maxconnections": 40,
+    "dbcache": 1000,
+    "prune": false
+  },
+  "security": {
+    "rpcallowip": ["127.0.0.1"],
+    "rpcssl": true,
+    "proxy": "127.0.0.1:9050"
+  },
+  "logging": {
+    "level": "info",
+    "logfile": "/var/log/bitcoin/debug.log"
+  }
+}</code></pre>
+        </div>
+
+        <!-- Large Code Block (should be collapsible) -->
+        <div class="test-section">
+            <h2 class="test-title">Large Code Block (Collapsible)</h2>
+            <pre><code class="language-javascript" data-title="Complete Wallet Implementation">class CryptoWallet {
+  constructor(network = 'mainnet') {
+    this.network = network;
+    this.addresses = new Map();
+    this.transactions = [];
+    this.balance = 0;
+    this.isInitialized = false;
+  }
+
+  async initialize() {
+    try {
+      await this.loadConfiguration();
+      await this.connectToNetwork();
+      await this.syncTransactions();
+      this.isInitialized = true;
+      console.log('Wallet initialized successfully');
+    } catch (error) {
+      console.error('Failed to initialize wallet:', error);
+      throw error;
+    }
+  }
+
+  async loadConfiguration() {
+    // Load wallet configuration from secure storage
+    const config = await this.getSecureConfig();
+    this.config = {
+      ...this.defaultConfig,
+      ...config
+    };
+  }
+
+  async connectToNetwork() {
+    // Establish connection to blockchain network
+    this.networkClient = new NetworkClient({
+      network: this.network,
+      endpoints: this.config.endpoints,
+      timeout: this.config.timeout
+    });
+    
+    await this.networkClient.connect();
+  }
+
+  async generateAddress() {
+    const keyPair = this.generateKeyPair();
+    const address = this.deriveAddress(keyPair.publicKey);
+    
+    this.addresses.set(address, {
+      publicKey: keyPair.publicKey,
+      privateKey: keyPair.privateKey,
+      createdAt: new Date(),
+      balance: 0,
+      transactions: []
+    });
+    
+    return address;
+  }
+
+  async sendTransaction(toAddress, amount, options = {}) {
+    if (!this.isInitialized) {
+      throw new Error('Wallet not initialized');
+    }
+    
+    if (amount <= 0) {
+      throw new Error('Amount must be positive');
+    }
+    
+    if (this.balance < amount) {
+      throw new Error('Insufficient balance');
+    }
+    
+    const transaction = await this.createTransaction({
+      to: toAddress,
+      amount: amount,
+      fee: options.fee || this.calculateFee(amount),
+      memo: options.memo
+    });
+    
+    const signedTransaction = await this.signTransaction(transaction);
+    const txHash = await this.broadcastTransaction(signedTransaction);
+    
+    this.transactions.push({
+      hash: txHash,
+      to: toAddress,
+      amount: amount,
+      status: 'pending',
+      timestamp: new Date()
+    });
+    
+    return txHash;
+  }
+
+  async getBalance(address = null) {
+    if (address) {
+      const addressData = this.addresses.get(address);
+      return addressData ? addressData.balance : 0;
+    }
+    
+    return this.balance;
+  }
+
+  async syncTransactions() {
+    const allAddresses = Array.from(this.addresses.keys());
+    
+    for (const address of allAddresses) {
+      const transactions = await this.networkClient.getTransactions(address);
+      await this.processTransactions(address, transactions);
+    }
+    
+    this.updateBalance();
+  }
+
+  calculateFee(amount) {
+    // Simple fee calculation - in practice this would be more complex
+    const baseFee = 0.0001;
+    const percentageFee = amount * 0.001;
+    return Math.max(baseFee, percentageFee);
+  }
+
+  async backup() {
+    const backupData = {
+      addresses: Array.from(this.addresses.entries()),
+      transactions: this.transactions,
+      config: this.config,
+      timestamp: new Date().toISOString()
+    };
+    
+    const encryptedBackup = await this.encrypt(JSON.stringify(backupData));
+    return encryptedBackup;
+  }
+
+  async restore(encryptedBackup) {
+    try {
+      const decryptedData = await this.decrypt(encryptedBackup);
+      const backupData = JSON.parse(decryptedData);
+      
+      this.addresses = new Map(backupData.addresses);
+      this.transactions = backupData.transactions;
+      this.config = { ...this.config, ...backupData.config };
+      
+      await this.syncTransactions();
+      console.log('Wallet restored successfully');
+    } catch (error) {
+      console.error('Failed to restore wallet:', error);
+      throw error;
+    }
+  }
+}</code></pre>
+        </div>
+
+        <!-- Terminal Style -->
+        <div class="test-section">
+            <h2 class="test-title">Terminal Output</h2>
+            <div class="code-block terminal">
+                <div class="code-block-header">
+                    <div class="code-block-title">Node Synchronization Status</div>
+                </div>
+                <div class="code-block-content">
+                    <pre class="code-block-pre"><code>$ bitcoin-cli getblockchaininfo
+{
+  "chain": "main",
+  "blocks": 820450,
+  "headers": 820450,
+  "bestblockhash": "00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054",
+  "difficulty": 67957790298897.88,
+  "mediantime": 1704067200,
+  "verificationprogress": 0.9999876543210123,
+  "initialblockdownload": false,
+  "chainwork": "00000000000000000000000000000000000000006a9c3c1d2e8f4b5a7c9d1e2f",
+  "size_on_disk": 567890123456,
+  "pruned": false
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inline Code Test -->
+        <div class="test-section">
+            <h2 class="test-title">Inline Code</h2>
+            <p class="text-gray-700 leading-relaxed">
+                To start the Bitcoin daemon, run <code class="inline-code">bitcoind -daemon</code> in your terminal. 
+                You can then check the status with <code class="inline-code">bitcoin-cli getinfo</code> and view 
+                the blockchain info using <code class="inline-code">bitcoin-cli getblockchaininfo</code>.
+            </p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/syntax-highlighter.js"></script>
+    <script src="/assets/js/code-blocks.js"></script>
+    
+    <script>
+        // Test the code block functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Code blocks test page loaded');
+            
+            // Add some test interactions
+            setTimeout(() => {
+                console.log('Code block manager:', window.codeBlockManager);
+                console.log('Syntax highlighter:', window.syntaxHighlighter);
+                
+                if (window.codeBlockManager) {
+                    console.log('Managed code blocks:', window.codeBlockManager.getBlocks().length);
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

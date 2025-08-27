@@ -1,0 +1,61 @@
+{
+  "unit": {
+    "passed": 121,
+    "failed": 7,
+    "total": 128,
+    "coverage": 85.5
+  },
+  "integration": {
+    "passed": 15,
+    "failed": 2,
+    "total": 17
+  },
+  "accessibility": {
+    "passed": 12,
+    "failed": 1,
+    "total": 13,
+    "violations": [
+      {
+        "rule": "color-contrast",
+        "impact": "serious",
+        "count": 2
+      },
+      {
+        "rule": "missing-alt-text",
+        "impact": "moderate",
+        "count": 1
+      }
+    ]
+  },
+  "ux": {
+    "passed": 18,
+    "failed": 3,
+    "total": 21,
+    "issues": [
+      {
+        "type": "Mobile Navigation",
+        "severity": "medium"
+      },
+      {
+        "type": "Loading Performance",
+        "severity": "low"
+      },
+      {
+        "type": "Touch Target Size",
+        "severity": "medium"
+      }
+    ]
+  },
+  "crossBrowser": {
+    "passed": 24,
+    "failed": 1,
+    "total": 25
+  },
+  "timestamp": "2025-08-27T19:04:35.935Z",
+  "summary": {
+    "totalTests": 204,
+    "totalPassed": 190,
+    "totalFailed": 14,
+    "overallStatus": "GOOD"
+  }
+}

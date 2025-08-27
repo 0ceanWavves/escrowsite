@@ -1,0 +1,1140 @@
+{
+  "timestamp": "2025-08-27T19:55:44.743Z",
+  "languages": {
+    "en": [
+      {
+        "type": "phase",
+        "contentType": "development-roadmap",
+        "id": "phase-1",
+        "title": "Foundational Infrastructure",
+        "description": "Establish the core technical foundation for crypto applications",
+        "url": "/development-roadmap/phase-1/",
+        "keywords": [
+          "development-roadmap",
+          "phase-1",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-1",
+        "id": "database-schemas",
+        "title": "Database Schemas",
+        "description": "Design and implement database structures for crypto applications",
+        "url": "/development-roadmap/phase-1/database-schemas.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-1",
+          "database-schemas",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-1",
+        "id": "payment-gateways",
+        "title": "Payment Gateways",
+        "description": "Integrate cryptocurrency payment processing systems",
+        "url": "/development-roadmap/phase-1/payment-gateways.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-1",
+          "payment-gateways",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-1",
+        "id": "self-hosted-nodes",
+        "title": "Self-Hosted Nodes",
+        "description": "Set up and maintain your own cryptocurrency nodes",
+        "url": "/development-roadmap/phase-1/self-hosted-nodes.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-1",
+          "self-hosted-nodes",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "development-roadmap",
+        "id": "phase-2",
+        "title": "Backend & APIs",
+        "description": "Build robust backend services and API endpoints",
+        "url": "/development-roadmap/phase-2/",
+        "keywords": [
+          "development-roadmap",
+          "phase-2",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-2",
+        "id": "api-development",
+        "title": "API Development",
+        "description": "Create RESTful APIs for crypto application backends",
+        "url": "/development-roadmap/phase-2/api-development.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-2",
+          "api-development",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-2",
+        "id": "security-implementation",
+        "title": "Security Implementation",
+        "description": "Implement comprehensive security measures",
+        "url": "/development-roadmap/phase-2/security-implementation.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-2",
+          "security-implementation",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "development-roadmap",
+        "id": "phase-3",
+        "title": "Frontend & UI",
+        "description": "Create intuitive user interfaces and user experiences",
+        "url": "/development-roadmap/phase-3/",
+        "keywords": [
+          "development-roadmap",
+          "phase-3",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-3",
+        "id": "react-development",
+        "title": "React Development",
+        "description": "Build responsive React applications for crypto interfaces",
+        "url": "/development-roadmap/phase-3/react-development.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-3",
+          "react-development",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-3",
+        "id": "web3-integration",
+        "title": "Web3 Integration",
+        "description": "Connect applications to blockchain networks",
+        "url": "/development-roadmap/phase-3/web3-integration.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-3",
+          "web3-integration",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "node-guides",
+        "id": "procurement-provisioning",
+        "title": "Procurement & Provisioning",
+        "description": "Select and provision the infrastructure needed for running cryptocurrency nodes",
+        "url": "/node-guides/procurement-provisioning/",
+        "keywords": [
+          "node-guides",
+          "procurement-provisioning",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "procurement-provisioning",
+        "id": "vps-selection",
+        "title": "VPS Selection",
+        "description": "Choose the right Virtual Private Server for your node",
+        "url": "/node-guides/procurement-provisioning/vps-selection.html",
+        "keywords": [
+          "node-guides",
+          "procurement-provisioning",
+          "vps-selection",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "procurement-provisioning",
+        "id": "hardware-requirements",
+        "title": "Hardware Requirements",
+        "description": "Understand minimum and recommended hardware specifications",
+        "url": "/node-guides/procurement-provisioning/hardware-requirements.html",
+        "keywords": [
+          "node-guides",
+          "procurement-provisioning",
+          "hardware-requirements",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "procurement-provisioning",
+        "id": "cost-estimation",
+        "title": "Cost Estimation",
+        "description": "Calculate ongoing costs for node operation",
+        "url": "/node-guides/procurement-provisioning/cost-estimation.html",
+        "keywords": [
+          "node-guides",
+          "procurement-provisioning",
+          "cost-estimation",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "node-guides",
+        "id": "server-security",
+        "title": "Server Foundation & Security",
+        "description": "Secure your server infrastructure before installing node software",
+        "url": "/node-guides/server-security/",
+        "keywords": [
+          "node-guides",
+          "server-security",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "server-security",
+        "id": "secure-connections",
+        "title": "Secure Connections",
+        "description": "Set up SSH keys and secure remote access",
+        "url": "/node-guides/server-security/secure-connections.html",
+        "keywords": [
+          "node-guides",
+          "server-security",
+          "secure-connections",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "server-security",
+        "id": "firewall-config",
+        "title": "Firewall Configuration",
+        "description": "Configure firewall rules for node security",
+        "url": "/node-guides/server-security/firewall-config.html",
+        "keywords": [
+          "node-guides",
+          "server-security",
+          "firewall-config",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "server-security",
+        "id": "system-hardening",
+        "title": "System Hardening",
+        "description": "Apply security hardening measures to the server",
+        "url": "/node-guides/server-security/system-hardening.html",
+        "keywords": [
+          "node-guides",
+          "server-security",
+          "system-hardening",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "node-guides",
+        "id": "installation",
+        "title": "Node Software Installation & Configuration",
+        "description": "Download, verify, and configure Bitcoin and Monero node software",
+        "url": "/node-guides/installation/",
+        "keywords": [
+          "node-guides",
+          "installation",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "installation",
+        "id": "download-verification",
+        "title": "Download & Verification",
+        "description": "Securely download and verify node software authenticity",
+        "url": "/node-guides/installation/download-verification.html",
+        "keywords": [
+          "node-guides",
+          "installation",
+          "download-verification",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "installation",
+        "id": "configuration",
+        "title": "Configuration Files",
+        "description": "Create and customize node configuration files",
+        "url": "/node-guides/installation/configuration.html",
+        "keywords": [
+          "node-guides",
+          "installation",
+          "configuration",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "installation",
+        "id": "setup-wizard",
+        "title": "Setup Wizard",
+        "description": "Step-by-step initial setup and testing",
+        "url": "/node-guides/installation/setup-wizard.html",
+        "keywords": [
+          "node-guides",
+          "installation",
+          "setup-wizard",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "node-guides",
+        "id": "synchronization",
+        "title": "Blockchain Synchronization & Operation",
+        "description": "Monitor synchronization and maintain ongoing node operations",
+        "url": "/node-guides/synchronization/",
+        "keywords": [
+          "node-guides",
+          "synchronization",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "synchronization",
+        "id": "monitoring",
+        "title": "Synchronization Monitoring",
+        "description": "Track blockchain synchronization progress",
+        "url": "/node-guides/synchronization/monitoring.html",
+        "keywords": [
+          "node-guides",
+          "synchronization",
+          "monitoring",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "synchronization",
+        "id": "testing",
+        "title": "Testing & Validation",
+        "description": "Verify node functionality and network connectivity",
+        "url": "/node-guides/synchronization/testing.html",
+        "keywords": [
+          "node-guides",
+          "synchronization",
+          "testing",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "synchronization",
+        "id": "maintenance",
+        "title": "Ongoing Maintenance",
+        "description": "Maintain and monitor your node for optimal performance",
+        "url": "/node-guides/synchronization/maintenance.html",
+        "keywords": [
+          "node-guides",
+          "synchronization",
+          "maintenance",
+          "guide"
+        ]
+      }
+    ],
+    "nl": [
+      {
+        "type": "phase",
+        "contentType": "development-roadmap",
+        "id": "phase-1",
+        "title": "Fundamentele Infrastructuur",
+        "description": "Vestig de kern technische basis voor crypto-applicaties",
+        "url": "/development-roadmap/phase-1/",
+        "keywords": [
+          "development-roadmap",
+          "phase-1",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-1",
+        "id": "database-schemas",
+        "title": "Database Schemas",
+        "description": "Design and implement database structures for crypto applications",
+        "url": "/development-roadmap/phase-1/database-schemas.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-1",
+          "database-schemas",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-1",
+        "id": "payment-gateways",
+        "title": "Payment Gateways",
+        "description": "Integrate cryptocurrency payment processing systems",
+        "url": "/development-roadmap/phase-1/payment-gateways.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-1",
+          "payment-gateways",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-1",
+        "id": "self-hosted-nodes",
+        "title": "Self-Hosted Nodes",
+        "description": "Set up and maintain your own cryptocurrency nodes",
+        "url": "/development-roadmap/phase-1/self-hosted-nodes.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-1",
+          "self-hosted-nodes",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "development-roadmap",
+        "id": "phase-2",
+        "title": "Backend & APIs",
+        "description": "Bouw robuuste backend-services en API-eindpunten",
+        "url": "/development-roadmap/phase-2/",
+        "keywords": [
+          "development-roadmap",
+          "phase-2",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-2",
+        "id": "api-development",
+        "title": "API Development",
+        "description": "Create RESTful APIs for crypto application backends",
+        "url": "/development-roadmap/phase-2/api-development.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-2",
+          "api-development",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-2",
+        "id": "security-implementation",
+        "title": "Security Implementation",
+        "description": "Implement comprehensive security measures",
+        "url": "/development-roadmap/phase-2/security-implementation.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-2",
+          "security-implementation",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "development-roadmap",
+        "id": "phase-3",
+        "title": "Frontend & UI",
+        "description": "Creëer intuïtieve gebruikersinterfaces en gebruikerservaringen",
+        "url": "/development-roadmap/phase-3/",
+        "keywords": [
+          "development-roadmap",
+          "phase-3",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-3",
+        "id": "react-development",
+        "title": "React Development",
+        "description": "Build responsive React applications for crypto interfaces",
+        "url": "/development-roadmap/phase-3/react-development.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-3",
+          "react-development",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-3",
+        "id": "web3-integration",
+        "title": "Web3 Integration",
+        "description": "Connect applications to blockchain networks",
+        "url": "/development-roadmap/phase-3/web3-integration.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-3",
+          "web3-integration",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "node-guides",
+        "id": "procurement-provisioning",
+        "title": "Inkoop & Provisioning",
+        "description": "Selecteer en provision de infrastructuur die nodig is voor het draaien van cryptocurrency nodes",
+        "url": "/node-guides/procurement-provisioning/",
+        "keywords": [
+          "node-guides",
+          "procurement-provisioning",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "procurement-provisioning",
+        "id": "vps-selection",
+        "title": "VPS Selection",
+        "description": "Choose the right Virtual Private Server for your node",
+        "url": "/node-guides/procurement-provisioning/vps-selection.html",
+        "keywords": [
+          "node-guides",
+          "procurement-provisioning",
+          "vps-selection",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "procurement-provisioning",
+        "id": "hardware-requirements",
+        "title": "Hardware Requirements",
+        "description": "Understand minimum and recommended hardware specifications",
+        "url": "/node-guides/procurement-provisioning/hardware-requirements.html",
+        "keywords": [
+          "node-guides",
+          "procurement-provisioning",
+          "hardware-requirements",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "procurement-provisioning",
+        "id": "cost-estimation",
+        "title": "Cost Estimation",
+        "description": "Calculate ongoing costs for node operation",
+        "url": "/node-guides/procurement-provisioning/cost-estimation.html",
+        "keywords": [
+          "node-guides",
+          "procurement-provisioning",
+          "cost-estimation",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "node-guides",
+        "id": "server-security",
+        "title": "Server Fundament & Beveiliging",
+        "description": "Beveilig uw server infrastructuur voordat u node software installeert",
+        "url": "/node-guides/server-security/",
+        "keywords": [
+          "node-guides",
+          "server-security",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "server-security",
+        "id": "secure-connections",
+        "title": "Secure Connections",
+        "description": "Set up SSH keys and secure remote access",
+        "url": "/node-guides/server-security/secure-connections.html",
+        "keywords": [
+          "node-guides",
+          "server-security",
+          "secure-connections",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "server-security",
+        "id": "firewall-config",
+        "title": "Firewall Configuration",
+        "description": "Configure firewall rules for node security",
+        "url": "/node-guides/server-security/firewall-config.html",
+        "keywords": [
+          "node-guides",
+          "server-security",
+          "firewall-config",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "server-security",
+        "id": "system-hardening",
+        "title": "System Hardening",
+        "description": "Apply security hardening measures to the server",
+        "url": "/node-guides/server-security/system-hardening.html",
+        "keywords": [
+          "node-guides",
+          "server-security",
+          "system-hardening",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "node-guides",
+        "id": "installation",
+        "title": "Node Software Installatie & Configuratie",
+        "description": "Download, verifieer en configureer Bitcoin en Monero node software",
+        "url": "/node-guides/installation/",
+        "keywords": [
+          "node-guides",
+          "installation",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "installation",
+        "id": "download-verification",
+        "title": "Download & Verification",
+        "description": "Securely download and verify node software authenticity",
+        "url": "/node-guides/installation/download-verification.html",
+        "keywords": [
+          "node-guides",
+          "installation",
+          "download-verification",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "installation",
+        "id": "configuration",
+        "title": "Configuration Files",
+        "description": "Create and customize node configuration files",
+        "url": "/node-guides/installation/configuration.html",
+        "keywords": [
+          "node-guides",
+          "installation",
+          "configuration",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "installation",
+        "id": "setup-wizard",
+        "title": "Setup Wizard",
+        "description": "Step-by-step initial setup and testing",
+        "url": "/node-guides/installation/setup-wizard.html",
+        "keywords": [
+          "node-guides",
+          "installation",
+          "setup-wizard",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "node-guides",
+        "id": "synchronization",
+        "title": "Blockchain Synchronisatie & Operatie",
+        "description": "Monitor synchronisatie en onderhoud lopende node operaties",
+        "url": "/node-guides/synchronization/",
+        "keywords": [
+          "node-guides",
+          "synchronization",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "synchronization",
+        "id": "monitoring",
+        "title": "Synchronization Monitoring",
+        "description": "Track blockchain synchronization progress",
+        "url": "/node-guides/synchronization/monitoring.html",
+        "keywords": [
+          "node-guides",
+          "synchronization",
+          "monitoring",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "synchronization",
+        "id": "testing",
+        "title": "Testing & Validation",
+        "description": "Verify node functionality and network connectivity",
+        "url": "/node-guides/synchronization/testing.html",
+        "keywords": [
+          "node-guides",
+          "synchronization",
+          "testing",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "synchronization",
+        "id": "maintenance",
+        "title": "Ongoing Maintenance",
+        "description": "Maintain and monitor your node for optimal performance",
+        "url": "/node-guides/synchronization/maintenance.html",
+        "keywords": [
+          "node-guides",
+          "synchronization",
+          "maintenance",
+          "guide"
+        ]
+      }
+    ],
+    "fr": [
+      {
+        "type": "phase",
+        "contentType": "development-roadmap",
+        "id": "phase-1",
+        "title": "Infrastructure Fondamentale",
+        "description": "Établir la base technique centrale pour les applications crypto",
+        "url": "/development-roadmap/phase-1/",
+        "keywords": [
+          "development-roadmap",
+          "phase-1",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-1",
+        "id": "database-schemas",
+        "title": "Database Schemas",
+        "description": "Design and implement database structures for crypto applications",
+        "url": "/development-roadmap/phase-1/database-schemas.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-1",
+          "database-schemas",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-1",
+        "id": "payment-gateways",
+        "title": "Payment Gateways",
+        "description": "Integrate cryptocurrency payment processing systems",
+        "url": "/development-roadmap/phase-1/payment-gateways.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-1",
+          "payment-gateways",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-1",
+        "id": "self-hosted-nodes",
+        "title": "Self-Hosted Nodes",
+        "description": "Set up and maintain your own cryptocurrency nodes",
+        "url": "/development-roadmap/phase-1/self-hosted-nodes.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-1",
+          "self-hosted-nodes",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "development-roadmap",
+        "id": "phase-2",
+        "title": "Backend & APIs",
+        "description": "Construire des services backend robustes et des points de terminaison API",
+        "url": "/development-roadmap/phase-2/",
+        "keywords": [
+          "development-roadmap",
+          "phase-2",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-2",
+        "id": "api-development",
+        "title": "API Development",
+        "description": "Create RESTful APIs for crypto application backends",
+        "url": "/development-roadmap/phase-2/api-development.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-2",
+          "api-development",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-2",
+        "id": "security-implementation",
+        "title": "Security Implementation",
+        "description": "Implement comprehensive security measures",
+        "url": "/development-roadmap/phase-2/security-implementation.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-2",
+          "security-implementation",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "development-roadmap",
+        "id": "phase-3",
+        "title": "Frontend & UI",
+        "description": "Créer des interfaces utilisateur intuitives et des expériences utilisateur",
+        "url": "/development-roadmap/phase-3/",
+        "keywords": [
+          "development-roadmap",
+          "phase-3",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-3",
+        "id": "react-development",
+        "title": "React Development",
+        "description": "Build responsive React applications for crypto interfaces",
+        "url": "/development-roadmap/phase-3/react-development.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-3",
+          "react-development",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "development-roadmap",
+        "phaseId": "phase-3",
+        "id": "web3-integration",
+        "title": "Web3 Integration",
+        "description": "Connect applications to blockchain networks",
+        "url": "/development-roadmap/phase-3/web3-integration.html",
+        "keywords": [
+          "development-roadmap",
+          "phase-3",
+          "web3-integration",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "node-guides",
+        "id": "procurement-provisioning",
+        "title": "Approvisionnement & Provisioning",
+        "description": "Sélectionner et provisionner l'infrastructure nécessaire pour faire fonctionner des nœuds de cryptomonnaie",
+        "url": "/node-guides/procurement-provisioning/",
+        "keywords": [
+          "node-guides",
+          "procurement-provisioning",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "procurement-provisioning",
+        "id": "vps-selection",
+        "title": "VPS Selection",
+        "description": "Choose the right Virtual Private Server for your node",
+        "url": "/node-guides/procurement-provisioning/vps-selection.html",
+        "keywords": [
+          "node-guides",
+          "procurement-provisioning",
+          "vps-selection",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "procurement-provisioning",
+        "id": "hardware-requirements",
+        "title": "Hardware Requirements",
+        "description": "Understand minimum and recommended hardware specifications",
+        "url": "/node-guides/procurement-provisioning/hardware-requirements.html",
+        "keywords": [
+          "node-guides",
+          "procurement-provisioning",
+          "hardware-requirements",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "procurement-provisioning",
+        "id": "cost-estimation",
+        "title": "Cost Estimation",
+        "description": "Calculate ongoing costs for node operation",
+        "url": "/node-guides/procurement-provisioning/cost-estimation.html",
+        "keywords": [
+          "node-guides",
+          "procurement-provisioning",
+          "cost-estimation",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "node-guides",
+        "id": "server-security",
+        "title": "Fondation Serveur & Sécurité",
+        "description": "Sécuriser votre infrastructure serveur avant d'installer le logiciel de nœud",
+        "url": "/node-guides/server-security/",
+        "keywords": [
+          "node-guides",
+          "server-security",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "server-security",
+        "id": "secure-connections",
+        "title": "Secure Connections",
+        "description": "Set up SSH keys and secure remote access",
+        "url": "/node-guides/server-security/secure-connections.html",
+        "keywords": [
+          "node-guides",
+          "server-security",
+          "secure-connections",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "server-security",
+        "id": "firewall-config",
+        "title": "Firewall Configuration",
+        "description": "Configure firewall rules for node security",
+        "url": "/node-guides/server-security/firewall-config.html",
+        "keywords": [
+          "node-guides",
+          "server-security",
+          "firewall-config",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "server-security",
+        "id": "system-hardening",
+        "title": "System Hardening",
+        "description": "Apply security hardening measures to the server",
+        "url": "/node-guides/server-security/system-hardening.html",
+        "keywords": [
+          "node-guides",
+          "server-security",
+          "system-hardening",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "node-guides",
+        "id": "installation",
+        "title": "Installation & Configuration du Logiciel de Nœud",
+        "description": "Télécharger, vérifier et configurer le logiciel de nœud Bitcoin et Monero",
+        "url": "/node-guides/installation/",
+        "keywords": [
+          "node-guides",
+          "installation",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "installation",
+        "id": "download-verification",
+        "title": "Download & Verification",
+        "description": "Securely download and verify node software authenticity",
+        "url": "/node-guides/installation/download-verification.html",
+        "keywords": [
+          "node-guides",
+          "installation",
+          "download-verification",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "installation",
+        "id": "configuration",
+        "title": "Configuration Files",
+        "description": "Create and customize node configuration files",
+        "url": "/node-guides/installation/configuration.html",
+        "keywords": [
+          "node-guides",
+          "installation",
+          "configuration",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "installation",
+        "id": "setup-wizard",
+        "title": "Setup Wizard",
+        "description": "Step-by-step initial setup and testing",
+        "url": "/node-guides/installation/setup-wizard.html",
+        "keywords": [
+          "node-guides",
+          "installation",
+          "setup-wizard",
+          "guide"
+        ]
+      },
+      {
+        "type": "phase",
+        "contentType": "node-guides",
+        "id": "synchronization",
+        "title": "Synchronisation Blockchain & Opération",
+        "description": "Surveiller la synchronisation et maintenir les opérations de nœud en cours",
+        "url": "/node-guides/synchronization/",
+        "keywords": [
+          "node-guides",
+          "synchronization",
+          "phase"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "synchronization",
+        "id": "monitoring",
+        "title": "Synchronization Monitoring",
+        "description": "Track blockchain synchronization progress",
+        "url": "/node-guides/synchronization/monitoring.html",
+        "keywords": [
+          "node-guides",
+          "synchronization",
+          "monitoring",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "synchronization",
+        "id": "testing",
+        "title": "Testing & Validation",
+        "description": "Verify node functionality and network connectivity",
+        "url": "/node-guides/synchronization/testing.html",
+        "keywords": [
+          "node-guides",
+          "synchronization",
+          "testing",
+          "guide"
+        ]
+      },
+      {
+        "type": "subsection",
+        "contentType": "node-guides",
+        "phaseId": "synchronization",
+        "id": "maintenance",
+        "title": "Ongoing Maintenance",
+        "description": "Maintain and monitor your node for optimal performance",
+        "url": "/node-guides/synchronization/maintenance.html",
+        "keywords": [
+          "node-guides",
+          "synchronization",
+          "maintenance",
+          "guide"
+        ]
+      }
+    ]
+  },
+  "totalEntries": 78
+}

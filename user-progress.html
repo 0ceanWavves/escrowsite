@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Progress - The Road to Crypto</title>
+    <meta name="description" content="Track your progress through crypto development guides and node setup tutorials">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/progress-indicators.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/" class="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+                        🛣️ The Road to Crypto
+                    </a>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="/development-roadmap/" class="text-gray-700 hover:text-blue-600 transition-colors">Development Roadmap</a>
+                    <a href="/node-guides/" class="text-gray-700 hover:text-blue-600 transition-colors">Node Guides</a>
+                    <a href="/search.html" class="text-gray-700 hover:text-blue-600 transition-colors">Search</a>
+                    <a href="/user-progress.html" class="text-blue-600 font-medium">Progress</a>
+                </nav>
+                
+                <!-- Language Switcher -->
+                <div class="flex items-center space-x-2">
+                    <button class="language-btn active" data-lang="en">🇬🇧</button>
+                    <button class="language-btn" data-lang="nl">🇳🇱</button>
+                    <button class="language-btn" data-lang="fr">🇫🇷</button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+                <a href="/development-roadmap/" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Development Roadmap</a>
+                <a href="/node-guides/" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Node Guides</a>
+                <a href="/search.html" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Search</a>
+                <a href="/user-progress.html" class="block px-3 py-2 text-blue-600 font-medium">Progress</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Page Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">Your Learning Progress</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Track your advancement through crypto development guides and node setup tutorials.
+            </p>
+        </div>
+
+        <!-- Progress Overview -->
+        <div class="grid lg:grid-cols-3 gap-6 mb-8">
+            <!-- Overall Progress Card -->
+            <div class="progress-card lg:col-span-2">
+                <div class="progress-card-header">
+                    <h2 class="progress-card-title">Overall Progress</h2>
+                    <span class="progress-card-percentage" id="overall-percentage">0%</span>
+                </div>
+                <div class="progress-card-body">
+                    <div class="progress-bar-container progress-bar-large">
+                        <div class="progress-bar" id="overall-progress-bar" style="width: 0%"></div>
+                    </div>
+                    <p class="progress-card-description">
+                        Complete both development roadmap and node setup guides to master crypto development.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Progress Stats -->
+            <div class="progress-stats" id="progress-stats">
+                <!-- Stats will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Section Progress -->
+        <div class="grid lg:grid-cols-2 gap-6 mb-8">
+            <!-- Development Roadmap Progress -->
+            <div class="progress-card">
+                <div class="progress-card-header">
+                    <h3 class="progress-card-title">Development Roadmap</h3>
+                    <span class="progress-card-percentage" id="dev-roadmap-percentage">0%</span>
+                </div>
+                <div class="progress-card-body">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" data-progress-section="development-roadmap" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-steps mt-4" id="dev-roadmap-steps">
+                        <div class="progress-step" data-phase="phase-1">
+                            <div class="progress-step-indicator">1</div>
+                            <div class="progress-step-label">Foundation</div>
+                        </div>
+                        <div class="progress-step" data-phase="phase-2">
+                            <div class="progress-step-indicator">2</div>
+                            <div class="progress-step-label">Backend</div>
+                        </div>
+                        <div class="progress-step" data-phase="phase-3">
+                            <div class="progress-step-indicator">3</div>
+                            <div class="progress-step-label">Frontend</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <a href="/development-roadmap/" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                        Continue Learning →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Node Guides Progress -->
+            <div class="progress-card">
+                <div class="progress-card-header">
+                    <h3 class="progress-card-title">Node Setup Guides</h3>
+                    <span class="progress-card-percentage" id="node-guides-percentage">0%</span>
+                </div>
+                <div class="progress-card-body">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" data-progress-section="node-guides" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-steps mt-4" id="node-guides-steps">
+                        <div class="progress-step" data-phase="procurement-provisioning">
+                            <div class="progress-step-indicator">1</div>
+                            <div class="progress-step-label">Procurement</div>
+                        </div>
+                        <div class="progress-step" data-phase="server-security">
+                            <div class="progress-step-indicator">2</div>
+                            <div class="progress-step-label">Security</div>
+                        </div>
+                        <div class="progress-step" data-phase="installation">
+                            <div class="progress-step-indicator">3</div>
+                            <div class="progress-step-label">Installation</div>
+                        </div>
+                        <div class="progress-step" data-phase="synchronization">
+                            <div class="progress-step-indicator">4</div>
+                            <div class="progress-step-label">Sync</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <a href="/node-guides/" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                        Continue Learning →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bookmarks Section -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-8">
+            <div class="p-6 border-b border-gray-200">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl font-semibold text-gray-900">Your Bookmarks</h2>
+                    <div class="flex gap-2">
+                        <button id="export-bookmarks-btn" class="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors">
+                            Export
+                        </button>
+                        <button id="import-bookmarks-btn" class="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition-colors">
+                            Import
+                        </button>
+                        <input type="file" id="import-file-input" accept=".json" class="hidden">
+                    </div>
+                </div>
+            </div>
+            <div class="p-6">
+                <!-- Bookmark Filters -->
+                <div class="flex flex-wrap gap-2 mb-4" id="bookmark-filters">
+                    <button class="bookmark-filter-btn active" data-filter="all">All</button>
+                    <button class="bookmark-filter-btn" data-filter="development-roadmap">Development</button>
+                    <button class="bookmark-filter-btn" data-filter="node-guides">Node Guides</button>
+                    <button class="bookmark-filter-btn" data-filter="recent">Recent</button>
+                </div>
+                
+                <!-- Bookmark List -->
+                <div id="bookmark-list">
+                    <!-- Bookmarks will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Timeline -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-8">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-xl font-semibold text-gray-900">Learning Timeline</h2>
+                <p class="text-gray-600 mt-1">Your recent progress and achievements</p>
+            </div>
+            <div class="p-6">
+                <div class="progress-timeline" id="progress-timeline">
+                    <!-- Timeline will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Management -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-xl font-semibold text-gray-900">Progress Management</h2>
+                <p class="text-gray-600 mt-1">Export, import, or reset your learning progress</p>
+            </div>
+            <div class="p-6">
+                <div class="grid md:grid-cols-3 gap-4">
+                    <button id="export-progress-btn" class="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                        <svg class="w-8 h-8 text-blue-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span class="font-medium">Export Progress</span>
+                        <span class="text-sm text-gray-600 text-center">Download your progress data</span>
+                    </button>
+                    
+                    <button id="import-progress-btn" class="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                        <svg class="w-8 h-8 text-green-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
+                        </svg>
+                        <span class="font-medium">Import Progress</span>
+                        <span class="text-sm text-gray-600 text-center">Restore from backup file</span>
+                    </button>
+                    
+                    <button id="reset-progress-btn" class="flex flex-col items-center p-4 border border-red-200 rounded-lg hover:bg-red-50 transition-colors text-red-600">
+                        <svg class="w-8 h-8 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                        </svg>
+                        <span class="font-medium">Reset Progress</span>
+                        <span class="text-sm text-center">Clear all progress data</span>
+                    </button>
+                </div>
+                
+                <input type="file" id="import-progress-input" accept=".json" class="hidden">
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-gray-600">
+                <p>&copy; 2024 The Road to Crypto. Educational content for crypto development and node operations.</p>
+                <p class="mt-2 text-sm">
+                    <a href="/development-roadmap/" class="hover:text-blue-600">Development Roadmap</a> • 
+                    <a href="/node-guides/" class="hover:text-blue-600">Node Guides</a> • 
+                    <a href="/search.html" class="hover:text-blue-600">Search</a> • 
+                    <a href="/user-progress.html" class="hover:text-blue-600">Progress</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/progress-tracker.js"></script>
+    <script src="/assets/js/bookmark.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize progress display
+            if (window.progressTracker) {
+                updateProgressDisplay();
+            }
+            
+            // Initialize bookmark display
+            if (window.bookmarkManager) {
+                updateBookmarkDisplay();
+            }
+            
+            // Setup event listeners
+            setupEventListeners();
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+        
+        function updateProgressDisplay() {
+            const tracker = window.progressTracker;
+            if (!tracker) return;
+            
+            // Update overall progress
+            const totalProgress = tracker.getTotalProgress();
+            const overallBar = document.getElementById('overall-progress-bar');
+            const overallPercentage = document.getElementById('overall-percentage');
+            
+            if (overallBar && overallPercentage) {
+                overallBar.style.width = `${totalProgress}%`;
+                overallPercentage.textContent = `${Math.round(totalProgress)}%`;
+            }
+            
+            // Update section percentages
+            const devProgress = tracker.getSectionProgress('development-roadmap');
+            const nodeProgress = tracker.getSectionProgress('node-guides');
+            
+            const devPercentage = document.getElementById('dev-roadmap-percentage');
+            const nodePercentage = document.getElementById('node-guides-percentage');
+            
+            if (devPercentage) devPercentage.textContent = `${Math.round(devProgress)}%`;
+            if (nodePercentage) nodePercentage.textContent = `${Math.round(nodeProgress)}%`;
+            
+            // Update step indicators
+            updateStepIndicators('dev-roadmap-steps', 'development-roadmap', tracker);
+            updateStepIndicators('node-guides-steps', 'node-guides', tracker);
+            
+            // Update timeline
+            updateProgressTimeline(tracker);
+        }
+        
+        function updateStepIndicators(containerId, section, tracker) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            const steps = container.querySelectorAll('.progress-step');
+            steps.forEach(step => {
+                const phase = step.dataset.phase;
+                const phaseData = tracker.progress[section]?.[phase];
+                
+                if (phaseData) {
+                    if (phaseData.completed) {
+                        step.classList.add('completed');
+                        step.classList.remove('active');
+                    } else if (phaseData.startedAt) {
+                        step.classList.add('active');
+                        step.classList.remove('completed');
+                    }
+                }
+            });
+        }
+        
+        function updateProgressTimeline(tracker) {
+            const timeline = document.getElementById('progress-timeline');
+            if (!timeline) return;
+            
+            const activities = [];
+            
+            // Collect all progress activities
+            Object.keys(tracker.progress).forEach(section => {
+                if (section === 'metadata') return;
+                
+                Object.keys(tracker.progress[section]).forEach(phase => {
+                    const phaseData = tracker.progress[section][phase];
+                    
+                    if (phaseData.startedAt) {
+                        activities.push({
+                            type: 'started',
+                            section,
+                            phase,
+                            date: phaseData.startedAt,
+                            title: `Started ${tracker.formatPhaseName(phase)}`
+                        });
+                    }
+                    
+                    if (phaseData.completedAt) {
+                        activities.push({
+                            type: 'completed',
+                            section,
+                            phase,
+                            date: phaseData.completedAt,
+                            title: `Completed ${tracker.formatPhaseName(phase)}`
+                        });
+                    }
+                });
+            });
+            
+            // Sort by date (newest first)
+            activities.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            // Take only recent activities
+            const recentActivities = activities.slice(0, 10);
+            
+            if (recentActivities.length === 0) {
+                timeline.innerHTML = '<p class="text-gray-600">No progress activities yet. Start learning to see your timeline!</p>';
+                return;
+            }
+            
+            const timelineHTML = recentActivities.map(activity => `
+                <div class="progress-timeline-item ${activity.type === 'completed' ? 'completed' : 'active'}">
+                    <div class="progress-timeline-content">
+                        <h4 class="progress-timeline-title">${activity.title}</h4>
+                        <p class="progress-timeline-description">
+                            ${formatTimelineDate(activity.date)} • ${tracker.formatSection(activity.section)}
+                        </p>
+                    </div>
+                </div>
+            `).join('');
+            
+            timeline.innerHTML = timelineHTML;
+        }
+        
+        function updateBookmarkDisplay() {
+            const manager = window.bookmarkManager;
+            if (!manager) return;
+            
+            manager.updateBookmarkList();
+            
+            // Setup bookmark filters
+            const filterBtns = document.querySelectorAll('.bookmark-filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const filter = btn.dataset.filter;
+                    filterBookmarks(filter, manager);
+                });
+            });
+        }
+        
+        function filterBookmarks(filter, manager) {
+            let filteredBookmarks = [];
+            
+            switch (filter) {
+                case 'all':
+                    filteredBookmarks = manager.bookmarks;
+                    break;
+                case 'development-roadmap':
+                    filteredBookmarks = manager.getBookmarksBySection('development-roadmap');
+                    break;
+                case 'node-guides':
+                    filteredBookmarks = manager.getBookmarksBySection('node-guides');
+                    break;
+                case 'recent':
+                    const oneWeekAgo = new Date();
+                    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+                    filteredBookmarks = manager.bookmarks.filter(b => new Date(b.addedAt) > oneWeekAgo);
+                    break;
+            }
+            
+            // Update display with filtered bookmarks
+            const bookmarkList = document.getElementById('bookmark-list');
+            if (bookmarkList) {
+                if (filteredBookmarks.length === 0) {
+                    bookmarkList.innerHTML = '<p class="text-gray-600">No bookmarks found for this filter.</p>';
+                } else {
+                    const bookmarksHTML = filteredBookmarks.map(bookmark => `
+                        <div class="bookmark-item" data-bookmark-id="${bookmark.id}">
+                            <div class="bookmark-content">
+                                <h3 class="bookmark-title">
+                                    <a href="${bookmark.url}">${bookmark.title}</a>
+                                </h3>
+                                <p class="bookmark-description">${bookmark.description}</p>
+                                <div class="bookmark-meta">
+                                    <span class="bookmark-date">${manager.formatDate(bookmark.addedAt)}</span>
+                                    <div class="bookmark-tags">
+                                        ${bookmark.tags.map(tag => `<span class="bookmark-tag">${tag}</span>`).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bookmark-actions">
+                                <button class="remove-bookmark-btn" data-bookmark-id="${bookmark.id}" title="Remove bookmark">✕</button>
+                            </div>
+                        </div>
+                    `).join('');
+                    bookmarkList.innerHTML = bookmarksHTML;
+                }
+            }
+        }
+        
+        function setupEventListeners() {
+            // Export/Import Progress
+            document.getElementById('export-progress-btn')?.addEventListener('click', exportProgress);
+            document.getElementById('import-progress-btn')?.addEventListener('click', () => {
+                document.getElementById('import-progress-input').click();
+            });
+            document.getElementById('import-progress-input')?.addEventListener('change', importProgress);
+            document.getElementById('reset-progress-btn')?.addEventListener('click', resetProgress);
+            
+            // Export/Import Bookmarks
+            document.getElementById('export-bookmarks-btn')?.addEventListener('click', exportBookmarks);
+            document.getElementById('import-bookmarks-btn')?.addEventListener('click', () => {
+                document.getElementById('import-file-input').click();
+            });
+            document.getElementById('import-file-input')?.addEventListener('change', importBookmarks);
+        }
+        
+        function exportProgress() {
+            if (window.progressTracker) {
+                const data = window.progressTracker.exportProgress();
+                const dataStr = JSON.stringify(data, null, 2);
+                const dataBlob = new Blob([dataStr], { type: 'application/json' });
+                
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(dataBlob);
+                link.download = `crypto-guide-progress-${new Date().toISOString().split('T')[0]}.json`;
+                link.click();
+            }
+        }
+        
+        function importProgress(event) {
+            const file = event.target.files[0];
+            if (file && window.progressTracker) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        window.progressTracker.importProgress(data);
+                        updateProgressDisplay();
+                    } catch (error) {
+                        alert('Error importing progress file');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        }
+        
+        function resetProgress() {
+            if (window.progressTracker) {
+                window.progressTracker.resetProgress();
+                updateProgressDisplay();
+            }
+        }
+        
+        function exportBookmarks() {
+            if (window.bookmarkManager) {
+                window.bookmarkManager.exportBookmarks();
+            }
+        }
+        
+        function importBookmarks(event) {
+            const file = event.target.files[0];
+            if (file && window.bookmarkManager) {
+                window.bookmarkManager.importBookmarks(file);
+            }
+        }
+        
+        function formatTimelineDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+    </script>
+    
+    <style>
+        .language-btn {
+            @apply p-2 rounded-md hover:bg-gray-100 transition-colors;
+        }
+        
+        .language-btn.active {
+            @apply bg-blue-50 text-blue-600;
+        }
+        
+        .bookmark-filter-btn {
+            @apply px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors cursor-pointer;
+        }
+        
+        .bookmark-filter-btn.active {
+            @apply bg-blue-100 text-blue-700;
+        }
+        
+        .bookmark-item {
+            @apply flex justify-between items-start p-4 border-b border-gray-100 last:border-b-0;
+        }
+        
+        .bookmark-content {
+            @apply flex-1;
+        }
+        
+        .bookmark-title a {
+            @apply text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors;
+        }
+        
+        .bookmark-description {
+            @apply text-gray-600 mt-1 mb-2;
+        }
+        
+        .bookmark-meta {
+            @apply flex items-center gap-3 text-sm text-gray-500;
+        }
+        
+        .bookmark-tags {
+            @apply flex gap-1;
+        }
+        
+        .bookmark-tag {
+            @apply px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs;
+        }
+        
+        .bookmark-actions {
+            @apply ml-4;
+        }
+        
+        .remove-bookmark-btn {
+            @apply w-8 h-8 flex items-center justify-center text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors;
+        }
+        
+        .bookmark-empty {
+            @apply text-center py-8 text-gray-500;
+        }
+    </style>
+</body>
+</html>

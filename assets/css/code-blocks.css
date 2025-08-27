@@ -1,0 +1,579 @@
+/**
+ * Code Blocks Styles
+ * Enhanced styling for code blocks with syntax highlighting and interactive features
+ */
+
+/* Code Block Container */
+.code-block {
+  position: relative;
+  margin: 16px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1e1e1e;
+  border: 1px solid #333333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Code Block Header */
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #2d2d2d;
+  border-bottom: 1px solid #404040;
+}
+
+.code-block-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.code-block-language {
+  font-size: 12px;
+  color: #888888;
+  background-color: #404040;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.code-block-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Action Buttons */
+.code-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  background-color: #404040;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.code-action-btn:hover {
+  background-color: #505050;
+  transform: translateY(-1px);
+}
+
+.code-action-btn:active {
+  transform: translateY(0);
+}
+
+.code-action-btn.success {
+  background-color: #22c55e;
+  color: #ffffff;
+}
+
+.code-action-btn.success:hover {
+  background-color: #16a34a;
+}
+
+/* Copy Button */
+.copy-btn {
+  position: relative;
+}
+
+.copy-btn .copy-feedback {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #22c55e;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.copy-btn .copy-feedback.show {
+  opacity: 1;
+}
+
+/* Expand/Collapse Button */
+.expand-btn {
+  min-width: 70px;
+}
+
+/* Code Content */
+.code-block-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.code-block-pre {
+  margin: 0;
+  padding: 16px;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre;
+  tab-size: 2;
+}
+
+.code-block-code {
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Collapsed State */
+.code-block.collapsed .code-block-content {
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.code-block.collapsed .code-block-content::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, #1e1e1e);
+  pointer-events: none;
+}
+
+/* Line Numbers */
+.code-block-with-lines .code-block-pre {
+  padding-left: 60px;
+  position: relative;
+}
+
+.code-line-numbers {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  width: 50px;
+  padding-right: 10px;
+  color: #6e7681;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: right;
+  user-select: none;
+  pointer-events: none;
+}
+
+.code-line-number {
+  display: block;
+  height: 1.5em;
+}
+
+/* Syntax Highlighting - VS Code Dark Theme */
+.hljs {
+  background: #1e1e1e;
+  color: #d4d4d4;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #6a9955;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #569cd6;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #b5cea8;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #ce9178;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #dcdcaa;
+  font-weight: bold;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #4ec9b0;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #92c5f8;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #d16969;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #569cd6;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #4fc1ff;
+}
+
+.hljs-meta {
+  color: #9cdcfe;
+}
+
+.hljs-deletion {
+  background: #ff0000;
+}
+
+.hljs-addition {
+  background: #00ff00;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* Language-Specific Styling */
+.language-bash .hljs-built_in {
+  color: #4fc1ff;
+}
+
+.language-javascript .hljs-function {
+  color: #dcdcaa;
+}
+
+.language-python .hljs-function {
+  color: #dcdcaa;
+}
+
+.language-sql .hljs-keyword {
+  color: #569cd6;
+  text-transform: uppercase;
+}
+
+.language-json .hljs-attr {
+  color: #92c5f8;
+}
+
+.language-yaml .hljs-attr {
+  color: #92c5f8;
+}
+
+/* Code Block Variants */
+.code-block.terminal {
+  background-color: #0c0c0c;
+  border-color: #262626;
+}
+
+.code-block.terminal .code-block-header {
+  background-color: #1c1c1c;
+  border-color: #333333;
+}
+
+.code-block.terminal .code-block-pre {
+  background-color: #0c0c0c;
+  color: #cccccc;
+}
+
+.code-block.terminal::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ff5f56;
+  box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27ca3f;
+  z-index: 1;
+}
+
+.code-block.terminal .code-block-header {
+  padding-left: 80px;
+}
+
+/* Inline Code */
+.inline-code {
+  background-color: #f6f8fa;
+  color: #24292f;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+  font-size: 0.9em;
+  border: 1px solid #d1d9e0;
+}
+
+/* Dark mode inline code */
+@media (prefers-color-scheme: dark) {
+  .inline-code {
+    background-color: #262626;
+    color: #e6e6e6;
+    border-color: #404040;
+  }
+}
+
+/* Code Diff Styling */
+.code-diff .hljs-addition {
+  background-color: rgba(46, 160, 67, 0.15);
+  color: #56d364;
+  display: block;
+  width: 100%;
+}
+
+.code-diff .hljs-deletion {
+  background-color: rgba(248, 81, 73, 0.15);
+  color: #f85149;
+  display: block;
+  width: 100%;
+}
+
+.code-diff .hljs-addition::before {
+  content: '+';
+  color: #56d364;
+  margin-right: 8px;
+}
+
+.code-diff .hljs-deletion::before {
+  content: '-';
+  color: #f85149;
+  margin-right: 8px;
+}
+
+/* Code Block with Output */
+.code-block-with-output {
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}
+
+.code-output {
+  background-color: #0d1117;
+  border: 1px solid #333333;
+  border-top: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 16px;
+  font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #7d8590;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+.code-output-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #333333;
+  font-size: 12px;
+  color: #8b949e;
+}
+
+.code-output-icon {
+  width: 16px;
+  height: 16px;
+  color: #56d364;
+}
+
+/* Scrollbar Styling */
+.code-block-pre::-webkit-scrollbar,
+.code-output::-webkit-scrollbar {
+  height: 8px;
+}
+
+.code-block-pre::-webkit-scrollbar-track,
+.code-output::-webkit-scrollbar-track {
+  background: #2d2d2d;
+}
+
+.code-block-pre::-webkit-scrollbar-thumb,
+.code-output::-webkit-scrollbar-thumb {
+  background: #555555;
+  border-radius: 4px;
+}
+
+.code-block-pre::-webkit-scrollbar-thumb:hover,
+.code-output::-webkit-scrollbar-thumb:hover {
+  background: #666666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .code-block-header {
+    padding: 10px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .code-block-actions {
+    order: 3;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .code-block-pre {
+    padding: 12px;
+    font-size: 13px;
+  }
+  
+  .code-block-with-lines .code-block-pre {
+    padding-left: 50px;
+  }
+  
+  .code-line-numbers {
+    width: 40px;
+    font-size: 13px;
+  }
+  
+  .code-action-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .code-block-header {
+    padding: 8px 10px;
+  }
+  
+  .code-block-pre {
+    padding: 10px;
+    font-size: 12px;
+  }
+  
+  .code-block-title {
+    font-size: 13px;
+  }
+  
+  .code-block-language {
+    font-size: 11px;
+    padding: 1px 6px;
+  }
+  
+  .code-action-btn {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+  
+  .code-block.terminal::before {
+    width: 8px;
+    height: 8px;
+    box-shadow: 14px 0 0 #ffbd2e, 28px 0 0 #27ca3f;
+  }
+  
+  .code-block.terminal .code-block-header {
+    padding-left: 60px;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .code-block {
+    border-width: 2px;
+    border-color: #ffffff;
+  }
+  
+  .code-block-header {
+    background-color: #000000;
+    border-color: #ffffff;
+  }
+  
+  .code-block-pre {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  .code-action-btn {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+  }
+  
+  .inline-code {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #000000;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .code-action-btn,
+  .copy-feedback {
+    transition: none;
+  }
+  
+  .code-action-btn:hover {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .code-block {
+    background-color: #ffffff !important;
+    border: 1px solid #000000 !important;
+    break-inside: avoid;
+  }
+  
+  .code-block-header {
+    background-color: #f5f5f5 !important;
+    color: #000000 !important;
+    border-color: #000000 !important;
+  }
+  
+  .code-block-pre {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  .code-block-actions {
+    display: none !important;
+  }
+  
+  .hljs,
+  .hljs * {
+    color: #000000 !important;
+    background: transparent !important;
+  }
+}

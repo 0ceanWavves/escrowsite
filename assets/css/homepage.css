@@ -1,0 +1,342 @@
+/* Homepage Specific Styles */
+
+/* Hero Section */
+.hero-section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #f8f6f0 0%, #f4f1eb 100%);
+    border-bottom: 1px solid #e0dace;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #3f3c36;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #6b665b;
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: #6b665b;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Navigation Cards */
+.navigation-cards {
+    padding: 4rem 2rem;
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.nav-card {
+    background: #ffffff;
+    border: 1px solid #e0dace;
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: #8d836e;
+}
+
+.nav-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #8d836e 0%, #6b665b 100%);
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-emoji {
+    font-size: 2.5rem;
+}
+
+.nav-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3f3c36;
+    margin-bottom: 1rem;
+}
+
+.nav-card-description {
+    color: #6b665b;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.nav-card-features {
+    margin-bottom: 2rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    color: #6b665b;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.feature-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #8d836e;
+    font-weight: bold;
+}
+
+.nav-card-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #8d836e;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-card-button:hover {
+    background: #6b665b;
+    transform: translateX(4px);
+}
+
+.button-icon {
+    width: 1rem;
+    height: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-card-button:hover .button-icon {
+    transform: translateX(2px);
+}
+
+/* Interactive Card Effects */
+.interactive-card {
+    cursor: pointer;
+}
+
+.interactive-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(141, 131, 110, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.interactive-card:hover::before {
+    left: 100%;
+}
+
+/* Getting Started Section */
+.getting-started {
+    padding: 4rem 2rem;
+    background: #ffffff;
+}
+
+.getting-started-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3f3c36;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    font-size: 1.125rem;
+    color: #6b665b;
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.getting-started-card {
+    background: #f8f6f0;
+    border: 1px solid #e0dace;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.getting-started-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    margin-bottom: 1.5rem;
+}
+
+.card-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #3f3c36;
+    margin: 0;
+}
+
+.card-content {
+    text-align: left;
+}
+
+.card-description {
+    color: #6b665b;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.card-link {
+    display: inline-block;
+    color: #8d836e;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.card-link:hover {
+    color: #6b665b;
+    border-bottom-color: #8d836e;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+    
+    .grid-cols-2,
+    .grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-card {
+        padding: 1.5rem;
+    }
+    
+    .nav-card-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .card-emoji {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hero-section,
+    .navigation-cards,
+    .getting-started {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.125rem;
+    }
+    
+    .nav-card-title {
+        font-size: 1.25rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+}
+
+/* Animation for page load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content,
+.nav-card,
+.getting-started-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.nav-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.getting-started-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.getting-started-card:nth-child(3) {
+    animation-delay: 0.2s;
+}

@@ -1,302 +1,259 @@
 /**
- * Content Validator Module
- * Provides validation and error handling for content data
+ * Content Validation and Quality Assurance System
+ * Validates content structure, translations, and data integrity
  */
 
 class ContentValidator {
   constructor() {
-    this.validationRules = {
-      content: {
-        required: ['title', 'description', 'phases'],
-        types: {
-          title: 'string',
-          description: 'string',
-          phases: 'array'
-        }
-      },
-      phase: {
-        required: ['id', 'title', 'description', 'subsections'],
-        types: {
-          id: 'string',
-          title: 'string',
-          description: 'string',
-          estimatedTime: 'string',
-          difficulty: 'string',
-          subsections: 'array'
-        }
-      },
-      subsection: {
-        required: ['id', 'title', 'description', 'content'],
-        types: {
-          id: 'string',
-          title: 'string',
-          description: 'string',
-          content: 'string',
-          prerequisites: 'array',
-          codeBlocks: 'array'
-        }
-      }
+    this.errors = [];
+    this.warnings = [];
+    this.supportedLanguages = ['en', 'nl', 'fr'];
+    this.requiredFields = {
+      main: ['title', 'description', 'phases'],
+      phase: ['id', 'title', 'description', 'estimatedTime', 'difficulty', 'subsections'],
+      subsection: ['id', 'title', 'description', 'content', 'prerequisites'],
+      translation: ['title', 'description', 'navigation', 'common', 'phases']
     };
   }
 
   /**
-   * Validate complete content structure
-   * @param {Object} content - Content object to validate
-   * @param {string} contentType - Type of content being validated
-   * @returns {Object} Validation result with isValid boolean and errors array
+   * Validate main content structure
    */
-  validateContent(content, contentType) {
-    const errors = [];
-    
+  async validateMainContent(contentType) {
     try {
-      // Basic structure validation
-      this._validateObject(content, 'content', errors);
+      const response = await fetch(`/data/${contentType}.json`);
+      const content = await response.json();
       
-      if (content.phases) {
-        content.phases.forEach((phase, index) => {
-          this._validatePhase(phase, index, errors);
+      this.validateStructure(content, this.requiredFields.main, `${contentType} main content`);
+      
+      // Validate phases
+      content.phases.forEach((phase, index) => {
+        this.validateStructure(phase, this.requiredFields.phase, `${contentType} phase ${index + 1}`);
+        
+        // Validate subsections
+        phase.subsections.forEach((subsection, subIndex) => {
+          this.validateStructure(subsection, this.requiredFields.subsection, 
+            `${contentType} phase ${index + 1} subsection ${subIndex + 1}`);
         });
-      }
+      });
       
-      return {
-        isValid: errors.length === 0,
-        errors,
-        contentType
-      };
+      return { valid: this.errors.length === 0, errors: this.errors, warnings: this.warnings };
     } catch (error) {
-      errors.push(`Validation error: ${error.message}`);
-      return {
-        isValid: false,
-        errors,
-        contentType
-      };
-    }
-  }  
-/**
-   * Validate phase structure
-   * @private
-   * @param {Object} phase - Phase object to validate
-   * @param {number} index - Phase index for error reporting
-   * @param {Array} errors - Array to collect errors
-   */
-  _validatePhase(phase, index, errors) {
-    const phaseContext = `Phase ${index}`;
-    
-    this._validateObject(phase, 'phase', errors, phaseContext);
-    
-    if (phase.subsections) {
-      phase.subsections.forEach((subsection, subIndex) => {
-        this._validateSubsection(subsection, index, subIndex, errors);
-      });
+      this.errors.push(`Failed to load ${contentType} content: ${error.message}`);
+      return { valid: false, errors: this.errors, warnings: this.warnings };
     }
   }
 
   /**
-   * Validate subsection structure
-   * @private
-   * @param {Object} subsection - Subsection object to validate
-   * @param {number} phaseIndex - Phase index for error reporting
-   * @param {number} subIndex - Subsection index for error reporting
-   * @param {Array} errors - Array to collect errors
+   * Validate translations completeness
    */
-  _validateSubsection(subsection, phaseIndex, subIndex, errors) {
-    const subsectionContext = `Phase ${phaseIndex}, Subsection ${subIndex}`;
+  async validateTranslations(contentType) {
+    const translationResults = {};
     
-    this._validateObject(subsection, 'subsection', errors, subsectionContext);
-    
-    // Validate code blocks if present
-    if (subsection.codeBlocks) {
-      subsection.codeBlocks.forEach((codeBlock, codeIndex) => {
-        this._validateCodeBlock(codeBlock, phaseIndex, subIndex, codeIndex, errors);
-      });
-    }
-  }
-
-  /**
-   * Validate code block structure
-   * @private
-   * @param {Object} codeBlock - Code block object to validate
-   * @param {number} phaseIndex - Phase index for error reporting
-   * @param {number} subIndex - Subsection index for error reporting
-   * @param {number} codeIndex - Code block index for error reporting
-   * @param {Array} errors - Array to collect errors
-   */
-  _validateCodeBlock(codeBlock, phaseIndex, subIndex, codeIndex, errors) {
-    const context = `Phase ${phaseIndex}, Subsection ${subIndex}, Code Block ${codeIndex}`;
-    
-    if (!codeBlock.language || typeof codeBlock.language !== 'string') {
-      errors.push(`${context}: Missing or invalid language`);
-    }
-    
-    if (!codeBlock.code || typeof codeBlock.code !== 'string') {
-      errors.push(`${context}: Missing or invalid code`);
-    }
-  }  /**
-  
- * Validate object against rules
-   * @private
-   * @param {Object} obj - Object to validate
-   * @param {string} type - Type of object (content, phase, subsection)
-   * @param {Array} errors - Array to collect errors
-   * @param {string} context - Context for error reporting
-   */
-  _validateObject(obj, type, errors, context = '') {
-    const rules = this.validationRules[type];
-    const prefix = context ? `${context}: ` : '';
-    
-    if (!obj || typeof obj !== 'object') {
-      errors.push(`${prefix}Invalid ${type}: must be an object`);
-      return;
-    }
-    
-    // Check required fields
-    rules.required.forEach(field => {
-      if (!(field in obj)) {
-        errors.push(`${prefix}Missing required field: ${field}`);
+    for (const lang of this.supportedLanguages) {
+      try {
+        const response = await fetch(`/data/${lang}/${contentType}.json`);
+        const translation = await response.json();
+        
+        this.validateStructure(translation, this.requiredFields.translation, 
+          `${contentType} ${lang} translation`);
+        
+        // Validate navigation completeness
+        this.validateNavigationTranslation(translation.navigation, lang, contentType);
+        
+        // Validate common terms
+        this.validateCommonTermsTranslation(translation.common, lang, contentType);
+        
+        translationResults[lang] = {
+          valid: this.errors.length === 0,
+          errors: [...this.errors],
+          warnings: [...this.warnings]
+        };
+        
+        // Reset for next language
+        this.errors = [];
+        this.warnings = [];
+        
+      } catch (error) {
+        translationResults[lang] = {
+          valid: false,
+          errors: [`Failed to load ${lang} translation: ${error.message}`],
+          warnings: []
+        };
       }
-    });
+    }
     
-    // Check field types
-    Object.entries(rules.types).forEach(([field, expectedType]) => {
-      if (field in obj) {
-        const actualType = this._getType(obj[field]);
-        if (actualType !== expectedType) {
-          errors.push(`${prefix}Invalid type for ${field}: expected ${expectedType}, got ${actualType}`);
-        }
+    return translationResults;
+  }
+
+  /**
+   * Validate content structure against required fields
+   */
+  validateStructure(obj, requiredFields, context) {
+    requiredFields.forEach(field => {
+      if (!obj.hasOwnProperty(field)) {
+        this.errors.push(`Missing required field '${field}' in ${context}`);
+      } else if (obj[field] === null || obj[field] === undefined || obj[field] === '') {
+        this.errors.push(`Empty required field '${field}' in ${context}`);
       }
     });
   }
 
   /**
-   * Get type of value
-   * @private
-   * @param {*} value - Value to check type of
-   * @returns {string} Type name
+   * Validate navigation translation completeness
    */
-  _getType(value) {
-    if (Array.isArray(value)) return 'array';
-    if (value === null) return 'null';
-    return typeof value;
+  validateNavigationTranslation(navigation, lang, contentType) {
+    const requiredNavItems = ['home', 'phases', 'overview', 'nextStep', 'previousStep', 'backToPhases'];
+    
+    requiredNavItems.forEach(item => {
+      if (!navigation[item]) {
+        this.errors.push(`Missing navigation translation '${item}' in ${lang} ${contentType}`);
+      }
+    });
   }
 
   /**
-   * Validate content IDs for uniqueness
-   * @param {Object} content - Content object to validate
-   * @returns {Object} Validation result
+   * Validate common terms translation completeness
    */
-  validateUniqueIds(content) {
-    const errors = [];
-    const phaseIds = new Set();
-    const subsectionIds = new Set();
+  validateCommonTermsTranslation(common, lang, contentType) {
+    const requiredCommonTerms = [
+      'estimatedTime', 'difficulty', 'prerequisites', 'codeExample', 
+      'copyCode', 'copied', 'showMore', 'showLess', 
+      'beginner', 'intermediate', 'advanced'
+    ];
     
-    if (content.phases) {
-      content.phases.forEach((phase, phaseIndex) => {
-        // Check phase ID uniqueness
-        if (phaseIds.has(phase.id)) {
-          errors.push(`Duplicate phase ID: ${phase.id}`);
-        } else {
-          phaseIds.add(phase.id);
-        }
+    requiredCommonTerms.forEach(term => {
+      if (!common[term]) {
+        this.errors.push(`Missing common term translation '${term}' in ${lang} ${contentType}`);
+      }
+    });
+  }
+
+  /**
+   * Validate cross-references and links
+   */
+  async validateCrossReferences(contentType) {
+    try {
+      const response = await fetch(`/data/${contentType}.json`);
+      const content = await response.json();
+      
+      const phaseIds = content.phases.map(phase => phase.id);
+      const subsectionIds = [];
+      
+      content.phases.forEach(phase => {
+        phase.subsections.forEach(subsection => {
+          subsectionIds.push(`${phase.id}/${subsection.id}`);
+        });
+      });
+      
+      // Validate internal references (this would be expanded based on actual content structure)
+      this.validateInternalLinks(content, phaseIds, subsectionIds, contentType);
+      
+      return { valid: this.errors.length === 0, errors: this.errors, warnings: this.warnings };
+    } catch (error) {
+      this.errors.push(`Failed to validate cross-references: ${error.message}`);
+      return { valid: false, errors: this.errors, warnings: this.warnings };
+    }
+  }
+
+  /**
+   * Validate internal links and references
+   */
+  validateInternalLinks(content, phaseIds, subsectionIds, contentType) {
+    // This would check for broken internal links in content
+    // For now, we'll add a placeholder validation
+    content.phases.forEach((phase, phaseIndex) => {
+      phase.subsections.forEach((subsection, subsectionIndex) => {
+        // Check if content contains references to non-existent phases or subsections
+        const contentText = subsection.content || '';
         
-        // Check subsection ID uniqueness within phase
-        const phaseSubsectionIds = new Set();
-        if (phase.subsections) {
-          phase.subsections.forEach((subsection, subIndex) => {
-            const fullId = `${phase.id}.${subsection.id}`;
-            
-            if (phaseSubsectionIds.has(subsection.id)) {
-              errors.push(`Duplicate subsection ID in phase ${phase.id}: ${subsection.id}`);
-            } else {
-              phaseSubsectionIds.add(subsection.id);
-            }
-            
-            if (subsectionIds.has(fullId)) {
-              errors.push(`Duplicate subsection full ID: ${fullId}`);
-            } else {
-              subsectionIds.add(fullId);
+        // Simple regex to find potential internal references
+        const references = contentText.match(/\[([^\]]+)\]\(#([^)]+)\)/g);
+        if (references) {
+          references.forEach(ref => {
+            const match = ref.match(/\[([^\]]+)\]\(#([^)]+)\)/);
+            if (match) {
+              const linkTarget = match[2];
+              if (!phaseIds.includes(linkTarget) && !subsectionIds.some(id => id.includes(linkTarget))) {
+                this.warnings.push(`Potential broken internal link '${linkTarget}' in ${contentType} phase ${phaseIndex + 1} subsection ${subsectionIndex + 1}`);
+              }
             }
           });
         }
       });
-    }
-    
-    return {
-      isValid: errors.length === 0,
-      errors
-    };
-  }  
-/**
-   * Validate content completeness (check for empty or missing content)
-   * @param {Object} content - Content object to validate
-   * @returns {Object} Validation result
-   */
-  validateCompleteness(content) {
-    const warnings = [];
-    
-    if (content.phases) {
-      content.phases.forEach((phase, phaseIndex) => {
-        if (!phase.description || phase.description.trim().length < 10) {
-          warnings.push(`Phase ${phaseIndex} (${phase.id}): Description is too short or missing`);
-        }
-        
-        if (!phase.subsections || phase.subsections.length === 0) {
-          warnings.push(`Phase ${phaseIndex} (${phase.id}): No subsections defined`);
-        }
-        
-        if (phase.subsections) {
-          phase.subsections.forEach((subsection, subIndex) => {
-            if (!subsection.content || subsection.content.trim().length < 20) {
-              warnings.push(`Phase ${phaseIndex}, Subsection ${subIndex} (${subsection.id}): Content is too short or missing`);
-            }
-            
-            if (!subsection.prerequisites || subsection.prerequisites.length === 0) {
-              warnings.push(`Phase ${phaseIndex}, Subsection ${subIndex} (${subsection.id}): No prerequisites defined`);
-            }
-          });
-        }
-      });
-    }
-    
-    return {
-      isValid: warnings.length === 0,
-      warnings
-    };
+    });
   }
 
   /**
    * Generate validation report
-   * @param {Object} content - Content to validate
-   * @param {string} contentType - Type of content
-   * @returns {Object} Complete validation report
    */
-  generateReport(content, contentType) {
-    const structureValidation = this.validateContent(content, contentType);
-    const uniqueIdValidation = this.validateUniqueIds(content);
-    const completenessValidation = this.validateCompleteness(content);
-    
-    return {
-      contentType,
+  generateReport(validationResults) {
+    const report = {
       timestamp: new Date().toISOString(),
-      structure: structureValidation,
-      uniqueIds: uniqueIdValidation,
-      completeness: completenessValidation,
-      overall: {
-        isValid: structureValidation.isValid && uniqueIdValidation.isValid,
-        hasWarnings: completenessValidation.warnings.length > 0,
-        totalErrors: structureValidation.errors.length + uniqueIdValidation.errors.length,
-        totalWarnings: completenessValidation.warnings.length
-      }
+      summary: {
+        totalErrors: 0,
+        totalWarnings: 0,
+        contentTypes: Object.keys(validationResults)
+      },
+      details: validationResults
     };
+
+    // Calculate totals
+    Object.values(validationResults).forEach(result => {
+      if (result.errors) {
+        report.summary.totalErrors += result.errors.length;
+      }
+      if (result.warnings) {
+        report.summary.totalWarnings += result.warnings.length;
+      }
+      
+      // Handle translation results
+      if (result.translations) {
+        Object.values(result.translations).forEach(translation => {
+          report.summary.totalErrors += translation.errors.length;
+          report.summary.totalWarnings += translation.warnings.length;
+        });
+      }
+    });
+
+    return report;
+  }
+
+  /**
+   * Run comprehensive validation
+   */
+  async runFullValidation() {
+    const results = {};
+    const contentTypes = ['development-roadmap', 'node-guides'];
+    
+    for (const contentType of contentTypes) {
+      console.log(`Validating ${contentType}...`);
+      
+      // Validate main content
+      const mainValidation = await this.validateMainContent(contentType);
+      
+      // Validate translations
+      const translationValidation = await this.validateTranslations(contentType);
+      
+      // Validate cross-references
+      this.errors = []; // Reset errors for cross-reference validation
+      this.warnings = [];
+      const crossRefValidation = await this.validateCrossReferences(contentType);
+      
+      results[contentType] = {
+        main: mainValidation,
+        translations: translationValidation,
+        crossReferences: crossRefValidation
+      };
+    }
+    
+    return this.generateReport(results);
   }
 }
 
-// Create and export singleton instance
-const contentValidator = new ContentValidator();
-
-// Export both the class and the singleton instance
-export { ContentValidator, contentValidator };
-
-// For CommonJS compatibility
+// Export for use in other modules
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { ContentValidator, contentValidator };
+  module.exports = ContentValidator;
+} else {
+  window.ContentValidator = ContentValidator;
 }

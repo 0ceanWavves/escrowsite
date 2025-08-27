@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Dashboard - The Road to Crypto</title>
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <style>
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .dashboard-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .dashboard-card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .metric:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-value {
+            font-weight: bold;
+            color: #007bff;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-up { background-color: #28a745; }
+        .status-down { background-color: #dc3545; }
+        .status-warning { background-color: #ffc107; }
+        
+        .error-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .error-item {
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border-left: 4px solid #dc3545;
+            font-size: 0.9rem;
+        }
+        
+        .refresh-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+        
+        .refresh-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Monitoring Dashboard</h1>
+        <p>Real-time monitoring of site performance, errors, and user analytics.</p>
+        
+        <button class="refresh-button" onclick="refreshDashboard()">Refresh Data</button>
+        
+        <div class="dashboard-grid">
+            <!-- Uptime Status -->
+            <div class="dashboard-card">
+                <h3>🔍 Uptime Status</h3>
+                <div id="uptime-metrics">
+                    <div class="metric">
+                        <span>Current Status</span>
+                        <span class="metric-value" id="current-status">
+                            <span class="status-indicator status-up"></span>Online
+                        </span>
+                    </div>
+                    <div class="metric">
+                        <span>Uptime</span>
+                        <span class="metric-value" id="uptime-percentage">--</span>
+                    </div>
+                    <div class="metric">
+                        <span>Avg Response Time</span>
+                        <span class="metric-value" id="avg-response-time">--</span>
+                    </div>
+                    <div class="metric">
+                        <span>Last Check</span>
+                        <span class="metric-value" id="last-check">--</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Error Tracking -->
+            <div class="dashboard-card">
+                <h3>🐛 Error Tracking</h3>
+                <div id="error-metrics">
+                    <div class="metric">
+                        <span>Total Errors</span>
+                        <span class="metric-value" id="total-errors">--</span>
+                    </div>
+                    <div class="metric">
+                        <span>JavaScript Errors</span>
+                        <span class="metric-value" id="js-errors">--</span>
+                    </div>
+                    <div class="metric">
+                        <span>Network Errors</span>
+                        <span class="metric-value" id="network-errors">--</span>
+                    </div>
+                </div>
+                <div class="error-list" id="recent-errors">
+                    <!-- Recent errors will be populated here -->
+                </div>
+            </div>
+            
+            <!-- Performance Metrics -->
+            <div class="dashboard-card">
+                <h3>⚡ Performance</h3>
+                <div id="performance-metrics">
+                    <div class="metric">
+                        <span>Page Load Time</span>
+                        <span class="metric-value" id="page-load-time">--</span>
+                    </div>
+                    <div class="metric">
+                        <span>LCP</span>
+                        <span class="metric-value" id="lcp-time">--</span>
+                    </div>
+                    <div class="metric">
+                        <span>CLS</span>
+                        <span class="metric-value" id="cls-score">--</span>
+                    </div>
+                    <div class="metric">
+                        <span>FID</span>
+                        <span class="metric-value" id="fid-time">--</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Analytics -->
+            <div class="dashboard-card">
+                <h3>📈 Analytics</h3>
+                <div id="analytics-metrics">
+                    <div class="metric">
+                        <span>Page Views</span>
+                        <span class="metric-value" id="page-views">--</span>
+                    </div>
+                    <div class="metric">
+                        <span>Search Queries</span>
+                        <span class="metric-value" id="search-queries">--</span>
+                    </div>
+                    <div class="metric">
+                        <span>Language Switches</span>
+                        <span class="metric-value" id="language-switches">--</span>
+                    </div>
+                    <div class="metric">
+                        <span>External Clicks</span>
+                        <span class="metric-value" id="external-clicks">--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/assets/js/error-tracker.js"></script>
+    <script src="/assets/js/performance-monitor.js"></script>
+    <script src="/assets/js/analytics.js"></script>
+    <script src="/assets/js/uptime-monitor.js"></script>
+    
+    <script>
+        function refreshDashboard() {
+            updateUptimeMetrics();
+            updateErrorMetrics();
+            updatePerformanceMetrics();
+            updateAnalyticsMetrics();
+        }
+        
+        function updateUptimeMetrics() {
+            if (window.uptimeMonitor) {
+                const stats = uptimeMonitor.getUptimeStats();
+                document.getElementById('uptime-percentage').textContent = stats.uptime + '%';
+                document.getElementById('avg-response-time').textContent = stats.averageResponseTime + 'ms';
+                
+                if (stats.lastCheck) {
+                    const lastCheckTime = new Date(stats.lastCheck.timestamp).toLocaleTimeString();
+                    document.getElementById('last-check').textContent = lastCheckTime;
+                }
+            }
+        }
+        
+        function updateErrorMetrics() {
+            if (window.errorTracker) {
+                const errors = errorTracker.getErrors();
+                const jsErrors = errors.filter(e => e.type === 'javascript').length;
+                const networkErrors = errors.filter(e => e.type === 'network').length;
+                
+                document.getElementById('total-errors').textContent = errors.length;
+                document.getElementById('js-errors').textContent = jsErrors;
+                document.getElementById('network-errors').textContent = networkErrors;
+                
+                // Show recent errors
+                const recentErrorsContainer = document.getElementById('recent-errors');
+                recentErrorsContainer.innerHTML = '';
+                
+                errors.slice(-5).reverse().forEach(error => {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'error-item';
+                    errorDiv.innerHTML = `
+                        <strong>${error.type}</strong>: ${error.message}<br>
+                        <small>${new Date(error.timestamp).toLocaleString()}</small>
+                    `;
+                    recentErrorsContainer.appendChild(errorDiv);
+                });
+            }
+        }
+        
+        function updatePerformanceMetrics() {
+            if (window.performanceMonitor) {
+                const metrics = performanceMonitor.getMetrics();
+                
+                const pageLoadMetrics = metrics.filter(m => m.type === 'page_load');
+                const lcpMetrics = metrics.filter(m => m.type === 'largest_contentful_paint');
+                const clsMetrics = metrics.filter(m => m.type === 'cumulative_layout_shift');
+                const fidMetrics = metrics.filter(m => m.type === 'first_input_delay');
+                
+                if (pageLoadMetrics.length > 0) {
+                    const avgLoadTime = pageLoadMetrics.reduce((sum, m) => sum + m.data.totalTime, 0) / pageLoadMetrics.length;
+                    document.getElementById('page-load-time').textContent = Math.round(avgLoadTime) + 'ms';
+                }
+                
+                if (lcpMetrics.length > 0) {
+                    const avgLCP = lcpMetrics.reduce((sum, m) => sum + m.data.value, 0) / lcpMetrics.length;
+                    document.getElementById('lcp-time').textContent = Math.round(avgLCP) + 'ms';
+                }
+                
+                if (clsMetrics.length > 0) {
+                    const avgCLS = clsMetrics.reduce((sum, m) => sum + m.data.value, 0) / clsMetrics.length;
+                    document.getElementById('cls-score').textContent = avgCLS.toFixed(3);
+                }
+                
+                if (fidMetrics.length > 0) {
+                    const avgFID = fidMetrics.reduce((sum, m) => sum + m.data.value, 0) / fidMetrics.length;
+                    document.getElementById('fid-time').textContent = Math.round(avgFID) + 'ms';
+                }
+            }
+        }
+        
+        function updateAnalyticsMetrics() {
+            if (window.analytics) {
+                const events = analytics.getEvents();
+                
+                const pageViews = events.filter(e => e.type === 'page_view').length;
+                const searchQueries = events.filter(e => e.type === 'search_query').length;
+                const languageSwitches = events.filter(e => e.type === 'language_switch').length;
+                const externalClicks = events.filter(e => e.type === 'external_link_click').length;
+                
+                document.getElementById('page-views').textContent = pageViews;
+                document.getElementById('search-queries').textContent = searchQueries;
+                document.getElementById('language-switches').textContent = languageSwitches;
+                document.getElementById('external-clicks').textContent = externalClicks;
+            }
+        }
+        
+        // Auto-refresh every 30 seconds
+        setInterval(refreshDashboard, 30000);
+        
+        // Initial load
+        setTimeout(refreshDashboard, 1000);
+    </script>
+</body>
+</html>

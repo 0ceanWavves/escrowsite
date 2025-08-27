@@ -1,2 +1,125 @@
 [build]
   publish = "."
+  command = "npm run build"
+
+# Build environment
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_VERSION = "9"
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.json"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "application/json; charset=utf-8"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=1800"
+    Content-Type = "application/json; charset=utf-8"
+
+# Redirects for clean URLs and language routing
+[[redirects]]
+  from = "/development-roadmap"
+  to = "/development-roadmap/"
+  status = 301
+
+[[redirects]]
+  from = "/node-guides"
+  to = "/node-guides/"
+  status = 301
+
+# Language-based redirects
+[[redirects]]
+  from = "/nl/*"
+  to = "/:splat"
+  status = 200
+  conditions = {Language = ["nl"]}
+
+[[redirects]]
+  from = "/fr/*"
+  to = "/:splat"
+  status = 200
+  conditions = {Language = ["fr"]}
+
+# SPA fallback for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["admin"]}
+
+# 404 handling
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Form handling
+[forms]
+  settings = true
+
+# Functions configuration
+[functions]
+  directory = "netlify/functions"
+
+# Edge functions
+[edge_functions]
+  directory = "netlify/edge-functions"
+
+# Plugin configuration
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  
+  [plugins.inputs.thresholds]
+    performance = 0.9
+    accessibility = 0.9
+    best-practices = 0.9
+    seo = 0.9
+
+[[plugins]]
+  package = "netlify-plugin-minify-html"
+  
+  [plugins.inputs]
+    contexts = ["production"]
+
+# Context-specific settings
+[context.production]
+  command = "npm run build:production"
+  
+  [context.production.environment]
+    NODE_ENV = "production"
+    GENERATE_SOURCEMAP = "false"
+
+[context.deploy-preview]
+  command = "npm run build:preview"
+  
+  [context.deploy-preview.environment]
+    NODE_ENV = "development"
+
+[context.branch-deploy]
+  command = "npm run build:staging"
+  
+  [context.branch-deploy.environment]
+    NODE_ENV = "staging"

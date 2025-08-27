@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" data-current-section="home" data-current-page="getting-started">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - The Road to Crypto</title>
+    <meta name="description" content="New to crypto development or node setup? Get started with our beginner-friendly guides and recommendations.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/homepage.css">
+</head>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Page Content -->
+        <div class="content-area" id="content-area">
+            <!-- Hero Section -->
+            <section class="hero-section text-center section">
+                <div class="hero-content">
+                    <h1 class="hero-title" id="page-title">Getting Started Guide</h1>
+                    <p class="hero-subtitle" id="page-subtitle">Choose your learning path based on your experience level</p>
+                    <p class="hero-description" id="page-description">
+                        Whether you're new to cryptocurrency development or looking to set up your own nodes, 
+                        we'll help you find the right starting point for your journey.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Learning Paths -->
+            <section class="learning-paths section">
+                <div class="section-content">
+                    <h2 class="section-title" id="paths-title">Choose Your Learning Path</h2>
+                    
+                    <div class="grid grid-cols-2">
+                        <!-- Development Path -->
+                        <div class="path-card">
+                            <div class="path-header">
+                                <div class="path-icon">🏗️</div>
+                                <h3 class="path-title" id="dev-path-title">Development Path</h3>
+                                <p class="path-subtitle" id="dev-path-subtitle">Learn crypto integration fundamentals</p>
+                            </div>
+                            
+                            <div class="path-content">
+                                <div class="difficulty-levels">
+                                    <div class="difficulty-card">
+                                        <div class="difficulty-header">
+                                            <span class="difficulty-icon">🌱</span>
+                                            <h4 class="difficulty-title" id="dev-beginner-title">Beginner Developer</h4>
+                                        </div>
+                                        <p class="difficulty-description" id="dev-beginner-desc">
+                                            New to crypto development? Start with understanding the fundamentals 
+                                            of blockchain technology and payment systems.
+                                        </p>
+                                        <div class="recommended-steps">
+                                            <h5 id="dev-beginner-steps-title">Recommended Steps:</h5>
+                                            <ol>
+                                                <li id="dev-beginner-step-1">Read Phase 1: Infrastructure overview</li>
+                                                <li id="dev-beginner-step-2">Understand database schema requirements</li>
+                                                <li id="dev-beginner-step-3">Learn about payment gateway integration</li>
+                                            </ol>
+                                        </div>
+                                        <a href="/development-roadmap/" class="path-button" id="dev-beginner-button">Start Development Path</a>
+                                    </div>
+                                    
+                                    <div class="difficulty-card">
+                                        <div class="difficulty-header">
+                                            <span class="difficulty-icon">⚙️</span>
+                                            <h4 class="difficulty-title" id="dev-intermediate-title">Experienced Developer</h4>
+                                        </div>
+                                        <p class="difficulty-description" id="dev-intermediate-desc">
+                                            Familiar with web development? Jump into the technical implementation 
+                                            details and API design patterns.
+                                        </p>
+                                        <div class="recommended-steps">
+                                            <h5 id="dev-intermediate-steps-title">Recommended Steps:</h5>
+                                            <ol>
+                                                <li id="dev-intermediate-step-1">Review Phase 2: Backend & APIs</li>
+                                                <li id="dev-intermediate-step-2">Examine escrow logic implementation</li>
+                                                <li id="dev-intermediate-step-3">Study security and auditing requirements</li>
+                                            </ol>
+                                        </div>
+                                        <a href="/development-roadmap/phase-2/" class="path-button" id="dev-intermediate-button">Jump to Phase 2</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Node Setup Path -->
+                        <div class="path-card">
+                            <div class="path-header">
+                                <div class="path-icon">🌐</div>
+                                <h3 class="path-title" id="node-path-title">Node Setup Path</h3>
+                                <p class="path-subtitle" id="node-path-subtitle">Set up your own crypto infrastructure</p>
+                            </div>
+                            
+                            <div class="path-content">
+                                <div class="difficulty-levels">
+                                    <div class="difficulty-card">
+                                        <div class="difficulty-header">
+                                            <span class="difficulty-icon">🌱</span>
+                                            <h4 class="difficulty-title" id="node-beginner-title">First-time Node Operator</h4>
+                                        </div>
+                                        <p class="difficulty-description" id="node-beginner-desc">
+                                            Never run a crypto node before? We'll guide you through every step 
+                                            from server selection to full operation.
+                                        </p>
+                                        <div class="recommended-steps">
+                                            <h5 id="node-beginner-steps-title">Recommended Steps:</h5>
+                                            <ol>
+                                                <li id="node-beginner-step-1">Start with VPS selection guide</li>
+                                                <li id="node-beginner-step-2">Learn about hardware requirements</li>
+                                                <li id="node-beginner-step-3">Understand security fundamentals</li>
+                                            </ol>
+                                        </div>
+                                        <a href="/node-guides/" class="path-button" id="node-beginner-button">Start Node Setup</a>
+                                    </div>
+                                    
+                                    <div class="difficulty-card">
+                                        <div class="difficulty-header">
+                                            <span class="difficulty-icon">🚀</span>
+                                            <h4 class="difficulty-title" id="node-advanced-title">System Administrator</h4>
+                                        </div>
+                                        <p class="difficulty-description" id="node-advanced-desc">
+                                            Comfortable with server management? Focus on crypto-specific 
+                                            configurations and optimization techniques.
+                                        </p>
+                                        <div class="recommended-steps">
+                                            <h5 id="node-advanced-steps-title">Recommended Steps:</h5>
+                                            <ol>
+                                                <li id="node-advanced-step-1">Review security hardening checklist</li>
+                                                <li id="node-advanced-step-2">Jump to node software installation</li>
+                                                <li id="node-advanced-step-3">Focus on optimization and monitoring</li>
+                                            </ol>
+                                        </div>
+                                        <a href="/node-guides/server-security/" class="path-button" id="node-advanced-button">Skip to Security</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Prerequisites -->
+            <section class="prerequisites section">
+                <div class="section-content">
+                    <h2 class="section-title" id="prerequisites-title">Prerequisites & Preparation</h2>
+                    
+                    <div class="grid grid-cols-2">
+                        <div class="prereq-card">
+                            <h3 class="prereq-title" id="dev-prereq-title">Development Prerequisites</h3>
+                            <div class="prereq-content">
+                                <h4 id="dev-prereq-knowledge-title">Required Knowledge:</h4>
+                                <ul class="prereq-list">
+                                    <li id="dev-prereq-1">Basic web development (HTML, CSS, JavaScript)</li>
+                                    <li id="dev-prereq-2">Database concepts (SQL, schema design)</li>
+                                    <li id="dev-prereq-3">API development and REST principles</li>
+                                    <li id="dev-prereq-4">Basic understanding of cryptography</li>
+                                </ul>
+                                
+                                <h4 id="dev-prereq-tools-title">Recommended Tools:</h4>
+                                <ul class="prereq-list">
+                                    <li id="dev-tool-1">Code editor (VS Code, Sublime Text)</li>
+                                    <li id="dev-tool-2">Database management tool</li>
+                                    <li id="dev-tool-3">API testing tool (Postman, Insomnia)</li>
+                                    <li id="dev-tool-4">Version control (Git)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="prereq-card">
+                            <h3 class="prereq-title" id="node-prereq-title">Node Setup Prerequisites</h3>
+                            <div class="prereq-content">
+                                <h4 id="node-prereq-knowledge-title">Required Knowledge:</h4>
+                                <ul class="prereq-list">
+                                    <li id="node-prereq-1">Basic Linux command line usage</li>
+                                    <li id="node-prereq-2">Understanding of networking concepts</li>
+                                    <li id="node-prereq-3">Server administration basics</li>
+                                    <li id="node-prereq-4">Basic security practices</li>
+                                </ul>
+                                
+                                <h4 id="node-prereq-resources-title">Required Resources:</h4>
+                                <ul class="prereq-list">
+                                    <li id="node-resource-1">VPS or dedicated server (2GB+ RAM)</li>
+                                    <li id="node-resource-2">Stable internet connection</li>
+                                    <li id="node-resource-3">SSH client for remote access</li>
+                                    <li id="node-resource-4">Time for initial synchronization (24-48 hours)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Quick Start -->
+            <section class="quick-start section">
+                <div class="section-content">
+                    <h2 class="section-title" id="quickstart-title">Quick Start Options</h2>
+                    <p class="section-description" id="quickstart-description">
+                        Ready to dive in? Here are some quick entry points to get you started immediately.
+                    </p>
+                    
+                    <div class="grid grid-cols-3">
+                        <div class="quickstart-card">
+                            <div class="quickstart-icon">📚</div>
+                            <h3 class="quickstart-title" id="quickstart-learn-title">Learn the Basics</h3>
+                            <p class="quickstart-description" id="quickstart-learn-desc">
+                                Start with fundamental concepts and build your understanding step by step.
+                            </p>
+                            <a href="/development-roadmap/phase-1/" class="quickstart-button" id="quickstart-learn-button">Read Phase 1</a>
+                        </div>
+                        
+                        <div class="quickstart-card">
+                            <div class="quickstart-icon">🛠️</div>
+                            <h3 class="quickstart-title" id="quickstart-setup-title">Setup Your First Node</h3>
+                            <p class="quickstart-description" id="quickstart-setup-desc">
+                                Get hands-on experience by setting up a Bitcoin or Monero node.
+                            </p>
+                            <a href="/node-guides/procurement-provisioning/" class="quickstart-button" id="quickstart-setup-button">Start Setup</a>
+                        </div>
+                        
+                        <div class="quickstart-card">
+                            <div class="quickstart-icon">🔍</div>
+                            <h3 class="quickstart-title" id="quickstart-explore-title">Explore Both Paths</h3>
+                            <p class="quickstart-description" id="quickstart-explore-desc">
+                                Browse through both development and node setup content to get an overview.
+                            </p>
+                            <a href="/search.html" class="quickstart-button" id="quickstart-explore-button">Search Content</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" id="site-footer">
+        <p id="footer-text">© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/language-switcher.js"></script>
+    <script src="/assets/js/navigation.js"></script>
+    <script src="/assets/js/homepage.js"></script>
+</body>
+</html>

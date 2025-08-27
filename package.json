@@ -1,10 +1,55 @@
 {
-  "name": "escrowsite",
+  "name": "crypto-website-redesign",
   "version": "1.0.0",
-  "description": "Static escrow site",
+  "description": "The Road to Crypto - Interactive Implementation Blueprint",
+  "type": "module",
+  "main": "index.html",
   "scripts": {
-    "build": "echo 'No build needed for static site'"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "test:integration": "playwright test tests/integration",
+    "test:accessibility": "playwright test tests/accessibility",
+    "test:ux": "playwright test tests/ux",
+    "test:ux:comprehensive": "node tests/ux/ux-test-runner.js",
+    "test:ux:mobile": "playwright test tests/ux/mobile-usability.spec.js",
+    "test:ux:findability": "playwright test tests/ux/information-findability.spec.js",
+    "test:cross-browser": "playwright test tests/cross-browser",
+    "test:all": "npm run test && npm run test:integration && npm run test:accessibility && npm run test:ux",
+    "lint": "eslint assets/js/**/*.js",
+    "lint:fix": "eslint assets/js/**/*.js --fix",
+    "serve": "http-server -p 8080",
+    "build": "npm run content:migrate && npm run content:validate && npm run lint && npm run test",
+    "build:production": "npm run content:migrate && npm run content:validate && npm run optimize:production && npm run lint && npm run test:ci",
+    "build:preview": "npm run content:migrate && npm run content:validate && npm run lint && npm run test",
+    "build:staging": "npm run content:migrate && npm run content:validate && npm run lint && npm run test",
+    "content:migrate": "node scripts/content-migration.js",
+    "content:validate": "node scripts/quality-assurance.js",
+    "optimize:production": "node scripts/production-optimizer.js",
+    "deploy:check": "npm run build:production && node scripts/deployment-check.js",
+    "monitor:setup": "node scripts/monitoring-setup.js",
+    "test:ci": "npm run lint && npm run test:coverage && npm run test:integration"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "@axe-core/cli": "^4.8.3",
+    "@playwright/test": "^1.40.0",
+    "@vitest/ui": "^1.0.0",
+    "eslint": "^8.55.0",
+    "happy-dom": "^12.10.3",
+    "http-server": "^14.1.1",
+    "vitest": "^1.0.0",
+    "@vitest/coverage-v8": "^1.0.0"
+  },
+  "keywords": [
+    "crypto",
+    "bitcoin",
+    "monero",
+    "node",
+    "setup",
+    "guide",
+    "education"
+  ],
+  "author": "The Road to Crypto",
+  "license": "MIT"
 }

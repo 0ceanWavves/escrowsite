@@ -233,7 +233,50 @@
     color: #6b665b;
 }
 
-/* Mobile sidebar */
+/* Mobile sidebar - enhanced touch experience */
+.sidebar-mobile-toggle {
+    display: none;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background-color: #f9f7f3;
+    border: none;
+    border-bottom: 1px solid #e0dace;
+    color: #3f3c36;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1rem;
+    min-height: 44px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar-mobile-toggle:hover {
+    background-color: #e0dace;
+}
+
+.sidebar-mobile-toggle:focus {
+    outline: 2px solid #8d836e;
+    outline-offset: -2px;
+}
+
+.sidebar-mobile-toggle:active {
+    background-color: #d0c4b3;
+    transform: scale(0.98);
+}
+
+.sidebar-mobile-toggle-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-mobile-toggle.expanded .sidebar-mobile-toggle-icon {
+    transform: rotate(180deg);
+}
+
 @media (max-width: 768px) {
     .sidebar-nav {
         width: 100%;
@@ -241,28 +284,103 @@
         height: auto;
         border-right: none;
         border-bottom: 1px solid #e0dace;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .sidebar-nav.mobile-expanded {
+        max-height: 80vh;
         padding: 1rem;
+        overflow-y: auto;
     }
     
-    .sidebar-nav.mobile-hidden {
-        display: none;
+    .sidebar-mobile-toggle {
+        display: flex;
     }
     
-    .sidebar-toggle-mobile {
-        display: block;
-        width: 100%;
-        padding: 1rem;
-        background-color: #f9f7f3;
-        border: none;
-        border-bottom: 1px solid #e0dace;
-        color: #3f3c36;
-        font-weight: 600;
-        cursor: pointer;
-        text-align: left;
+    /* Enhanced touch targets for mobile sidebar links */
+    .sidebar-nav-link {
+        padding: 0.875rem 0.75rem;
+        font-size: 0.9rem;
+        min-height: 44px;
     }
     
-    .sidebar-toggle-mobile:hover {
-        background-color: #e0dace;
+    .sidebar-toggle {
+        padding: 0.875rem 0.75rem;
+        font-size: 0.9rem;
+        min-height: 44px;
+    }
+    
+    /* Improved nested navigation spacing on mobile */
+    .sidebar-nav-nested {
+        margin-left: 0.75rem;
+        padding-left: 0.75rem;
+    }
+    
+    /* Mobile-specific progress indicators */
+    .sidebar-progress {
+        margin-bottom: 0.75rem;
+        padding: 0.75rem;
+    }
+    
+    /* Mobile search adjustments */
+    .sidebar-search {
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .sidebar-search-input {
+        min-height: 44px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .sidebar-mobile-toggle {
+        padding: 0.875rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .sidebar-nav.mobile-expanded {
+        padding: 0.75rem;
+    }
+    
+    .sidebar-nav-link {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    .sidebar-toggle {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Smooth animations for mobile sidebar */
+@media (prefers-reduced-motion: no-preference) {
+    .sidebar-nav {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .sidebar-mobile-toggle-icon {
+        transition: transform 0.3s ease;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sidebar-nav {
+        transition: none;
+    }
+    
+    .sidebar-mobile-toggle-icon {
+        transition: none;
+    }
+    
+    .sidebar-mobile-toggle:active {
+        transform: none;
     }
 }
 

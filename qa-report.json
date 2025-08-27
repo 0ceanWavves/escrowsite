@@ -1,0 +1,76 @@
+{
+  "timestamp": "2025-08-27T19:57:18.925Z",
+  "summary": {
+    "totalChecks": 11,
+    "totalIssues": 2,
+    "qualityScore": 96,
+    "issuesBySeverity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 2
+    }
+  },
+  "checks": [
+    {
+      "description": "Content structure validation for development-roadmap",
+      "timestamp": "2025-08-27T19:57:18.854Z"
+    },
+    {
+      "description": "Content structure validation for node-guides",
+      "timestamp": "2025-08-27T19:57:18.860Z"
+    },
+    {
+      "description": "Translation consistency for development-roadmap",
+      "timestamp": "2025-08-27T19:57:18.893Z"
+    },
+    {
+      "description": "Translation consistency for node-guides",
+      "timestamp": "2025-08-27T19:57:18.902Z"
+    },
+    {
+      "description": "Code block validation for development-roadmap",
+      "timestamp": "2025-08-27T19:57:18.905Z"
+    },
+    {
+      "description": "Code block validation for node-guides",
+      "timestamp": "2025-08-27T19:57:18.907Z"
+    },
+    {
+      "description": "Link validation for development-roadmap",
+      "timestamp": "2025-08-27T19:57:18.910Z"
+    },
+    {
+      "description": "Link validation for node-guides",
+      "timestamp": "2025-08-27T19:57:18.913Z"
+    },
+    {
+      "description": "Accessibility validation for development-roadmap",
+      "timestamp": "2025-08-27T19:57:18.915Z"
+    },
+    {
+      "description": "Accessibility validation for node-guides",
+      "timestamp": "2025-08-27T19:57:18.917Z"
+    },
+    {
+      "description": "Performance validation",
+      "timestamp": "2025-08-27T19:57:18.925Z"
+    }
+  ],
+  "issues": [
+    {
+      "severity": "low",
+      "message": "Placeholder values found in code",
+      "location": "node-guides phase 2 subsection 1 code block 1",
+      "suggestion": "Consider using more descriptive placeholder text",
+      "timestamp": "2025-08-27T19:57:18.907Z"
+    },
+    {
+      "severity": "low",
+      "message": "Sudo usage without common commands",
+      "location": "node-guides phase 2 subsection 2 code block 1",
+      "suggestion": "Verify sudo usage is appropriate and safe",
+      "timestamp": "2025-08-27T19:57:18.907Z"
+    }
+  ]
+}

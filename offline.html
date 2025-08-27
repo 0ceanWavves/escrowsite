@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - The Road to Crypto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .offline-container {
+            text-align: center;
+            max-width: 500px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .offline-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            opacity: 0.8;
+        }
+
+        .offline-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .offline-message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .offline-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .offline-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .offline-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .offline-btn.primary {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .cached-content {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cached-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .cached-links {
+            display: grid;
+            gap: 0.5rem;
+            text-align: left;
+        }
+
+        .cached-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .cached-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .network-status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 1000;
+        }
+
+        .network-status.offline {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .network-status.online {
+            background: #51cf66;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .offline-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .offline-title {
+                font-size: 2rem;
+            }
+
+            .offline-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="network-status" class="network-status offline">Offline</div>
+    
+    <div class="offline-container">
+        <svg class="offline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+            <path d="M1 1l22 22"></path>
+        </svg>
+        
+        <h1 class="offline-title">You're Offline</h1>
+        
+        <p class="offline-message">
+            It looks like you've lost your internet connection. Don't worry - you can still access cached content and continue learning about crypto development and node setup.
+        </p>
+        
+        <div class="offline-actions">
+            <button class="offline-btn primary" onclick="tryReconnect()">Try Again</button>
+            <a href="/" class="offline-btn">Go Home</a>
+        </div>
+        
+        <div class="cached-content">
+            <h3>Available Offline Content</h3>
+            <div class="cached-links" id="cached-links">
+                <a href="/" class="cached-link">🏠 Homepage</a>
+                <a href="/development-roadmap/" class="cached-link">🛣️ Development Roadmap</a>
+                <a href="/node-guides/" class="cached-link">⚙️ Node Setup Guides</a>
+                <a href="/user-progress.html" class="cached-link">📊 Your Progress</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Network status monitoring
+        function updateNetworkStatus() {
+            const statusElement = document.getElementById('network-status');
+            
+            if (navigator.onLine) {
+                statusElement.textContent = 'Back Online';
+                statusElement.className = 'network-status online';
+                
+                // Auto-redirect to home after 2 seconds
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 2000);
+            } else {
+                statusElement.textContent = 'Offline';
+                statusElement.className = 'network-status offline';
+            }
+        }
+
+        // Try to reconnect
+        function tryReconnect() {
+            const button = event.target;
+            const originalText = button.textContent;
+            
+            button.textContent = 'Checking...';
+            button.disabled = true;
+            
+            // Test connection with a simple fetch
+            fetch('/', { method: 'HEAD', cache: 'no-cache' })
+                .then(() => {
+                    button.textContent = 'Connected!';
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 1000);
+                })
+                .catch(() => {
+                    button.textContent = 'Still Offline';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    }, 2000);
+                });
+        }
+
+        // Load cached content links
+        async function loadCachedContent() {
+            try {
+                // Check if we have cached content information
+                const cachedData = localStorage.getItem('crypto-guide-offline');
+                if (cachedData) {
+                    const data = JSON.parse(cachedData);
+                    const linksContainer = document.getElementById('cached-links');
+                    
+                    // Add cached pages to the list
+                    Object.keys(data).forEach(key => {
+                        if (key !== 'lastPage' && data[key].data && data[key].data.url) {
+                            const link = document.createElement('a');
+                            link.href = data[key].data.url;
+                            link.className = 'cached-link';
+                            link.textContent = `📄 ${data[key].data.title || key}`;
+                            linksContainer.appendChild(link);
+                        }
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading cached content:', error);
+            }
+        }
+
+        // Event listeners
+        window.addEventListener('online', updateNetworkStatus);
+        window.addEventListener('offline', updateNetworkStatus);
+        
+        // Initialize
+        updateNetworkStatus();
+        loadCachedContent();
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'r' && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                tryReconnect();
+            }
+            
+            if (e.key === 'h' && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                window.location.href = '/';
+            }
+        });
+    </script>
+</body>
+</html>

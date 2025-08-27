@@ -45,6 +45,9 @@
   border-bottom: 3px solid transparent;
   position: relative;
   min-width: fit-content;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 .tab-button:hover {
@@ -53,20 +56,46 @@
 }
 
 .tab-button:focus {
-  outline: 2px solid #3b82f6;
-  outline-offset: -2px;
+  outline: 2px solid #8d836e;
+  outline-offset: 2px;
   z-index: 1;
+  background: #f1f5f9;
 }
 
-.tab-button.active {
+.tab-button:focus-visible {
+  outline: 2px solid #8d836e;
+  outline-offset: 2px;
+}
+
+.tab-button[aria-selected="true"] {
   color: #1e293b;
   background: #ffffff;
-  border-bottom-color: #3b82f6;
+  border-bottom-color: #8d836e;
   font-weight: 600;
 }
 
-.tab-button.active:hover {
+.tab-button[aria-selected="true"]:hover {
   background: #ffffff;
+}
+
+/* Keyboard navigation support */
+.keyboard-navigation .tab-button:focus {
+  outline: 2px solid #8d836e;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(141, 131, 110, 0.2);
+}
+
+/* Screen reader support */
+.tab-button .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .tab-panels {

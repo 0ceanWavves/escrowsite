@@ -1,19 +1,365 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-current-section="development-roadmap" data-current-page="index">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Development Roadmap - The Road to Crypto</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../assets/css/layout.css">
-    <link rel="stylesheet" href="../assets/css/components.css">
+    <meta name="description" content="Learn to integrate Bitcoin and Monero wallets with secure escrow systems. A comprehensive 3-phase approach to crypto development.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/sidebar.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/section-overview.css">
 </head>
-<body>
-    <div id="app">
-        <!-- Content will be loaded dynamically -->
-    </div>
-    <script src="../assets/js/navigation.js"></script>
-    <script src="../assets/js/language-switcher.js"></script>
-    <script src="../assets/js/page-loader.js"></script>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link active" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link active" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <nav class="sidebar-nav">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-section-title" id="sidebar-title">Development Roadmap</h3>
+                    <ul class="sidebar-menu" id="sidebar-menu">
+                        <li class="sidebar-menu-item active">
+                            <a href="/development-roadmap/" class="sidebar-menu-link" id="sidebar-overview">Overview</a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a href="/development-roadmap/phase-1/" class="sidebar-menu-link" id="sidebar-phase-1">
+                                <span class="phase-icon">🏗️</span>
+                                Phase 1: Infrastructure
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a href="/development-roadmap/phase-2/" class="sidebar-menu-link" id="sidebar-phase-2">
+                                <span class="phase-icon">⚙️</span>
+                                Phase 2: Backend & APIs
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a href="/development-roadmap/phase-3/" class="sidebar-menu-link" id="sidebar-phase-3">
+                                <span class="phase-icon">🖥️</span>
+                                Phase 3: Frontend & UX
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Page Content -->
+        <div class="content-area section-overview" id="content-area">
+            <!-- Hero Section -->
+            <section class="section-hero">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-icon">🏗️</span>
+                        <span class="badge-text" id="hero-badge">Development Track</span>
+                    </div>
+                    <h1 class="hero-title" id="hero-title">Development Roadmap</h1>
+                    <p class="hero-subtitle" id="hero-subtitle">
+                        Learn to integrate Bitcoin and Monero wallets with secure escrow systems
+                    </p>
+                    <p class="hero-description" id="hero-description">
+                        A comprehensive 3-phase approach to crypto development, covering everything from 
+                        database design to frontend implementation. Perfect for developers looking to 
+                        build secure, privacy-focused cryptocurrency payment systems.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Phase Navigator -->
+            <section class="phase-navigator">
+                <div class="navigator-header">
+                    <h2 class="navigator-title" id="navigator-title">Development Phases</h2>
+                    <p class="navigator-description" id="navigator-description">
+                        Follow our structured approach to building a complete crypto payment system
+                    </p>
+                </div>
+                
+                <div class="phase-grid">
+                    <!-- Phase 1 -->
+                    <div class="phase-card" data-phase="1">
+                        <div class="phase-header">
+                            <div class="phase-icon-large">🏗️</div>
+                            <div class="phase-info">
+                                <h3 class="phase-title" id="phase-1-title">Phase 1: Foundational Infrastructure</h3>
+                                <div class="phase-meta">
+                                    <span class="phase-difficulty" id="phase-1-difficulty">Advanced</span>
+                                    <span class="phase-duration" id="phase-1-duration">2-3 weeks</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-content">
+                            <p class="phase-description" id="phase-1-description">
+                                Build the secure backend foundation with database schemas, payment gateways, 
+                                and self-hosted nodes. This critical phase establishes the bedrock for all 
+                                subsequent features.
+                            </p>
+                            
+                            <div class="phase-topics">
+                                <h4 class="topics-title" id="phase-1-topics-title">Key Topics:</h4>
+                                <ul class="topics-list">
+                                    <li id="phase-1-topic-1">Database schema design</li>
+                                    <li id="phase-1-topic-2">BTCPay Server integration</li>
+                                    <li id="phase-1-topic-3">Self-hosted node setup</li>
+                                    <li id="phase-1-topic-4">Security architecture</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="phase-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text" id="phase-1-progress">Not Started</span>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-actions">
+                            <a href="/development-roadmap/phase-1/" class="phase-button primary" id="phase-1-button">
+                                Start Phase 1
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 2 -->
+                    <div class="phase-card" data-phase="2">
+                        <div class="phase-header">
+                            <div class="phase-icon-large">⚙️</div>
+                            <div class="phase-info">
+                                <h3 class="phase-title" id="phase-2-title">Phase 2: Core Backend Services & APIs</h3>
+                                <div class="phase-meta">
+                                    <span class="phase-difficulty" id="phase-2-difficulty">Intermediate</span>
+                                    <span class="phase-duration" id="phase-2-duration">2-3 weeks</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-content">
+                            <p class="phase-description" id="phase-2-description">
+                                Build application logic and APIs that power wallet and escrow functionalities. 
+                                Connect infrastructure to user-facing features with robust backend services.
+                            </p>
+                            
+                            <div class="phase-topics">
+                                <h4 class="topics-title" id="phase-2-topics-title">Key Topics:</h4>
+                                <ul class="topics-list">
+                                    <li id="phase-2-topic-1">RESTful API design</li>
+                                    <li id="phase-2-topic-2">Multi-signature escrow logic</li>
+                                    <li id="phase-2-topic-3">Security & auditing systems</li>
+                                    <li id="phase-2-topic-4">Wallet management services</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="phase-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text" id="phase-2-progress">Locked</span>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-actions">
+                            <button class="phase-button disabled" id="phase-2-button" disabled>
+                                Complete Phase 1 First
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 3 -->
+                    <div class="phase-card" data-phase="3">
+                        <div class="phase-header">
+                            <div class="phase-icon-large">🖥️</div>
+                            <div class="phase-info">
+                                <h3 class="phase-title" id="phase-3-title">Phase 3: Frontend Interface & User Experience</h3>
+                                <div class="phase-meta">
+                                    <span class="phase-difficulty" id="phase-3-difficulty">Intermediate</span>
+                                    <span class="phase-duration" id="phase-3-duration">1-2 weeks</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-content">
+                            <p class="phase-description" id="phase-3-description">
+                                Create seamless user experiences for crypto payments. Build intuitive interfaces 
+                                that translate powerful backend capabilities into user-friendly interactions.
+                            </p>
+                            
+                            <div class="phase-topics">
+                                <h4 class="topics-title" id="phase-3-topics-title">Key Topics:</h4>
+                                <ul class="topics-list">
+                                    <li id="phase-3-topic-1">Wallet dashboard design</li>
+                                    <li id="phase-3-topic-2">Integrated checkout flow</li>
+                                    <li id="phase-3-topic-3">Escrow management interface</li>
+                                    <li id="phase-3-topic-4">Transaction monitoring</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="phase-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text" id="phase-3-progress">Locked</span>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-actions">
+                            <button class="phase-button disabled" id="phase-3-button" disabled>
+                                Complete Phase 2 First
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Learning Path -->
+            <section class="learning-path">
+                <div class="path-content">
+                    <h2 class="path-title" id="path-title">Your Learning Journey</h2>
+                    <p class="path-description" id="path-description">
+                        This roadmap is designed for progressive learning. Each phase builds upon the previous one, 
+                        ensuring you develop a comprehensive understanding of crypto payment systems.
+                    </p>
+                    
+                    <div class="path-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">📚</div>
+                            <div class="feature-content">
+                                <h3 class="feature-title" id="feature-1-title">Structured Learning</h3>
+                                <p class="feature-description" id="feature-1-desc">
+                                    Follow a carefully designed curriculum that builds knowledge systematically
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">🛠️</div>
+                            <div class="feature-content">
+                                <h3 class="feature-title" id="feature-2-title">Hands-on Implementation</h3>
+                                <p class="feature-description" id="feature-2-desc">
+                                    Learn by building real systems with practical, production-ready code
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">🔒</div>
+                            <div class="feature-content">
+                                <h3 class="feature-title" id="feature-3-title">Security-First Approach</h3>
+                                <p class="feature-description" id="feature-3-desc">
+                                    Emphasizes security best practices and privacy-focused development
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <div class="actions-content">
+                    <h2 class="actions-title" id="actions-title">Ready to Start?</h2>
+                    <div class="actions-grid">
+                        <a href="/development-roadmap/phase-1/" class="action-card primary">
+                            <div class="action-icon">🚀</div>
+                            <h3 class="action-title" id="action-1-title">Begin Phase 1</h3>
+                            <p class="action-description" id="action-1-desc">Start with foundational infrastructure</p>
+                        </a>
+                        
+                        <a href="/getting-started.html" class="action-card">
+                            <div class="action-icon">❓</div>
+                            <h3 class="action-title" id="action-2-title">Need Help?</h3>
+                            <p class="action-description" id="action-2-desc">Check our getting started guide</p>
+                        </a>
+                        
+                        <a href="/node-guides/" class="action-card">
+                            <div class="action-icon">🌐</div>
+                            <h3 class="action-title" id="action-3-title">Setup Nodes</h3>
+                            <p class="action-description" id="action-3-desc">Learn node setup alongside development</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" id="site-footer">
+        <p id="footer-text">© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/language-switcher.js"></script>
+    <script src="/assets/js/navigation.js"></script>
+    <script src="/assets/js/phase-navigator.js"></script>
 </body>
 </html>

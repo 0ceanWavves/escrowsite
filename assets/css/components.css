@@ -1,6 +1,6 @@
 /* Components CSS - Reusable UI components */
 
-/* Button components */
+/* Button components - touch-friendly */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -13,6 +13,19 @@
     cursor: pointer;
     transition: all 0.2s ease;
     font-size: 0.875rem;
+    min-height: 44px;
+    min-width: 44px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:focus {
+    outline: 2px solid #8d836e;
+    outline-offset: 2px;
+}
+
+.btn:active {
+    transform: scale(0.98);
 }
 
 .btn-primary {
@@ -22,6 +35,10 @@
 
 .btn-primary:hover {
     background-color: #7a7060;
+}
+
+.btn-primary:active {
+    background-color: #6b5f4f;
 }
 
 .btn-secondary {
@@ -35,49 +52,218 @@
     color: #ffffff;
 }
 
-/* Card components */
+.btn-secondary:active {
+    background-color: #7a7060;
+    border-color: #7a7060;
+}
+
+/* Button sizes */
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    min-height: 36px;
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    min-height: 48px;
+}
+
+/* Button variants */
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid #8d836e;
+    color: #8d836e;
+}
+
+.btn-outline:hover {
+    background-color: #8d836e;
+    color: #ffffff;
+}
+
+.btn-ghost {
+    background-color: transparent;
+    border: none;
+    color: #8d836e;
+}
+
+.btn-ghost:hover {
+    background-color: #f9f7f3;
+}
+
+/* Disabled state */
+.btn:disabled,
+.btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Loading state */
+.btn.loading {
+    color: transparent;
+}
+
+.btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive button adjustments */
+@media (max-width: 480px) {
+    .btn {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .btn-sm {
+        padding: 0.625rem 1rem;
+        font-size: 0.8125rem;
+    }
+    
+    .btn-lg {
+        padding: 1.125rem 1.5rem;
+        font-size: 1.0625rem;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .btn {
+        transition: none;
+    }
+    
+    .btn:active {
+        transform: none;
+    }
+    
+    .btn.loading::after {
+        animation: none;
+    }
+}
+
+/* Card components - responsive design */
 .card {
     background-color: #ffffff;
     border: 1px solid #e0dace;
     border-radius: 0.75rem;
-    padding: 1.5rem;
+    padding: 1rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.2s ease;
+    transition: all 0.2s ease;
+    width: 100%;
 }
 
 .card:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.card:focus-within {
+    outline: 2px solid #8d836e;
+    outline-offset: 2px;
 }
 
 .card-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
 .card-icon {
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     background-color: #8d836e;
     color: #ffffff;
     border-radius: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    margin-right: 1rem;
+    font-size: 1.25rem;
+    flex-shrink: 0;
 }
 
 .card-title {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 600;
     color: #3f3c36;
     margin: 0;
+    line-height: 1.4;
 }
 
 .card-content {
     color: #6b665b;
     line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* Responsive card adjustments */
+@media (min-width: 480px) {
+    .card {
+        padding: 1.25rem;
+    }
+    
+    .card-icon {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+    }
+    
+    .card-title {
+        font-size: 1.25rem;
+    }
+    
+    .card-content {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .card-header {
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+}
+
+/* Card link variants */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-link:hover .card {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-link:focus {
+    outline: none;
+}
+
+.card-link:focus .card {
+    outline: 2px solid #8d836e;
+    outline-offset: 2px;
 }
 
 /* Navigation components */
@@ -264,11 +450,19 @@
     color: #721c24;
 }
 
-/* Table components */
+/* Table components - responsive design */
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    border: 1px solid #e0dace;
+    border-radius: 0.5rem;
+}
+
 .table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 1rem;
+    margin: 0;
+    min-width: 600px;
 }
 
 .table th,
@@ -276,16 +470,108 @@
     padding: 0.75rem;
     text-align: left;
     border-bottom: 1px solid #e0dace;
+    vertical-align: top;
 }
 
 .table th {
     background-color: #f9f7f3;
     font-weight: 600;
     color: #3f3c36;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .table tbody tr:hover {
     background-color: #f9f7f3;
+}
+
+.table tbody tr:focus-within {
+    outline: 2px solid #8d836e;
+    outline-offset: -2px;
+}
+
+/* Responsive table - stack on mobile */
+@media (max-width: 768px) {
+    .table-responsive {
+        border: none;
+    }
+    
+    .table-responsive .table {
+        min-width: auto;
+        border: none;
+    }
+    
+    .table-responsive .table,
+    .table-responsive .table thead,
+    .table-responsive .table tbody,
+    .table-responsive .table th,
+    .table-responsive .table td,
+    .table-responsive .table tr {
+        display: block;
+    }
+    
+    .table-responsive .table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    .table-responsive .table tr {
+        border: 1px solid #e0dace;
+        border-radius: 0.5rem;
+        margin-bottom: 0.75rem;
+        padding: 0.75rem;
+        background-color: #ffffff;
+    }
+    
+    .table-responsive .table td {
+        border: none;
+        border-bottom: 1px solid #f9f7f3;
+        position: relative;
+        padding: 0.5rem 0 0.5rem 35%;
+        text-align: right;
+    }
+    
+    .table-responsive .table td:before {
+        content: attr(data-label) ": ";
+        position: absolute;
+        left: 0;
+        width: 30%;
+        padding-right: 0.5rem;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600;
+        color: #3f3c36;
+    }
+    
+    .table-responsive .table td:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Table utilities */
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f9f7f3;
+}
+
+.table-bordered {
+    border: 1px solid #e0dace;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #e0dace;
+}
+
+.table-sm th,
+.table-sm td {
+    padding: 0.5rem;
+}
+
+.table-lg th,
+.table-lg td {
+    padding: 1rem;
 }
 
 /* Form components */

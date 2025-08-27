@@ -1,428 +1,222 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-current-section="home" data-current-page="index">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EscrowEcho - Crypto & Escrow Implementation Blueprint</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>The Road to Crypto - Interactive Implementation Blueprint</title>
+    <meta name="description" content="Your comprehensive guide to crypto development and node setup. Choose your path: Learn crypto development fundamentals or set up your own BTC & XMR nodes.">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Calm Harmony -->
-    <!-- Application Structure Plan: The SPA is now structured around a unified, three-part navigation bar. Each tab represents a phase and functions as the primary point of interaction, replacing the separate flowchart. This design streamlines the user experience by combining navigation with visual cues, making the application's flow more intuitive and less cluttered. Users can explore the project timeline linearly by clicking on each phase tab. -->
-    <!-- Visualization & Content Choices: 
-        - Phased Plan -> Goal: Organize/Change -> Viz: Interactive Tabs with Icons -> Interaction: Click to show/hide content -> Justification: Merging the tabs with the flowchart's visual elements simplifies the UI and reduces cognitive load, creating a more direct and efficient navigation experience for the user. -> Method: Vanilla JS.
-        - Language Selector -> Goal: Inform/Organize -> Viz: Flag Icons -> Interaction: Click to change all page text to a different language -> Justification: Provides a common, intuitive method for multilingual support, essential for international platforms. -> Method: Vanilla JS.
-        - Key Components (Database, APIs, UI) -> Goal: Inform/Organize -> Viz: Styled Cards with Icons -> Interaction: Static display within tabs -> Justification: Cards with icons break down the technical components of each phase into visually distinct, easy-to-scan blocks of information. -> Method: HTML/Tailwind.
-        - Technical Specs (Tables, Endpoints) -> Goal: Inform -> Viz: Pre-formatted text blocks -> Interaction: Static -> Justification: Presents code-like information in a clean, readable format that respects structure and spacing. The code block now correctly handles text overflow. -> Method: HTML `<pre>` tag.
-        - Project Scale -> Goal: Inform -> Viz: Emphasized Text Block -> Interaction: Static -> Justification: A dedicated summary block at the end reinforces the project's overall scope and importance. -> Method: HTML/Tailwind.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f4f1eb;
-            color: #3f3c36;
-        }
-        .phase-tab {
-            transition: all 0.3s ease;
-            cursor: pointer;
-            padding: 1.5rem 1rem;
-        }
-        .phase-tab.active {
-            background-color: #8d836e;
-            color: #ffffff;
-            font-weight: 600;
-        }
-        .phase-tab:not(.active):hover {
-            background-color: #e0dace;
-        }
-        .phase-content {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        .phase-content.active {
-            display: block;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .info-card {
-            background-color: #ffffff;
-            border: 1px solid #e0dace;
-            overflow: hidden;
-        }
-        .info-card-icon {
-            background-color: #8d836e;
-            color: #ffffff;
-        }
-        .code-block {
-            background-color: #f9f7f3;
-            border: 1px solid #e0dace;
-            font-family: 'Courier New', Courier, monospace;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            white-space: pre-wrap;
-            word-break: break-all;
-        }
-        .lang-selector span {
-            cursor: pointer;
-            font-size: 1.5rem;
-            margin: 0 0.25rem;
-            opacity: 0.5;
-            transition: opacity 0.3s ease;
-        }
-        .lang-selector span.active {
-            opacity: 1;
-        }
-        .lang-selector span:hover {
-            opacity: 1;
-        }
-    </style>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/homepage.css">
 </head>
-<body class="antialiased">
-
-    <div class="bg-white shadow-sm">
-        <header class="container mx-auto px-4 sm:px-6 lg:px-8 py-5 flex justify-between items-center">
-            <div class="w-1/3"></div>
-            <div class="w-1/3 text-center">
-                <h1 id="title" class="text-3xl font-bold text-[#3f3c36]"></h1>
-                <p id="subtitle" class="text-center text-lg text-[#6b665b] mt-1"></p>
+<body class="app-container">
+    <!-- Header -->
+    <header class="header site-header" id="site-header">
+        <div class="header-content header-container">
+            <!-- Logo/Branding -->
+            <div class="site-branding">
+                <a href="/" class="site-logo">
+                    <div>
+                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
+                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
+                    </div>
+                </a>
             </div>
-            <div class="w-1/3 flex justify-end">
-                <div class="lang-selector">
-                    <span id="lang-en" class="active">🇬🇧</span>
-                    <span id="lang-nl">🇳🇱</span>
-                    <span id="lang-fr">🇫🇷</span>
+            
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="/" class="nav-menu-link active" data-section="home" id="nav-home">Home</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="/node-guides/" class="nav-menu-link" data-section="node-guides" id="nav-node-guides">Node Guides</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher" id="language-switcher">
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">🇬🇧</button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">🇳🇱</button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">🇫🇷</button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                <div class="hamburger">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
                 </div>
-            </div>
-        </header>
-    </div>
-
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        <section class="text-center max-w-3xl mx-auto mb-12">
-            <h2 id="section-title" class="text-2xl font-semibold mb-4"></h2>
-            <p id="section-description" class="text-[#6b665b] leading-relaxed"></p>
-        </section>
+            </button>
+        </div>
         
-        <section id="phase-navigation" class="mb-12">
-            <div class="flex flex-col sm:flex-row justify-center items-center bg-white rounded-xl shadow-md border border-gray-200 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
-                <div class="phase-tab active w-full sm:w-1/3 flex flex-col justify-center items-center text-center p-6 rounded-t-xl sm:rounded-l-xl sm:rounded-tr-none" data-phase="1">
-                    <div class="text-4xl">🏗️</div>
-                    <div class="mt-2">
-                        <div id="flowchart-1-title" class="font-bold text-lg"></div>
-                        <div id="flowchart-1-subtitle" class="text-sm"></div>
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item">
+                    <a href="/" class="mobile-nav-link active" data-section="home">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="/node-guides/" class="mobile-nav-link" data-section="node-guides">Node Guides</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Page Content -->
+        <div class="content-area homepage-content" id="content-area">
+            <!-- Hero Section -->
+            <section class="hero-section text-center section">
+                <div class="hero-content">
+                    <h1 class="hero-title" id="hero-title">Welcome to The Road to Crypto</h1>
+                    <p class="hero-subtitle" id="hero-subtitle">Your comprehensive guide to crypto development and node setup</p>
+                    <p class="hero-description" id="hero-description">
+                        Choose your path: Learn crypto development fundamentals or set up your own BTC & XMR nodes with our detailed guides.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Navigation Cards -->
+            <section class="navigation-cards section">
+                <div class="grid grid-cols-2">
+                    <!-- Development Roadmap Card -->
+                    <div class="nav-card interactive-card" id="development-card">
+                        <div class="nav-card-icon">
+                            <span class="card-emoji">🏗️</span>
+                        </div>
+                        <div class="nav-card-content">
+                            <h2 class="nav-card-title" id="dev-card-title">Development Roadmap</h2>
+                            <p class="nav-card-description" id="dev-card-description">
+                                Learn to integrate Bitcoin and Monero wallets with secure escrow systems. 
+                                A comprehensive 3-phase approach to crypto development.
+                            </p>
+                            <div class="nav-card-features">
+                                <ul class="feature-list">
+                                    <li id="dev-feature-1">Database schema design</li>
+                                    <li id="dev-feature-2">Payment gateway integration</li>
+                                    <li id="dev-feature-3">Frontend wallet interfaces</li>
+                                </ul>
+                            </div>
+                            <a href="/development-roadmap/" class="nav-card-button" id="dev-card-button">
+                                <span>Start Learning</span>
+                                <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Node Guides Card -->
+                    <div class="nav-card interactive-card" id="node-guides-card">
+                        <div class="nav-card-icon">
+                            <span class="card-emoji">🌐</span>
+                        </div>
+                        <div class="nav-card-content">
+                            <h2 class="nav-card-title" id="node-card-title">Node Setup Guides</h2>
+                            <p class="nav-card-description" id="node-card-description">
+                                Set up your own Bitcoin and Monero nodes for maximum privacy and decentralization. 
+                                Step-by-step guides from procurement to operation.
+                            </p>
+                            <div class="nav-card-features">
+                                <ul class="feature-list">
+                                    <li id="node-feature-1">VPS procurement & setup</li>
+                                    <li id="node-feature-2">Security hardening</li>
+                                    <li id="node-feature-3">Node synchronization</li>
+                                </ul>
+                            </div>
+                            <a href="/node-guides/" class="nav-card-button" id="node-card-button">
+                                <span>Setup Nodes</span>
+                                <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="phase-tab w-full sm:w-1/3 flex flex-col justify-center items-center text-center p-6" data-phase="2">
-                    <div class="text-4xl">⚙️</div>
-                    <div class="mt-2">
-                        <div id="flowchart-2-title" class="font-bold text-lg"></div>
-                        <div id="flowchart-2-subtitle" class="text-sm"></div>
+            </section>
+            
+            <!-- Getting Started Section -->
+            <section class="getting-started section">
+                <div class="getting-started-content">
+                    <h2 class="section-title" id="getting-started-title">Getting Started</h2>
+                    <p class="section-description" id="getting-started-description">
+                        New to crypto development or node setup? Here are some recommended starting points based on your experience level.
+                    </p>
+                    
+                    <div class="grid grid-cols-3">
+                        <div class="getting-started-card">
+                            <div class="card-header">
+                                <span class="card-icon">🌱</span>
+                                <h3 class="card-title" id="beginner-title">Beginner</h3>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description" id="beginner-description">
+                                    Start with the Development Roadmap to understand crypto fundamentals and implementation concepts.
+                                </p>
+                                <a href="/development-roadmap/" class="card-link" id="beginner-link">Start Here</a>
+                            </div>
+                        </div>
+                        
+                        <div class="getting-started-card">
+                            <div class="card-header">
+                                <span class="card-icon">⚙️</span>
+                                <h3 class="card-title" id="intermediate-title">Intermediate</h3>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description" id="intermediate-description">
+                                    Ready to get hands-on? Jump into the Node Guides to set up your own infrastructure.
+                                </p>
+                                <a href="/node-guides/" class="card-link" id="intermediate-link">Setup Nodes</a>
+                            </div>
+                        </div>
+                        
+                        <div class="getting-started-card">
+                            <div class="card-header">
+                                <span class="card-icon">🚀</span>
+                                <h3 class="card-title" id="advanced-title">Advanced</h3>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description" id="advanced-description">
+                                    Experienced developer? Dive deep into both tracks for comprehensive crypto integration knowledge.
+                                </p>
+                                <a href="/development-roadmap/phase-1/" class="card-link" id="advanced-link">Deep Dive</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="phase-tab w-full sm:w-1/3 flex flex-col justify-center items-center text-center p-6 rounded-b-xl sm:rounded-r-xl sm:rounded-bl-none" data-phase="3">
-                    <div class="text-4xl">🖥️</div>
-                    <div class="mt-2">
-                        <div id="flowchart-3-title" class="font-bold text-lg"></div>
-                        <div id="flowchart-3-subtitle" class="text-sm"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <div id="phases-container"></div>
-
-        <section id="conclusion" class="mt-16 pt-12 border-t border-gray-200">
-            <h2 id="conclusion-title" class="text-2xl font-bold text-center mb-4"></h2>
-            <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
-                <p id="conclusion-text" class="text-[#6b665b] leading-relaxed text-center"></p>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
     
-    <footer class="text-center py-6 mt-12 border-t border-gray-200">
-        <p id="footer-text" class="text-sm text-[#8d836e]"></p>
+    <!-- Footer -->
+    <footer class="footer" id="site-footer">
+        <p id="footer-text">© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
     </footer>
 
-    <script>
-        const languageData = {
-            en: {
-                title: 'The Road to Crypto',
-                subtitle: 'An Interactive Implementation Blueprint',
-                sectionTitle: 'A Phased Approach to Secure Crypto Integration',
-                sectionDescription: 'This blueprint outlines the comprehensive, three-phase plan to integrate Bitcoin (BTC) and Monero (XMR) wallets, along with a secure multi-signature escrow system, into the Maestro Shop platform. Navigate through the phases using the tabs below to explore the technical requirements and project scope at each stage.',
-                phase1Tab: 'Phase 1: Infrastructure',
-                phase2Tab: 'Phase 2: Backend & APIs',
-                phase3Tab: 'Phase 3: Frontend & UX',
-                flowchart1Title: 'Phase 1',
-                flowchart1Subtitle: 'Foundational Infrastructure',
-                flowchart2Title: 'Phase 2',
-                flowchart2Subtitle: 'Core Backend Services',
-                flowchart3Title: 'Phase 3',
-                flowchart3Subtitle: 'Frontend & User Experience',
-                conclusionTitle: 'Conclusion: The Scale of the Project',
-                conclusionText: 'Implementing a robust, privacy-focused cryptocurrency payment and escrow system is a significant undertaking. It\'s a project that extends beyond simple code changes, touching every layer of the application stack. This approach aligns with modern security and privacy principles, setting up Maestro Shop for a truly premium and secure shopping experience. The work required is extensive, spanning from the database schema to the user interface, but the result will be a powerful and resilient system.',
-                footerText: '© 2025 Maestro Shop Crypto Integration Plan',
-                phases: [
-                    {
-                        id: 1,
-                        title: 'Phase 1: Foundational Infrastructure',
-                        description: 'The initial phase focuses on building a secure and scalable backend foundation. This is the most critical and complex part of the project, establishing the bedrock for all subsequent features.',
-                        cards: [
-                            {
-                                icon: '🗃️',
-                                title: 'Database Schema',
-                                description: 'The existing database is insufficient. We will introduce new tables to handle cryptocurrency transactions, wallets, and the escrow system.',
-                                code: ['- user_crypto_wallets', '- crypto_transactions', '- escrow_transactions']
-                            },
-                            {
-                                icon: '🔗',
-                                title: 'Payment Gateways',
-                                description: 'Relying on a self-hosted, open-source payment processor like <strong class="text-[#3f3c36]">BTCPay Server</strong> is highly recommended to handle complex tasks like generating unique addresses and monitoring the blockchain.'
-                            },
-                            {
-                                icon: '🌐',
-                                title: 'Self-Hosted Nodes',
-                                description: 'For true privacy and decentralization, running our own <strong class="text-[#3f3c36]">Bitcoin Core</strong> and Monero <strong class="text-[#3f3c36]">monerod</strong> nodes is essential. This ensures we don\'t rely on external, potentially less private, third-party services.'
-                            }
-                        ]
-                    },
-                    {
-                        id: 2,
-                        title: 'Phase 2: Core Backend Services & APIs',
-                        description: 'With the foundation in place, this phase focuses on building the application logic and APIs that will power the wallet and escrow functionalities, connecting the infrastructure to the user-facing features.',
-                        cards: [
-                            {
-                                icon: '�',
-                                title: 'API Endpoints',
-                                description: 'A new set of RESTful API endpoints will manage all crypto-related functions, providing a clear interface for the frontend.',
-                                code: ['/api/wallet/{currency}/deposit', '/api/wallet/{currency}/balance', '/api/wallet/{currency}/withdraw', '/api/escrow/create']
-                            },
-                            {
-                                icon: '🤝',
-                                title: 'Escrow Logic',
-                                description: 'The escrow system will be built on a <strong class="text-[#3f3c36]">2-of-3 multi-signature</strong> principle, requiring at least two of three parties (buyer, seller, and platform arbiter) to approve a transaction, ensuring fairness and reducing fraud risk.'
-                            },
-                            {
-                                icon: '🛡️',
-                                title: 'Security & Auditing',
-                                description: 'New services will be implemented to secure hot wallets, manage regular transfers to cold storage, and provide auditing logs for all financial transactions. This is a crucial security layer to protect both the platform and its users.'
-                            }
-                        ]
-                    },
-                    {
-                        id: 3,
-                        title: 'Phase 3: Frontend Interface & User Experience',
-                        description: 'The final phase focuses on creating a seamless and secure user experience for interacting with the new payment system, translating powerful backend capabilities into an intuitive interface.',
-                        cards: [
-                            {
-                                icon: '📊',
-                                title: 'User Wallet Dashboard',
-                                description: 'A dedicated page will be developed where users can view their balances, generate deposit addresses, and initiate withdrawals, with clear transaction statuses.'
-                            },
-                            {
-                                icon: '🛒',
-                                title: 'Integrated Checkout',
-                                description: 'The existing checkout flow will be updated to allow users to seamlessly select their preferred cryptocurrency (Bitcoin or Monero) for payment.'
-                            },
-                            {
-                                icon: '⚖️',
-                                title: 'Escrow Interface',
-                                description: 'A user-friendly interface will be built to manage escrow transactions, including status displays, fund release options, and a dispute resolution process.'
-                            }
-                        ]
-                    }
-                ]
-            },
-            nl: {
-                title: 'De Weg naar Crypto',
-                subtitle: 'Een Interactieve Implementatie Blueprint',
-                sectionTitle: 'Een Gefaseerde Aanpak voor Veilige Crypto-integratie',
-                sectionDescription: 'Deze blauwdruk schetst het uitgebreide, driefasige plan om Bitcoin (BTC) en Monero (XMR) portemonnees, samen met een veilig multi-signature escrow-systeem, te integreren in het Maestro Shop platform. Navigeer door de fasen met behulp van de tabbladen om de technische vereisten en projectomvang in elke fase te verkennen.',
-                phase1Tab: 'Fase 1: Infrastructuur',
-                phase2Tab: 'Fase 2: Backend & API\'s',
-                phase3Tab: 'Fase 3: Frontend & UX',
-                flowchart1Title: 'Fase 1',
-                flowchart1Subtitle: 'Fundamentele Infrastructuur',
-                flowchart2Title: 'Fase 2',
-                flowchart2Subtitle: 'Kern Backend Diensten',
-                flowchart3Title: 'Fase 3',
-                flowchart3Subtitle: 'Frontend & Gebruikerservaring',
-                conclusionTitle: 'Conclusie: De Omvang van het Project',
-                conclusionText: 'De implementatie van een robuust, privacy-gericht systeem voor cryptobetalingen en escrow is een aanzienlijke onderneming. Het is een project dat verder gaat dan eenvoudige codewijzigingen en elk onderdeel van de applicatiestack raakt. Deze aanpak sluit aan bij moderne beveiligings- en privacyprincipes en bereidt Maestro Shop voor op een werkelijk hoogwaardige en veilige winkelervaring. Het benodigde werk is omvangrijk, van het databaseschema tot de gebruikersinterface, maar het resultaat zal een krachtig en veerkrachtig systeem zijn.',
-                footerText: '© 2025 Maestro Shop Crypto Integratieplan',
-                phases: [
-                    {
-                        id: 1,
-                        title: 'Fase 1: Fundamentele Infrastructuur',
-                        description: 'De eerste fase richt zich op het bouwen van een veilige en schaalbare backend-fundering. Dit is het meest kritieke en complexe deel van het project en legt de basis voor alle volgende functies.',
-                        cards: [
-                            {
-                                icon: '🗃️',
-                                title: 'Databaseschema',
-                                description: 'De bestaande database is onvoldoende. We introduceren nieuwe tabellen om transacties, portemonnees en het escrow-systeem te verwerken.',
-                                code: ['<strong>- user_crypto_wallets</strong>', '<strong>- crypto_transactions</strong>', '<strong>- escrow_transactions</strong>']
-                            },
-                            {
-                                icon: '🔗',
-                                title: 'Betaalgateways',
-                                description: 'Vertrouwen op een zelf-gehoste, open-source betalingsverwerker zoals <strong class="text-[#3f3c36]">BTCPay Server</strong> wordt sterk aanbevolen voor het afhandelen van complexe taken, zoals het genereren van unieke adressen en het monitoren van de blockchain.'
-                            },
-                            {
-                                icon: '🌐',
-                                title: 'Zelf-gehoste Nodes',
-                                description: 'Voor echte privacy en decentralisatie is het essentieel om onze eigen <strong class="text-[#3f3c36]">Bitcoin Core</strong> en Monero <strong class="text-[#3f3c36]">monerod</strong> nodes te draaien. Dit zorgt ervoor dat we niet afhankelijk zijn van externe, potentieel minder private, diensten van derden.'
-                            }
-                        ]
-                    },
-                    {
-                        id: 2,
-                        title: 'Fase 2: Kern Backend Diensten & API\'s',
-                        description: 'Met de basis op zijn plaats richt deze fase zich op het bouwen van de applicatielogica en API\'s die de portemonnee- en escrow-functionaliteiten zullen aandrijven, en de infrastructuur zullen verbinden met de gebruikersgerichte functies.',
-                        cards: [
-                            {
-                                icon: '🔌',
-                                title: 'API Endpoints',
-                                description: 'Een nieuwe set RESTful API endpoints zal alle crypto-gerelateerde functies beheren en een duidelijke interface bieden voor de frontend.',
-                                code: ['/api/wallet/{currency}/deposit', '/api/wallet/{currency}/balance', '/api/wallet/{currency}/withdraw', '/api/escrow/create']
-                            },
-                            {
-                                icon: '🤝',
-                                title: 'Escrow Logica',
-                                description: 'Het escrow-systeem wordt gebouwd op een <strong class="text-[#3f3c36]">2-uit-3 multi-signature</strong> principe, waarbij ten minste twee van de drie partijen (koper, verkoper en een platformarbiter) een transactie moeten goedkeuren voordat de fondsen worden vrijgegeven, wat eerlijkheid garandeert en het risico op fraude vermindert.'
-                            },
-                            {
-                                icon: '🛡️',
-                                title: 'Beveiliging & Auditing',
-                                description: 'Nieuwe diensten zullen worden geïmplementeerd om hot wallets te beveiligen, reguliere overdrachten naar cold storage te beheren en auditlogboeken te verstrekken voor alle financiële transacties. Dit is een cruciale beveiligingslaag om zowel het platform als de gebruikers te beschermen.'
-                            }
-                        ]
-                    },
-                    {
-                        id: 3,
-                        title: 'Fase 3: Frontend & Gebruikerservaring',
-                        description: 'De laatste fase richt zich op het creëren van een naadloze en veilige gebruikerservaring voor interactie met het nieuwe betalingssysteem, waarbij krachtige backend-mogelijkheden worden vertaald naar een intuïtieve interface.',
-                        cards: [
-                            {
-                                icon: '📊',
-                                title: 'Gebruikersportemonnee Dashboard',
-                                description: 'Er wordt een speciale pagina ontwikkeld waar gebruikers hun saldi kunnen bekijken, stortingsadressen kunnen genereren en opnames kunnen initiëren, met duidelijke transactiestatussen.'
-                            },
-                            {
-                                icon: '🛒',
-                                title: 'Geïntegreerde Checkout',
-                                description: 'Het bestaande afrekenproces wordt bijgewerkt, zodat gebruikers naadloos hun voorkeursvaluta (Bitcoin of Monero) kunnen selecteren voor betaling.'
-                            },
-                            {
-                                icon: '⚖️',
-                                title: 'Escrow Interface',
-                                description: 'Er wordt een gebruiksvriendelijke interface gebouwd om escrow-transacties te beheren, inclusief statusweergaves, opties voor het vrijgeven van fondsen en een geschillenoplossingsproces.'
-                            }
-                        ]
-                    }
-                ]
-            },
-            fr: {
-                title: 'La Voie vers la Crypto',
-                subtitle: 'Un Plan de Mise en Œuvre Interactif',
-                sectionTitle: 'Une Approche en Phases pour une Intégration Crypto Sécurisée',
-                sectionDescription: 'Ce plan décrit le plan complet en trois phases pour intégrer des portefeuilles Bitcoin (BTC) et Monero (XMR), ainsi qu\'un système d\'entiercement multi-signatures sécurisé, sur la plateforme Maestro Shop. Naviguez à travers les phases en utilisant les onglets ci-dessous pour explorer les exigences techniques et la portée du projet à chaque étape.',
-                phase1Tab: 'Phase 1: Infrastructure',
-                phase2Tab: 'Phase 2: Backend & APIs',
-                phase3Tab: 'Phase 3: Frontend & UX',
-                flowchart1Title: 'Phase 1',
-                flowchart1Subtitle: 'Infrastructure Fondamentale',
-                flowchart2Title: 'Phase 2',
-                flowchart2Subtitle: 'Services Backend Principaux',
-                flowchart3Title: 'Phase 3',
-                flowchart3Subtitle: 'Frontend & Expérience Utilisateur',
-                conclusionTitle: 'Conclusion: L\'Échelle du Projet',
-                conclusionText: 'La mise en œuvre d\'un système de paiement et d\'entiercement de crypto-monnaies robuste et axé sur la confidentialité est une entreprise importante. C\'est un projet qui va au-delà de simples modifications de code, touchant chaque couche de la pile d\'applications. Cette approche s\'aligne sur les principes de sécurité et de confidentialité modernes, préparant Maestro Shop à une expérience d\'achat véritablement premium et sécurisée. Le travail requis est vaste, s\'étendant du schéma de base de données à l\'interface utilisateur, mais le résultat sera un système puissant et résilient.',
-                footerText: '© 2025 Plan d\'Intégration Crypto Maestro Shop',
-                phases: [
-                    {
-                        id: 1,
-                        title: 'Phase 1: Infrastructure Fondamentale',
-                        description: 'La phase initiale se concentre sur la construction d\'une base backend sécurisée et évolutive. C\'est la partie la plus critique et la plus complexe du projet, établissant le socle pour toutes les fonctionnalités suivantes.',
-                        cards: [
-                            {
-                                icon: '🗃️',
-                                title: 'Schéma de Base de Données',
-                                description: 'La base de données existante est insuffisante. Nous introduirons de nouvelles tables pour gérer les transactions de crypto-monnaies, les portefeuilles et le système d\'entiercement.',
-                                code: ['<strong>- user_crypto_wallets</strong>', '<strong>- crypto_transactions</strong>', '<strong>- escrow_transactions</strong>']
-                            },
-                            {
-                                icon: '🔗',
-                                title: 'Passerelles de Paiement',
-                                description: 'S\'appuyer sur un processeur de paiement auto-hébergé et open-source comme <strong class="text-[#3f3c36]">BTCPay Server</strong> est fortement recommandé pour gérer des tâches complexes telles que la génération d\'adresses uniques et la surveillance de la blockchain.'
-                            },
-                            {
-                                icon: '🌐',
-                                title: 'Nœuds Auto-Hébergés',
-                                description: 'Pour une véritable confidentialité et décentralisation, l\'exécution de nos propres nœuds <strong class="text-[#3f3c36]">Bitcoin Core</strong> et Monero <strong class="text-[#3f3c36]">monerod</strong> est essentielle. Cela garantit que nous ne dépendons pas de services externes, potentiellement moins privés, de tiers.'
-                            }
-                        ]
-                    },
-                    {
-                        id: 2,
-                        title: 'Phase 2: Services Backend Principaux & APIs',
-                        description: 'Une fois la base en place, cette phase se concentre sur la construction de la logique d\'application et des API qui alimenteront les fonctionnalités de portefeuille et d\'entiercement, en connectant l\'infrastructure aux fonctionnalités côté utilisateur.',
-                        cards: [
-                            {
-                                icon: '🔌',
-                                title: 'API Endpoints',
-                                description: 'Un nouvel ensemble de points de terminaison d\'API RESTful gérera toutes les fonctions liées à la crypto, fournissant une interface claire pour le frontend.',
-                                code: ['/api/wallet/{currency}/deposit', '/api/wallet/{currency}/balance', '/api/wallet/{currency}/withdraw', '/api/escrow/create']
-                            },
-                            {
-                                icon: '🤝',
-                                title: 'Logique d\'Entiercement',
-                                description: 'Le système d\'entiercement sera construit sur un principe de <strong class="text-[#3f3c36]">multi-signature 2-sur-3</strong>, nécessitant l\'approbation d\'au moins deux des trois parties (acheteur, vendeur et un arbitre de plateforme) pour qu\'une transaction soit libérée, ce qui garantit l\'équité et réduit le risque de fraude.'
-                            },
-                            {
-                                icon: '🛡️',
-                                title: 'Sécurité & Audit',
-                                description: 'De nouveaux services seront mis en œuvre pour sécuriser les portefeuilles chauds, gérer les transferts réguliers vers le stockage à froid et fournir des journaux d\'audit pour toutes les transactions financières. Il s\'agit d\'une couche de sécurité cruciale pour protéger à la fois la plateforme et ses utilisateurs.'
-                            }
-                        ]
-                    }
-                ]
-            }
-        };
-        let currentLanguage = 'en';
-        let currentPhase = '1';
-
-        const i18nElements = {
-            'title': 'textContent',
-            'subtitle': 'textContent',
-            'section-title': 'textContent',
-            'section-description': 'textContent',
-            'flowchart-1-title': 'textContent',
-            'flowchart-1-subtitle': 'textContent',
-            'flowchart-2-title': 'textContent',
-            'flowchart-2-subtitle': 'textContent',
-            'flowchart-3-title': 'textContent',
-            'flowchart-3-subtitle': 'textContent',
-            'conclusion-title': 'textContent',
-            'conclusion-text': 'textContent',
-            'footer-text': 'textContent'
-        };
-
-        function updateContent(lang) {
-            currentLanguage = lang;
-            const data = languageData[lang];
-
-            Object.keys(i18nElements).forEach(id => {
-                const element = document.getElementById(id);
-                if (element) {
-                    const property = i18nElements[id];
-                    element[property] = data[id.replace(/-/g, '_')] || data[id];
-                }
-            });
-
-            const phaseTabs = document.querySelectorAll('.phase-tab');
+    
+    <!-- JavaScript -->
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/language-switcher.js"></script>
+    <script src="/assets/js/navigation.js"></script>
+    <script src="/assets/js/homepage.js"></script> phaseTabs = document.querySelectorAll('.phase-tab');
             if (phaseTabs[0]) phaseTabs[0].textContent = data.phase1Tab;
             if (phaseTabs[1]) phaseTabs[1].textContent = data.phase2Tab;
             if (phaseTabs[2]) phaseTabs[2].textContent = data.phase3Tab;
