@@ -1,248 +1,423 @@
 <!DOCTYPE html>
-<html lang="en" data-current-section="development-roadmap" data-current-page="phase-1">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Development Phase 1: Foundational Infrastructure - Development Roadmap</title>
-    <meta name="description" content="Foundational infrastructure development phase covering database design, API architecture, and core system setup">
-    
+<html
+  lang="en"
+  data-current-section="development-roadmap"
+  data-current-page="phase-1"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Development Phase 1: Foundational Infrastructure - Development Roadmap
+    </title>
+    <meta
+      name="description"
+      content="Foundational infrastructure development phase covering database design, API architecture, and core system setup"
+    />
+
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- CSS -->
-    <link rel="stylesheet" href="../../assets/css/layout.css">
-    <link rel="stylesheet" href="../../assets/css/header.css">
-    <link rel="stylesheet" href="../../assets/css/sidebar.css">
-    <link rel="stylesheet" href="../../assets/css/components.css">
-    <link rel="stylesheet" href="../../assets/css/themes.css">
-</head>
-<body class="app-container">
+    <link rel="stylesheet" href="../../assets/css/layout.css" />
+    <link rel="stylesheet" href="../../assets/css/header.css" />
+    <link rel="stylesheet" href="../../assets/css/sidebar.css" />
+    <link rel="stylesheet" href="../../assets/css/components.css" />
+    <link rel="stylesheet" href="../../assets/css/themes.css" />
+  </head>
+  <body class="app-container">
     <!-- Header Component -->
     <div id="header-component">
-        <div style="padding: 1rem; background: #f0f0f0; text-align: center;">
-            Loading header...
-        </div>
+      <div style="padding: 1rem; background: #f0f0f0; text-align: center">
+        Loading header...
+      </div>
     </div>
-    
+
     <!-- Main Content Area -->
     <main class="main-content">
-        <!-- Content Area (no sidebar for now) -->
-        <div class="content-area" id="content-area" style="margin-left: 0;">
-            <div class="content-page">
-                <!-- Breadcrumbs -->
-                <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
-                    <ol class="breadcrumb-list">
-                        <li class="breadcrumb-item">
-                            <a href="/" class="breadcrumb-link">Home</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="/development-roadmap/" class="breadcrumb-link">Development Roadmap</a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">
-                            Development Phase 1: Foundational Infrastructure
-                        </li>
-                    </ol>
-                </nav>
-                
-                <!-- Page Header -->
-                <header class="page-header section">
-                    <div class="page-header-content">
-                        <h1 class="page-title">Development Phase 1: Foundational Infrastructure</h1>
-                        <div class="page-meta">
-                            <span class="page-difficulty">Advanced</span>
-                            <span class="page-duration">4-6 weeks</span>
-                            <span class="page-updated">Updated: January 2025</span>
-                        </div>
-                        <div class="page-description">
-                            <p>Establish the core infrastructure and foundational systems that will support the entire cryptocurrency platform. This phase focuses on database architecture, API design, and essential backend services.</p>
-                        </div>
-                    </div>
-                </header>
-                
-                <!-- Phase Overview -->
-                <section class="content-section">
-                    <h2>Phase Overview</h2>
-                    <p>Phase 1 establishes the foundational infrastructure that will support all future development. This includes database design, API architecture, authentication systems, and core backend services.</p>
-                    
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
-                                </svg>
-                            </div>
-                            <h3>Database Architecture</h3>
-                            <p>Design and implement the core database schemas for users, transactions, nodes, and system data with proper indexing and relationships.</p>
-                            <a href="database-schemas.html" class="feature-link">View Schemas →</a>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <h3>API Foundation</h3>
-                            <p>Build RESTful API endpoints with proper authentication, validation, rate limiting, and comprehensive error handling.</p>
-                            <a href="#api-design" class="feature-link">API Design →</a>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                                </svg>
-                            </div>
-                            <h3>Security Framework</h3>
-                            <p>Implement authentication, authorization, input validation, and security middleware to protect all system components.</p>
-                            <a href="#security" class="feature-link">Security Details →</a>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Key Deliverables -->
-                <section class="content-section">
-                    <h2>Key Deliverables</h2>
-                    <div class="checklist">
-                        <div class="checklist-item">
-                            <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Complete database schema design with all core tables and relationships</span>
-                        </div>
-                        <div class="checklist-item">
-                            <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>RESTful API with authentication and basic CRUD operations</span>
-                        </div>
-                        <div class="checklist-item">
-                            <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>User management system with registration, login, and profile management</span>
-                        </div>
-                        <div class="checklist-item">
-                            <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Security middleware and input validation framework</span>
-                        </div>
-                        <div class="checklist-item">
-                            <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Basic monitoring and logging infrastructure</span>
-                        </div>
-                        <div class="checklist-item">
-                            <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Development environment setup and deployment pipeline</span>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Technical Requirements -->
-                <section class="content-section">
-                    <div class="admonition admonition-info">
-                        <div class="admonition-header">
-                            <svg class="admonition-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <h3 class="admonition-title">Technology Stack</h3>
-                        </div>
-                        <div class="admonition-content">
-                            <ul>
-                                <li><strong>Backend:</strong> Node.js with Express.js framework</li>
-                                <li><strong>Database:</strong> PostgreSQL with Redis for caching</li>
-                                <li><strong>Authentication:</strong> JWT tokens with refresh token rotation</li>
-                                <li><strong>API Documentation:</strong> OpenAPI/Swagger specification</li>
-                                <li><strong>Testing:</strong> Jest for unit tests, Supertest for API tests</li>
-                                <li><strong>Deployment:</strong> Docker containers with CI/CD pipeline</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Page Navigation -->
-                <nav class="page-navigation section">
-                    <div class="page-nav-content">
-                        <div class="page-nav-item page-nav-prev">
-                            <a href="/development-roadmap/" class="page-nav-link">
-                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                                </svg>
-                                <div class="page-nav-text">
-                                    <span class="page-nav-label">Previous</span>
-                                    <span class="page-nav-title">Development Roadmap</span>
-                                </div>
-                            </a>
-                        </div>
-                        
-                        <div class="page-nav-item page-nav-next">
-                            <a href="database-schemas.html" class="page-nav-link">
-                                <div class="page-nav-text">
-                                    <span class="page-nav-label">Next</span>
-                                    <span class="page-nav-title">Database Schemas</span>
-                                </div>
-                                <svg class="page-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </nav>
+      <!-- Content Area (no sidebar for now) -->
+      <div class="content-area" id="content-area" style="margin-left: 0">
+        <div class="content-page">
+          <!-- Breadcrumbs -->
+          <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+            <ol class="breadcrumb-list">
+              <li class="breadcrumb-item">
+                <a href="/" class="breadcrumb-link">Home</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="/development-roadmap/" class="breadcrumb-link"
+                  >Development Roadmap</a
+                >
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Development Phase 1: Foundational Infrastructure
+              </li>
+            </ol>
+          </nav>
+
+          <!-- Page Header -->
+          <header class="page-header section">
+            <div class="page-header-content">
+              <h1 class="page-title">
+                Development Phase 1: Foundational Infrastructure
+              </h1>
+              <div class="page-meta">
+                <span class="page-difficulty">Advanced</span>
+                <span class="page-duration">4-6 weeks</span>
+                <span class="page-updated">Updated: January 2025</span>
+              </div>
+              <div class="page-description">
+                <p>
+                  Establish the core infrastructure and foundational systems
+                  that will support the entire cryptocurrency platform. This
+                  phase focuses on database architecture, API design, and
+                  essential backend services.
+                </p>
+              </div>
             </div>
+          </header>
+
+          <!-- Phase Overview -->
+          <section class="content-section">
+            <h2>Phase Overview</h2>
+            <p>
+              Phase 1 establishes the foundational infrastructure that will
+              support all future development. This includes database design, API
+              architecture, authentication systems, and core backend services.
+            </p>
+
+            <div class="feature-grid">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"
+                    ></path>
+                  </svg>
+                </div>
+                <h3>Database Architecture</h3>
+                <p>
+                  Design and implement the core database schemas for users,
+                  transactions, nodes, and system data with proper indexing and
+                  relationships.
+                </p>
+                <a href="database-schemas.html" class="feature-link"
+                  >View Schemas →</a
+                >
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3>API Foundation</h3>
+                <p>
+                  Build RESTful API endpoints with proper authentication,
+                  validation, rate limiting, and comprehensive error handling.
+                </p>
+                <a href="#api-design" class="feature-link">API Design →</a>
+              </div>
+
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3>Security Framework</h3>
+                <p>
+                  Implement authentication, authorization, input validation, and
+                  security middleware to protect all system components.
+                </p>
+                <a href="#security" class="feature-link">Security Details →</a>
+              </div>
+            </div>
+          </section>
+
+          <!-- Key Deliverables -->
+          <section class="content-section">
+            <h2>Key Deliverables</h2>
+            <div class="checklist">
+              <div class="checklist-item">
+                <svg
+                  class="checklist-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+                <span
+                  >Complete database schema design with all core tables and
+                  relationships</span
+                >
+              </div>
+              <div class="checklist-item">
+                <svg
+                  class="checklist-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+                <span
+                  >RESTful API with authentication and basic CRUD
+                  operations</span
+                >
+              </div>
+              <div class="checklist-item">
+                <svg
+                  class="checklist-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+                <span
+                  >User management system with registration, login, and profile
+                  management</span
+                >
+              </div>
+              <div class="checklist-item">
+                <svg
+                  class="checklist-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+                <span>Security middleware and input validation framework</span>
+              </div>
+              <div class="checklist-item">
+                <svg
+                  class="checklist-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+                <span>Basic monitoring and logging infrastructure</span>
+              </div>
+              <div class="checklist-item">
+                <svg
+                  class="checklist-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+                <span
+                  >Development environment setup and deployment pipeline</span
+                >
+              </div>
+            </div>
+          </section>
+
+          <!-- Technical Requirements -->
+          <section class="content-section">
+            <div class="admonition admonition-info">
+              <div class="admonition-header">
+                <svg
+                  class="admonition-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                <h3 class="admonition-title">Technology Stack</h3>
+              </div>
+              <div class="admonition-content">
+                <ul>
+                  <li>
+                    <strong>Backend:</strong> Node.js with Express.js framework
+                  </li>
+                  <li>
+                    <strong>Database:</strong> PostgreSQL with Redis for caching
+                  </li>
+                  <li>
+                    <strong>Authentication:</strong> JWT tokens with refresh
+                    token rotation
+                  </li>
+                  <li>
+                    <strong>API Documentation:</strong> OpenAPI/Swagger
+                    specification
+                  </li>
+                  <li>
+                    <strong>Testing:</strong> Jest for unit tests, Supertest for
+                    API tests
+                  </li>
+                  <li>
+                    <strong>Deployment:</strong> Docker containers with CI/CD
+                    pipeline
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Page Navigation -->
+          <nav class="page-navigation section">
+            <div class="page-nav-content">
+              <div class="page-nav-item page-nav-prev">
+                <a href="/development-roadmap/" class="page-nav-link">
+                  <svg
+                    class="page-nav-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                    ></path>
+                  </svg>
+                  <div class="page-nav-text">
+                    <span class="page-nav-label">Previous</span>
+                    <span class="page-nav-title">Development Roadmap</span>
+                  </div>
+                </a>
+              </div>
+
+              <div class="page-nav-item page-nav-next">
+                <a href="database-schemas.html" class="page-nav-link">
+                  <div class="page-nav-text">
+                    <span class="page-nav-label">Next</span>
+                    <span class="page-nav-title">Database Schemas</span>
+                  </div>
+                  <svg
+                    class="page-nav-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </nav>
         </div>
+      </div>
     </main>
-    
+
     <!-- Footer -->
     <footer class="footer">
-        <p>© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
+      <p>© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
     </footer>
-    
+
     <!-- JavaScript -->
     <script src="../../assets/js/utils.js"></script>
     <script src="../../assets/js/language-switcher.js"></script>
     <script src="../../assets/js/navigation.js"></script>
-    
+
     <!-- Simple Component Loader -->
     <script>
-        async function loadComponents() {
-            const components = [
-                { name: 'header', target: 'header-component', url: '../../components/header.html' }
-            ];
-            
-            for (const component of components) {
-                try {
-                    console.log(`Loading ${component.name} from ${component.url}`);
-                    const response = await fetch(component.url);
-                    
-                    if (response.ok) {
-                        const html = await response.text();
-                        const target = document.getElementById(component.target);
-                        if (target) {
-                            target.innerHTML = html;
-                            console.log(`✅ Loaded ${component.name}`);
-                        }
-                    } else {
-                        console.error(`❌ Failed to load ${component.name}: ${response.status}`);
-                    }
-                } catch (error) {
-                    console.error(`❌ Error loading ${component.name}:`, error);
-                }
+      async function loadComponents() {
+        const components = [
+          {
+            name: "header",
+            target: "header-component",
+            url: "../../components/header.html",
+          },
+        ];
+
+        for (const component of components) {
+          try {
+            console.log(`Loading ${component.name} from ${component.url}`);
+            const response = await fetch(component.url);
+
+            if (response.ok) {
+              const html = await response.text();
+              const target = document.getElementById(component.target);
+              if (target) {
+                target.innerHTML = html;
+                console.log(`✅ Loaded ${component.name}`);
+              }
+            } else {
+              console.error(
+                `❌ Failed to load ${component.name}: ${response.status}`
+              );
             }
+          } catch (error) {
+            console.error(`❌ Error loading ${component.name}:`, error);
+          }
         }
-        
-        // Load components when page is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', loadComponents);
-        } else {
-            loadComponents();
-        }
+      }
+
+      // Load components when page is ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", loadComponents);
+      } else {
+        loadComponents();
+      }
     </script>
-</body>
+  </body>
 </html>
