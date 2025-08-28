@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-current-section="" data-current-page="">
+<html lang="en" data-current-section="{{section}}" data-current-page="{{page}}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}} - The Road to Crypto</title>
+    <title>{{title}} - {{section_title}}</title>
     <meta name="description" content="{{description}}">
     
     <!-- Fonts -->
@@ -12,100 +12,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/layout.css">
-    <link rel="stylesheet" href="/assets/css/header.css">
-    <link rel="stylesheet" href="/assets/css/sidebar.css">
-    <link rel="stylesheet" href="/assets/css/components.css">
-    <link rel="stylesheet" href="/assets/css/themes.css">
-    
-    <!-- Additional page-specific CSS -->
-    {{additional_css}}
+    <link rel="stylesheet" href="{{css_path}}/layout.css">
+    <link rel="stylesheet" href="{{css_path}}/header.css">
+    <link rel="stylesheet" href="{{css_path}}/sidebar.css">
+    <link rel="stylesheet" href="{{css_path}}/components.css">
+    <link rel="stylesheet" href="{{css_path}}/themes.css">
 </head>
 <body class="app-container">
-    <!-- Header -->
-    <header class="header site-header" id="site-header">
-        <div class="header-content header-container">
-            <!-- Logo/Branding -->
-            <div class="site-branding">
-                <a href="/" class="site-logo">
-                    <div>
-                        <h1 class="site-title" id="site-title">The Road to Crypto</h1>
-                        <p class="site-subtitle" id="site-subtitle">Interactive Implementation Blueprint</p>
-                    </div>
-                </a>
-            </div>
-            
-            <!-- Main Navigation -->
-            <nav class="main-nav" id="main-nav">
-                <ul class="nav-menu" id="nav-menu">
-                    <li class="nav-menu-item">
-                        <a href="/" class="nav-menu-link" data-section="home" id="nav-home">Home</a>
-                    </li>
-                    <li class="nav-menu-item">
-                        <a href="/development-roadmap/" class="nav-menu-link" data-section="development-roadmap" id="nav-development">Development Roadmap</a>
-                    </li>
-                    <li class="nav-menu-item">
-                        <a href="/node-guides/" class="nav-menu-link" data-section="node-guides" id="nav-node-guides">Node Guides</a>
-                    </li>
-                </ul>
-            </nav>
-            
-            <!-- Language Switcher -->
-            <div class="language-switcher" id="language-switcher">
-                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">[Placeholder SVG]</button>
-                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">[Placeholder SVG]</button>
-                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">[Placeholder SVG]</button>
-            </div>
-            
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                <div class="hamburger">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </div>
-            </button>
-        </div>
-        
-        <!-- Mobile Navigation -->
-        <nav class="mobile-nav" id="mobile-nav">
-            <ul class="mobile-nav-menu">
-                <li class="mobile-nav-item">
-                    <a href="/" class="mobile-nav-link" data-section="home">Home</a>
-                </li>
-                <li class="mobile-nav-item">
-                    <a href="/development-roadmap/" class="mobile-nav-link" data-section="development-roadmap">Development Roadmap</a>
-                </li>
-                <li class="mobile-nav-item">
-                    <a href="/node-guides/" class="mobile-nav-link" data-section="node-guides">Node Guides</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    {{header}}
     
     <!-- Main Content Area -->
     <main class="main-content">
-        <!-- Sidebar Navigation (conditional) -->
-        {{sidebar_content}}
+        {{sidebar}}
         
         <!-- Page Content -->
         <div class="content-area" id="content-area">
-            {{main_content}}
+            {{content}}
         </div>
     </main>
     
-    <!-- Footer -->
-    <footer class="footer" id="site-footer">
-        <p id="footer-text">© 2025 The Road to Crypto - Interactive Implementation Blueprint</p>
-    </footer>
+    {{footer}}
     
     <!-- JavaScript -->
-    <script src="/assets/js/utils.js"></script>
-    <script src="/assets/js/language-switcher.js"></script>
-    <script src="/assets/js/navigation.js"></script>
-    <script src="/assets/js/page-loader.js"></script>
-    
-    <!-- Additional page-specific JavaScript -->
-    {{additional_js}}
+    <script src="{{js_path}}/utils.js"></script>
+    <script src="{{js_path}}/language-switcher.js"></script>
+    <script src="{{js_path}}/navigation.js"></script>
+    <script src="{{js_path}}/page-loader.js"></script>
 </body>
 </html>

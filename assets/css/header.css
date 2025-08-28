@@ -384,4 +384,18 @@
         padding-top: 0.5rem;
         border-top: 1px solid #f9f7f3;
     }
+}/* 
+Missing header styles */
+.site-branding {
+    display: flex;
+    align-items: center;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

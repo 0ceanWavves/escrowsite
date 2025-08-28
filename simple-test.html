@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Component Test</title>
+</head>
+<body>
+    <h1>Testing Component Loading</h1>
+    <div id="test-component">Loading...</div>
+    
+    <script>
+        async function loadComponent() {
+            try {
+                console.log('Starting component load...');
+                const response = await fetch('components/header.html');
+                console.log('Response status:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const html = await response.text();
+                console.log('Component loaded, length:', html.length);
+                
+                document.getElementById('test-component').innerHTML = html;
+                console.log('Component inserted successfully');
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('test-component').innerHTML = `Error: ${error.message}`;
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadComponent);
+    </script>
+</body>
+</html>

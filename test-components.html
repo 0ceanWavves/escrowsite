@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        .test-section { margin: 2rem 0; padding: 1rem; border: 1px solid #ccc; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>Component Loading Test</h1>
+    
+    <div class="test-section">
+        <h2>Header Component</h2>
+        <div id="header-component">Loading header...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Footer Component</h2>
+        <div id="footer-component">Loading footer...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Debug Info</h2>
+        <div id="debug-info"></div>
+    </div>
+    
+    <script src="assets/js/component-loader.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const debugDiv = document.getElementById('debug-info');
+            debugDiv.innerHTML = `
+                <p><strong>Current URL:</strong> ${window.location.href}</p>
+                <p><strong>Pathname:</strong> ${window.location.pathname}</p>
+                <p><strong>Expected component path:</strong> components/</p>
+            `;
+        });
+    </script>
+</body>
+</html>

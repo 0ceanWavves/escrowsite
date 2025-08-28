@@ -48,9 +48,24 @@
             
             <!-- Language Switcher -->
             <div class="language-switcher" id="language-switcher">
-                <button class="lang-flag active" data-lang="en" id="lang-en" title="English">[Placeholder SVG]</button>
-                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands">[Placeholder SVG]</button>
-                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français">[Placeholder SVG]</button>
+                <button class="lang-flag active" data-lang="en" id="lang-en" title="English"><!-- 1. English Flag (replaces 🇬🇧) --> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-label="English Language">   
+<defs><clipPath id="a"><circle cx="12" cy="12" r="11"/></clipPath></defs>   
+<g clip-path="url(#a)"><rect width="24" height="24" fill="#0056b3"/><path d="M0 0L24 24M24 0L0 24" stroke="#fff" stroke-width="3"/><path d="M12 0V24M0 12H24" stroke="#fff" stroke-width="5"/><path d="M12 0V24M0 12H24" stroke="#dc3545" stroke-width="3"/></g>   
+<circle cx="12" cy="12" r="11" fill="none" stroke="#ccc" stroke-width="1"/> 
+</svg></button>
+                <button class="lang-flag" data-lang="nl" id="lang-nl" title="Nederlands"><!-- 2. Dutch Flag (replaces 🇳🇱) --> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-label="Dutch Language">   
+<defs><clipPath id="b"><circle cx="12" cy="12" r="11"/></clipPath></defs>   
+<g clip-path="url(#b)"><rect width="24" height="8" y="0" fill="#dc3545"/><rect width="24" height="8" y="8" fill="#fff"/><rect width="24" height="8" y="16" fill="#0056b3"/></g>   
+<circle cx="12" cy="12" r="11" fill="none" stroke="#ccc" stroke-width="1"/> 
+</svg></button>
+                <button class="lang-flag" data-lang="fr" id="lang-fr" title="Français"><!-- 3. French Flag (replaces 🇫🇷) --> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-label="French Language">   
+<defs><clipPath id="c"><circle cx="12" cy="12" r="11"/></clipPath></defs>   
+<g clip-path="url(#c)"><rect width="8" height="24" x="0" fill="#0056b3"/><rect width="8" height="24" x="8" fill="#fff"/><rect width="8" height="24" x="16" fill="#dc3545"/></g>   
+<circle cx="12" cy="12" r="11" fill="none" stroke="#ccc" stroke-width="1"/> 
+</svg></button>
             </div>
             
             <!-- Mobile Menu Toggle -->
@@ -104,7 +119,10 @@
                         <!-- Development Path -->
                         <div class="path-card">
                             <div class="path-header">
-                                <div class="path-icon">[Placeholder SVG]</div>
+                                <div class="path-icon"><!-- Development Path Icon (replaces 🏗️) --> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" aria-label="Development Path">   
+<path fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 8l-4 4 4 4m10-8l4 4-4 4"/> 
+</svg></div>
                                 <h3 class="path-title" id="dev-path-title">Development Path</h3>
                                 <p class="path-subtitle" id="dev-path-subtitle">Learn crypto integration fundamentals</p>
                             </div>
@@ -113,7 +131,11 @@
                                 <div class="difficulty-levels">
                                     <div class="difficulty-card">
                                         <div class="difficulty-header">
-                                            <span class="difficulty-icon">[Placeholder SVG]</span>
+                                            <span class="difficulty-icon"><!-- Beginner Developer & First-time Node Operator Icon (replaces 🌱) --> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Beginner Level">   
+<path d="M12 4c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8c0-2.21-.9-4.2-2.35-5.65M12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z" fill="#28a745"/>   
+<path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" fill="#28a745"/> 
+</svg></span>
                                             <h4 class="difficulty-title" id="dev-beginner-title">Beginner Developer</h4>
                                         </div>
                                         <p class="difficulty-description" id="dev-beginner-desc">
@@ -133,7 +155,10 @@
                                     
                                     <div class="difficulty-card">
                                         <div class="difficulty-header">
-                                            <span class="difficulty-icon">[Placeholder SVG]</span>
+                                            <span class="difficulty-icon"><!-- Experienced Developer Icon (replaces 🚀) --> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Experienced Level">   
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.01 14.22c-.44.44-1.16.44-1.6 0l-1.83-1.83c-.44-.44-.44-1.16 0-1.6s1.16-.44 1.6 0l1.03 1.03V9.5c0-.62.51-1.12 1.12-1.12s1.12.5 1.12 1.12v4.32l1.03-1.03c.44-.44 1.16-.44 1.6 0s.44 1.16 0 1.6l-1.83 1.83c-.45.44-1.17.44-1.61 0z" fill="#333"/> 
+</svg></span>
                                             <h4 class="difficulty-title" id="dev-intermediate-title">Experienced Developer</h4>
                                         </div>
                                         <p class="difficulty-description" id="dev-intermediate-desc">
@@ -157,7 +182,13 @@
                         <!-- Node Setup Path -->
                         <div class="path-card">
                             <div class="path-header">
-                                <div class="path-icon">[Placeholder SVG]</div>
+                                <div class="path-icon"><!-- Node Setup Path Icon (replaces 🌐) --> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" aria-label="Node Setup Path">   
+<rect x="3" y="4" width="18" height="8" rx="2" fill="none" stroke="#333" stroke-width="1.5"/>   
+<rect x="3" y="14" width="18" height="6" rx="2" fill="none" stroke="#333" stroke-width="1.5"/>   
+<line x1="7" y1="8" x2="9" y2="8" stroke="#333" stroke-width="1.5" stroke-linecap="round"/>   
+<line x1="7" y1="17" x2="9" y2="17" stroke="#333" stroke-width="1.5" stroke-linecap="round"/> 
+</svg></div>
                                 <h3 class="path-title" id="node-path-title">Node Setup Path</h3>
                                 <p class="path-subtitle" id="node-path-subtitle">Set up your own crypto infrastructure</p>
                             </div>
@@ -166,7 +197,11 @@
                                 <div class="difficulty-levels">
                                     <div class="difficulty-card">
                                         <div class="difficulty-header">
-                                            <span class="difficulty-icon">[Placeholder SVG]</span>
+                                            <span class="difficulty-icon"><!-- Beginner Developer & First-time Node Operator Icon (replaces 🌱) --> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Beginner Level">   
+<path d="M12 4c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8c0-2.21-.9-4.2-2.35-5.65M12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z" fill="#28a745"/>   
+<path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" fill="#28a745"/> 
+</svg></span>
                                             <h4 class="difficulty-title" id="node-beginner-title">First-time Node Operator</h4>
                                         </div>
                                         <p class="difficulty-description" id="node-beginner-desc">
@@ -186,7 +221,10 @@
                                     
                                     <div class="difficulty-card">
                                         <div class="difficulty-header">
-                                            <span class="difficulty-icon">[Placeholder SVG]</span>
+                                            <span class="difficulty-icon"><!-- System Administrator Icon (replaces ⚙️) --> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Administrator Level">   
+<path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" fill="#007cba"/> 
+</svg></span>
                                             <h4 class="difficulty-title" id="node-advanced-title">System Administrator</h4>
                                         </div>
                                         <p class="difficulty-description" id="node-advanced-desc">
@@ -282,7 +320,13 @@
                         </div>
                         
                         <div class="quickstart-card">
-                            <div class="quickstart-icon">[Placeholder SVG]</div>
+                            <div class="quickstart-icon"><!-- "Setup Your First Node" Icon --> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" aria-label="Setup Your First Node">   
+<rect x="3" y="4" width="18" height="8" rx="2" fill="none" stroke="#333" stroke-width="1.5"/>   
+<rect x="3" y="14" width="18" height="6" rx="2" fill="none" stroke="#333" stroke-width="1.5"/>   
+<line x1="7" y1="8" x2="9" y2="8" stroke="#333" stroke-width="1.5" stroke-linecap="round"/>   
+<line x1="7" y1="17" x2="9" y2="17" stroke="#333" stroke-width="1.5" stroke-linecap="round"/> 
+</svg></div>
                             <h3 class="quickstart-title" id="quickstart-setup-title">Setup Your First Node</h3>
                             <p class="quickstart-description" id="quickstart-setup-desc">
                                 Get hands-on experience by setting up a Bitcoin or Monero node.
@@ -291,7 +335,10 @@
                         </div>
                         
                         <div class="quickstart-card">
-                            <div class="quickstart-icon">[Placeholder SVG]</div>
+                            <div class="quickstart-icon"><!-- "Explore Both Paths" Icon (replaces 🗺️) --> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" aria-label="Explore Both Paths">   
+<path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" fill="#666"/> 
+</svg></div>
                             <h3 class="quickstart-title" id="quickstart-explore-title">Explore Both Paths</h3>
                             <p class="quickstart-description" id="quickstart-explore-desc">
                                 Browse through both development and node setup content to get an overview.
