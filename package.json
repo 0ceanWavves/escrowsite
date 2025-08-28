@@ -4,6 +4,7 @@
   "description": "Modular cryptocurrency website with component-based architecture",
   "scripts": {
     "build": "node build/component-builder.js",
+    "build:netlify": "node build/component-builder.js",
     "dev": "python -m http.server 8000",
     "serve": "python -m http.server 8000"
   },
